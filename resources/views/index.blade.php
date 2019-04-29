@@ -519,7 +519,7 @@
                             <div class="stars">
                                 <p>Produzimos conteúdo áudio visual, para divulgar sua empresa nas plataformas digitais.
                                 </p>
-                                <div class="text-center"><button type="submit" class="btnmodal" data-toggle="modal" data-target="#buy-ticket-modalservice"
+                                <div class="text-center"><button type="submit" class="btnmodal" data-toggle="modal" data-target="#buy-ticket-modalservice2"
                         data-ticket-type="premium-access">Veja Agora</button>
                                 </div><br>
                             </div>
@@ -536,7 +536,7 @@
                                 <p>Trabalhamos com divulgação por meio das midias sociais, com cobertura textual, audio
                                     visual, fortográfica e imagens aéreas, que aproxima seu publico da sua empresa, além
                                     de aumentar a visibilidade da sua marca e seu alcance.</p>
-                                <div class="text-center"><button type="submit" class="btnmodal" data-toggle="modal" data-target="#buy-ticket-modalservice"
+                                <div class="text-center"><button type="submit" class="btnmodal" data-toggle="modal" data-target="#buy-ticket-modalservice3"
                         data-ticket-type="premium-access">Veja Agora</button>
                                 </div><br>
                             </div>
@@ -675,20 +675,19 @@
         </div><!-- /.modal -->
 
 
-
-<div id="buy-ticket-modalservice" class="modal fade">
+<div id="buy-ticket-modalservice2" class="modal fade">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
-                data-autoplay="true"></a>
-            
-                    </div>
+                    <iframe width="550" height="405" src="https://www.youtube.com/embed/iN1pWCVTwro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+<div id="buy-ticket-modalservice3" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <iframe width="550" height="405" src="https://www.youtube.com/embed/EnZH1410qwQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
@@ -704,8 +703,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
-                data-autoplay="true"></a>
+
+                 
             
                     </div>
                 </div><!-- /.modal-content -->
@@ -769,6 +768,7 @@
                     
                     </div> -->
 
+
                 <div class="form">
                     <div id="sendmessage"></div>
                     <div id="errormessage"></div>
@@ -795,7 +795,7 @@
                                 <div class="validation"></div>
                             </div>
                         </div>
-                        <div class="text-center"><button type="submit">Cadastrar</button></div>
+                        <div class="text-center"><button type="submit">Inscreva-se já!</button></div>
                     </form>
                 </div>
 
