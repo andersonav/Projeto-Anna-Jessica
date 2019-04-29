@@ -95,13 +95,17 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <!-- <div class="intro-container wow fadeIn">
+
+
+       <!--  <div class="intro-container wow fadeIn">
               <h1 class="mb-4 pb-0">A Marca<br><span>Texto</span> Texto</h1>
               <p class="mb-4 pb-0">Lugar para digitar alguma coisa</p>
               <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
                 data-autoplay="true"></a>
               <a href="#about" class="about-btn scrollto">Adicionar botão</a>
-            </div> -->
+            </div>  -->
+    
+
     </section>
 
     <main id="main">
@@ -134,7 +138,7 @@
 
                 <div class="row">
                     <div class="col-lg-2 col-md-4"></div>
-                    <div class="col-lg-4 col-md-4">
+                    <div class="col-lg-4 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportifolio1">
                         <div class="speaker">
                             <img src="{{asset('img/postifolio/corrida.JPG')}}" alt="Speaker 5" class="img-fluid">
                             <div class="details">
@@ -148,7 +152,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4">
+                    <div class="col-lg-4 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportifolio2">
                         <div class="speaker">
                             <img src="{{asset('img/postifolio/corrida.JPG')}}" alt="Speaker 6" class="img-fluid">
                             <div class="details">
@@ -515,7 +519,8 @@
                             <div class="stars">
                                 <p>Produzimos conteúdo áudio visual, para divulgar sua empresa nas plataformas digitais.
                                 </p>
-                                <div class="text-center"><button type="submit" class="btnmodal">Veja Agora</button>
+                                <div class="text-center"><button type="submit" class="btnmodal" data-toggle="modal" data-target="#buy-ticket-modalservice"
+                        data-ticket-type="premium-access">Veja Agora</button>
                                 </div><br>
                             </div>
                         </div>
@@ -531,7 +536,8 @@
                                 <p>Trabalhamos com divulgação por meio das midias sociais, com cobertura textual, audio
                                     visual, fortográfica e imagens aéreas, que aproxima seu publico da sua empresa, além
                                     de aumentar a visibilidade da sua marca e seu alcance.</p>
-                                <div class="text-center"><button type="submit" class="btnmodal">Veja Agora</button>
+                                <div class="text-center"><button type="submit" class="btnmodal" data-toggle="modal" data-target="#buy-ticket-modalservice"
+                        data-ticket-type="premium-access">Veja Agora</button>
                                 </div><br>
                             </div>
                         </div>
@@ -563,7 +569,7 @@
             <div class="container">
 
                 <div class="section-header">
-                    <h2>Participar de Eventos</h2>
+                    <h2>Eventos</h2>
                 </div>
 
                 <div class="row">
@@ -663,6 +669,62 @@
                                 <button type="submit" class="btnmodal">Entrar</button>
                             </div>
                         </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+
+<div id="buy-ticket-modalservice" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
+                data-autoplay="true"></a>
+            
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+
+<div id="buy-ticket-modalportifolio1" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
+                data-autoplay="true"></a>
+            
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+        <div id="buy-ticket-modalportifolio2" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
+                data-autoplay="true"></a>
+            
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
