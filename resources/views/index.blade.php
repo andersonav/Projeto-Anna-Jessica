@@ -28,6 +28,7 @@
 
     <!-- Main Stylesheet File -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css/efeito.css')}}" rel="stylesheet">
 
     <!-- =======================================================
           Author: EDEV
@@ -50,14 +51,14 @@
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="#intro">Inicio</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#speakers">Portifolio</a></li>
-                    <li><a href="#schedule">Agenda</a></li>
-                    <li><a href="#hotels">Serviços</a></li>
-                    <li><a href="#buy-tickets">Eventos</a></li>
-                    <li><a href="#contact">Inscrições</a></li>
-                    <li><a href="#footer">Fale conosco</a></li>
+                    <li class="sem menu-active ini"><a href="#intro">Inicio</a></li>
+                    <li class="sem sobre"><a href="#about">Sobre</a></li>
+                    <li class="sem port"><a href="#speakers">Portifolio</a></li>
+                    <li class="sem age"><a href="#schedule">Agenda</a></li>
+                    <li class="sem ser"><a href="#hotels">Serviços</a></li>
+                    <li class="sem eve"><a href="#buy-tickets">Eventos</a></li>
+                    <li class="sem inc"><a href="#contact">Inscrições</a></li>
+                    <li class="sem fc"><a href="#footer">Fale conosco</a></li>
                     <li class="buy-tickets" data-toggle="modal" data-target="#buy-ticket-modal"
                         data-ticket-type="premium-access"><a>Login</a></li>
                 </ul>
@@ -130,9 +131,10 @@
         <!--==========================
               Speakers Section
             ============================-->
-        <section id="speakers" class="wow fadeInUp">
+        <section id="speakers" class="wow bounceInUp">
             <div class="container">
                 <div class="section-header">
+                    <span class="sombra digitar" id="port">Portifolio</span>
                     <h2>Portifolio</h2>
                 </div>
 
@@ -178,6 +180,7 @@
         <section id="schedule" class="section-with-bg">
             <div class="container wow fadeInUp">
                 <div class="section-header">
+                    <span class="sombra digitar" id="age">Agenda</span>
                     <h2>Agenda</h2>
                 </div>
 
@@ -491,6 +494,7 @@
 
             <div class="container">
                 <div class="section-header">
+                    <span class="sombra digitar" id="ser">Serviços</span>
                     <h2>Serviços</h2>
                 </div>
 
@@ -569,6 +573,7 @@
             <div class="container">
 
                 <div class="section-header">
+                    <span class="sombra digitar" id="eve">Eventos</span>
                     <h2>Eventos</h2>
                 </div>
 
@@ -737,6 +742,7 @@
             <div class="container">
 
                 <div class="section-header">
+                    <span class="sombra digitar" id="inc">Inscrição</span>
                     <h2>Inscrição</h2>
                 </div>
 
@@ -775,22 +781,22 @@
                     <form action="" method="post" role="form" class="contactForm">
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <input type="text" name="Nome" class="form-control" id="name" placeholder="Nome"
+                                <input type="text" name="Nome" class="form-control" id="nome" placeholder="Nome"
                                     data-rule="minlen:4" data-msg="texto texto texto" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="Telefone" class="form-control" id="name" placeholder="Telefone"
+                                <input type="text" name="Telefone" class="form-control" id="telefone" placeholder="Telefone"
                                     data-rule="minlen:4" data-msg="texto texto texto" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="Email" class="form-control" id="name" placeholder="Email"
+                                <input type="text" name="Email" class="form-control" id="email" placeholder="Email"
                                     data-rule="minlen:4" data-msg="texto texto texto" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="email" class="form-control" name="Senha" id="email" placeholder="Senha"
+                                <input type="email" class="form-control" name="Senha" id="senha" placeholder="Senha"
                                     data-rule="email" data-msg="texto texto texto" />
                                 <div class="validation"></div>
                             </div>
@@ -880,6 +886,7 @@
     <!-- Template Main Javascript File -->
     <script src="{{asset('js/main.js')}}"></script>
     <script src="{{asset('js/index.js')}}"></script>
+    <script src="{{asset('js/efeito.js')}}"></script>
 </body>
 
 </html>
