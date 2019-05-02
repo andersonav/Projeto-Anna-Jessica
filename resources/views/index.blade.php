@@ -99,14 +99,14 @@
         </div>
 
 
-       <!--  <div class="intro-container wow fadeIn">
+        <!--  <div class="intro-container wow fadeIn">
               <h1 class="mb-4 pb-0">A Marca<br><span>Texto</span> Texto</h1>
               <p class="mb-4 pb-0">Lugar para digitar alguma coisa</p>
               <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
                 data-autoplay="true"></a>
               <a href="#about" class="about-btn scrollto">Adicionar botão</a>
             </div>  -->
-    
+
 
     </section>
 
@@ -418,90 +418,105 @@
             <div class="container-fluid venue-gallery-container">
                 <div class="row no-gutters">
 
-                   
 
 
 
 
-                  
+
+
 
 
                     <div class="col-lg-4 col-md-4">
-                                        
-                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/1.png')}}" alt="First slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/2.jpeg')}}" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/3.png')}}" alt="Third slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/4.png')}}" alt="Third slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/5.jpg')}}" alt="Third slide">
-                                    </div>
+
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/1.png')}}"
+                                        alt="First slide">
                                 </div>
-                              
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/2.jpeg')}}"
+                                        alt="Second slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/3.png')}}"
+                                        alt="Third slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/4.png')}}"
+                                        alt="Third slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/5.jpg')}}"
+                                        alt="Third slide">
+                                </div>
                             </div>
+
+                        </div>
 
 
 
                     </div>
-                     <div class="col-lg-4 col-md-4">
-                       
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/1.png')}}" alt="First slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/2.jpeg')}}" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/3.png')}}" alt="Third slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/4.png')}}" alt="Third slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/5.jpg')}}" alt="Third slide">
-                                    </div>
+                    <div class="col-lg-4 col-md-4">
+
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/1.png')}}"
+                                        alt="First slide">
                                 </div>
-                                
-                                
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/2.jpeg')}}"
+                                        alt="Second slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/3.png')}}"
+                                        alt="Third slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/4.png')}}"
+                                        alt="Third slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/5.jpg')}}"
+                                        alt="Third slide">
+                                </div>
                             </div>
+
+
+                        </div>
 
 
 
                     </div>
-                     <div class="col-lg-4 col-md-4">
-                        
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/1.png')}}" alt="First slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/2.jpeg')}}" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/3.png')}}" alt="Third slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/4.png')}}" alt="Third slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/5.jpg')}}" alt="Third slide">
-                                    </div>
+                    <div class="col-lg-4 col-md-4">
+
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/1.png')}}"
+                                        alt="First slide">
                                 </div>
-                                
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/2.jpeg')}}"
+                                        alt="Second slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/3.png')}}"
+                                        alt="Third slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/4.png')}}"
+                                        alt="Third slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/5.jpg')}}"
+                                        alt="Third slide">
+                                </div>
                             </div>
+
+                        </div>
 
 
 
@@ -550,8 +565,9 @@
                             <div class="stars">
                                 <p>Produzimos conteúdo áudio visual, para divulgar sua empresa nas plataformas digitais.
                                 </p>
-                                <div class="text-center"><button type="submit" class="btnmodal" data-toggle="modal" data-target="#buy-ticket-modalservice2"
-                        data-ticket-type="premium-access">Veja Agora</button>
+                                <div class="text-center"><button type="submit" class="btnmodal" data-toggle="modal"
+                                        data-target="#buy-ticket-modalservice2" data-ticket-type="premium-access">Veja
+                                        Agora</button>
                                 </div><br>
                             </div>
                         </div>
@@ -567,8 +583,9 @@
                                 <p>Trabalhamos com divulgação por meio das midias sociais, com cobertura textual, audio
                                     visual, fortográfica e imagens aéreas, que aproxima seu publico da sua empresa, além
                                     de aumentar a visibilidade da sua marca e seu alcance.</p>
-                                <div class="text-center"><button type="submit" class="btnmodal" data-toggle="modal" data-target="#buy-ticket-modalservice3"
-                        data-ticket-type="premium-access">Veja Agora</button>
+                                <div class="text-center"><button type="submit" class="btnmodal" data-toggle="modal"
+                                        data-target="#buy-ticket-modalservice3" data-ticket-type="premium-access">Veja
+                                        Agora</button>
                                 </div><br>
                             </div>
                         </div>
@@ -617,16 +634,19 @@
                                 </div>
                                 <br>
                                 <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Video: <a href=" https://www.youtube.com/watch?v=vBRxEBZFBeI" Target=”_blank”>click
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Video: <a
+                                            href=" https://www.youtube.com/watch?v=vBRxEBZFBeI" Target=”_blank”>click
                                             aqui</a></li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Fotos: <a href="https://drive.google.com/drive/u/0/mobile/folders/1xjco_FZ3QgckoiPCYWcCIDfLrk3HB_jN?usp=sharing" Target=”_blank”>click
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Fotos: <a
+                                            href="https://drive.google.com/drive/u/0/mobile/folders/1xjco_FZ3QgckoiPCYWcCIDfLrk3HB_jN?usp=sharing"
+                                            Target=”_blank”>click
                                             aqui</a></li>
                                 </ul>
                                 <hr>
                             </div>
                         </div>
                     </div>
-                     <div class="col-lg-3">
+                    <div class="col-lg-3">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title text-muted text-uppercase text-center">Fique por dentro! </h5>
@@ -637,9 +657,12 @@
                                 </div>
                                 <br>
                                 <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Video 1: <a href="https://www.youtube.com/watch?v=2uqBWfDikAQ " Target=”_blank”>click
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Video 1: <a
+                                            href="https://www.youtube.com/watch?v=2uqBWfDikAQ " Target=”_blank”>click
                                             aqui</a></li>
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Video 2: <a href="https://www.youtube.com/watch?v=mn8kKVxolbE&t=381s " Target=”_blank”>click
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Video 2: <a
+                                            href="https://www.youtube.com/watch?v=mn8kKVxolbE&t=381s "
+                                            Target=”_blank”>click
                                             aqui</a></li>
                                 </ul>
                                 <hr>
@@ -657,7 +680,8 @@
                                 </div>
                                 <br>
                                 <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Video: <a href="https://youtu.be/B7vMlgMl9cw" Target=”_blank”>click
+                                    <li><span class="fa-li"><i class="fa fa-check"></i></span>Video: <a
+                                            href="https://youtu.be/B7vMlgMl9cw" Target=”_blank”>click
                                             aqui</a> </li>
                                 </ul>
                                 <hr>
@@ -675,7 +699,7 @@
                                 </div>
                                 <br>
                                 <ul class="fa-ul">
-                                    
+
                                 </ul>
                                 <hr>
                             </div>
@@ -720,26 +744,30 @@
         </div><!-- /.modal -->
 
 
-<div id="buy-ticket-modalservice2" class="modal fade">
+        <div id="buy-ticket-modalservice2" class="modal fade">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <iframe width="550" height="405" src="https://www.youtube.com/embed/iN1pWCVTwro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="550" height="405" src="https://www.youtube.com/embed/iN1pWCVTwro" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 
 
-<div id="buy-ticket-modalservice3" class="modal fade">
+        <div id="buy-ticket-modalservice3" class="modal fade">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <iframe width="550" height="405" src="https://www.youtube.com/embed/EnZH1410qwQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="550" height="405" src="https://www.youtube.com/embed/EnZH1410qwQ" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 
 
 
-<div id="buy-ticket-modalportifolio1" class="modal fade">
+        <div id="buy-ticket-modalportifolio1" class="modal fade">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -749,8 +777,8 @@
                     </div>
                     <div class="modal-body">
 
-                 
-            
+
+
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
@@ -766,9 +794,9 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
-                data-autoplay="true"></a>
-            
+                        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4"
+                            data-vbtype="video" data-autoplay="true"></a>
+
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
@@ -826,8 +854,8 @@
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="text" name="Telefone" class="form-control" id="telefone" placeholder="Telefone"
-                                    data-rule="minlen:4" data-msg="texto texto texto" />
+                                <input type="text" name="Telefone" class="form-control" id="telefone"
+                                    placeholder="Telefone" data-rule="minlen:4" data-msg="texto texto texto" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group col-md-6">
@@ -907,7 +935,38 @@
         </div>
     </footer><!-- #footer -->
 
+    <a href="#" class="whats" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-whatsapp"></i></a>
     <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nova Mensagem</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Nome:</label>
+                            <input type="text" placeholder="Ex: Mauricio Abreu" class="form-control" id="nomee">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Mensagem:</label>
+                            <textarea class="form-control" placeholder="Digite sua mensagem aqui." id="mensagem"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger btnWpp">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript Libraries -->
     <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
@@ -919,6 +978,7 @@
     <script src="{{asset('lib/wow/wow.min.js')}}"></script>
     <script src="{{asset('lib/venobox/venobox.min.js')}}"></script>
     <script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
     <!-- Contact Form JavaScript File -->
     <script src="{{asset('js/contactform.js')}}"></script>

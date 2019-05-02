@@ -11,3 +11,29 @@
     text-align: center;
     opacity: 0.17;
 }
+
+.whats {
+    margin: 0% 0% 4% 0%;
+    position: fixed;
+    background: #f82249;
+    display: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 50px;
+    right: 15px;
+    bottom: 15px;
+    transition: background 0.5s ease-in-out;
+}
+
+.whats i {
+    font-size: 24px;
+    padding-top: 6px;
+    color: #fff;
+}
+
+.whats:hover {
+    background: #e0072f;
+    color: #fff;
+}
