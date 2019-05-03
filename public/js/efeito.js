@@ -116,15 +116,14 @@ let mount = function () {
         let target = `whatsapp://send?`
 
         target += `phone=${encodeURIComponent(telefone)}&text=Nome: ${encodeURIComponent(nome.value)}\n Mensagem: ${encodeURIComponent(mensagem.value)}\n`
-
-        window.open(target)
+        setTimeout(function () { window.open(target) }, 2000);
         return target
     } else {
         let target = `https://api.whatsapp.com/send?`
 
         target += `phone=${encodeURIComponent(telefone)}&text=Nome: ${encodeURIComponent(nome.value)}\n Mensagem: ${encodeURIComponent(mensagem.value)}\n`
 
-        window.open(target)
+        setTimeout(function () { window.open(target) }, 2000);
         return target
     }
 
@@ -132,10 +131,22 @@ let mount = function () {
 $('.btnWpp').on('click', function () {
     console.log(telefone, mensagem.value, nome.value);
     if (mensagem.value !== '' && nome.value !== '') {
+
         mount();
+
         $('.cancelarWpp').click();
         $('#nomee').val('');
         $('#mensagem').val('');
+
+        setTimeout(function () {
+            Swal.fire({
+                position: 'top-end',
+                type: 'success',
+                title: 'Sucesso, redirecionando ... ',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }, 500);
     } else {
         $('.cancelarWpp').click();
         $('#nomee').val('');
