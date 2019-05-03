@@ -37,3 +37,10 @@
     background: #e0072f;
     color: #fff;
 }
+
+.item-user{
+    color: black !important;
+}
+.item-user:hover{
+    color: #e0072f !important;
+}

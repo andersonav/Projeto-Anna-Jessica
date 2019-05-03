@@ -140,7 +140,7 @@ $('.btnWpp').on('click', function () {
 
         setTimeout(function () {
             Swal.fire({
-                position: 'top-end',
+                position: 'center',
                 type: 'success',
                 title: 'Sucesso, redirecionando ... ',
                 showConfirmButton: false,

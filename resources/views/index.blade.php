@@ -59,8 +59,23 @@
                     <li class="sem eve"><a href="#buy-tickets">Eventos</a></li>
                     <li class="sem inc"><a href="#contact">Inscrições</a></li>
                     <li class="sem fc"><a href="#footer">Fale conosco</a></li>
+                    @auth
+                    <li class="dropdown show">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Usuario
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item item-user" href="#">Perfil</a><br>
+                            <a class="dropdown-item item-user" href="#">Configuração</a><br>
+                            <a class="dropdown-item item-user" href="#">Sair</a>
+                        </div>
+                    </li>
+                    @else
                     <li class="buy-tickets" data-toggle="modal" data-target="#buy-ticket-modal"
                         data-ticket-type="premium-access"><a>Login</a></li>
+                    @endauth
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -956,7 +971,8 @@
                         </div>
                         <div class="form-group">
                             <label for="message-text" class="col-form-label">Mensagem:</label>
-                            <textarea class="form-control" placeholder="Digite sua mensagem aqui." id="mensagem"></textarea>
+                            <textarea class="form-control" placeholder="Digite sua mensagem aqui."
+                                id="mensagem"></textarea>
                         </div>
                     </form>
                 </div>
