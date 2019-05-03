@@ -47,49 +47,49 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 $(window).scroll(function () {
     if ($(this).scrollTop() < 550) {
-        $('.sem').each(function(){
+        $('.sem').each(function () {
             $(this).removeClass('menu-active');
             $('.ini').addClass('menu-active');
         });
     }
-    else if ($(this).scrollTop() > 550 && $(this).scrollTop() < 765 ) {
-        $('.sem').each(function(){
+    else if ($(this).scrollTop() > 550 && $(this).scrollTop() < 765) {
+        $('.sem').each(function () {
             $(this).removeClass('menu-active');
             $('.sobre').addClass('menu-active');
         });
     }
     else if ($(this).scrollTop() > 765 && $(this).scrollTop() < 1200) {
-        $('.sem').each(function(){
+        $('.sem').each(function () {
             $(this).removeClass('menu-active');
             $('.port').addClass('menu-active');
         });
     }
     else if ($(this).scrollTop() > 1200 && $(this).scrollTop() < 2210) {
-        $('.sem').each(function(){
+        $('.sem').each(function () {
             $(this).removeClass('menu-active');
             $('.age').addClass('menu-active');
         });
     }
     else if ($(this).scrollTop() > 2210 && $(this).scrollTop() < 3050) {
-        $('.sem').each(function(){
+        $('.sem').each(function () {
             $(this).removeClass('menu-active');
             $('.ser').addClass('menu-active');
         });
     }
     else if ($(this).scrollTop() > 3050 && $(this).scrollTop() < 3900) {
-        $('.sem').each(function(){
+        $('.sem').each(function () {
             $(this).removeClass('menu-active');
             $('.eve').addClass('menu-active');
         });
     }
     else if ($(this).scrollTop() > 3980 && $(this).scrollTop() < 4200) {
-        $('.sem').each(function(){
+        $('.sem').each(function () {
             $(this).removeClass('menu-active');
             $('.inc').addClass('menu-active');
         });
     }
     else if ($(this).scrollTop() > 4300) {
-        $('.sem').each(function(){
+        $('.sem').each(function () {
             $(this).removeClass('menu-active');
             $('.fc').addClass('menu-active');
         });
@@ -133,22 +133,27 @@ $('.btnWpp').on('click', function () {
     console.log(telefone, mensagem.value, nome.value);
     if (mensagem.value !== '' && nome.value !== '') {
         mount();
-    }else{
-        $('#exampleModal').modal('hide');
+        $('.cancelarWpp').click();
         $('#nomee').val('');
         $('#mensagem').val('');
-        Swal.fire(
-            'Error ao enviar',
-            'Verifique os campos com atenção!',
-            'error'
-          )
+    } else {
+        $('.cancelarWpp').click();
+        $('#nomee').val('');
+        $('#mensagem').val('');
+        setTimeout(function () {
+            Swal.fire(
+                'Error ao enviar',
+                'Verifique os campos com atenção!',
+                'error'
+            );
+        }, 500);
     }
 });
 
-$(window).scroll(function() {
+$(window).scroll(function () {
     if ($(this).scrollTop() > 100) {
-      $('.whats').fadeIn('slow');
+        $('.whats').fadeIn('slow');
     } else {
-      $('.whats').fadeOut('slow');
+        $('.whats').fadeOut('slow');
     }
-  });
+});
