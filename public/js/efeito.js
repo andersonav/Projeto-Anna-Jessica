@@ -88,7 +88,7 @@ $(window).scroll(function () {
             $('.inc').addClass('menu-active');
         });
     }
-    else if ($(this).scrollTop() > 4300) {
+    else if ($(this).scrollTop() > 4200) {
         $('.sem').each(function () {
             $(this).removeClass('menu-active');
             $('.fc').addClass('menu-active');
