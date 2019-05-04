@@ -61,15 +61,21 @@
                     <li class="sem fc"><a href="#footer">Fale conosco</a></li>
                     @auth
                     <li class="dropdown show">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             Usuario
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item item-user" href="#">Perfil</a><br>
                             <a class="dropdown-item item-user" href="#">Configuração</a><br>
-                            <a class="dropdown-item item-user" href="#">Sair</a>
+                            <a class="dropdown-item item-user" href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                    class="ft-power"></i> Sair</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+
                         </div>
                     </li>
                     @else
@@ -155,8 +161,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-2 col-md-4"></div>
-                    <div class="col-lg-4 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportifolio1">
+                    <div class="col-lg-1 col-md-4"></div>
+                    <div class="col-lg-5 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportifolio1">
                         <div class="speaker">
                             <img src="{{asset('img/postifolio/corrida.JPG')}}" alt="Speaker 5" class="img-fluid">
                             <div class="details">
@@ -170,11 +176,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportifolio2">
+                    <div class="col-lg-5 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportifolio2">
                         <div class="speaker">
                             <img src="{{asset('img/postifolio/corrida.JPG')}}" alt="Speaker 6" class="img-fluid">
                             <div class="details">
-                                <h3><a href="speaker-details.html">Corrida do Humor</a></h3>
+                                <h3><a href="speaker-details.html">Cerimônial</a></h3>
                                 <div class="social">
                                     <!-- <a href=""><i class="fa fa-twitter"></i></a>
                                     <a href=""><i class="fa fa-facebook"></i></a>
@@ -184,7 +190,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-4"></div>
+                    <div class="col-lg-1 col-md-4"></div>
                 </div>
             </div>
 
@@ -668,7 +674,7 @@
                                 <h6 class="card-price text-center">Cobertura oficial do Bloco Fantastico 2019</h6>
                                 <hr>
                                 <div class="hotel-img">
-                                    <img src="{{asset('img/eventos/Fantastico.png')}}" alt="Hotel 1" class="img-fluid">
+                                    <img src="{{asset('img/eventos/fantastico.png')}}" alt="Hotel 1" class="img-fluid">
                                 </div>
                                 <br>
                                 <ul class="fa-ul">
@@ -710,7 +716,7 @@
                                 <h6 class="card-price text-center">Vaquejada de Boa Viagem</h6>
                                 <hr>
                                 <div class="hotel-img">
-                                    <img src="{{asset('img/eventos/Vaquejadabv.png')}}" alt="Hotel 1" class="img-fluid">
+                                    <img src="{{asset('img/eventos/vaquejadabv.png')}}" alt="Hotel 1" class="img-fluid">
                                 </div>
                                 <br>
                                 <ul class="fa-ul">
@@ -748,8 +754,7 @@
                                 <input type="password" class="form-control" name="password" placeholder="Senha">
                             </div>
 
-                            <div
-                                class="text-cen                                                                                                                                                                                                        ter">
+                            <div class="text-center">
                                 <button type="submit" class="btnmodal">Entrar</button>
                             </div>
                         </form>
@@ -762,9 +767,9 @@
         <div id="buy-ticket-modalservice2" class="modal fade">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <iframe width="550" height="405" src="https://www.youtube.com/embed/iN1pWCVTwro" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                    <iframe width="100%" height="405" src="https://www.youtube.com/embed/iN1pWCVTwro" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
@@ -773,9 +778,9 @@
         <div id="buy-ticket-modalservice3" class="modal fade">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <iframe width="550" height="405" src="https://www.youtube.com/embed/EnZH1410qwQ" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                    <iframe width="100%" height="405" src="https://www.youtube.com/embed/EnZH1410qwQ" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
@@ -783,7 +788,7 @@
 
 
         <div id="buy-ticket-modalportifolio1" class="modal fade">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -791,6 +796,24 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                            </div>
+                            <div class="col-lg-6">
+                                <iframe width="100%" height="215" src="https://www.youtube.com/embed/bH-4R4Jbv00"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="col-lg-6">
+
+                            </div>
+                            <div class="col-lg-6">
+
+                            </div>
+
+                        </div>
 
 
 
@@ -801,7 +824,7 @@
 
 
         <div id="buy-ticket-modalportifolio2" class="modal fade">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -809,9 +832,46 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4"
-                            data-vbtype="video" data-autoplay="true"></a>
+                        <div class="row">
+                            <div class="col-lg-6">
 
+                            </div>
+                            <div class="col-lg-6">
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/1.png')}}"
+                                                alt="First slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/2.jpeg')}}"
+                                                alt="Second slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/3.png')}}"
+                                                alt="Third slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/4.png')}}"
+                                                alt="Third slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/5.jpg')}}"
+                                                alt="Third slide">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+
+                            </div>
+                            <div class="col-lg-6">
+
+                            </div>
+
+                        </div>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
@@ -820,6 +880,39 @@
         <!--==========================
             Contact Section
             ============================-->
+
+
+
+        <section id="venue" class="wow fadeInUp">
+
+            <div class="container-fluid">
+
+
+                <div class="row no-gutters">
+                    <div class="col-lg-4 venue-map">
+                        <img src="{{asset('img/eventos/cervejadabv.png')}}" alt="Hotel 1" class="img-fluid">
+                    </div>
+
+                    <div class="col-lg-8 venue-info">
+                        <div class="row justify-content-center">
+                            <div class="col-11 col-lg-8">
+
+                                <div class="text-center"> <a href="#contact"><button type="submit"
+                                            class="btnmodal">Inscreva-se</button></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
         <section id="contact" class="section-bg wow fadeInUp">
 
             <div class="container">
