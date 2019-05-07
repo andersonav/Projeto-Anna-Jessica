@@ -69,8 +69,14 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item item-user" href="#"><i
                                         class="fa fa-user"></i> Perfil</a><br>
-                                <a class="dropdown-item item-user" href="#"><i
+                                @if(auth()->user()->id_tipo_usuario == 1)
+                                <a class="dropdown-item item-user" href="{{ route('adminConf') }}"><i
                                         class="fa fa-gear"></i> Configuração</a><br>
+                               
+                                @else
+                                 <a class="dropdown-item item-user" href="#"><i
+                                        class="fa fa-file"></i> Relatórios</a><br>
+                                @endif
                                 <a class="dropdown-item item-user" href="{{ route('logout') }}"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                                         class="fa fa-sign-out"></i> Sair</a>
