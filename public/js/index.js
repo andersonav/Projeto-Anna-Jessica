@@ -16,10 +16,10 @@ $(document).ready(function () {
             data: dados,
             success: function (data, textStatus, jqXHR) {
                 window.location = '/home';
-            }, error: function (errors, textStatus, errorThrown) {
-
-                $.each(errors.responseJSON, function (key, value) {
-
+            }, error: function (data, textStatus, errorThrown) {
+                var erros = $.parseJSON(data.responseText);
+                $.each(erros.errors, function (key, value) {
+                    $(".mensagensErros").append('<div class="alert alert-danger" role="alert" id="mensagemErro">' + value + '</div>');
                 });
             },
             complete: function () {
