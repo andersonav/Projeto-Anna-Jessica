@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
             document.querySelector("#age").innerHTML = text[1].substring(0, i + 1) + '<span aria-hidden="true"></span>';
             document.querySelector("#ser").innerHTML = text[2].substring(0, i + 1) + '<span aria-hidden="true"></span>';
             document.querySelector("#eve").innerHTML = text[3].substring(0, i + 1) + '<span aria-hidden="true"></span>';
-            document.querySelector("#inc").innerHTML = text[4].substring(0, i + 1) + '<span aria-hidden="true"></span>';
+            try {document.querySelector("#inc").innerHTML = text[4].substring(0, i + 1) + '<span aria-hidden="true"></span>';} catch{}
 
             // wait for a while and call this function again for next character
             setTimeout(function () {

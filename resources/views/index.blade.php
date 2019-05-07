@@ -57,21 +57,23 @@
                     <li class="sem age"><a href="#schedule">Agenda</a></li>
                     <li class="sem ser"><a href="#hotels">Serviços</a></li>
                     <li class="sem eve"><a href="#buy-tickets">Eventos</a></li>
-                    <li class="sem inc"><a href="#contact">Inscrições</a></li>
+                    @guest<li class="sem inc"><a href="#contact">Inscrições</a></li>@endguest
                     <li class="sem fc"><a href="#footer">Fale conosco</a></li>
                     @auth
                     <li class="dropdown show">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            Usuario
+                            {{ auth()->user()->nome_usuario }}
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item item-user" href="#">Perfil</a><br>
-                            <a class="dropdown-item item-user" href="#">Configuração</a><br>
+                            <a class="dropdown-item item-user" href="#"><i
+                                class="fa fa-user"></i> Perfil</a><br>
+                            <a class="dropdown-item item-user" href="#"><i
+                                class="fa fa-gear"></i> Configuração</a><br>
                             <a class="dropdown-item item-user" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
-                                    class="ft-power"></i> Sair</a>
+                                    class="fa fa-sign-out"></i> Sair</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
@@ -166,7 +168,7 @@
                         <div class="speaker">
                             <img src="{{asset('img/postifolio/corrida.JPG')}}" alt="Speaker 5" class="img-fluid">
                             <div class="details">
-                                <h3><a href="speaker-details.html">Eventos Esportivos</a></h3>
+                                <h3><a href="javascript:void(0);">Eventos Esportivos</a></h3>
                                 <div class="social">
                                     <!-- <a href="#"><i class="fa fa-twitter"></i></a>
                                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -180,7 +182,7 @@
                         <div class="speaker">
                             <img src="{{asset('img/postifolio/corrida.JPG')}}" alt="Speaker 6" class="img-fluid">
                             <div class="details">
-                                <h3><a href="speaker-details.html">Cerimônial</a></h3>
+                                <h3><a href="javascript:void(0);">Cerimônial</a></h3>
                                 <div class="social">
                                     <!-- <a href="#"><i class="fa fa-twitter"></i></a>
                                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -438,15 +440,6 @@
 
             <div class="container-fluid venue-gallery-container">
                 <div class="row no-gutters">
-
-
-
-
-
-
-
-
-
                     <div class="col-lg-4 col-md-4">
 
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -472,11 +465,7 @@
                                         alt="Third slide">
                                 </div>
                             </div>
-
                         </div>
-
-
-
                     </div>
                     <div class="col-lg-4 col-md-4">
 
@@ -878,7 +867,7 @@
         </div><!-- /.modal -->
 
 
-         <div id="buy-ticket-modalsobrep" class="modal fade">
+        <div id="buy-ticket-modalsobrep" class="modal fade">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -931,53 +920,57 @@
                             </div>
 
                             <div class="col-11 col-lg-6" id="insc">
-                            <div class="col-11 col-lg-12" >
                                 <div class="col-11 col-lg-12">
-                                    <h1><a href="#">2º Nigth Bike Maranguape 2019</a></h1>
-                                    <h5 class="text-uppercase "><a href="#">Passeio Ciclistico</a></h5>
+                                    <div class="col-11 col-lg-12">
+                                        <h1><a href="#">2º Nigth Bike Maranguape 2019</a></h1>
+                                        <h5 class="text-uppercase "><a href="#">Passeio Ciclistico</a></h5>
 
-                                </div>
-                                <div class="col-11 col-lg-12">
-                                            <button type="submit"
-                                            class="btnilustre" data-toggle="modal"
-                                        data-target="#buy-ticket-modalsobrep" data-ticket-type="premium-access">Sobre a Prova</button>
-                                </div>   
-                                <div class="col-11 col-lg-12">
-
-                                <div class="wrapper">
-                                  <div class="cell">
-                                    <div id="holder">
-                                        <br>
-                                        <h7 class="text-uppercase "><b>
-                                        Faltam: Dias/Horas/Minutos/Segundos
-                                        </b></h7>
-                                      <div class="digits"></div>
                                     </div>
-                                  </div>
-                                </div>
+                                    <div class="col-11 col-lg-12">
+                                        <button type="submit" class="btnilustre" data-toggle="modal"
+                                            data-target="#buy-ticket-modalsobrep"
+                                            data-ticket-type="premium-access">Sobre a Prova</button>
+                                    </div>
+                                    <div class="col-11 col-lg-12">
 
-                                </div>
+                                        <div class="wrapper">
+                                            <div class="cell">
+                                                <div id="holder">
+                                                    <br>
+                                                    <h7 class="text-uppercase "><b>
+                                                            Faltam: Dias - Horas - Minutos - Segundos
+                                                        </b></h7>
+                                                    <div class="digits"></div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <div class="col-11 col-lg-12">
-                                    <br>
-                                    <div class="text-center">
-                                    <a href="#contact"><button type="submit"
-                                            class="btnmodal">Inscreva-se ja!</button></a>
+                                    </div>
+
+                                    <div class="col-11 col-lg-12">
+                                        <br>
+                                        <div class="text-center">
+                                            @auth
+                                            <button type="submit" class="btnmodal" data-toggle="modal"
+                                                data-target="#evento">Inscreva-se
+                                                ja!</button>
+                                            @else
+                                            <a href="#contact"><button type="submit" class="btnmodal">Inscreva-se
+                                                    ja!</button></a>
+                                            @endauth
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    </div>
                 </div>
 
             </div>
-
-
         </section>
 
 
-
+ @guest
         <section id="contact" class="section-bg wow fadeInUp">
 
             <div class="container">
@@ -1041,7 +1034,7 @@
                                     data-rule="email" data-msg="Digite uma senha!" />
                                 <div class="validation"></div>
                             </div>
-                             <div class="form-group col-md-6">
+                            <div class="form-group col-md-6">
                                 <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade"
                                     data-rule="email" data-msg="Digite sua cidade!" />
                                 <div class="validation"></div>
@@ -1053,8 +1046,30 @@
 
             </div>
         </section><!-- #contact -->
-
+@endguest
     </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!--==========================
@@ -1172,13 +1187,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="js/jquery.countdown.js"></script>
     <script>
-      $(function(){
-        $(".digits").countdown({
-          image: "img/digits.png",
-          format: "dd:hh:mm:ss",
-          endTime: new Date(2019, 5, 6)
+        $(function () {
+            $(".digits").countdown({
+                image: "img/digits.png",
+                format: "dd:hh:mm:ss",
+                endTime: new Date(2019, 5, 6)
+            });
         });
-      });
     </script>
 </body>
 
