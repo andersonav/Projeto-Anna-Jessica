@@ -168,10 +168,10 @@
                             <div class="details">
                                 <h3><a href="speaker-details.html">Eventos Esportivos</a></h3>
                                 <div class="social">
-                                    <!-- <a href=""><i class="fa fa-twitter"></i></a>
-                                    <a href=""><i class="fa fa-facebook"></i></a>
-                                    <a href=""><i class="fa fa-google-plus"></i></a>
-                                    <a href=""><i class="fa fa-linkedin"></i></a> -->
+                                    <!-- <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a> -->
                                 </div>
                             </div>
                         </div>
@@ -182,10 +182,10 @@
                             <div class="details">
                                 <h3><a href="speaker-details.html">Cerimônial</a></h3>
                                 <div class="social">
-                                    <!-- <a href=""><i class="fa fa-twitter"></i></a>
-                                    <a href=""><i class="fa fa-facebook"></i></a>
-                                    <a href=""><i class="fa fa-google-plus"></i></a>
-                                    <a href=""><i class="fa fa-linkedin"></i></a> -->
+                                    <!-- <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a> -->
                                 </div>
                             </div>
                         </div>
@@ -877,6 +877,37 @@
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
 
+
+         <div id="buy-ticket-modalsobrep" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                            </div>
+                            <div class="col-lg-12">
+                            </div>
+                            <div class="col-lg-12">
+
+                            </div>
+                            <div class="col-lg-12">
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
         <!--==========================
             Contact Section
             ============================-->
@@ -889,20 +920,54 @@
 
 
                 <div class="row no-gutters">
-                    <div class="col-lg-4 venue-map">
-                        <img src="{{asset('img/eventos/cervejadabv.png')}}" alt="Hotel 1" class="img-fluid">
-                    </div>
+                    <!-- <div class="col-lg-4 venue-map">
+                        <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="img-fluid">
+                    </div> -->
 
-                    <div class="col-lg-8 venue-info">
+                    <div class="col-lg-12 venue-info">
                         <div class="row justify-content-center">
-                            <div class="col-11 col-lg-8">
+                            <div class="col-lg-6">
+                                <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imginc">
+                            </div>
 
-                                <div class="text-center"> <a href="#contact"><button type="submit"
-                                            class="btnmodal">Inscreva-se</button></a>
+                            <div class="col-11 col-lg-6" id="insc">
+                            <div class="col-11 col-lg-12" >
+                                <div class="col-11 col-lg-12">
+                                    <h1><a href="#">2º Nigth Bike Maranguape 2019</a></h1>
+                                    <h5 class="text-uppercase "><a href="#">Passeio Ciclistico</a></h5>
 
+                                </div>
+                                <div class="col-11 col-lg-12">
+                                            <button type="submit"
+                                            class="btnilustre" data-toggle="modal"
+                                        data-target="#buy-ticket-modalsobrep" data-ticket-type="premium-access">Sobre a Prova</button>
+                                </div>   
+                                <div class="col-11 col-lg-12">
+
+                                <div class="wrapper">
+                                  <div class="cell">
+                                    <div id="holder">
+                                        <br>
+                                        <h7 class="text-uppercase "><b>
+                                        Faltam: Dias/Horas/Minutos/Segundos
+                                        </b></h7>
+                                      <div class="digits"></div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                </div>
+
+                                <div class="col-11 col-lg-12">
+                                    <br>
+                                    <div class="text-center">
+                                    <a href="#contact"><button type="submit"
+                                            class="btnmodal">Inscreva-se ja!</button></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
 
@@ -958,26 +1023,31 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <input type="text" name="Nome" class="form-control" id="nome" placeholder="Nome"
-                                    data-rule="minlen:4" data-msg="texto texto texto" />
+                                    data-rule="minlen:4" data-msg="Digite seu nome!" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group col-md-6">
                                 <input type="text" name="Telefone" class="form-control" id="telefone"
-                                    placeholder="Telefone" data-rule="minlen:4" data-msg="texto texto texto" />
+                                    placeholder="Telefone" data-rule="minlen:4" data-msg="Digite um Telefone!" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group col-md-6">
                                 <input type="text" name="Email" class="form-control" id="email" placeholder="Email"
-                                    data-rule="minlen:4" data-msg="texto texto texto" />
+                                    data-rule="minlen:4" data-msg="Digite um Email valido!" />
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="email" class="form-control" name="Senha" id="senha" placeholder="Senha"
-                                    data-rule="email" data-msg="texto texto texto" />
+                                <input type="password" class="form-control" name="Senha" id="senha" placeholder="Senha"
+                                    data-rule="email" data-msg="Digite uma senha!" />
+                                <div class="validation"></div>
+                            </div>
+                             <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade"
+                                    data-rule="email" data-msg="Digite sua cidade!" />
                                 <div class="validation"></div>
                             </div>
                         </div>
-                        <div class="text-center"><button type="submit">Inscreva-se já!</button></div>
+                        <div class="text-center"><button type="submit">Inscrever-se</button></div>
                     </form>
                 </div>
 
@@ -1096,6 +1166,20 @@
     <script src="{{asset('js/main.js')}}"></script>
     <script src="{{asset('js/index.js')}}"></script>
     <script src="{{asset('js/efeito.js')}}"></script>
+
+
+    <!-- tudo sobre contagem -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    <script>
+      $(function(){
+        $(".digits").countdown({
+          image: "img/digits.png",
+          format: "dd:hh:mm:ss",
+          endTime: new Date(2019, 5, 6)
+        });
+      });
+    </script>
 </body>
 
 </html>
