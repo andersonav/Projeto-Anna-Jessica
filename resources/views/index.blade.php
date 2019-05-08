@@ -67,14 +67,14 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item item-user" href="#"><i
+                                <a class="dropdown-item item-user" href="{{ route('perfil') }}"><i
                                         class="fa fa-user"></i> Perfil</a><br>
                                 @if(auth()->user()->id_tipo_usuario == 1)
                                 <a class="dropdown-item item-user" href="{{ route('adminConf') }}"><i
                                         class="fa fa-gear"></i> Configuração</a><br>
                                
                                 @else
-                                 <a class="dropdown-item item-user" href="#"><i
+                                 <a class="dropdown-item item-user" href="{{ route('userRelatorio') }}"><i
                                         class="fa fa-file"></i> Relatórios</a><br>
                                 @endif
                                 <a class="dropdown-item item-user" href="{{ route('logout') }}"

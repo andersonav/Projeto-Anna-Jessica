@@ -20,3 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/adminConf', 'HomeController@adminConf')->name('adminConf');
+Route::get('/perfil', 'HomeController@perfil')->name('perfil');
+
+// Route para registrar pessoa
+Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
+  Route::any('/userRelatorio', 'HomeController@pageRelatorioUser')->name('userRelatorio');
+});
+

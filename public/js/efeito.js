@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 });
 
 $(window).scroll(function () {
+    console.log($(this).scrollTop());
     if ($(this).scrollTop() < 550) {
         $('.sem').each(function () {
             $(this).removeClass('menu-active');
@@ -82,13 +83,13 @@ $(window).scroll(function () {
             $('.eve').addClass('menu-active');
         });
     }
-    else if ($(this).scrollTop() > 3980 && $(this).scrollTop() < 4200) {
+    else if ($(this).scrollTop() > 4480 && $(this).scrollTop() < 4700) {
         $('.sem').each(function () {
             $(this).removeClass('menu-active');
             $('.inc').addClass('menu-active');
         });
     }
-    else if ($(this).scrollTop() > 4200) {
+    else if ($(this).scrollTop() > 4700) {
         $('.sem').each(function () {
             $(this).removeClass('menu-active');
             $('.fc').addClass('menu-active');
