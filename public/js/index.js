@@ -18,6 +18,7 @@ $(document).ready(function () {
                 window.location = '/home';
             }, error: function (data, textStatus, errorThrown) {
                 var erros = $.parseJSON(data.responseText);
+                $(".mensagensErros").empty();
                 $.each(erros.errors, function (key, value) {
                     $(".mensagensErros").append('<div class="alert alert-danger" role="alert" id="mensagemErro">' + value + '</div>');
                 });
