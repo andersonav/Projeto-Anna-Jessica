@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Titulo do site</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
@@ -29,10 +30,12 @@
     <!-- Main Stylesheet File -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/efeito.css')}}" rel="stylesheet">
-
     <!-- =======================================================
           Author: EDEV
         ======================================================= -->
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -51,14 +54,7 @@
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="sem menu-active ini"><a href="#intro">Inicio</a></li>
-                    <li class="sem sobre"><a href="#about">Sobre</a></li>
-                    <li class="sem port"><a href="#speakers">Portifolio</a></li>
-                    <li class="sem age"><a href="#schedule">Agenda</a></li>
-                    <li class="sem ser"><a href="#hotels">Serviços</a></li>
-                    <li class="sem eve"><a href="#buy-tickets">Eventos</a></li>
-                    @guest<li class="sem inc"><a href="#contact">Inscrições</a></li>@endguest
-                    <li class="sem fc"><a href="#footer">Fale conosco</a></li>
+                    <li class="sem menu-active ini"><a href="#intro">Perfil</a></li>
                     @auth
                     <li class="dropdown show">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
@@ -102,46 +98,89 @@
         <!--==========================
               Speaker Details Section
             ============================-->
-        <section id="speakers-details" class="wow fadeIn">
+        <section id="contact" class="section-bg wow fadeInUp">
+
             <div class="container">
+
                 <div class="section-header">
-                    <h2>Speaker Details</h2>
-                    <p>Praesentium ut qui possimus sapiente nulla.</p>
+                    <h2>Perfil</h2>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="{{asset('img/speakers/1.jpg')}}" alt="Speaker 1" class="img-fluid">
-                    </div>
+                <!-- <div class="row contact-info">
+                                
+                                <div class="col-md-4">
+                                <div class="contact-address">
+                                <i cla                                                                                                                                                                                                        ss="ion-ios-location-outline"                                                                                                                                                                                                        ></i>
+                                       <h3>Texto</h3>
+                                <address>texto, texto - ce, BR</address>
+                                </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                <div class="contact-phone">
+                                <i class="ion-ios-telephone-outline"></i>
+                                <h3>texto</h3>
+                                <p>                                                                                                                                                                                                        <a href="tel:+155895548855">+55 (85) 98888-8888</a><                                                                                                                                                                                                        /p>
+                                </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                <div class="contact-email">
+                                <i class="ion-ios-email-outline"></i>
+                                <h3>texto</h3>
+                                <p><a href="mailto:info@example.com">info@example.com</a></p>
+                                </div>
+                                </div>
+                                
+                                </div> -->
 
-                    <div class="col-md-6">
-                        <div class="details">
-                            <h2>Brenden Legros</h2>
-                            <div class="social">
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-facebook"></i></a>
-                                <a href=""><i class="fa fa-google-plus"></i></a>
-                                <a href=""><i class="fa fa-linkedin"></i></a>
+
+                <div class="form">
+                    <div id="sendmessage"></div>
+                    <div id="errormessage"></div>
+                    <form action="" method="post" role="form" id="form" class="contactForm">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome"
+                                    data-rule="minlen:4" data-msg="Digite seu nome!"
+                                    value="{{ auth()->user()->nome_usuario }}" />
                             </div>
-                            <p>Voluptatem perferendis sed assumenda voluptatibus. Laudantium molestiae sint. Doloremque
-                                odio dolore dolore sit. Quae labore alias ea omnis ex expedita sapiente molestias atque.
-                                Optio voluptas et.</p>
-
-                            <p>Aboriosam inventore dolorem inventore nam est esse. Aperiam voluptatem nisi molestias
-                                laborum ut. Porro dignissimos eum. Tempore dolores minus unde est voluptatum incidunt ut
-                                aperiam.</p>
-
-                            <p>Et dolore blanditiis officiis non quod id possimus. Optio non commodi alias sint culpa
-                                sapiente nihil ipsa magnam. Qui eum alias provident omnis incidunt aut. Eius et officia
-                                corrupti omnis error vel quia omnis velit. In qui debitis autem aperiam voluptates unde
-                                sunt et facilis.</p>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="telefone" class="form-control" id="telefone"
+                                    placeholder="Telefone" data-rule="minlen:10" data-msg="Digite um Telefone!"
+                                    value="{{ auth()->user()->telefone_usuario }}" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="email" class="form-control" id="email" placeholder="Email"
+                                    data-rule="minlen:4" data-msg="Digite um Email valido!"
+                                    value="{{ auth()->user()->email }}" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade"
+                                    data-rule="email" data-msg="Digite sua cidade!"
+                                    value="{{ auth()->user()->cidade_usuario }}" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="password" class="form-control" name="password" id="password"
+                                    placeholder="Senha" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="password" class="form-control" name="password_confirmation"
+                                    id="password_confirmation" placeholder="Confirmar senha" />
+                            </div>
                         </div>
-                    </div>
-
+                        <div class="text-center">
+                            <button type="submit" onclick="editUser();"><i class="fa fa-circle-o-notch"
+                                    aria-hidden="true"></i>
+                                Salvar</button>
+                            <button type="submit" onclick="reset();"><i class="fa fa-refresh" aria-hidden="true"></i> Limpar</button>
+                        </div>
+                    </form>
                 </div>
-            </div>
 
-        </section>
+            </div>
+        </section><!-- #contact -->
+
 
     </main>
 
@@ -149,13 +188,14 @@
     <!--==========================
           Footer
         ============================-->
+    <br><br><br>
     <footer id="footer">
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong>TheEvent</strong> . All Rights Reserved
+                &copy; Copyright <strong>Anna Jessica</strong> . Todos os direitos reservados!
             </div>
             <div class="credits">
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Desenvolvido por <a href="https://edeev.com.br/">EDEV</a>
             </div>
         </div>
     </footer><!-- #footer -->
@@ -172,9 +212,13 @@
     <script src="{{asset('lib/wow/wow.min.js')}}"></script>
     <script src="{{asset('lib/venobox/venobox.min.js')}}"></script>
     <script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
     <!-- Contact Form JavaScript File -->
-    <script src="{{asset('js/contactform.js')}}"></script>
+    <script src="{{ asset('js/contactform.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/jquery.mask.js') }}" />
+    </script>
 
     <!-- Template Main Javascript File -->
     <script src="{{asset('js/main.js')}}"></script>

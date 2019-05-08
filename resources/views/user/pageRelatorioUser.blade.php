@@ -13,9 +13,7 @@
     <link href="{{asset('img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
     <link href="{{asset('lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -29,6 +27,7 @@
     <!-- Main Stylesheet File -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/efeito.css')}}" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     <!-- =======================================================
           Author: EDEV
@@ -51,37 +50,25 @@
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="sem menu-active ini"><a href="#intro">Inicio</a></li>
-                    <li class="sem sobre"><a href="#about">Sobre</a></li>
-                    <li class="sem port"><a href="#speakers">Portifolio</a></li>
-                    <li class="sem age"><a href="#schedule">Agenda</a></li>
-                    <li class="sem ser"><a href="#hotels">Serviços</a></li>
-                    <li class="sem eve"><a href="#buy-tickets">Eventos</a></li>
-                    @guest<li class="sem inc"><a href="#contact">Inscrições</a></li>@endguest
-                    <li class="sem fc"><a href="#footer">Fale conosco</a></li>
+                    <li class="sem menu-active ini"><a href="#intro">Relatorios</a></li>
                     @auth
                     <li class="dropdown show">
-                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ auth()->user()->nome_usuario }}
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item item-user" href="{{ route('home') }}"><i class="fa fa-home"></i>
                                 Inicio</a><br>
-                            <a class="dropdown-item item-user" href="{{ route('perfil') }}"><i class="fa fa-user"></i>
-                                Perfil</a><br>
+                            <a class="dropdown-item item-user" href="{{ url()->previous() }}"><i class="fa fa-arrow-left"></i> Voltar</a><br>
                             @if(auth()->user()->id_tipo_usuario == 1)
-                            <a class="dropdown-item item-user" href="{{ route('adminConf') }}"><i
-                                    class="fa fa-gear"></i> Configuração</a><br>
+                            <a class="dropdown-item item-user" href="{{ route('adminConf') }}"><i class="fa fa-gear"></i> Configuração</a><br>
 
                             @else
-                            <a class="dropdown-item item-user" href="{{ url()->previous() }}"><i
-                                    class="fa fa-arrow-left"></i> Voltar</a><br>
+                            <a class="dropdown-item item-user" href="{{ route('perfil') }}"><i class="fa fa-user"></i>
+                                Perfil</a><br>
                             @endif
-                            <a class="dropdown-item item-user" href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
-                                    class="fa fa-sign-out"></i> Sair</a>
+                            <a class="dropdown-item item-user" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> Sair</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
@@ -89,13 +76,13 @@
                         </div>
                     </li>
                     @else
-                    <li class="buy-tickets" data-toggle="modal" data-target="#buy-ticket-modal"
-                        data-ticket-type="premium-access"><a>Login</a></li>
+                    <li class="buy-tickets" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="premium-access"><a>Login</a></li>
                     @endauth
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
     </header><!-- #header -->
+
 
     <main id="main" class="main-page">
 
@@ -105,37 +92,76 @@
         <section id="speakers-details" class="wow fadeIn">
             <div class="container">
                 <div class="section-header">
-                    <h2>Speaker Details</h2>
-                    <p>Praesentium ut qui possimus sapiente nulla.</p>
+                    <h2>Relatorio</h2>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
-                        <img src="{{asset('img/speakers/1.jpg')}}" alt="Speaker 1" class="img-fluid">
-                    </div>
 
-                    <div class="col-md-6">
-                        <div class="details">
-                            <h2>Brenden Legros</h2>
-                            <div class="social">
-                                <a href=""><i class="fa fa-twitter"></i></a>
-                                <a href=""><i class="fa fa-facebook"></i></a>
-                                <a href=""><i class="fa fa-google-plus"></i></a>
-                                <a href=""><i class="fa fa-linkedin"></i></a>
-                            </div>
-                            <p>Voluptatem perferendis sed assumenda voluptatibus. Laudantium molestiae sint. Doloremque
-                                odio dolore dolore sit. Quae labore alias ea omnis ex expedita sapiente molestias atque.
-                                Optio voluptas et.</p>
-
-                            <p>Aboriosam inventore dolorem inventore nam est esse. Aperiam voluptatem nisi molestias
-                                laborum ut. Porro dignissimos eum. Tempore dolores minus unde est voluptatum incidunt ut
-                                aperiam.</p>
-
-                            <p>Et dolore blanditiis officiis non quod id possimus. Optio non commodi alias sint culpa
-                                sapiente nihil ipsa magnam. Qui eum alias provident omnis incidunt aut. Eius et officia
-                                corrupti omnis error vel quia omnis velit. In qui debitis autem aperiam voluptates unde
-                                sunt et facilis.</p>
-                        </div>
+                    <div class="col-md-12 tabelaRelatorio">
+                        <table id="relatorioUser" class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th class="tabelaRelatorioA">Evento</th>
+                                    <th class="tabelaRelatorioB">Data</th>
+                                    <th class="tabelaRelatorioB">Horario</th>
+                                    <th class="tabelaRelatorioB">Valor</th>
+                                    <th class="tabelaRelatorioB">Status</th>
+                                    <th class="tabelaRelatorioC">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2º Nigth Bike Maranguape 2019</td>
+                                    <td>25-09-2018</td>
+                                    <td>10:00</td>
+                                    <td>R$ 150.00</td>
+                                    <td>Pagamento confirmado</td>
+                                    <td>
+                                        <center><i class="fa fa-file-pdf-o" aria-hidden="true"></i></center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2º Nigth Bike Maranguape 2019</td>
+                                    <td>25-09-2018</td>
+                                    <td>10:00</td>
+                                    <td>R$ 150.00</td>
+                                    <td>Pagamento confirmado</td>
+                                    <td>
+                                        <center><i class="fa fa-file-pdf-o" aria-hidden="true"></i></center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2º Nigth Bike Maranguape 2019</td>
+                                    <td>25-09-2018</td>
+                                    <td>10:00</td>
+                                    <td>R$ 150.00</td>
+                                    <td>Pagamento confirmado</td>
+                                    <td>
+                                        <center><i class="fa fa-file-pdf-o" aria-hidden="true"></i></center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2º Nigth Bike Maranguape 2019</td>
+                                    <td>25-09-2018</td>
+                                    <td>10:00</td>
+                                    <td>R$ 150.00</td>
+                                    <td>Pagamento confirmado</td>
+                                    <td>
+                                        <center><i class="fa fa-file-pdf-o" aria-hidden="true"></i></center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2º Nigth Bike Maranguape 2019</td>
+                                    <td>25-09-2018</td>
+                                    <td>10:00</td>
+                                    <td>R$ 150.00</td>
+                                    <td>Pagamento confirmado</td>
+                                    <td>
+                                        <center><i class="fa fa-file-pdf-o" aria-hidden="true"></i></center>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                 </div>
@@ -152,10 +178,10 @@
     <footer id="footer">
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong>TheEvent</strong> . All Rights Reserved
+                &copy; Copyright <strong>Anna Jessica</strong> . Todos os direitos reservados!
             </div>
             <div class="credits">
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Desenvolvido por <a href="https://edeev.com.br/">EDEV</a>
             </div>
         </div>
     </footer><!-- #footer -->
@@ -175,9 +201,23 @@
 
     <!-- Contact Form JavaScript File -->
     <script src="{{asset('js/contactform.js')}}"></script>
+    <script src="{{ asset('js/jquery.mask.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
     <!-- Template Main Javascript File -->
     <script src="{{asset('js/main.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#relatorioUser').DataTable({
+                "processing": true,
+                "responsive": true,
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

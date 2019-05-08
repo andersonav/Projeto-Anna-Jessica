@@ -77,13 +77,13 @@ $(window).scroll(function () {
             $('.ser').addClass('menu-active');
         });
     }
-    else if ($(this).scrollTop() > 3050 && $(this).scrollTop() < 4480) {
+    else if ($(this).scrollTop() > 3050 && $(this).scrollTop() < 4400) {
         $('.sem').each(function () {
             $(this).removeClass('menu-active');
             $('.eve').addClass('menu-active');
         });
     }
-    else if ($(this).scrollTop() > 4480 && $(this).scrollTop() < 4800 && $('.inc').hasClass('sem') != undefined ) {
+    else if ($(this).scrollTop() > 4400 && $(this).scrollTop() < 4800 && $('.inc').hasClass('sem') != false ) {
         $('.sem').each(function () {
             $(this).removeClass('menu-active');
             $('.inc').addClass('menu-active');
