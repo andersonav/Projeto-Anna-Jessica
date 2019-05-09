@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
 });
 
 $(window).scroll(function () {
-    console.log($(this).scrollTop());
     if ($(this).scrollTop() < 550) {
         $('.sem').each(function () {
             $(this).removeClass('menu-active');

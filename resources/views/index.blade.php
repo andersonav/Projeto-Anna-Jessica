@@ -1193,6 +1193,8 @@
     <!-- Contact Form JavaScript File -->
     <script src="{{asset('js/contactform.js')}}"></script>
 
+    <script src="{{ asset('js/jquery.mask.js') }}"></script>
+
     <!-- Template Main Javascript File -->
     <script src="{{asset('js/main.js')}}"></script>
     <script src="{{asset('js/index.js')}}"></script>
