@@ -8,16 +8,14 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use Illuminate\Support\Facades\Response;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller {
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth');
     }
 
@@ -26,43 +24,42 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('index');
+    public function index() {
+        $title = "Anna Jéssica Oficial";
+        return view('index', compact('title'));
     }
 
-    public function adminConf()
-    {
+    public function adminConf() {
         if (auth()->user()->id_tipo_usuario == 1) {
-            return view('adminConf');
+            $title = "Administrador";
+            return view('adminConf', compact('title'));
         }
 
         return back();
     }
 
-    public function pageRelatorioUser()
-    {
+    public function pageRelatorioUser() {
         if (auth()->user()->id_tipo_usuario == 2) {
-            return view('user.pageRelatorioUser');
+            $title = "Relatório";
+            return view('user.pageRelatorioUser', compact('title'));
         }
 
         return back();
     }
 
-    public function perfil()
-    {
-        return view('perfil');
+    public function perfil() {
+        $title = "Perfil";
+        return view('perfil', compact('title'));
     }
 
-    public function editUser(Request $request)
-    {
+    public function editUser(Request $request) {
         $this->validateUserEdit($request);
 
         if ($request->password != null) {
-            $passwordNew = DB::table('usuario')->where('id_usuario', auth()->user()->id_usuario )->update(array('password' => bcrypt($request->password)));
+            $passwordNew = DB::table('usuario')->where('id_usuario', auth()->user()->id_usuario)->update(array('password' => bcrypt($request->password)));
         }
 
-        $altUser= DB::table('usuario')->where('id_usuario', auth()->user()->id_usuario )->update(array(
+        $altUser = DB::table('usuario')->where('id_usuario', auth()->user()->id_usuario)->update(array(
             'nome_usuario' => $request->nome,
             'telefone_usuario' => $request->telefone,
             'email' => $request->email,
@@ -81,6 +78,5 @@ class HomeController extends Controller
                     'password' => 'confirmed',
         ]);
     }
-
 
 }
