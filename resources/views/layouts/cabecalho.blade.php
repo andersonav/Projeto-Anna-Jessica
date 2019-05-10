@@ -48,7 +48,7 @@
         <!-- Template Main Javascript File -->
         <script src="{{asset('js/main.js')}}"></script>
         <script src="{{asset('js/index.js')}}"></script>
-     
+
 
 
         <!-- tudo sobre contagem -->
@@ -78,15 +78,59 @@ $(function () {
             ============================-->
         <br><br><br>
         <footer id="footer">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-3 col-md-6 footer-info">
+
+                            <img src="{{asset('img/logoteste.png')}}" alt="TheEvenet">
+                        </div>
+
+                        <div class="col-lg-3 col-md-3 footer-contact">
+
+
+                        </div>
+
+
+                        <div class="col-lg-3 col-md-6 footer-contact">
+                            <h4>Fale conosco</h4>
+                            <p>
+                                <strong><i class="fa fa-street-view"></i></strong> Maranguape - CE <br>
+                                <strong><i class="fa fa-phone"></i></strong> +55 (85) 98910-5894<br>
+                                <strong><i class="fa fa-envelope"></i></strong> annajessicaoficial@gmail.com<br>
+                            </p>
+
+                            <div class="social-links">
+                                <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
             <div class="container">
                 <div class="copyright">
-                    &copy; Copyright <strong>Anna Jessica</strong> . Todos os direitos reservados!
+                    &copy; Copyright <strong>Marca</strong>. Todos o s direitos reservados
                 </div>
                 <div class="credits">
-                    Desenvolvido por <a href="https://edeev.com.br/">EDEV</a>
+                    <!--
+                                All the links in the footer should remain intact.
+                         You can delete the links only if you purchased the pro version.
+                         Licensing information: https://bootstrapmade.com/license/
+                         Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
+                    -->
+                    desenvolvido por <a href="#">Edev</a>
                 </div>
             </div>
         </footer><!-- #footer -->
+
+
         <!-- JavaScript Libraries -->
 
     </body>
