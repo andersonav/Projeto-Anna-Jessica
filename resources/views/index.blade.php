@@ -25,7 +25,7 @@
                 @auth
                 <li class="dropdown show">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
+                        aria-haspopup="true" aria-expanded="false">
                         {{ auth()->user()->nome_usuario }}
                     </a>
 
@@ -33,15 +33,15 @@
                         <a class="dropdown-item item-user" href="{{ route('perfil') }}"><i class="fa fa-user"></i>
                             Perfil</a><br>
                         @if(auth()->user()->id_tipo_usuario == 1)
-                        <a class="dropdown-item item-user" href="{{ route('adminConf') }}"><i
-                                class="fa fa-gear"></i> Configuração</a><br>
+                        <a class="dropdown-item item-user" href="{{ route('adminConf') }}"><i class="fa fa-gear"></i>
+                            Configuração</a><br>
 
                         @else
                         <a class="dropdown-item item-user" href="{{ route('userRelatorio') }}"><i
                                 class="fa fa-file"></i> Relatórios</a><br>
                         @endif
                         <a class="dropdown-item item-user" href="{{ route('logout') }}"
-                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                                 class="fa fa-sign-out"></i> Sair</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
@@ -415,23 +415,23 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/1.png')}}"
-                                     alt="First slide">
+                                    alt="First slide">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/2.jpeg')}}"
-                                     alt="Second slide">
+                                    alt="Second slide">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/3.png')}}"
-                                     alt="Third slide">
+                                    alt="Third slide">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/4.png')}}"
-                                     alt="Third slide">
+                                    alt="Third slide">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/5.jpg')}}"
-                                     alt="Third slide">
+                                    alt="Third slide">
                             </div>
                         </div>
                     </div>
@@ -442,23 +442,23 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/1.png')}}"
-                                     alt="First slide">
+                                    alt="First slide">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/2.jpeg')}}"
-                                     alt="Second slide">
+                                    alt="Second slide">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/3.png')}}"
-                                     alt="Third slide">
+                                    alt="Third slide">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/4.png')}}"
-                                     alt="Third slide">
+                                    alt="Third slide">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/5.jpg')}}"
-                                     alt="Third slide">
+                                    alt="Third slide">
                             </div>
                         </div>
 
@@ -475,23 +475,23 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/1.png')}}"
-                                     alt="First slide">
+                                    alt="First slide">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/2.jpeg')}}"
-                                     alt="Second slide">
+                                    alt="Second slide">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/3.png')}}"
-                                     alt="Third slide">
+                                    alt="Third slide">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/4.png')}}"
-                                     alt="Third slide">
+                                    alt="Third slide">
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/5.jpg')}}"
-                                     alt="Third slide">
+                                    alt="Third slide">
                             </div>
                         </div>
 
@@ -545,7 +545,7 @@
                             <p>Produzimos conteúdo áudio visual, para divulgar sua empresa nas plataformas digitais.
                             </p>
                             <div class="text-center"><button type="submit" class="btnmodal" data-toggle="modal"
-                                                             data-target="#buy-ticket-modalservice2" data-ticket-type="premium-access">Veja
+                                    data-target="#buy-ticket-modalservice2" data-ticket-type="premium-access">Veja
                                     Agora</button>
                             </div><br>
                         </div>
@@ -563,7 +563,7 @@
                                 visual, fortográfica e imagens aéreas, que aproxima seu publico da sua empresa, além
                                 de aumentar a visibilidade da sua marca e seu alcance.</p>
                             <div class="text-center"><button type="submit" class="btnmodal" data-toggle="modal"
-                                                             data-target="#buy-ticket-modalservice3" data-ticket-type="premium-access">Veja
+                                    data-target="#buy-ticket-modalservice3" data-ticket-type="premium-access">Veja
                                     Agora</button>
                             </div><br>
                         </div>
@@ -640,8 +640,7 @@
                                         href="https://www.youtube.com/watch?v=2uqBWfDikAQ " Target=”_blank”>click
                                         aqui</a></li>
                                 <li><span class="fa-li"><i class="fa fa-check"></i></span>Video 2: <a
-                                        href="https://www.youtube.com/watch?v=mn8kKVxolbE&t=381s "
-                                        Target=”_blank”>click
+                                        href="https://www.youtube.com/watch?v=mn8kKVxolbE&t=381s " Target=”_blank”>click
                                         aqui</a></li>
                             </ul>
                             <hr>
@@ -729,7 +728,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <iframe width="100%" height="405" src="https://www.youtube.com/embed/iN1pWCVTwro" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -740,7 +739,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <iframe width="100%" height="405" src="https://www.youtube.com/embed/EnZH1410qwQ" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -765,9 +764,9 @@
                         </div>
                         <div class="col-lg-6">
                             <iframe width="100%" height="215" src="https://www.youtube.com/embed/bH-4R4Jbv00"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
                             </iframe>
                         </div>
                         <div class="col-lg-6">
@@ -808,23 +807,23 @@
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/1.png')}}"
-                                             alt="First slide">
+                                            alt="First slide">
                                     </div>
                                     <div class="carousel-item">
                                         <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/2.jpeg')}}"
-                                             alt="Second slide">
+                                            alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
                                         <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/3.png')}}"
-                                             alt="Third slide">
+                                            alt="Third slide">
                                     </div>
                                     <div class="carousel-item">
                                         <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/4.png')}}"
-                                             alt="Third slide">
+                                            alt="Third slide">
                                     </div>
                                     <div class="carousel-item">
                                         <img class="d-block w-100" src="{{ asset('img/anuncios/pasta1/5.jpg')}}"
-                                             alt="Third slide">
+                                            alt="Third slide">
                                     </div>
                                 </div>
 
@@ -906,8 +905,8 @@
                                 </div>
                                 <div class="col-11 col-lg-12">
                                     <button type="submit" class="btnilustre" data-toggle="modal"
-                                            data-target="#buy-ticket-modalsobrep"
-                                            data-ticket-type="premium-access">Sobre a Prova</button>
+                                        data-target="#buy-ticket-modalsobrep" data-ticket-type="premium-access">Sobre a
+                                        Prova</button>
                                 </div>
                                 <div class="col-11 col-lg-12">
                                     <center>
@@ -930,11 +929,11 @@
                                     <div class="text-center">
                                         @auth
                                         <button type="submit" class="btnmodal" data-toggle="modal"
-                                                data-target="#evento">Inscreva-se
+                                            data-target="#evento">Inscreva-se
                                             ja!</button>
                                         @else
                                         <ul class="nav-menu"><a href="#contact"><button type="submit"
-                                                                                        class="btnmodal">Inscreva-se
+                                                    class="btnmodal">Inscreva-se
                                                     ja!</button></a></ul>
                                         @endauth
                                     </div>
@@ -987,36 +986,66 @@
                     
                     </div> -->
 
-
             <div class="form">
                 <div id="sendmessage"></div>
                 <div id="errormessage"></div>
-                <form action="" method="post" role="form" class="contactForm">
+                <form action="{{ route('register') }}" method="POST">
+                    {{ csrf_field() }}
+                    @if ($errors->any())
+                    <script>
+                        $(document).ready(function () {
+                            var valor = 0;
+                            let isMobile = (function (a) {
+                                if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) {
+                                    return true
+                                } else {
+                                    return false
+                                }
+                            })(navigator.userAgent || navigator.vendor || window.opera)
+                            console.log(isMobile);
+                            if (isMobile) {
+                                valor = 8400
+                            }
+                            else {
+                                valor = 4600
+                            }
+                            $('html,body').animate({
+                                scrollTop: valor
+                            }, 'slow');
+                        });
+                    </script>
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="text" name="Nome" class="form-control" id="nome" placeholder="Nome"
-                                   data-rule="minlen:4" data-msg="Digite seu nome!" />
-                            <div class="validation"></div>
+                            <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome"
+                                value="{{ old('nome') }}" />
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="text" name="Telefone" class="form-control" id="telefone"
-                                   placeholder="Telefone" data-rule="minlen:4" data-msg="Digite um Telefone!" />
-                            <div class="validation"></div>
+                            <input type="text" name="telefone" class="form-control" id="telefone" placeholder="Telefone"
+                                value="{{ old('telefone') }}" />
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="text" name="Email" class="form-control" id="email" placeholder="Email"
-                                   data-rule="minlen:4" data-msg="Digite um Email valido!" />
-                            <div class="validation"></div>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="password" class="form-control" name="Senha" id="senha" placeholder="Senha"
-                                   data-rule="email" data-msg="Digite uma senha!" />
-                            <div class="validation"></div>
+                            <input type="text" name="email" class="form-control" id="email" placeholder="Email"
+                                value="{{ old('email') }}" />
                         </div>
                         <div class="form-group col-md-6">
                             <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade"
-                                   data-rule="email" data-msg="Digite sua cidade!" />
-                            <div class="validation"></div>
+                                value="{{ old('cidade') }}" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="password" class="form-control" name="password" id="password"
+                                placeholder="Senha" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="password" class="form-control" name="password_confirmation"
+                                id="password_confirmation" placeholder="confirmar senha" />
                         </div>
                     </div>
                     <div class="text-center"><button type="submit">Inscrever-se</button></div>
@@ -1029,8 +1058,7 @@
 </main>
 
 <!-- Modal -->
-<div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
+<div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -1054,7 +1082,7 @@
 <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -1071,8 +1099,7 @@
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Mensagem:</label>
-                        <textarea class="form-control" placeholder="Digite sua mensagem aqui."
-                                  id="mensagem"></textarea>
+                        <textarea class="form-control" placeholder="Digite sua mensagem aqui." id="mensagem"></textarea>
                     </div>
                 </form>
             </div>
@@ -1083,5 +1110,5 @@
         </div>
     </div>
 </div>
-   <script src="{{asset('js/efeito.js')}}"></script>
+<script src="{{asset('js/efeito.js')}}"></script>
 @endsection

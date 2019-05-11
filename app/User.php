@@ -9,7 +9,7 @@ class User extends Authenticatable {
 
     use Notifiable;
 
-    protected $table = "usuario";
+    protected $table = 'usuario';
     protected $primaryKey = 'id_usuario';
 
     const CREATED_AT = 'data_de_criacao';
