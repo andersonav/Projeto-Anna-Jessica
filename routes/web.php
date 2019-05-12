@@ -23,7 +23,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
     Route::get('/', 'HomeController@adminConf')->name('adminConf');
-    Route::post('/agenda', 'AdminController@pageAgenda')->name('getAgenda');
+    Route::post('/agenda', 'AdminController@pageAgenda')->name('pageAgenda');
+    Route::post('/anuncio', 'AdminController@pageAnuncio')->name('pageAnuncio');
+    Route::post('/apoio', 'AdminController@pageApoio')->name('pageApoio');
+    Route::post('/evento', 'AdminController@pageEvento')->name('pageEvento');
+    Route::post('/parceiro', 'AdminController@pageParceiro')->name('pageParceiro');
+    Route::post('/patrocinio', 'AdminController@pagePatrocinio')->name('pagePatrocinio');
+    Route::post('/realizacao', 'AdminController@pageRealizacao')->name('pageRealizacao');
 });
 Route::get('/perfil', 'HomeController@perfil')->name('perfil');
 

@@ -1839,3 +1839,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .cntDigit#cnt_2 {
     margin-left: 7px;
 }
+
+#tabela tbody tr, #tabela thead tr {
+    text-align: center !important;
+}

@@ -19,6 +19,7 @@
 
         <!-- Bootstrap CSS File -->
         <link href="{{asset('lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 
         <!-- Libraries CSS Files -->
         <link href="{{asset('lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
@@ -54,6 +55,8 @@
         <!-- tudo sobre contagem -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         <script src="js/jquery.countdown.js"></script>
+
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
         <script>
 $(function () {
     $(".digits").countdown({
