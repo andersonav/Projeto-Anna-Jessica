@@ -1,4 +1,4 @@
-<section id="schedule" class="section-with-bg wow fadeInUp">
+<section id="schedule" class="section-bg wow fadeInUp" style="overflow-x: hidden !important;">
     <div class="section-header">
         <span class="sombra digitar" id="age">Agenda</span>
         <h2>Agenda</h2>

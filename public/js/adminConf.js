@@ -13,7 +13,7 @@ $(document).ready(function () {
             cache: false,
             processData: false,
             beforeSend: function () {
-                // Load
+                $("body").append('<div class="loading">Carregando&#8230;</div>');
             },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -22,6 +22,8 @@ $(document).ready(function () {
                 valorId: valorId
             }, success: function (data, textStatus, jqXHR) {
                 $("#containerLoad").html(data);
+            }, complete: function (jqXHR, textStatus) {
+                $(".loading").remove();
             }
         });
     });
