@@ -18,7 +18,7 @@
                     @foreach($apoios as $apoio)
                     <tr>
                         <td>{{$apoio->nome_apoio}}</td>
-                        <td><a class="" onclick="editarApoio({{$apoio->id_apoio}}, '{{$apoio->nome_apoio}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="apagarApoio({{$apoio->id_apoio}});"><i class="fa fa-trash"></i></a></td>
+                        <td><a class="" data-toggle="modal" data-target="#newApoio" onclick="editarApoio({{$apoio->id_apoio}}, '{{$apoio->nome_apoio}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="apagarApoio({{$apoio->id_apoio}});"><i class="fa fa-trash"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -33,12 +33,14 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Novo Apoio</h5>
+                    <h5 class="modal-title" id="titleModal"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="" method="post" role="form" id="formAddApoio" class="contactForm">
+                <form action="javascript:void(0);" method="post" role="form" id="formAdmin" class="contactForm">
+                    <input type="hidden" name="action" id="addApoio" value="addApoio"/>
+                    <input type="hidden" name="id_apoio" id="" value=""/>
                     <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-12">
@@ -48,7 +50,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary">Adicionar</button>
+                        <button type="submit" class="btn btn-primary" id="btnAction"></button>
                     </div>
                 </form>
             </div>
@@ -57,3 +59,4 @@
 </section><!-- #contact -->
 
 <script src="{{asset('js/apoio.js')}}"></script>
+<script src="{{asset('js/operacao.js')}}"></script>

@@ -24,4 +24,21 @@ $(document).ready(function () {
             }
         }
     });
+
+
 });
+
+function adicionarApoio() {
+    $("input[name=action]").val('addApoio');
+    $("#nome").val();
+    $("#btnAction").html("Adicionar");
+    $("#titleModal").html("Novo Apoio");
+}
+
+function editarApoio(id, nome) {
+    $("input[name=action]").val('editApoio');
+    $("input[name=id_apoio]").val(id);
+    $("#nome").val(nome);
+    $("#btnAction").html("Editar");
+    $("#titleModal").html("Editar Apoio");
+}

@@ -23,13 +23,36 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
     Route::get('/', 'HomeController@adminConf')->name('adminConf');
-    Route::post('/agenda', 'AdminController@pageAgenda')->name('pageAgenda');
-    Route::post('/anuncio', 'AdminController@pageAnuncio')->name('pageAnuncio');
-    Route::post('/apoio', 'AdminController@pageApoio')->name('pageApoio');
-    Route::post('/evento', 'AdminController@pageEvento')->name('pageEvento');
-    Route::post('/parceiro', 'AdminController@pageParceiro')->name('pageParceiro');
-    Route::post('/patrocinio', 'AdminController@pagePatrocinio')->name('pagePatrocinio');
-    Route::post('/realizacao', 'AdminController@pageRealizacao')->name('pageRealizacao');
+
+    Route::group(['prefix' => 'agenda'], function () {
+        Route::post('/', 'AgendaController@pageAgenda')->name('pageAgenda');
+    });
+
+    Route::group(['prefix' => 'anuncio'], function () {
+        Route::post('/', 'AnuncioController@pageAnuncio')->name('pageAnuncio');
+    });
+
+    Route::group(['prefix' => 'apoio'], function () {
+        Route::post('/', 'ApoioController@pageApoio')->name('pageApoio');
+        Route::post('/addApoio', 'ApoioController@addApoio')->name('addApoio');
+        Route::post('/editApoio', 'ApoioController@editApoio')->name('editApoio');
+    });
+
+    Route::group(['prefix' => 'evento'], function () {
+        Route::post('/', 'EventoController@pageEvento')->name('pageEvento');
+    });
+
+    Route::group(['prefix' => 'parceiro'], function () {
+        Route::post('/', 'ParceiroController@pageParceiro')->name('pageParceiro');
+    });
+
+    Route::group(['prefix' => 'patrocinio'], function () {
+        Route::post('/', 'PatrocinioController@pagePatrocinio')->name('pagePatrocinio');
+    });
+
+    Route::group(['prefix' => 'realizacao'], function () {
+        Route::post('/', 'RealizacaoController@pageRealizacao')->name('pageRealizacao');
+    });
 });
 Route::get('/perfil', 'HomeController@perfil')->name('perfil');
 

@@ -32,6 +32,8 @@
         <link href="{{asset('css/efeito.css')}}" rel="stylesheet">
         <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
         <script src="{{asset('lib/jquery/jquery-migrate.min.js')}}"></script>
+        <script src="js/jquery.countdown.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
         <script src="{{asset('lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('lib/easing/easing.min.js')}}"></script>
         <script src="{{asset('lib/superfish/hoverIntent.js')}}"></script>
@@ -39,7 +41,7 @@
         <script src="{{asset('lib/wow/wow.min.js')}}"></script>
         <script src="{{asset('lib/venobox/venobox.min.js')}}"></script>
         <script src="{{asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
 
         <!-- Contact Form JavaScript File -->
         <script src="{{asset('js/contactform.js')}}"></script>
@@ -49,14 +51,14 @@
         <!-- Template Main Javascript File -->
         <script src="{{asset('js/main.js')}}"></script>
         <script src="{{asset('js/index.js')}}"></script>
+        <script src="{{asset('js/sweetalert2.all.min.js')}}"></script>
+
 
 
 
         <!-- tudo sobre contagem -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-        <script src="js/jquery.countdown.js"></script>
 
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
         <script>
 $(function () {
     $(".digits").countdown({
