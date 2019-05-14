@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Maio-2019 às 01:29
+-- Generation Time: 14-Maio-2019 às 02:41
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.2.17
 
@@ -49,8 +49,16 @@ CREATE TABLE `anuncio` (
   `id_anuncio` int(11) NOT NULL,
   `imagem` varchar(255) NOT NULL,
   `data_de_criacao` datetime NOT NULL,
-  `data_de_atualizacao` datetime NOT NULL
+  `data_de_atualizacao` datetime NOT NULL,
+  `status` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `anuncio`
+--
+
+INSERT INTO `anuncio` (`id_anuncio`, `imagem`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
+(1, 'Teste', '2019-05-12 01:30:00', '2019-05-12 01:30:00', 1);
 
 -- --------------------------------------------------------
 
@@ -62,8 +70,20 @@ CREATE TABLE `apoio` (
   `id_apoio` int(11) NOT NULL,
   `nome_apoio` varchar(255) NOT NULL,
   `data_de_criacao` datetime NOT NULL,
-  `data_de_atualizacao` datetime NOT NULL
+  `data_de_atualizacao` datetime NOT NULL,
+  `status` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `apoio`
+--
+
+INSERT INTO `apoio` (`id_apoio`, `nome_apoio`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
+(1, 'Teste', '2019-05-12 01:30:00', '2019-05-14 00:23:02', 1),
+(2, 'Opa', '2019-05-14 00:19:06', '2019-05-14 00:19:06', 1),
+(3, 'Hello', '2019-05-14 00:22:05', '2019-05-14 00:22:05', 1),
+(4, 'dsfdfdf', '2019-05-14 00:28:23', '2019-05-14 00:28:23', 1),
+(5, 'fdfdfkkk', '2019-05-14 00:32:15', '2019-05-14 00:32:58', 1);
 
 -- --------------------------------------------------------
 
@@ -80,10 +100,18 @@ CREATE TABLE `evento` (
   `informacao_adicional` varchar(255) NOT NULL,
   `percurso` varchar(255) NOT NULL,
   `distancia` varchar(45) NOT NULL,
+  `status` int(11) DEFAULT '1',
   `apoio_id_apoio` int(11) NOT NULL,
   `patrocinio_id_patrocinio` int(11) NOT NULL,
   `realizacao_id_realizacao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `evento`
+--
+
+INSERT INTO `evento` (`id_evento`, `nome_evento`, `data`, `hora_inicio`, `hora_fim`, `informacao_adicional`, `percurso`, `distancia`, `status`, `apoio_id_apoio`, `patrocinio_id_patrocinio`, `realizacao_id_realizacao`) VALUES
+(1, 'Ola', '2019-05-13 00:00:00', '13:00', '14:00', 'kkk', '20', '20', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -117,8 +145,16 @@ CREATE TABLE `parceiro` (
   `imagem_parceiro` varchar(255) NOT NULL,
   `descricao_parceiro` varchar(45) NOT NULL,
   `data_de_criacao` datetime NOT NULL,
-  `data_de_atualizacao` datetime NOT NULL
+  `data_de_atualizacao` datetime NOT NULL,
+  `status` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `parceiro`
+--
+
+INSERT INTO `parceiro` (`id_parceiro`, `imagem_parceiro`, `descricao_parceiro`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
+(1, 'Test', 'Oltesfdfd', '2019-05-12 01:30:00', '2019-05-12 01:30:00', 1);
 
 -- --------------------------------------------------------
 
@@ -130,8 +166,16 @@ CREATE TABLE `patrocinio` (
   `id_patrocinio` int(11) NOT NULL,
   `nome_patrocinio` varchar(255) NOT NULL,
   `data_de_criacao` datetime NOT NULL,
-  `data_de_atualizacao` datetime NOT NULL
+  `data_de_atualizacao` datetime NOT NULL,
+  `status` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `patrocinio`
+--
+
+INSERT INTO `patrocinio` (`id_patrocinio`, `nome_patrocinio`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
+(1, 'Testando', '2019-05-12 01:30:00', '2019-05-12 01:30:00', 1);
 
 -- --------------------------------------------------------
 
@@ -162,8 +206,16 @@ CREATE TABLE `realizacao` (
   `id_realizacao` int(11) NOT NULL,
   `nome_realizacao` varchar(45) NOT NULL,
   `data_de_criacao` datetime NOT NULL,
-  `data_de_atualizacao` datetime NOT NULL
+  `data_de_atualizacao` datetime NOT NULL,
+  `status` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `realizacao`
+--
+
+INSERT INTO `realizacao` (`id_realizacao`, `nome_realizacao`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
+(1, 'Testttt', '2019-05-12 01:30:00', '2019-05-12 01:30:00', 1);
 
 -- --------------------------------------------------------
 
@@ -217,6 +269,7 @@ CREATE TABLE `usuario` (
   `nome_usuario` varchar(45) NOT NULL,
   `telefone_usuario` varchar(45) NOT NULL,
   `nascimento_usuario` datetime NOT NULL,
+  `cidade_usuario` varchar(45) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `token` varchar(255) NOT NULL,
@@ -231,9 +284,9 @@ CREATE TABLE `usuario` (
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `telefone_usuario`, `nascimento_usuario`, `email`, `password`, `token`, `remember_token`, `ativo_usuario`, `data_de_criacao`, `data_de_atualizacao`, `id_tipo_usuario`) VALUES
-(1, 'Anderson Alves', '(85) 98835-5751', '2000-02-03 00:00:00', 'anderson.alvesprogrammer@gmail.com', '$2a$10$jjzLJXxKS/5qqylz5GHWjOvOabE/Ske6uFToaCCJtl8xEpAD5KRZ6', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'ULtSkFPiqrOJwzru2qI7vadYJgwNUoskswigUZGW0pHHYAwaH9DiPWQx44zt', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 1),
-(2, 'Test', '(85) 98835-5751', '2000-02-03 00:00:00', 'test@gmail.com', '$2a$10$jjzLJXxKS/5qqylz5GHWjOvOabE/Ske6uFToaCCJtl8xEpAD5KRZ6', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'qzAlZjLBA0OP0y8paQqYVIfNdjOhk2eVbToRAD10PskNYza2pVipKEhcHkns', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 2);
+INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `telefone_usuario`, `nascimento_usuario`, `cidade_usuario`, `email`, `password`, `token`, `remember_token`, `ativo_usuario`, `data_de_criacao`, `data_de_atualizacao`, `id_tipo_usuario`) VALUES
+(1, 'Anderson Alves', '(85) 98835-5751', '2000-02-03 00:00:00', 'Maranguape', 'anderson.alvesprogrammer@gmail.com', '$2a$10$jjzLJXxKS/5qqylz5GHWjOvOabE/Ske6uFToaCCJtl8xEpAD5KRZ6', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'Lx328Ddif6onJLwUhsep4MdEzPWzKRBgtyRyB2qewJTPKQIMXMeJ0VPc13pe', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 1),
+(2, 'Test', '(85) 98835-5751', '2000-02-03 00:00:00', 'Maranguape', 'test@gmail.com', '$2a$10$jjzLJXxKS/5qqylz5GHWjOvOabE/Ske6uFToaCCJtl8xEpAD5KRZ6', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 't9teSQxYco3I9nPRlu70r9wPcvGN5yY68J7E0RIUwLad6Kts45dHR5iQQDrz', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 2);
 
 -- --------------------------------------------------------
 
@@ -378,19 +431,19 @@ ALTER TABLE `agenda`
 -- AUTO_INCREMENT for table `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `id_anuncio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_anuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `apoio`
 --
 ALTER TABLE `apoio`
-  MODIFY `id_apoio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_apoio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `id_evento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `menu`
@@ -402,13 +455,13 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `parceiro`
 --
 ALTER TABLE `parceiro`
-  MODIFY `id_parceiro` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_parceiro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `patrocinio`
 --
 ALTER TABLE `patrocinio`
-  MODIFY `id_patrocinio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_patrocinio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `permissao`
@@ -420,7 +473,7 @@ ALTER TABLE `permissao`
 -- AUTO_INCREMENT for table `realizacao`
 --
 ALTER TABLE `realizacao`
-  MODIFY `id_realizacao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_realizacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `submenu`
