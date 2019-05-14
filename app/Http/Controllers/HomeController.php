@@ -47,6 +47,11 @@ class HomeController extends Controller {
         return back();
     }
 
+    public function compraKit() {
+        $title = "Compra Kit";
+        return view('user.compraKit', compact('title'));
+    }
+
     public function perfil() {
         $title = "Perfil";
         return view('perfil', compact('title'));

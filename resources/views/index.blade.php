@@ -928,9 +928,8 @@
                                     <br>
                                     <div class="text-center">
                                         @auth
-                                        <button type="submit" class="btnmodal" data-toggle="modal"
-                                            data-target="#evento">Inscreva-se
-                                            ja!</button>
+                                        <a class="" href="{{route('compra-kit')}}"><button type="button" class="btnmodal">Inscreva-se
+                                            ja!</button></a>
                                         @else
                                         <ul class="nav-menu"><a href="#contact"><button type="submit"
                                                     class="btnmodal">Inscreva-se
@@ -1022,6 +1021,7 @@
                         </ul>
                     </div>
                     @endif
+                    {{ csrf_field() }}
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome"
@@ -1058,25 +1058,6 @@
 </main>
 
 <!-- Modal -->
-<div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <a href="#" class="whats" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-whatsapp"></i></a>
 <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
