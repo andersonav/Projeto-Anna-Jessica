@@ -151,7 +151,7 @@
                     <div class="speaker">
                         <img src="{{asset('img/postifolio/corrida.JPG')}}" alt="Speaker 6" class="img-fluid">
                         <div class="details">
-                            <h3><a href="javascript:void(0);">Cerimônial</a></h3>
+                            <h3><a href="javascript:void(0);">Cerimônial Corporativo</a></h3>
                             <div class="social">
                                 <!-- <a href="#"><i class="fa fa-twitter"></i></a>
                                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -761,7 +761,27 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-6">
+                            <h7>
+                                <b>Leve Anna Jessica para apresentar seu evento esportivo com uma locução eficaz,
+                                    interativa, dinâmica e inovadora na voz feminina.</b>
+                            </h7>
+                            <br><br>
+                            <i class="fa fa-check" aria-hidden="true"></i> 1º Circuito Fitec de Corridas de Rua (4 Etapas) - Maranguape-CE 2017 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> Cross Urbano Caixa (Etapa Fortaleza) - Fortaleza-CE 2017 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> Corrida Vida Longa - Aterro de Iracema - Fortaleza-CE 2018 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> Centenário do Fortaleza - Centro de Formação Olímpica (CFO) - Fortaleza-CE 2018 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> Corrida 50 anos da Receira Federal - Parque Cocó - Fortaleza-CE 2018 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> Corrida BV Sports - Praça Antônio Queiroz -  Boa Viagem-CE 2018 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> 1º Circuito Fitec de Corridas de Rua (4 Etapas) - Maranguape-CE 2018 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> Corrida New Balance - Estacionamento do Shopping RioMar Fortaleza - Fortaleza-CE 2018 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> Circuitos das Estações (Etapa Verão) - Aterro de Iracema - Fortaleza-CE 2018 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> 7º Corrida de São Sebastião - Praça Capistrano de Abreu - Maranguape-CE 2019 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> Treino Solidário Herben Alves - Praça das Artes MRV Maraponga - Fortaleza-CE 2019 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> Circuitos das Estações (Etapa Outono) - Estacionamento do Shopping RioMar Fortaleza - Fortaleza-CE 2019 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> 3º Corrida do Humor de Maranguape - Casa do Chico Anysio - Maranguape-CE 2019 <hr>
+                            
                         </div>
+
                         <div class="col-lg-6">
                             <iframe width="100%" height="215" src="https://www.youtube.com/embed/bH-4R4Jbv00"
                                 frameborder="0"
@@ -769,12 +789,7 @@
                                 allowfullscreen>
                             </iframe>
                         </div>
-                        <div class="col-lg-6">
-
-                        </div>
-                        <div class="col-lg-6">
-
-                        </div>
+                        
 
                     </div>
 
@@ -799,7 +814,16 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-6">
-
+                            <h7>
+                                <b>Mediação de eventos corporativos, entrevistas e talk shows.</b>
+                            </h7>
+                            <br><br>
+                            <i class="fa fa-check" aria-hidden="true"></i> Desfile Miss Senador Pompeu - Ginásio Poliesportivo - Senador Pompeu-CE 2015 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> Desfile da Moda Maranguape - Praça CEL.Joaquim Sombra - Maranguape-CE 2017 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> 9ª Festival Nacional de Humor de Maranguape - Praça Capistrano de Abreu - Maranguape-CE 2017 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> Cerimônial Dia das Mães Colégio Espaço Livre - Maranguape Shopping Mall - Maranguape-CE 2018 <hr>
+                            <i class="fa fa-check" aria-hidden="true"></i> Inaguração - Novas Instalações da CDL de Boa Viagem - Rua 21 de Novembro - Boa Viagem-CE 2018 <hr>
+                            
                         </div>
                         <div class="col-lg-6">
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -829,10 +853,6 @@
 
                             </div>
                         </div>
-                        <div class="col-lg-6">
-
-                        </div>
-                        <div class="col-lg-6">
 
                         </div>
 
@@ -928,8 +948,9 @@
                                     <br>
                                     <div class="text-center">
                                         @auth
-                                        <a class="" href="{{route('compra-kit')}}"><button type="button" class="btnmodal">Inscreva-se
-                                            ja!</button></a>
+                                        <a class="" href="{{route('compra-kit')}}"><button type="button"
+                                                class="btnmodal">Inscreva-se
+                                                ja!</button></a>
                                         @else
                                         <ul class="nav-menu"><a href="#contact"><button type="submit"
                                                     class="btnmodal">Inscreva-se
