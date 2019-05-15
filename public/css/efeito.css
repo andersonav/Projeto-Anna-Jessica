@@ -43,7 +43,7 @@
         transition: background 0.5s ease-in-out;
     }
 
-    
+
 
 }
 
@@ -68,14 +68,49 @@
     color: #fff;
 }
 
+.btn-light {
+    border-color: #ccc !important;
+}
+
+.custom-file-input:lang(en)~.custom-file-label::after {
+    content: "Browse";
+}
+
+.custom-file-label::after {
+    content: "Selecionar" !important;
+    cursor: pointer;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: #dc3545 !important;
+}
+
+.bootstrap-select>.dropdown-toggle {
+    width: 113% !important;
+}
+
+.custom-file-input {
+    outline-color: #dc3545 !important;
+    margin: 0% 0% -3% 65%;
+    cursor: pointer !important;
+    z-index: 1 !important;
+}
+
+.bootstrap-select .dropdown-toggle:focus,
+.bootstrap-select>select.mobile-device:focus+.dropdown-toggle {
+    outline-color: #6c757d !important;
+}
+
 .whats:hover {
     background: #e0072f;
     color: #fff;
 }
 
-.item-user{
+.item-user {
     color: black !important;
 }
-.item-user:hover{
+
+.item-user:hover {
     color: #e0072f !important;
 }

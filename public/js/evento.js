@@ -24,4 +24,7 @@ $(document).ready(function () {
             }
         }
     });
+    $('.newEvento').on('click', function(){
+        $('.btn-light').attr('style','outline-color: #6c757d !important');
+    });
 });

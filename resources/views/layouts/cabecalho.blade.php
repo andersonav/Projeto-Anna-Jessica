@@ -52,6 +52,8 @@
         <script src="{{asset('js/main.js')}}"></script>
         <script src="{{asset('js/index.js')}}"></script>
         <script src="{{asset('js/sweetalert2.all.min.js')}}"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 
 
 
@@ -60,13 +62,13 @@
 
 
         <script>
-$(function () {
-    $(".digits").countdown({
-        image: "img/digits.png",
-        format: "dd:hh:mm:ss",
-        endTime: new Date(2019, 5, 6)
-    });
-});
+            $(function () {
+                $(".digits").countdown({
+                    image: "img/digits.png",
+                    format: "dd:hh:mm:ss",
+                    endTime: new Date(2019, 5, 6)
+                });
+            });
         </script>
         <!-- =======================================================
                   Author: EDEV

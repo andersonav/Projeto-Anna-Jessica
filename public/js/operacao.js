@@ -20,13 +20,15 @@ $("#formAdmin").submit(function (e) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (data) {
-            $(".modal").modal('hide');
-            swal({
-                title: '<strong>Operação realizada com sucesso!</strong>',
-                type: 'success',
-                showCloseButton: true,
-            });
-            $(".nav-menu li.sem.menu-active").trigger('click');
+            $(".fechar").click();
+            setTimeout(function () {
+                swal({
+                    title: '<strong>Operação realizada com sucesso!</strong>',
+                    type: 'success',
+                    showCloseButton: true,
+                });
+                $(".nav-menu li.sem.menu-active").trigger('click');
+            }, 500);
         }, error: function (errors, textStatus, errorThrown) {
 
             $.each(errors.responseJSON, function (key, value) {
