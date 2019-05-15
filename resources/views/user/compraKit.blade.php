@@ -3,7 +3,7 @@
 <!--==========================
           Header
         ============================-->
-<header id="header">
+<header id="header" class="navmenu">
     <div class="container">
 
         <div id="logo" class="pull-left">
@@ -14,29 +14,20 @@
 
         <nav id="nav-menu-container">
             <ul class="nav-menu">
-                <li class="sem menu-active ini"><a href="#intro">Perfil</a></li>
                 @auth
                 <li class="dropdown show">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
+                        aria-haspopup="true" aria-expanded="false">
                         {{ auth()->user()->nome_usuario }}
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item item-user" href="{{ route('home') }}"><i class="fa fa-home"></i>
-                            Inicio</a><br>
                         <a class="dropdown-item item-user" href="{{ url()->previous() }}"><i
                                 class="fa fa-arrow-left"></i> Voltar</a><br>
-                        @if(auth()->user()->id_tipo_usuario == 1)
-                        <a class="dropdown-item item-user" href="{{ route('adminConf') }}"><i
-                                class="fa fa-gear"></i> Configuração</a><br>
 
-                        @else
-                        <a class="dropdown-item item-user" href="{{ route('userRelatorio') }}"><i
-                                class="fa fa-file"></i> Relatórios</a><br>
-                        @endif
+
                         <a class="dropdown-item item-user" href="{{ route('logout') }}"
-                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                                 class="fa fa-sign-out"></i> Sair</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
@@ -53,63 +44,120 @@
     </div>
 </header><!-- #header -->
 
+
+
 <main id="main" class="main-page">
+    <section id="venue" class="wow fadeInUp padv">
+
+        <div class="container-fluid">
+
+
+            <div class="row no-gutters">
+                <!-- <div class="col-lg-4 venue-map">
+                                <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="img-fluid">
+                            </div> -->
+
+                <div class="col-lg-12 venue-info">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3">
+                            <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imgcomp">
+                        </div>
+
+                        <div class="col-11 col-lg-5" id="insc">
+                            <div class="col-11 col-lg-12">
+                                <div class="col-11 col-lg-12">
+                                    <h2><a href="#">2º Nigth Bike Maranguape 2019</a></h2>
+                                    <h7 class="text-uppercase "><a href="#">Passeio Ciclistico</a></h7>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <hr>
+        <div class="col-lg-12 venue-info">
+            <div class="row justify-content-center">
+
+                <div class="col-lg-8">
+                    <h4><i class="fa fa-circle" aria-hidden="true"></i> <b>Veja as opçoes de kits para este evento!</b></h4>
+                    <div class="col-lg-12" id="kit">
+                            <div class="row justify-content-center">
+                            <div class="col-lg-3">
+                                <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imgcomp">
+                            </div>
+    
+                            <div class="col-11 col-lg-5" id="insc">
+                                <div class="col-11 col-lg-12">
+                                    <div class="col-11 col-lg-12">
+                                        <h5><b>Kit Estações</b></h5>
+                                        <h7 >Camiseta ProRun Seamless HiveTech, Sacola Térmica, Glass Mug e Medalha (pós-evento)</7>
+    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4" style="padding:50px;">
+                                <h5><b>R$ 80,90</b></h5>
+                                <button class="btnmodal">Quero Este</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12" id="kit">
+                            <div class="row justify-content-center">
+                            <div class="col-lg-3">
+                                <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imgcomp">
+                            </div>
+    
+                            <div class="col-11 col-lg-5" id="insc">
+                                <div class="col-11 col-lg-12">
+                                    <div class="col-11 col-lg-12">
+                                        <h5><b>Kit Estações</b></h5>
+                                        <h7 >Camiseta ProRun Seamless HiveTech, Sacola Térmica, Glass Mug e Medalha (pós-evento)</7>
+    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4" style="padding:50px;">
+                                <h5><b>R$ 80,90</b></h5>
+                                <button class="btnmodal">Quero Este</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h4><i class="fa fa-check-square" aria-hidden="true"></i> <b>Dados da Compra</b></h4>
+                    <div class="col-lg-12"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!--==========================
           Speaker Details Section
         ============================-->
-    <section id="contact" class="section-bg wow fadeInUp">
 
-        <div class="container">
 
-            <div class="section-header">
-                <h2>Perfil</h2>
-            </div>
-            <div class="form">
-                <div id="sendmessage"></div>
-                <div id="errormessage"></div>
-                <form action="" method="post" role="form" id="form" class="contactForm">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome"
-                                   data-rule="minlen:4" data-msg="Digite seu nome!"
-                                   value="{{ auth()->user()->nome_usuario }}" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="text" name="telefone" class="form-control" id="telefone"
-                                   placeholder="Telefone" data-rule="minlen:10" data-msg="Digite um Telefone!"
-                                   value="{{ auth()->user()->telefone_usuario }}" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="text" name="email" class="form-control" id="email" placeholder="Email"
-                                   data-rule="minlen:4" data-msg="Digite um Email valido!"
-                                   value="{{ auth()->user()->email }}" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade"
-                                   data-rule="email" data-msg="Digite sua cidade!"
-                                   value="{{ auth()->user()->cidade_usuario }}" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="password" class="form-control" name="password" id="password"
-                                   placeholder="Senha" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <input type="password" class="form-control" name="password_confirmation"
-                                   id="password_confirmation" placeholder="Confirmar senha" />
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" onclick="editUser();"><i class="fa fa-circle-o-notch"
-                                                                       aria-hidden="true"></i>
-                            Salvar</button>
-                        <button type="submit" onclick="reset();"><i class="fa fa-refresh" aria-hidden="true"></i> Limpar</button>
-                    </div>
-                </form>
-            </div>
 
-        </div>
-    </section><!-- #contact -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </main>
