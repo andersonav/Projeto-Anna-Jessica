@@ -66,7 +66,7 @@
                 $(".digits").countdown({
                     image: "img/digits.png",
                     format: "dd:hh:mm:ss",
-                    endTime: new Date(2019, 5, 6)
+                    endTime: new Date(2019, 4, 16)
                 });
             });
         </script>

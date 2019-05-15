@@ -59,6 +59,10 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Novo Evento</h5>
+                    <button class="btn btn-danger link" style="margin: 0% 0% 0% 65%;">
+                        <i class="fa fa-plus"></i> 
+                        adicionar link
+                    </button>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -99,6 +103,22 @@
                                     placeholder="Horario final" />
                             </div>
                             <div class="form-group col-md-4">
+                                <input type="text" name="data_encerramento" class="form-control" id="data_encerramento" placeholder="Prazo inscrição" />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <select class="selectpicker show-tick" data-live-search="true" title="Modo:">
+                                    <option>Fique por dentro!</option>
+                                    <option>Em breve!</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <select class="selectpicker show-tick" data-live-search="true" title="Tipo:">
+                                    <option>Quadro</option>
+                                    <option>Destaque</option>
+                                    <option>Armazenamento</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
                                 <input type="text" name="percurso" class="form-control" id="percurso"
                                     placeholder="Percurso" />
                             </div>
@@ -115,10 +135,6 @@
                                     @endforelse
                                 </select>
                             </div>
-                            <div class="form-group col-md-12">
-                                <label for="comment">Informações adicionais</label>
-                                <textarea class="form-control" name="info_adc" rows="5" id="comment" placeholder="Digite aqui as informações adicionais"></textarea>
-                            </div>
                             <div class="input-group col-md-8">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupFileAddon01">Imagem: </span>
@@ -128,6 +144,27 @@
                                         aria-describedby="inputGroupFileAddon01">
                                     <label class="custom-file-label" for="inputGroupFile01">Seu arquivo</label>
                                 </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <input type="text" name="endereco" class="form-control" id="endereco"
+                                    placeholder="Endereço" />
+                            </div>
+                            <div class="input-group col-md-12">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon1">Nome</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Ex: video" aria-label="Username" aria-describedby="basic-addon1">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Link</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Ex: www.youtube.com" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                      <span class="input-group-text" id="basic-addon2">Remover</span>
+                                    </div>
+                            </div>
+                            <div class="form-group col-md-12"><br>
+                                <label for="comment">Informações adicionais</label>
+                                <textarea class="form-control" name="info_adc" rows="5" id="comment" placeholder="Digite aqui as informações adicionais"></textarea>
                             </div>
                         </div>
                     </div>

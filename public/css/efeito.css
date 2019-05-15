@@ -97,6 +97,10 @@
     z-index: 1 !important;
 }
 
+.input-group-text {
+    height: 38px;
+}
+
 .bootstrap-select .dropdown-toggle:focus,
 .bootstrap-select>select.mobile-device:focus+.dropdown-toggle {
     outline-color: #6c757d !important;
