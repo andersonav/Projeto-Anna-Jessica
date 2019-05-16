@@ -101,6 +101,19 @@
     height: 38px;
 }
 
+.linkDiv {
+    margin: 0% 0% 2% 0%;
+}
+
+.attrRemove {
+    background-color: #dc3545;
+    color: white;
+}
+
+.click{
+    cursor: pointer;
+}
+
 .bootstrap-select .dropdown-toggle:focus,
 .bootstrap-select>select.mobile-device:focus+.dropdown-toggle {
     outline-color: #6c757d !important;
