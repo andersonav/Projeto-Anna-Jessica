@@ -26,10 +26,16 @@ Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
 
     Route::group(['prefix' => 'agenda'], function () {
         Route::post('/', 'AgendaController@pageAgenda')->name('pageAgenda');
+        Route::post('/addAgenda', 'AgendaController@addAgenda')->name('addAgenda');
+        Route::post('/editAgenda', 'AgendaController@editAgenda')->name('editAgenda');
+        Route::post('/deleteAgenda', 'AgendaController@deleteAgenda')->name('deleteAgenda');
     });
 
     Route::group(['prefix' => 'anuncio'], function () {
         Route::post('/', 'AnuncioController@pageAnuncio')->name('pageAnuncio');
+        Route::post('/addAnuncio', 'AnuncioController@addAnuncio')->name('addAnuncio');
+        Route::post('/editAnuncio', 'AnuncioController@editAnuncio')->name('editAnuncio');
+        Route::post('/deleteAnuncio', 'AnuncioController@deleteAnuncio')->name('deleteAnuncio');
     });
 
     Route::group(['prefix' => 'apoio'], function () {
@@ -41,10 +47,16 @@ Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
 
     Route::group(['prefix' => 'evento'], function () {
         Route::post('/', 'EventoController@pageEvento')->name('pageEvento');
+        Route::post('/addEvento', 'EventoController@addEvento')->name('addEvento');
+        Route::post('/editEvento', 'EventoController@editEvento')->name('editEvento');
+        Route::post('/deleteEvento', 'EventoController@deleteEvento')->name('deleteEvento');
     });
 
     Route::group(['prefix' => 'parceiro'], function () {
         Route::post('/', 'ParceiroController@pageParceiro')->name('pageParceiro');
+        Route::post('/addParceiro', 'ParceiroController@addParceiro')->name('addParceiro');
+        Route::post('/editParceiro', 'ParceiroController@editParceiro')->name('editParceiro');
+        Route::post('/deleteParceiro', 'ParceiroController@deleteParceiro')->name('deleteParceiro');
     });
 
     Route::group(['prefix' => 'patrocinio'], function () {
@@ -56,6 +68,9 @@ Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
 
     Route::group(['prefix' => 'realizacao'], function () {
         Route::post('/', 'RealizacaoController@pageRealizacao')->name('pageRealizacao');
+        Route::post('/addRealizacao', 'RealizacaoController@addRealizacao')->name('addRealizacao');
+        Route::post('/editRealizacao', 'RealizacaoController@editRealizacao')->name('editRealizacao');
+        Route::post('/deleteRealizacao', 'RealizacaoController@deleteRealizacao')->name('deleteRealizacao');
     });
 });
 Route::get('/perfil', 'HomeController@perfil')->name('perfil');

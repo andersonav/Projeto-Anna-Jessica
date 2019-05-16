@@ -18,7 +18,7 @@
                     @foreach($realizacoes as $realizacao)
                     <tr>
                         <td>{{$realizacao->nome_realizacao}}</td>
-                        <td><a class="" onclick="editarRealizacao({{$realizacao->id_realizacao}}, '{{$realizacao->nome_realizacao}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="apagarRealizacao({{$realizacao->id_realizacao}});"><i class="fa fa-trash"></i></a></td>
+                        <td><a class="" data-toggle="modal" data-target="#newRealizacao" onclick="editarRealizacao({{$realizacao->id_realizacao}}, '{{$realizacao->nome_realizacao}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetRealizacao({{$realizacao->id_realizacao}});"><i class="fa fa-trash"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -38,7 +38,9 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="" method="post" role="form" id="formAddRealizacao" class="contactForm">
+                <form action="" method="post" role="form" id="formAdmin" class="contactForm">
+                    <input type="hidden" name="action" id="addRealizacao" value="addApoio"/>
+                    <input type="hidden" name="id_realizacao" id="" value=""/>
                     <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-12">
@@ -47,8 +49,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary">Adicionar</button>
+                        <button type="button" class="btn btn-secondary fechar" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" id="btnAction">Adicionar</button>
                     </div>
                 </form>
             </div>
@@ -57,3 +59,4 @@
 </section><!-- #contact -->
 
 <script src="{{asset('js/realizacao.js')}}"></script>
+<script src="{{asset('js/operacao.js')}}"></script>
