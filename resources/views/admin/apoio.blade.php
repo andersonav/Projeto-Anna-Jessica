@@ -18,7 +18,7 @@
                     @foreach($apoios as $apoio)
                     <tr>
                         <td>{{$apoio->nome_apoio}}</td>
-                        <td><a class="" data-toggle="modal" data-target="#newApoio" onclick="editarApoio({{$apoio->id_apoio}}, '{{$apoio->nome_apoio}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="apagarApoio({{$apoio->id_apoio}});"><i class="fa fa-trash"></i></a></td>
+                        <td><a class="" data-toggle="modal" data-target="#newApoio" onclick="editarApoio({{$apoio->id_apoio}}, '{{$apoio->nome_apoio}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetApoio({{$apoio->id_apoio}});"><i class="fa fa-trash"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -36,6 +36,7 @@ Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
         Route::post('/', 'ApoioController@pageApoio')->name('pageApoio');
         Route::post('/addApoio', 'ApoioController@addApoio')->name('addApoio');
         Route::post('/editApoio', 'ApoioController@editApoio')->name('editApoio');
+        Route::post('/deleteApoio', 'ApoioController@deleteApoio')->name('deleteApoio');
     });
 
     Route::group(['prefix' => 'evento'], function () {

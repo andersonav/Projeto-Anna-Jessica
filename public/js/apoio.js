@@ -67,3 +67,9 @@ function abrirSweetApoio(id) {
     });
 
 }
+
+function deletarApoio(id) {
+    $("input[name=action]").val('deleteApoio');
+    $("input[name=id_apoio]").val(id);
+    $("#btnAction").trigger('click');
+}

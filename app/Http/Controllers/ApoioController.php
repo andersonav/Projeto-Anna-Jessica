@@ -12,7 +12,7 @@ class ApoioController extends Controller {
     }
 
     public function pageApoio() {
-        $apoios = Apoio::get();
+        $apoios = Apoio::where('status', '=', '1')->get();
         return view('admin.apoio', compact('apoios'));
     }
 
@@ -31,6 +31,13 @@ class ApoioController extends Controller {
         $validator = $this->validateForm($request);
         $updateApoio = Apoio::where("id_apoio", "=", $request->id_apoio)->update([
             "nome_apoio" => $request->nome
+        ]);
+        return response()->json($request);
+    }
+
+    public function deleteApoio(Request $request) {
+        $updateApoio = Apoio::where("id_apoio", "=", $request->id_apoio)->update([
+            "status" => 0
         ]);
         return response()->json($request);
     }
