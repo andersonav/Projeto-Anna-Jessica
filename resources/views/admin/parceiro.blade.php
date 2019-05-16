@@ -18,9 +18,9 @@
                 <tbody>
                     @foreach($parceiros as $parceiro)
                     <tr>
-                        <td>{{$parceiro->imagem_parceiro}}</td>
+                        <td><img src="/img/parceiros/{{$parceiro->imagem_parceiro}}" width="100px"/></td>
                         <td>{{$parceiro->descricao_parceiro}}</td>
-                        <td><a class="" onclick="editarParceiro({{$parceiro->id_parceiro}}, '{{$parceiro->imagem_parceiro}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="apagarParceiro({{$parceiro->id_parceiro}});"><i class="fa fa-trash"></i></a></td>
+                        <td><a class="" data-toggle="modal" data-target="#newParceiro" onclick="editarParceiro({{$parceiro->id_parceiro}}, '{{$parceiro->descricao_parceiro}}', '{{$parceiro->imagem_parceiro}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetParceiro({{$parceiro->id_parceiro}});"><i class="fa fa-trash"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -35,26 +35,37 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Novo Anúncio</h5>
+                    <h5 class="modal-title" id="titleModal">Novo Anúncio</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="" method="post" role="form" id="formAddParceiro" class="contactForm">
+                <form action="javascript:void(0);" method="post" role="form" id="formAdmin" class="contactForm">
+                    <input type="hidden" name="action" id="addParceiro" value="addParceiro"/>
+                    <input type="hidden" name="id_parceiro" id="" value=""/>
                     <div class="modal-body">
-                        <div class="form-group col-md-12 custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile">Escolha um arquivo</label>
+                        <div class="input-group col-md-12" style="display:none; margin: 0 auto; text-align: center; margin-bottom: 20px;" id="imageParceiroEdit">
+                            <img src="" width="100px" class="imageParceiro"/>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" />
                             </div>
+                            <div class="input-group col-md-12">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupFileAddon02">Imagem: </span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile02" name="file"
+                                           aria-describedby="inputGroupFileAddon02">
+                                    <label class="custom-file-label" for="inputGroupFile02">Seu arquivo</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary">Adicionar</button>
+                        <button type="button" class="btn btn-secondary fechar" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" id="btnAction">Adicionar</button>
                     </div>
                 </form>
             </div>
@@ -63,3 +74,4 @@
 </section><!-- #contact -->
 
 <script src="{{asset('js/parceiro.js')}}"></script>
+<script src="{{asset('js/operacao.js')}}"></script>
