@@ -1,11 +1,11 @@
 $(document).ready(function () {
-    $(".nav-menu li.sem").click(function () {
-        $(".nav-menu li.sem").each(function () {
-            $(this).removeClass("menu-active");
-        });
+    $(".nav-menu li.sem, #mobile-nav ul li.sem").click(function () {
         var valorId = $(this).attr("id");
-        $(".nav-menu li.sem#" + valorId).addClass("menu-active");
         var url_atual = window.location.href;
+        eachElementToRemoveClass(".nav-menu li.sem", "menu-active");
+        eachElementToRemoveClass("#mobile-nav ul li.sem a", "nav-menu-active");
+        addClassElement(".nav-menu li.sem#" + valorId, "menu-active");
+        addClassElement("#mobile-nav ul li.sem#" + valorId + " a", "nav-menu-active");
         $.ajax({
             url: url_atual + "/" + valorId + "/",
             type: 'POST',
@@ -27,6 +27,15 @@ $(document).ready(function () {
             }
         });
     });
-
     $(".nav-menu li.sem#agenda").trigger('click');
 });
+
+function eachElementToRemoveClass(elemento, classe) {
+    $(elemento).each(function () {
+        $(this).removeClass(classe);
+    });
+}
+
+function addClassElement(elemento, classe) {
+    $(elemento).addClass(classe);
+}

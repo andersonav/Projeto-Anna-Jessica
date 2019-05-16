@@ -42,3 +42,28 @@ function editarApoio(id, nome) {
     $("#btnAction").html("Editar");
     $("#titleModal").html("Editar Apoio");
 }
+
+function abrirSweetApoio(id) {
+    swal({
+        title: 'Você confirma esta operação?',
+        text: "Essa operação não poderá ser revestida!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonText: 'Cancelar',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, eu desejo!'
+    }).then((result) => {
+        if (result.value) {
+            if (deletarApoio(id)) {
+                swal(
+                        'Apagado!',
+                        'Esse dado foi removido com sucesso.',
+                        'success'
+                        )
+            }
+
+        }
+    });
+
+}
