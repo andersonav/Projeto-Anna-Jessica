@@ -18,7 +18,7 @@
                     @foreach($patrocinios as $patrocinio)
                     <tr>
                         <td>{{$patrocinio->nome_patrocinio}}</td>
-                        <td><a class="" onclick="editarPatrocinio({{$patrocinio->id_patrocinio}}, '{{$patrocinio->nome_patrocinio}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="apagarPatrocinio({{$patrocinio->id_patrocinio}});"><i class="fa fa-trash"></i></a></td>
+                        <td><a class="" data-toggle="modal" data-target="#newPatrocinio" onclick="editarPatrocinio({{$patrocinio->id_patrocinio}}, '{{$patrocinio->nome_patrocinio}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetPatrocinio({{$patrocinio->id_patrocinio}});"><i class="fa fa-trash"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -33,12 +33,14 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Novo Patrocinio</h5>
+                    <h5 class="modal-title" id="titleModal">Novo Patrocinio</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="" method="post" role="form" id="formAddPatrocinio" class="contactForm">
+                <form action="javascript:void(0);" method="post" role="form" id="formAdmin" class="contactForm">
+                    <input type="hidden" name="action" id="addPatrocinio" value="addPatrocinio"/>
+                    <input type="hidden" name="id_patrocinio" id="" value=""/>
                     <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-12">
@@ -47,8 +49,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary">Adicionar</button>
+                        <button type="button" class="btn btn-secondary fechar" data-dismiss="modal" >Fechar</button>
+                        <button type="submit" class="btn btn-primary" id="btnAction">Adicionar</button>
                     </div>
                 </form>
             </div>
@@ -57,3 +59,5 @@
 </section><!-- #contact -->
 
 <script src="{{asset('js/patrocinio.js')}}"></script>
+<script src="{{asset('js/operacao.js')}}"></script>
+

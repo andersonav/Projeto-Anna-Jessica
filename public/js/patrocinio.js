@@ -25,3 +25,49 @@ $(document).ready(function () {
         }
     });
 });
+
+function adicionarPatrocinio() {
+    $("input[name=action]").val('addPatrocinio');
+    $("#nome").val();
+    $("#btnAction").html("Adicionar");
+    $("#titleModal").html("Novo Patrocinio");
+}
+
+function editarPatrocinio(id, nome) {
+    $("input[name=action]").val('editPatrocinio');
+    $("input[name=id_patrocinio]").val(id);
+    $("#nome").val(nome);
+    $("#btnAction").html("Editar");
+    $("#titleModal").html("Editar Patrocinio");
+}
+
+function abrirSweetPatrocinio(id) {
+    swal({
+        title: 'Você confirma esta operação?',
+        text: "Essa operação não poderá ser revestida!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonText: 'Cancelar',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, eu desejo!'
+    }).then((result) => {
+        if (result.value) {
+            if (deletarPatrocinio(id)) {
+                swal(
+                        'Apagado!',
+                        'Esse dado foi removido com sucesso.',
+                        'success'
+                        )
+            }
+
+        }
+    });
+
+}
+
+function deletarPatrocinio(id) {
+    $("input[name=action]").val('deletePatrocinio');
+    $("input[name=id_patrocinio]").val(id);
+    $("#btnAction").trigger('click');
+}

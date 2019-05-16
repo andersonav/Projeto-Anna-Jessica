@@ -49,6 +49,9 @@ Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
 
     Route::group(['prefix' => 'patrocinio'], function () {
         Route::post('/', 'PatrocinioController@pagePatrocinio')->name('pagePatrocinio');
+        Route::post('/addPatrocinio', 'PatrocinioController@addPatrocinio')->name('addPatrocinio');
+        Route::post('/editPatrocinio', 'PatrocinioController@editPatrocinio')->name('editPatrocinio');
+        Route::post('/deletePatrocinio', 'PatrocinioController@deletePatrocinio')->name('deletePatrocinio');
     });
 
     Route::group(['prefix' => 'realizacao'], function () {
