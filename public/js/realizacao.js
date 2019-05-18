@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     $('#tabela').dataTable({
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
@@ -30,7 +30,7 @@ function adicionarRealizacao() {
     $("input[name=action]").val('addRealizacao');
     $("#nome").val();
     $("#btnAction").html("Adicionar");
-    $("#titleModal").html("Novo Realizacao");
+    $("#titleModal").html("<b>Nova Realização</b>");
 }
 
 function editarRealizacao(id, nome) {
@@ -38,7 +38,7 @@ function editarRealizacao(id, nome) {
     $("input[name=id_realizacao]").val(id);
     $("#nome").val(nome);
     $("#btnAction").html("Editar");
-    $("#titleModal").html("Editar Realizacao");
+    $("#titleModal").html("<b>Editar Realizacao</b>");
 }
 
 function abrirSweetRealizacao(id) {
@@ -55,10 +55,10 @@ function abrirSweetRealizacao(id) {
         if (result.value) {
             if (deletarRealizacao(id)) {
                 swal(
-                        'Apagado!',
-                        'Esse dado foi removido com sucesso.',
-                        'success'
-                        )
+                    'Apagado!',
+                    'Esse dado foi removido com sucesso.',
+                    'success'
+                )
             }
 
         }

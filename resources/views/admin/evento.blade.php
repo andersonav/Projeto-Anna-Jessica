@@ -58,7 +58,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Novo Evento</h5>
+                    <h2 class="ttl"><b>Novo Evento</b></h2>
                     <a class="btn btn-danger link" onclick="link();" style="margin: 0% 0% 0% 60%; color: white;"
                         data-toggle="tooltip" data-placement="left" title="Nenhum link adicionado">
                         <i class="fa fa-plus"></i>
@@ -161,9 +161,7 @@
                     <div class="modal-footer">
                         <button type="button" data-toggle="tooltip" onclick="adicionarKit();" data-placement="right" title="Adicionar kit"
                             class="btn btn-danger adcKit"><i class="fa fa-plus"></i></button>
-                        <button type="button" style="float:right" class="btn btn-danger">Adicionar</button>
-                        <button type="button" style="float:right" class="btn btn-secondary"
-                            data-dismiss="modal">Fechar</button>
+                        <button type="button" style="float:right" class="btnmodal">Adicionar</button>
                     </div>
                 </form>
             </div>

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     $('#tabela').dataTable({
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
@@ -32,7 +32,7 @@ function adicionarApoio() {
     $("input[name=action]").val('addApoio');
     $("#nome").val();
     $("#btnAction").html("Adicionar");
-    $("#titleModal").html("Novo Apoio");
+    $("#titleModal").html("<b>Novo Apoio</b>");
 }
 
 function editarApoio(id, nome) {
@@ -40,7 +40,7 @@ function editarApoio(id, nome) {
     $("input[name=id_apoio]").val(id);
     $("#nome").val(nome);
     $("#btnAction").html("Editar");
-    $("#titleModal").html("Editar Apoio");
+    $("#titleModal").html("<b>Editar Apoio</b>");
 }
 
 function abrirSweetApoio(id) {
@@ -57,10 +57,10 @@ function abrirSweetApoio(id) {
         if (result.value) {
             if (deletarApoio(id)) {
                 swal(
-                        'Apagado!',
-                        'Esse dado foi removido com sucesso.',
-                        'success'
-                        )
+                    'Apagado!',
+                    'Esse dado foi removido com sucesso.',
+                    'success'
+                )
             }
 
         }

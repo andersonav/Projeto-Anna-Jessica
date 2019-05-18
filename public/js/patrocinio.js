@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     $('#tabela').dataTable({
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
@@ -30,7 +30,7 @@ function adicionarPatrocinio() {
     $("input[name=action]").val('addPatrocinio');
     $("#nome").val();
     $("#btnAction").html("Adicionar");
-    $("#titleModal").html("Novo Patrocinio");
+    $("#titleModal").html("<b>Novo Patrocinio</b>");
 }
 
 function editarPatrocinio(id, nome) {
@@ -38,7 +38,7 @@ function editarPatrocinio(id, nome) {
     $("input[name=id_patrocinio]").val(id);
     $("#nome").val(nome);
     $("#btnAction").html("Editar");
-    $("#titleModal").html("Editar Patrocinio");
+    $("#titleModal").html("<b>Editar Patrocinio</b>");
 }
 
 function abrirSweetPatrocinio(id) {
@@ -55,10 +55,10 @@ function abrirSweetPatrocinio(id) {
         if (result.value) {
             if (deletarPatrocinio(id)) {
                 swal(
-                        'Apagado!',
-                        'Esse dado foi removido com sucesso.',
-                        'success'
-                        )
+                    'Apagado!',
+                    'Esse dado foi removido com sucesso.',
+                    'success'
+                )
             }
 
         }

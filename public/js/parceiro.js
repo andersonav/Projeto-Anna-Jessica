@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
     $('#tabela').dataTable({
         "language": {
             "sEmptyTable": "Nenhum registro encontrado",
@@ -30,7 +30,7 @@ function adicionarParceiro() {
     $("#imageParceiroEdit").css("display", 'none');
     $("input[name=action]").val('addParceiro');
     $("#btnAction").html("Adicionar");
-    $("#titleModal").html("Novo Parceiro");
+    $("#titleModal").html("<b>Novo Parceiro</b>");
 }
 
 function editarParceiro(id, nome, imagem) {
@@ -40,7 +40,7 @@ function editarParceiro(id, nome, imagem) {
     $("input[name=id_parceiro]").val(id);
     $("#nome").val(nome);
     $("#btnAction").html("Editar");
-    $("#titleModal").html("Editar Parceiro");
+    $("#titleModal").html("<b>Editar Parceiro<b>");
 }
 
 function abrirSweetParceiro(id) {
@@ -57,10 +57,10 @@ function abrirSweetParceiro(id) {
         if (result.value) {
             if (deletarParceiro(id)) {
                 swal(
-                        'Apagado!',
-                        'Esse dado foi removido com sucesso.',
-                        'success'
-                        )
+                    'Apagado!',
+                    'Esse dado foi removido com sucesso.',
+                    'success'
+                )
             }
 
         }

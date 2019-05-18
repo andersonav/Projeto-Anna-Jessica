@@ -33,14 +33,14 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="titleModal"></h5>
+                  <h2 class="ttl" id="titleModal"></h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <form action="javascript:void(0);" method="post" role="form" id="formAdmin" class="contactForm">
-                    <input type="hidden" name="action" id="addApoio" value="addApoio"/>
-                    <input type="hidden" name="id_apoio" id="" value=""/>
+                    <input type="hidden" name="action" id="addApoio" value="addApoio" />
+                    <input type="hidden" name="id_apoio" id="" value="" />
                     <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-12">
@@ -49,8 +49,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary fechar" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-primary" id="btnAction"></button>
+                        <button type="submit" class="btnmodal" id="btnAction"></button>
                     </div>
                 </form>
             </div>

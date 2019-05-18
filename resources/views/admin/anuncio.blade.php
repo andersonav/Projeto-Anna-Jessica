@@ -33,7 +33,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="titleModal">Novo Anúncio</h5>
+                    <h2 class="ttl"><b>Novo Anúncio</b></h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -57,8 +57,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary fechar" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-primary" id="btnAction">Adicionar</button>
+                        <button type="submit" class="btnmodal" id="btnAction">Adicionar</button>
                     </div>
                 </form>
             </div>
