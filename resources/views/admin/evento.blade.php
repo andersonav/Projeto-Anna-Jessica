@@ -59,8 +59,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Novo Evento</h5>
-                    <a class="btn btn-danger link" onclick="link();" style="margin: 0% 0% 0% 60%; color: white;" data-toggle="tooltip" data-placement="left" title="Nenhum link adicionado">
-                        <i class="fa fa-plus"></i> 
+                    <a class="btn btn-danger link" onclick="link();" style="margin: 0% 0% 0% 60%; color: white;"
+                        data-toggle="tooltip" data-placement="left" title="Nenhum link adicionado">
+                        <i class="fa fa-plus"></i>
                         adicionar link
                     </a>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -111,7 +112,7 @@
                             <div class="form-group col-md-4">
                                 <select class="selectpicker show-tick" data-live-search="true" title="Tipo:">
                                     <option>Quadro</option>
-                                    <option>Destaque</option>
+                                    <option class="destaqueteste">Destaque</option>
                                     <option>Armazenamento</option>
                                 </select>
                             </div>
@@ -133,31 +134,36 @@
                                     placeholder="Distancia" />
                             </div>
                             <div class="form-group col-md-4">
-                                <input type="text" name="data_encerramento" class="form-control" id="data_encerramento" placeholder="Prazo inscrição" />
+                                <input type="text" name="data_encerramento" class="form-control" id="data_encerramento"
+                                    placeholder="Prazo inscrição" />
                             </div>
                             <div class="input-group col-md-8">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupFileAddon01">Imagem: </span>
+                                    <span class="input-group-text" id="inputGroupFileAddon01">Imagem evento: </span>
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="inputGroupFile01"
                                         aria-describedby="inputGroupFileAddon01">
-                                    <label class="custom-file-label" for="inputGroupFile01">Seu arquivo</label>
+                                    <label class="custom-file-label" for="inputGroupFile01">Selecione a imagem</label>
                                 </div>
                             </div>
                             <div class="form-group col-md-4 append">
                                 <input type="text" name="endereco" class="form-control" id="endereco"
                                     placeholder="Endereço" />
                             </div>
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-12 appendKit">
                                 <label for="comment">Informações adicionais</label>
-                                <textarea class="form-control" name="info_adc" rows="5" id="comment" placeholder="Digite aqui as informações adicionais"></textarea>
+                                <textarea class="form-control" name="info_adc" rows="5" id="comment"
+                                    placeholder="Digite aqui as informações adicionais"></textarea>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-danger">Adicionar</button>
+                        <button type="button" data-toggle="tooltip" onclick="adicionarKit();" data-placement="right" title="Adicionar kit"
+                            class="btn btn-danger adcKit"><i class="fa fa-plus"></i></button>
+                        <button type="button" style="float:right" class="btn btn-danger">Adicionar</button>
+                        <button type="button" style="float:right" class="btn btn-secondary"
+                            data-dismiss="modal">Fechar</button>
                     </div>
                 </form>
             </div>
@@ -167,7 +173,7 @@
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#tabelaEvento').DataTable({
             "processing": true,
             "responsive": true,
@@ -179,6 +185,7 @@
     $(function () {
         $('select').selectpicker();
     });
+
     // Add the following code if you want the name of the file appear on select
     $(".custom-file-input").on("change", function () {
         var fileName = $(this).val().split("\\").pop();
