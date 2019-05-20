@@ -20,7 +20,7 @@ $("#formAdmin").submit(function (e) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (data) {
-            $(".fechar").click();
+            $(".modal").modal('hide');
             setTimeout(function () {
                 swal({
                     title: '<strong>Operação realizada com sucesso!</strong>',

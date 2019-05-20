@@ -30,10 +30,10 @@
         <!-- Main Stylesheet File -->
         <link href="{{asset('css/style.css')}}" rel="stylesheet">
         <link href="{{asset('css/efeito.css')}}" rel="stylesheet">
+        <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
         <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
         <script src="{{asset('lib/jquery/jquery-migrate.min.js')}}"></script>
         <script src="js/jquery.countdown.js"></script>
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
         <script src="{{asset('lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('lib/easing/easing.min.js')}}"></script>
         <script src="{{asset('lib/superfish/hoverIntent.js')}}"></script>
@@ -52,6 +52,8 @@
         <script src="{{asset('js/main.js')}}"></script>
         <script src="{{asset('js/index.js')}}"></script>
         <script src="{{asset('js/sweetalert2.all.min.js')}}"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 
@@ -62,13 +64,13 @@
 
 
         <script>
-            $(function () {
-                $(".digits").countdown({
-                    image: "img/digits.png",
-                    format: "dd:hh:mm:ss",
-                    endTime: new Date(2019, 4, 16)
-                });
-            });
+$(function () {
+    $(".digits").countdown({
+        image: "img/digits.png",
+        format: "dd:hh:mm:ss",
+        endTime: new Date(2019, 4, 16)
+    });
+});
         </script>
         <!-- =======================================================
                   Author: EDEV
