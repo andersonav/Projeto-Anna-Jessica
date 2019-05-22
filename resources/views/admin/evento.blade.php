@@ -46,8 +46,8 @@
                 </tbody>
             </table>
             <div class="text-center">
-                <button type="submit" data-toggle="modal" class="newEvento" data-target="#newEvento"
-                    onclick="adicionarEvento();"><i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Novo
+                <button type="submit" data-toggle="modal" onclick="adicionarEvento();" class="newEvento" data-target="#newEvento"><i
+                        class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Novo
                     Evento</button>
             </div>
         </div>
@@ -68,25 +68,27 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="" method="post" role="form" id="formAddEvento" class="contactForm">
+                <form action="javascript:void(0);" method="post" role="form" id="formAdmin" class="contactForm">
+                    <input type="hidden" name="action" id="addEvento" value="addEvento" />
+                    <input type="hidden" name="id_evento" id="" value="" />
                     <div class="modal-body">
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                                <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" />
+                                <input type="text" name="nome_evento" class="form-control" id="nome_evento" placeholder="Nome" />
                             </div>
                             <div class="form-group col-md-4">
-                                <select class="selectpicker show-tick" data-live-search="true" title="Apoios:">
+                                <select name="apoio" class="selectpicker show-tick" data-live-search="true" title="Apoios:">
                                     @forelse ($apoios as $apoio)
-                                    <option>{{ $apoio->nome_apoio }}</option>
+                                    <option value="{{ $apoio->id_apoio }}">{{ $apoio->nome_apoio }}</option>
                                     @empty
                                     <option>Vazio</option>
                                     @endforelse
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <select class="selectpicker show-tick" data-live-search="true" title="Patrocionios:">
+                                <select name="patrocinio" class="selectpicker show-tick" data-live-search="true" title="Patrocionios:">
                                     @forelse ($patrocionios as $patrocionio)
-                                    <option>{{ $patrocionio->nome_patrocinio }}</option>
+                                    <option value="{{ $patrocionio->id_patrocinio }}">{{ $patrocionio->nome_patrocinio }}</option>
                                     @empty
                                     <option>Vazio</option>
                                     @endforelse
@@ -104,22 +106,22 @@
                                     placeholder="Horario final" />
                             </div>
                             <div class="form-group col-md-4">
-                                <select class="selectpicker show-tick" data-live-search="true" title="Modo:">
+                                <select name="modo" class="selectpicker show-tick" data-live-search="true" title="Modo:">
                                     <option>Fique por dentro!</option>
                                     <option>Em breve!</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <select class="selectpicker show-tick" data-live-search="true" title="Tipo:">
+                                <select name="tipo" class="selectpicker show-tick" data-live-search="true" title="Tipo:">
                                     <option>Quadro</option>
                                     <option class="destaqueteste">Destaque</option>
                                     <option>Armazenamento</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <select class="selectpicker show-tick" data-live-search="true" title="Realizações:">
+                                <select name="realizacao" class="selectpicker show-tick" data-live-search="true" title="Realizações:">
                                     @forelse ($realizacoes as $realizacao)
-                                    <option>{{ $realizacao->nome_realizacao }}</option>
+                                    <option value="{{ $realizacao->id_realizacao }}">{{ $realizacao->nome_realizacao }}</option>
                                     @empty
                                     <option>Vazio</option>
                                     @endforelse
@@ -142,7 +144,7 @@
                                     <span class="input-group-text" id="inputGroupFileAddon01">Imagem evento: </span>
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="inputGroupFile01"
+                                    <input type="file" name="imgEvento" class="custom-file-input" id="inputGroupFile01"
                                         aria-describedby="inputGroupFileAddon01">
                                     <label class="custom-file-label" for="inputGroupFile01">Selecione a imagem</label>
                                 </div>
@@ -159,9 +161,9 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" data-toggle="tooltip" onclick="adicionarKit();" data-placement="right" title="Adicionar kit"
-                            class="btn btn-danger adcKit"><i class="fa fa-plus"></i></button>
-                        <button type="button" style="float:right" class="btnmodal">Adicionar</button>
+                        <button type="button" data-toggle="tooltip" onclick="adicionarKit();" data-placement="right"
+                            title="Adicionar kit" class="btn btn-danger adcKit"><i class="fa fa-plus"></i></button>
+                        <button type="submit" style="float:right" class="btnmodal">Adicionar</button>
                     </div>
                 </form>
             </div>
@@ -193,3 +195,4 @@
 <!-- (Optional) Latest compiled and minified JavaScript translation files -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/i18n/defaults-pt_BR.min.js"></script>
 <script src="{{asset('js/evento.js')}}"></script>
+<script src="{{asset('js/operacao.js')}}"></script>

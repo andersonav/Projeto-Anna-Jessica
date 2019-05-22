@@ -22,11 +22,14 @@ $("#formAdmin").submit(function (e) {
         success: function (data) {
             $(".modal").modal('hide');
             setTimeout(function () {
-                swal({
-                    title: '<strong>Operação realizada com sucesso!</strong>',
+                Swal.fire({
+                    position: 'center',
                     type: 'success',
-                    showCloseButton: true,
+                    title: '<strong>Operação realizada com sucesso!</strong>',
+                    showConfirmButton: false,
+                    timer: 2000
                 });
+                setTimeout(function () { $('.bootstrap-select:not(.input-group-btn)').css('display', 'none');}, 100);
                 $(".nav-menu li.sem.menu-active").trigger('click');
             }, 500);
         }, error: function (errors, textStatus, errorThrown) {
