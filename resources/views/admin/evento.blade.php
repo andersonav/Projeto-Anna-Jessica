@@ -9,6 +9,7 @@
         </div>
 
         <div class="form">
+        <div class="col-md-12 scroll">
             <table id="tabelaEvento" class="table table-bordered" style="width:100%">
                 <thead>
                     <tr>
@@ -45,6 +46,7 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
             <div class="text-center">
                 <button type="submit" data-toggle="modal" onclick="adicionarEvento();" class="newEvento" data-target="#newEvento"><i
                         class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Novo

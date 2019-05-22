@@ -130,7 +130,7 @@
                 <div class="col-lg-1 col-md-4"></div>
                 <div class="col-lg-5 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportifolio1">
                     <div class="speaker">
-                        <img src="{{asset('img/postifolio/corrida.JPG')}}" alt="Speaker 5" class="img-fluid">
+                        <img src="{{asset('img/postifolio/corrida.jpg')}}" alt="Speaker 5" class="img-fluid">
                         <div class="details">
                             <h3><a href="javascript:void(0);">Eventos Esportivos</a></h3>
                             <div class="social">
@@ -144,7 +144,7 @@
                 </div>
                 <div class="col-lg-5 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportifolio2">
                     <div class="speaker">
-                        <img src="{{asset('img/postifolio/corrida.JPG')}}" alt="Speaker 6" class="img-fluid">
+                        <img src="{{asset('img/postifolio/port.png')}}" alt="Speaker 6" class="img-fluid">
                         <div class="details">
                             <h3><a href="javascript:void(0);">Cerimônial Corporativo</a></h3>
                             <div class="social">

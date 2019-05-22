@@ -97,7 +97,7 @@
 
                 <div class="row">
 
-                    <div class="col-md-12 tabelaRelatorio">
+                    <div class="col-md-12 scroll">
                         <table id="relatorioUser" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                                 <tr>

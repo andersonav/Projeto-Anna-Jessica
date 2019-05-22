@@ -7,6 +7,7 @@
         </div>
 
         <div class="form">
+        <div class="col-md-12 scroll">
             <table id="tabela" class="table table-bordered" style="width:100%">
                 <thead>
                     <tr>
@@ -23,6 +24,7 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
             <div class="text-center">
                 <button type="submit" data-toggle="modal" data-target="#newAnuncio" onclick="adicionarAnuncio();"><i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Novo Anúncio</button>
             </div>
