@@ -28,20 +28,12 @@
                        aria-haspopup="true" aria-expanded="false">
                         {{ auth()->user()->nome_usuario }}
                     </a>
-
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item item-user" href="{{ route('home') }}"><i class="fa fa-home"></i>
                             Inicio</a><br>
                         <a class="dropdown-item item-user" href="{{ url()->previous() }}"><i
                                 class="fa fa-arrow-left"></i> Voltar</a><br>
-                        @if(auth()->user()->id_tipo_usuario == 1)
-                        <a class="dropdown-item item-user" href="{{ route('adminConf') }}"><i
-                                class="fa fa-gear"></i> Configuração</a><br>
-
-                        @else
-                        <a class="dropdown-item item-user" href="{{ route('userRelatorio') }}"><i
-                                class="fa fa-file"></i> Relatórios</a><br>
-                        @endif
+                        
                         <a class="dropdown-item item-user" href="{{ route('logout') }}"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                                 class="fa fa-sign-out"></i> Sair</a>
