@@ -9,6 +9,7 @@ $(document).ready(function () {
 });
 
 function adicionarRealizacao() {
+    $('.errors').empty();
     $("input[name=action]").val('addRealizacao');
     $("#nome").val();
     $("#btnAction").html("Adicionar");
@@ -16,6 +17,7 @@ function adicionarRealizacao() {
 }
 
 function editarRealizacao(id, nome) {
+    $('.errors').empty();
     $("input[name=action]").val('editRealizacao');
     $("input[name=id_realizacao]").val(id);
     $("#nome").val(nome);

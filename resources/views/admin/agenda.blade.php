@@ -54,7 +54,7 @@
                     <input type="hidden" name="id_agenda" id="" value="" />
                     <div class="modal-body">
                         <div class="errors">
-
+                            
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
@@ -64,7 +64,7 @@
                                 <input type="text" name="data" class="form-control" id="data" placeholder="Data" />
                             </div>
                             <div class="form-group col-md-4">
-                                <input type="text" name="hora_ini" class="form-control" id="hora_ini"
+                                <input type="text" name="hora_inicio" class="form-control" id="hora_inicio"
                                        placeholder="Horario inicial" />
                             </div>
                             <div class="form-group col-md-4">

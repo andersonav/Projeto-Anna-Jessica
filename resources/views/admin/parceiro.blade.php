@@ -44,6 +44,9 @@
                     <input type="hidden" name="action" id="addParceiro" value="addParceiro"/>
                     <input type="hidden" name="id_parceiro" id="" value=""/>
                     <div class="modal-body">
+                        <div class="errors">
+
+                        </div>
                         <div class="input-group col-md-12" style="display:none; margin: 0 auto; text-align: center; margin-bottom: 20px;" id="imageParceiroEdit">
                             <img src="" width="100px" class="imageParceiro"/>
                         </div>
@@ -64,7 +67,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        
+
                         <button type="submit" class="btnmodal" id="btnAction">Adicionar</button>
                     </div>
                 </form>

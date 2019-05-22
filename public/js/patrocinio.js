@@ -9,6 +9,7 @@ $(document).ready(function () {
 });
 
 function adicionarPatrocinio() {
+    $('.errors').empty();
     $("input[name=action]").val('addPatrocinio');
     $("#nome").val();
     $("#btnAction").html("Adicionar");
@@ -16,6 +17,7 @@ function adicionarPatrocinio() {
 }
 
 function editarPatrocinio(id, nome) {
+    $('.errors').empty();
     $("input[name=action]").val('editPatrocinio');
     $("input[name=id_patrocinio]").val(id);
     $("#nome").val(nome);

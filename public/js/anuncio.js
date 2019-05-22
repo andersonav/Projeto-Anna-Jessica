@@ -14,6 +14,7 @@ $(document).ready(function () {
 });
 
 function adicionarAnuncio() {
+    $('.errors').empty();
     $("#imageAnuncioEdit").css("display", 'none');
     $("input[name=action]").val('addAnuncio');
     $("#btnAction").html("Adicionar");
@@ -21,6 +22,7 @@ function adicionarAnuncio() {
 }
 
 function editarAnuncio(id, nome) {
+    $('.errors').empty();
     $(".imageAnuncio").attr("src", '/img/anuncios/' + nome);
     $("#imageAnuncioEdit").css("display", 'block');
     $("input[name=action]").val('editAnuncio');

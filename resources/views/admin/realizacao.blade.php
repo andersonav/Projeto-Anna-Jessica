@@ -42,6 +42,9 @@
                     <input type="hidden" name="action" id="addRealizacao" value="addApoio"/>
                     <input type="hidden" name="id_realizacao" id="" value=""/>
                     <div class="modal-body">
+                        <div class="errors">
+
+                        </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" />
@@ -49,7 +52,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        
+
                         <button type="submit" class="btnmodal" id="btnAction">Adicionar</button>
                     </div>
                 </form>

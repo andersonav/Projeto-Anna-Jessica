@@ -42,6 +42,9 @@
                     <input type="hidden" name="action" id="addAnuncio" value="addAnuncio"/>
                     <input type="hidden" name="id_anuncio" id="" value=""/>
                     <div class="modal-body">
+                        <div class="errors">
+
+                        </div>
                         <div class="input-group col-md-12" style="display:none; margin: 0 auto; text-align: center; margin-bottom: 20px;" id="imageAnuncioEdit">
                             <img src="" width="100px" class="imageAnuncio"/>
                         </div>

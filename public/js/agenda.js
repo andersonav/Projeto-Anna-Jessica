@@ -11,10 +11,11 @@ $(document).ready(function () {
 });
 
 function adicionarAgenda() {
+    $('.errors').empty();
     $("input[name=action]").val('addAgenda');
     $("#nome").val("");
     $("#data").val("");
-    $("#hora_ini").val("");
+    $("#hora_inicio").val("");
     $("#hora_fim").val("");
     $("#cidade").val("");
     $("#btnAction").html("Adicionar");
@@ -22,11 +23,12 @@ function adicionarAgenda() {
 }
 
 function editarAgenda(id, nome, data, hora_inicio, hora_fim, cidade) {
+    $('.errors').empty();
     $("input[name=action]").val('editAgenda');
     $("input[name=id_agenda]").val(id);
     $("#nome").val(nome);
     $("#data").val(data);
-    $("#hora_ini").val(hora_inicio);
+    $("#hora_inicio").val(hora_inicio);
     $("#hora_fim").val(hora_fim);
     $("#cidade").val(cidade);
     $("#btnAction").html("Editar");

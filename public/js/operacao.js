@@ -29,14 +29,16 @@ $("#formAdmin").submit(function (e) {
                     showConfirmButton: false,
                     timer: 2000
                 });
-                setTimeout(function () { $('.bootstrap-select:not(.input-group-btn)').css('display', 'none');}, 100);
+                setTimeout(function () {
+                    $('.bootstrap-select:not(.input-group-btn)').css('display', 'none');
+                }, 100);
                 $(".nav-menu li.sem.menu-active").trigger('click');
             }, 500);
         }, error: function (errors, textStatus, errorThrown) {
-
-            $.each(errors.responseJSON, function (key, value) {
-                $('.errors').append('<div class="ui negative message"> <i class="close icon"></i><div class="header">' + value + '</div></div>');
-                $(".field." + key).addClass("error");
+            $('.errors').empty();
+            var erros = $.parseJSON(errors.responseText);
+            $.each(erros.errors, function (key, value) {
+                $(".errors").append('<div class="alert alert-danger" role="alert" id="mensagemErro">' + value + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             });
 
 

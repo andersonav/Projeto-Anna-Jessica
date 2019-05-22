@@ -9,6 +9,7 @@ $(document).ready(function () {
 });
 
 function adicionarParceiro() {
+    $('.errors').empty();
     $("#imageParceiroEdit").css("display", 'none');
     $("input[name=action]").val('addParceiro');
     $("#btnAction").html("Adicionar");
@@ -16,6 +17,7 @@ function adicionarParceiro() {
 }
 
 function editarParceiro(id, nome, imagem) {
+    $('.errors').empty();
     $(".imageParceiro").attr("src", '/img/parceiros/' + imagem);
     $("#imageParceiroEdit").css("display", 'block');
     $("input[name=action]").val('editParceiro');

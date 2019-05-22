@@ -23,7 +23,7 @@ class AgendaController extends Controller {
         $createAgenda = Agenda::create([
                     'nome_evento' => $request->nome,
                     'data' => $newDate,
-                    'hora_inicio' => $request->hora_ini,
+                    'hora_inicio' => $request->hora_inicio,
                     'hora_fim' => $request->hora_fim,
                     'cidade' => $request->cidade,
                     'status' => 1
@@ -39,7 +39,7 @@ class AgendaController extends Controller {
         $updateAgenda = Agenda::where("id_agenda", "=", $request->id_agenda)->update([
             'nome_evento' => $request->nome,
             'data' => $newDate,
-            'hora_inicio' => $request->hora_ini,
+            'hora_inicio' => $request->hora_inicio,
             'hora_fim' => $request->hora_fim,
             'cidade' => $request->cidade,
         ]);
@@ -58,7 +58,7 @@ class AgendaController extends Controller {
                     'nome' => 'required|regex:/^[a-zA-ZçÇáéíóúÁÉÍÓÚ0-9 ]+$/u|max:255|',
                     'data' => 'required',
                     'hora_fim' => 'required',
-                    'hora_ini' => 'required',
+                    'hora_inicio' => 'required',
                     'cidade' => 'required'
         ]);
     }

@@ -33,7 +33,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                  <h2 class="ttl" id="titleModal"></h2>
+                    <h2 class="ttl" id="titleModal"></h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -42,6 +42,9 @@
                     <input type="hidden" name="action" id="addApoio" value="addApoio" />
                     <input type="hidden" name="id_apoio" id="" value="" />
                     <div class="modal-body">
+                        <div class="errors">
+
+                        </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" />
