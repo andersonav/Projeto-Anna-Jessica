@@ -231,7 +231,8 @@ button:focus {
 #header #logo img {
     padding: 0;
     margin: 0;
-    max-height: 40px;
+    max-height: 55px;
+    margin-top: -9px;
 }
 
 
@@ -1542,7 +1543,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #footer .footer-top .footer-info img {
-    height: 40px;
+    height: 65px;
     margin-bottom: 10px;
 }
 
