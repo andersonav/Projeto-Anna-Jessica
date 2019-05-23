@@ -112,9 +112,9 @@ $(function () {
 
                             <div class="social-links">
                                 <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                                <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+                                <a href="https://www.facebook.com/AnnaJessicaOficial/" class="facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/annajessicaoficial/?hl=pt-br " class="instagram"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.youtube.com/channel/UCTJjHM5ocRLvYpHbFXFTySg?view_as=subscriber " class="youtube"><i class="fa fa-youtube"></i></a>
                             </div>
 
                         </div>
@@ -125,7 +125,7 @@ $(function () {
 
             <div class="container">
                 <div class="copyright">
-                    &copy; Copyright <strong>Marca</strong>. Todos o s direitos reservados
+                    &copy; Copyright <strong>Anna Jéssica</strong>. Todos os direitos reservados
                 </div>
                 <div class="credits">
                     <!--
@@ -134,7 +134,7 @@ $(function () {
                          Licensing information: https://bootstrapmade.com/license/
                          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
                     -->
-                    desenvolvido por <a href="#">Edev</a>
+                    Desenvolvido por <a href="#"><font color="blue"><b>Edev</b></font></a>
                 </div>
             </div>
         </footer><!-- #footer -->

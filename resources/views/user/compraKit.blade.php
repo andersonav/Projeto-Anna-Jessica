@@ -67,7 +67,7 @@
                             <div class="col-11 col-lg-12">
                                 <div class="col-11 col-lg-12">
                                     <h2><a href="#">2º Nigth Bike Maranguape 2019</a></h2>
-                                    <h7 class="text-uppercase "><a href="#">Passeio Ciclistico</a></h7>
+                                    <h7 class="text-uppercase "><a href="#">Passeio Ciclístico</a></h7>
 
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
             <div class="row justify-content-center">
 
                 <div class="col-lg-8">
-                    <h4><i class="fa fa-circle" aria-hidden="true"></i> <b>Veja as opçoes de kits para este evento!</b></h4>
+                    <h4><i class="fa fa-circle" aria-hidden="true"></i> <b>Veja as opções de kits para este evento!</b></h4>
                     <div class="col-lg-12" id="kit">
                             <div class="row justify-content-center">
                             <div class="col-lg-3">

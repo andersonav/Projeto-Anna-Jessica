@@ -1555,6 +1555,11 @@ body.mobile-nav-active #mobile-nav-toggle {
     color: #fff;
 }
 
+.btn-link {
+    color: #2f6880 !important;
+    cursor: pointer;
+}
+
 #footer .footer-top .social-links a {
     font-size: 18px;
     display: inline-block;

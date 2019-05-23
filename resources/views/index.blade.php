@@ -15,7 +15,7 @@
             <ul class="nav-menu">
                 <li class="sem menu-active ini"><a href="#intro">Inicio</a></li>
                 <li class="sem sobre"><a href="#about">Sobre</a></li>
-                <li class="sem port"><a href="#speakers">Portifolio</a></li>
+                <li class="sem port"><a href="#speakers">Portfolio</a></li>
                 <li class="sem age"><a href="#schedule">Agenda</a></li>
                 <li class="sem ser"><a href="#hotels">Serviços</a></li>
                 <li class="sem eve"><a href="#buy-tickets">Eventos</a></li>
@@ -108,7 +108,7 @@
 
                 <div class="col-lg-12">
                     <center>
-                        <h2>Anna Jessica</h2>
+                        <h2>Anna Jéssica</h2>
                         <p>Radialista, Mestre de Cerimônias e Apresentadadora de Eventos Esportivos.</p>
                     </center>
                 </div>
@@ -122,13 +122,13 @@
     <section id="speakers" class="wow bounceInUp">
         <div class="container">
             <div class="section-header">
-                <span class="sombra digitar" id="port">Portifolio</span>
-                <h2>Portifolio</h2>
+                <span class="sombra digitar" id="port">Portfolio</span>
+                <h2>Portfolio</h2>
             </div>
 
             <div class="row">
                 <div class="col-lg-1 col-md-4"></div>
-                <div class="col-lg-5 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportifolio1">
+                <div class="col-lg-5 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportfolio1">
                     <div class="speaker">
                         <img src="{{asset('img/postifolio/corrida.jpg')}}" alt="Speaker 5" class="img-fluid">
                         <div class="details">
@@ -142,7 +142,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportifolio2">
+                <div class="col-lg-5 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportfolio2">
                     <div class="speaker">
                         <img src="{{asset('img/postifolio/port.png')}}" alt="Speaker 6" class="img-fluid">
                         <div class="details">
@@ -184,7 +184,7 @@
                 </li>
             </ul>
 
-            <h3 class="sub-heading">Estas datas podem ser alteradas ao decorrer da semana. Atualizações todas as terças.
+            <h3 class="sub-heading">Estas datas podem ser alteradas ao decorrer da semana.
             </h3>
 
             <div class="tab-content row justify-content-center">
@@ -539,7 +539,7 @@
                         </div>
                         <h3><a href="#">Cobertura de eventos</a></h3>
                         <div class="stars">
-                            <p>Trabalhamos com divulgação por meio das midias sociais, com cobertura textual, audio visual, fortográfica e imagens aéreas, que aproxima seu publico da sua empresa, além de aumentar a visibilidade da sua marca e seu alcance.</p>
+                            <p>Trabalhamos com divulgação por meio das mídias sociais, com cobertura textual, áudio visual, fotográfica e imagens aéreas, que aproxima seu publico da sua empresa, além de aumentar a visibilidade da sua marca e seu alcance.</p>
                             <div class="text-center"><button type="submit" class="btnmodal" data-toggle="modal" data-target="#buy-ticket-modalservice3" data-ticket-type="premium-access">Veja
                                     Agora</button>
                             </div><br>
@@ -688,7 +688,7 @@
 
                         </div>
                         <div class="text-left">
-                            <a class="btn btn-link" data-toggle="modal" data-target="#modal-remmember-pass" data-ticket-type="premium-access" onclick="closeModalLogin();">Esqueci a senha</a>
+                            <a class="btn-link" data-toggle="modal" data-target="#modal-remmember-pass" data-ticket-type="premium-access" onclick="closeModalLogin();"><b>Esqueci minha senha!</b></a>
 
                         </div>
                         <div class="text-center">
@@ -708,7 +708,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="ttl"><b>Preencha o seu email</b></h2>
+                    <h2 class="ttl"><b>Preencha com seu email</b></h2>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -760,12 +760,12 @@
 
 
 
-    <div id="buy-ticket-modalportifolio1" class="modal fade">
+    <div id="buy-ticket-modalportfolio1" class="modal fade">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h2 class="ttl"><b>Portifolio</b></h2>
+                    <h2 class="ttl"><b>Portfolio</b></h2>
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -775,7 +775,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <h6>
-                                <b>Leve Anna Jessica para apresentar seu evento esportivo com uma locução eficaz,
+                                <b>Leve Anna Jéssica para apresentar seu evento esportivo com uma locução eficaz,
                                     interativa, dinâmica e inovadora na voz feminina.</b>
                             </h6>
 
@@ -839,11 +839,11 @@
     <!-- /.modal -->
 
 
-    <div id="buy-ticket-modalportifolio2" class="modal fade">
+    <div id="buy-ticket-modalportfolio2" class="modal fade">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="ttl"><b>Portifolio</b></h2>
+                    <h2 class="ttl"><b>Portfolio</b></h2>
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -865,10 +865,10 @@
                             <i class="fa fa-check" aria-hidden="true"></i><b> 9ª Festival Nacional de Humor de
                                 Maranguape - Praça Capistrano de Abreu - Maranguape-CE 2017</b>
                             <hr>
-                            <i class="fa fa-check" aria-hidden="true"></i><b> Cerimônial Dia das Mães Colégio Espaço
+                            <i class="fa fa-check" aria-hidden="true"></i><b> C Cerimonial Dia das Mães Colégio Espaço
                                 Livre - Maranguape Shopping Mall - Maranguape-CE 2018</b>
                             <hr>
-                            <i class="fa fa-check" aria-hidden="true"></i><b> Inaguração - Novas Instalações da CDL de
+                            <i class="fa fa-check" aria-hidden="true"></i><b> Inauguração - Novas Instalações da CDL de
                                 Boa Viagem - Rua 21 de Novembro - Boa Viagem-CE 2018</b>
 
                         </div>
@@ -977,7 +977,7 @@
                         <div class="col-11 col-lg-12">
                             <div class="col-11 col-lg-12">
                                 <h1><a href="#">2º Nigth Bike Maranguape 2019</a></h1>
-                                <h5 class="text-uppercase "><a href="#">Passeio Ciclistico</a></h5>
+                                <h5 class="text-uppercase "><a href="#">Passeio Ciclístico</a></h5>
 
                             </div>
                             <div class="col-11 col-lg-12">
@@ -1110,7 +1110,7 @@
                         <input type="password" class="form-control" name="password" id="password" placeholder="Senha" />
                     </div>
                     <div class="form-group col-md-6">
-                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="confirmar senha" />
+                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Confirmar senha" />
                     </div>
                 </div>
                 <div class="text-center"><button type="submit">Inscrever-se</button></div>
