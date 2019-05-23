@@ -22,6 +22,7 @@
                 <li class="sem parceiro" id="parceiro"><a href="javascript:void(0);">Parceiro</a></li>
                 <li class="sem patrocinio" id="patrocinio"><a href="javascript:void(0);">Patrocínio</a></li>
                 <li class="sem realizacao" id="realizacao"><a href="javascript:void(0);">Realização</a></li>
+                <li class="sem slideshow" id="slideshow"><a href="javascript:void(0);">Slideshow</a></li>
                 @auth
                 <li class="dropdown show">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
@@ -33,7 +34,7 @@
                             Inicio</a><br>
                         <a class="dropdown-item item-user" href="{{ url()->previous() }}"><i
                                 class="fa fa-arrow-left"></i> Voltar</a><br>
-                        
+
                         <a class="dropdown-item item-user" href="{{ route('logout') }}"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
                                 class="fa fa-sign-out"></i> Sair</a>
@@ -53,7 +54,7 @@
 </header><!-- #header -->
 
 <main id="main" class="main-page">
- 
+
 
     <!--    <div class="dl">
             <div class="dl__container">

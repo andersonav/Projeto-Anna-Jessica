@@ -72,6 +72,13 @@ Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
         Route::post('/editRealizacao', 'RealizacaoController@editRealizacao')->name('editRealizacao');
         Route::post('/deleteRealizacao', 'RealizacaoController@deleteRealizacao')->name('deleteRealizacao');
     });
+
+    Route::group(['prefix' => 'slideshow'], function () {
+        Route::post('/', 'SlideshowController@pageSlideshow')->name('pageSlideshow');
+        Route::post('/addSlideshow', 'SlideshowController@addSlideshow')->name('addSlideshow');
+        Route::post('/editSlideshow', 'SlideshowController@editSlideshow')->name('editSlideshow');
+        Route::post('/deleteSlideshow', 'SlideshowController@deleteSlideshow')->name('deleteSlideshow');
+    });
 });
 Route::get('/perfil', 'HomeController@perfil')->name('perfil');
 
