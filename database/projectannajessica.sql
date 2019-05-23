@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 23-Maio-2019 às 05:18
+-- Generation Time: 23-Maio-2019 às 06:23
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.2.17
 
@@ -306,6 +306,28 @@ INSERT INTO `realizacao` (`id_realizacao`, `nome_realizacao`, `data_de_criacao`,
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `slideshow`
+--
+
+CREATE TABLE `slideshow` (
+  `id_slideshow` int(11) NOT NULL,
+  `imagem` varchar(255) NOT NULL,
+  `data_de_criacao` datetime NOT NULL,
+  `data_de_atualizacao` datetime NOT NULL,
+  `status` int(11) DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `slideshow`
+--
+
+INSERT INTO `slideshow` (`id_slideshow`, `imagem`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
+(1, '5.jpg', '2019-05-23 04:08:36', '2019-05-23 04:08:49', 0),
+(2, 'bizpage-preview.png', '2019-05-23 04:08:55', '2019-05-23 04:08:55', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `submenu`
 --
 
@@ -399,7 +421,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `telefone_usuario`, `cidade_usuario`, `email`, `password`, `token`, `remember_token`, `ativo_usuario`, `data_de_criacao`, `data_de_atualizacao`, `id_tipo_usuario`) VALUES
-(1, 'Anderson Alves', '(85) 98835-5751', 'Maranguape', 'adm@gmail.com', '$2a$10$jjzLJXxKS/5qqylz5GHWjOvOabE/Ske6uFToaCCJtl8xEpAD5KRZ6', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'Lx328Ddif6onJLwUhsep4MdEzPWzKRBgtyRyB2qewJTPKQIMXMeJ0VPc13pe', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 1),
+(1, 'Anderson Alves', '(85) 98835-5751', 'Maranguape', 'adm@gmail.com', '$2a$10$jjzLJXxKS/5qqylz5GHWjOvOabE/Ske6uFToaCCJtl8xEpAD5KRZ6', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'nTbIsyJ2XLll9k3SdLKdKYGKKS3ps6GHPkOFNJgtvCZRhsAk0c3qKVx8V1iP', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 1),
 (2, 'Mauricio Abreu', '(85) 9883-55751', 'Maranguape', 'mauricio@gmail.com', '$2y$10$oNXTVKl2Y6V2v8I042h34.QVcvdq2McEqTsARjgxnyRhYACGFKmz.', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'Px5eJWeqXrzhmwjfIG6y1MXa80eaUGo2CHOCKCiOHWFNIxLfi3cSMzRiLzut', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 1),
 (3, 'José', '(85) 6545-56454', 'Maranguape', 'test@gmail.com', '$2y$10$R.sjbuWFv7xnAud0g1I3GOAz9jIo4xgH46q8qs7uQhQv29cHpaZEi', NULL, 'yyfB2AkpwXEl8GSzBrfAsd2lijZrLSmyC0dqwrvqyCDXzRb8gxoWcXdFn1Mp', 1, '2019-05-14 21:28:14', '2019-05-14 21:28:14', 2),
 (4, 'Teste banco', '(65) 6556-56565', 'Maranguape', 'mauricio123@gmail.com', '$2y$10$peSwmusxOrgot3f8pOFgxOyYXx.dDGfPG2Ln7XAwdqJzdOlt/3ijq', NULL, 'uWHQLmsSaxUE3PI933FkRQdqIQF3XqzpT6N7j9Qma5CiAAOuhwwY8waMb26W', 1, '2019-05-23 01:04:08', '2019-05-23 01:04:08', 2);
@@ -516,6 +538,12 @@ ALTER TABLE `realizacao`
   ADD PRIMARY KEY (`id_realizacao`);
 
 --
+-- Indexes for table `slideshow`
+--
+ALTER TABLE `slideshow`
+  ADD PRIMARY KEY (`id_slideshow`);
+
+--
 -- Indexes for table `submenu`
 --
 ALTER TABLE `submenu`
@@ -626,6 +654,12 @@ ALTER TABLE `permissao`
 --
 ALTER TABLE `realizacao`
   MODIFY `id_realizacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `slideshow`
+--
+ALTER TABLE `slideshow`
+  MODIFY `id_slideshow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `submenu`
