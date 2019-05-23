@@ -105,6 +105,10 @@
 .bootstrap-select>.dropdown-toggle {
     width: 113% !important;
 }
+.dropdown.bootstrap-select.custom-select.custom-select-sm.form-control.form-control-sm{
+    width: 25% !important;
+    margin: 0% 3% 0% 0%;
+}
 
 .custom-file-input {
     outline-color: #dc3545 !important;
