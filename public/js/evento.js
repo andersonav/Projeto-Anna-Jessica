@@ -158,4 +158,16 @@ function preencherModal(dados){
     $('select[name=realizacao]').selectpicker('val',dados[0].realizacao_id_realizacao);
     $('select[name=modo]').selectpicker('val',dados[0].modo);
     $('select[name=tipo]').selectpicker('val',dados[0].tipo);
+
+    if (dados[0].idLink != null) {
+        var idLink = dados[0].idLink.split(',');
+        var linkEvento = dados[0].linkEvento.split(',');
+        var nomeLink = dados[0].nomeLink.split(',');
+
+        idLink.forEach(element => {
+            console.log(element);
+        });
+    }
+
+    
 }

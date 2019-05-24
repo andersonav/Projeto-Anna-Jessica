@@ -154,7 +154,7 @@
                                     placeholder="Prazo inscrição" />
                             </div>
                             <div class="input-group col-md-8">
-                                <div class="input-group-prepend">
+                                <div class="input-group-prepend imgEvento">
                                     <span class="input-group-text" id="inputGroupFileAddon01">Imagem evento: </span>
                                 </div>
                                 <div class="custom-file">
@@ -203,7 +203,8 @@
     $(".custom-file-input").on("change", function () {
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-    });</script>
+    });
+    </script>
 <!-- (Optional) Latest compiled and minified JavaScript translation files -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/i18n/defaults-pt_BR.min.js"></script>
 <script src="{{asset('js/evento.js')}}"></script>

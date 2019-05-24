@@ -30,7 +30,7 @@
                             <td>{{$agenda->hora_inicio}}</td>
                             <td>{{$agenda->hora_fim}}</td>
                             <td>{{$agenda->cidade}}</td>
-                            <td><a class="" data-toggle="modal" data-target="#newAgenda" onclick="editarAgenda({{$agenda->id_agenda}}, '{{$agenda->nome_evento}}', '{{$newDate}}', '{{$agenda->hora_inicio}}', '{{$agenda->hora_fim}}', '{{$agenda->cidade}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetAgenda({{$agenda->id_agenda}});"><i class="fa fa-trash"></i></a></td>
+                            <td><a class="" data-toggle="modal" data-target="#newAgenda" onclick="editarAgenda({{$agenda->id_agenda}}, '{{$agenda->nome_evento}}', '{{$agenda->data}}', '{{$agenda->hora_inicio}}', '{{$agenda->hora_fim}}', '{{$agenda->cidade}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetAgenda({{$agenda->id_agenda}});"><i class="fa fa-trash"></i></a></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -60,16 +60,16 @@
 
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-6">
                                 <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" />
                             </div>
-                            <div class="form-group col-md-4">
-                                <input type="text" name="data" class="form-control" id="data" placeholder="Data" />
+                            <div class="form-group col-md-6">
+                                <input type="date" name="data" class="form-control" id="data" placeholder="Data" />
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <input type="text" name="hora_inicio" class="form-control" id="hora_inicio" placeholder="Horario inicial" />
                             </div>
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-6">
                                 <input type="text" name="hora_fim" class="form-control" id="hora_fim" placeholder="Horario final" />
                             </div>
                             <div class="form-group col-md-12">

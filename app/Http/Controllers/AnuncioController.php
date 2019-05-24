@@ -22,6 +22,7 @@ class AnuncioController extends Controller {
 
     public function addAnuncio(Request $request) {
         $validator = $this->validateForm($request);
+        
         $image = $request->file('file');
         $name = $image->getClientOriginalName();
         $destinationPath = public_path('img/anuncios');

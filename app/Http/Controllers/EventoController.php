@@ -36,8 +36,11 @@ class EventoController extends Controller
     public function addEvento(Request $request)
     {
         $validator = $this->validateForm($request);
-        $nameFile = "{$request->nome_evento}.jpeg";
-        $upload = Storage::putFileAs('imageEvento', new File($request->imgEvento), $nameFile);
+        $image = $request->imgEvento;
+        $name = $image->getClientOriginalName();
+        $destinationPath = public_path('img/eventos');
+        $image->move($destinationPath, $name);
+
         $createEvento = Evento::create([
             'nome_evento' => $request->nome_evento,
             'data' => $request->data,
@@ -50,7 +53,7 @@ class EventoController extends Controller
             'tipo' => $request->tipo,
             'prazo' => $request->data_encerramento,
             'endereco' => $request->endereco,
-            'imagem' => $upload,
+            'imagem' => $name,
             'apoio_id_apoio' => $request->apoio,
             'patrocinio_id_patrocinio' => $request->patrocinio,
             'realizacao_id_realizacao' => $request->realizacao,
@@ -73,11 +76,13 @@ class EventoController extends Controller
         if ($request->tipo == 'Destaque') {
             $validator2 = $this->validateForm2($request);
             for ($i = 0; $i < count($request->nomeKit); $i++) {
-                $nameFile = "{$request->nomeKit[$i]}.jpeg";
-                $upload = Storage::putFileAs('imageKit', new File($request->imgKit[$i]), $nameFile);
+                $image = $request->imgKit[$i];
+                $name = $image->getClientOriginalName();
+                $destinationPath = public_path('img/eventos/kit');
+                $image->move($destinationPath, $name);
                 $createKit = Kit::create([
                     'nome_kit' => $request->nomeKit[$i],
-                    'imagem_kit' => $upload,
+                    'imagem_kit' => $name,
                     'valor' => $request->valorKit[$i],
                     'id_tamanho' => md5($request->nomeKit[$i]),
                     'descricao_kit' => $request->descKit[$i],
