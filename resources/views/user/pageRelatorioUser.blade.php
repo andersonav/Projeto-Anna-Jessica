@@ -178,10 +178,10 @@
     <footer id="footer">
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong>Anna Jessica</strong> . Todos os direitos reservados!
+                &copy; Copyright <strong>Anna Jéssica</strong>. Todos os direitos reservados!
             </div>
             <div class="credits">
-                Desenvolvido por <a href="https://edeev.com.br/">EDEV</a>
+                Desenvolvido por <a href="#"><font color="blue"><b>EDEV</b></font></a>
             </div>
         </div>
     </footer><!-- #footer -->
