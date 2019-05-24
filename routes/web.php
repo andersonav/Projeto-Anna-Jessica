@@ -50,6 +50,7 @@ Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
         Route::post('/addEvento', 'EventoController@addEvento')->name('addEvento');
         Route::post('/editEvento', 'EventoController@editEvento')->name('editEvento');
         Route::post('/deleteEvento', 'EventoController@deleteEvento')->name('deleteEvento');
+        Route::post('/dadosEvento', 'EventoController@dadosEvento')->name('dadosEvento');
     });
 
     Route::group(['prefix' => 'parceiro'], function () {

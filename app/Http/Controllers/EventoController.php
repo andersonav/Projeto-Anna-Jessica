@@ -97,6 +97,36 @@ class EventoController extends Controller
         return response()->json($request);
     }
 
+    public function dadosEvento(Request $request)
+    {
+        $dados = DB::select('SELECT even.*, 
+        (SELECT GROUP_CONCAT(kit_evento.id_kit SEPARATOR ",") 
+        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as idKit, 
+        (SELECT GROUP_CONCAT(kit_evento.nome_kit SEPARATOR ",") 
+        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as nomeKit,  
+        (SELECT GROUP_CONCAT(kit_evento.imagem_kit SEPARATOR ",") 
+        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as imgKit,  
+        (SELECT GROUP_CONCAT(kit_evento.valor SEPARATOR ",") 
+        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as valorKit, 
+        (SELECT GROUP_CONCAT(kit_evento.id_tamanho SEPARATOR ",") 
+        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as hashTamanho,  
+        (SELECT GROUP_CONCAT(kit_evento.descricao_kit SEPARATOR ",") 
+        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as descKit,
+        
+         
+        (SELECT GROUP_CONCAT(link_evento.id_link_evento SEPARATOR ",") 
+        FROM link_evento WHERE link_evento.id_evento_fk = even.id_evento) as idLink ,  
+        (SELECT GROUP_CONCAT(link_evento.nome_link SEPARATOR ",") 
+        FROM link_evento WHERE link_evento.id_evento_fk = even.id_evento) as nomeLink ,  
+        (SELECT GROUP_CONCAT(link_evento.link SEPARATOR ",") 
+        FROM link_evento WHERE link_evento.id_evento_fk = even.id_evento) as linkEvento
+        
+        FROM evento even 
+        WHERE even.id_evento = ?', [$request->idEvento]);
+
+        return Response::json($dados);
+    }
+
     public function validateForm(Request $request)
     {
         return $this->validate($request, [

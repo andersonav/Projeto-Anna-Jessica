@@ -116,6 +116,46 @@ function removerKit(kitNum) {
 }
 
 function adicionarEvento() {
+    $('.ttl b').text('Novo Evento');
     $('.bootstrap-select:not(.input-group-btn)').css('display', 'inline-block');
     $('select').selectpicker();
+}
+
+function editarEvento(idEvento) {
+    $.ajax({
+        url: "adminConf/evento/dadosEvento",
+        type: 'POST',
+        async: false,
+        data: {
+            idEvento: idEvento
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }, success: function (data, textStatus, jqXHR) {
+            console.log(data);
+            preencherModal(data);
+        }
+    });
+
+    $('.ttl b').text('Editar Evento');
+    $('.bootstrap-select:not(.input-group-btn)').css('display', 'inline-block');
+    $('select').selectpicker();
+    $('#newEvento').modal('show');
+}
+
+function preencherModal(dados){
+    $('input[name=nome_evento]').val(dados[0].nome_evento);
+    $('input[name=data]').val(dados[0].data);
+    $('input[name=hora_ini]').val(dados[0].hora_inicio);
+    $('input[name=hora_fim]').val(dados[0].hora_fim);
+    $('input[name=percurso]').val(dados[0].percurso);
+    $('input[name=distancia]').val(dados[0].distancia);
+    $('input[name=data_encerramento]').val(dados[0].prazo);
+    $('input[name=endereco]').val(dados[0].endereco);
+    $('textarea[name=info_adc]').val(dados[0].informacao_adicional);
+    $('select[name=apoio]').selectpicker('val',dados[0].apoio_id_apoio);
+    $('select[name=patrocinio]').selectpicker('val',dados[0].patrocinio_id_patrocinio);
+    $('select[name=realizacao]').selectpicker('val',dados[0].realizacao_id_realizacao);
+    $('select[name=modo]').selectpicker('val',dados[0].modo);
+    $('select[name=tipo]').selectpicker('val',dados[0].tipo);
 }
