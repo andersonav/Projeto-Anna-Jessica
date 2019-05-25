@@ -32,7 +32,7 @@ $(document).ready(function () {
         var dados = new FormData(this);
         $.ajax({
             // Fazer rota de esqueceu senha
-            url: "/login",
+            url: "/password/email",
             type: 'POST',
             contentType: false,
             cache: false,
@@ -45,7 +45,16 @@ $(document).ready(function () {
             },
             data: dados,
             success: function (data, textStatus, jqXHR) {
-                window.location = '/home';
+                $(".modal").modal('hide');
+                setTimeout(function () {
+                    Swal.fire({
+                        position: 'center',
+                        type: 'success',
+                        title: '<strong>Operação realizada com sucesso. Te enviamos um email para recuperação de senha!</strong>',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }, 500);
             }, error: function (data, textStatus, errorThrown) {
                 var erros = $.parseJSON(data.responseText);
                 $(".mensagensErros").empty();
