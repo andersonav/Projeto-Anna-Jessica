@@ -16,19 +16,15 @@
             <ul class="nav-menu">
                 @auth
                 <li class="dropdown show">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ auth()->user()->nome_usuario }}
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item item-user" href="{{ url()->previous() }}"><i
-                                class="fa fa-arrow-left"></i> Voltar</a><br>
+                        <a class="dropdown-item item-user" href="{{ url()->previous() }}"><i class="fa fa-arrow-left"></i> Voltar</a><br>
 
 
-                        <a class="dropdown-item item-user" href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
-                                class="fa fa-sign-out"></i> Sair</a>
+                        <a class="dropdown-item item-user" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> Sair</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
@@ -36,8 +32,7 @@
                     </div>
                 </li>
                 @else
-                <li class="buy-tickets" data-toggle="modal" data-target="#buy-ticket-modal"
-                    data-ticket-type="premium-access"><a>Login</a></li>
+                <li class="buy-tickets" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="premium-access"><a>Login</a></li>
                 @endauth
             </ul>
         </nav><!-- #nav-menu-container -->
@@ -63,9 +58,9 @@
                             <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imgcomp">
                         </div>
 
-                        <div class="col-11 col-lg-5" id="insc">
-                            <div class="col-11 col-lg-12">
-                                <div class="col-11 col-lg-12">
+                        <div class="col-lg-5" id="insc">
+                            <div class="col-lg-12">
+                                <div class="col-lg-12">
                                     <h2><a href="#">2º Nigth Bike Maranguape 2019</a></h2>
                                     <h7 class="text-uppercase "><a href="#">Passeio Ciclístico</a></h7>
 
@@ -77,68 +72,72 @@
                     </div>
 
                 </div>
-            </div>
+                <div class="col-lg-12 venue-info">
+                    <div class="row justify-content-center">
 
-        </div>
-        <hr>
-        <div class="col-lg-12 venue-info">
-            <div class="row justify-content-center">
+                        <div class="col-lg-9">
+                            <h4><i class="fa fa-circle" aria-hidden="true"></i> <b>Veja as opções de kits para este evento!</b></h4>
+                            <div class="col-lg-12" id="kit">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4">
+                                        <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imgcomp">
+                                    </div>
 
-                <div class="col-lg-8">
-                    <h4><i class="fa fa-circle" aria-hidden="true"></i> <b>Veja as opções de kits para este evento!</b></h4>
-                    <div class="col-lg-12" id="kit">
-                            <div class="row justify-content-center">
-                            <div class="col-lg-3">
-                                <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imgcomp">
-                            </div>
-    
-                            <div class="col-11 col-lg-5" id="insc">
-                                <div class="col-11 col-lg-12">
-                                    <div class="col-11 col-lg-12">
-                                        <h5><b>Kit Estações</b></h5>
-                                        <h7 >Camiseta ProRun Seamless HiveTech, Sacola Térmica, Glass Mug e Medalha (pós-evento)</7>
-    
+                                    <div class="col-lg-5" id="insc">
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-12">
+                                                <h5><b>Kit Estações</b></h5>
+                                                <h7>Camiseta ProRun Seamless HiveTech, Sacola Térmica, Glass Mug e Medalha (pós-evento)</7>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3" style="padding:50px;">
+                                        <h5><b>R$ 80,90</b></h5>
+                                        <button class="btnmodal">Quero Este</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4" style="padding:50px;">
-                                <h5><b>R$ 80,90</b></h5>
-                                <button class="btnmodal">Quero Este</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12" id="kit">
-                            <div class="row justify-content-center">
-                            <div class="col-lg-3">
-                                <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imgcomp">
-                            </div>
-    
-                            <div class="col-11 col-lg-5" id="insc">
-                                <div class="col-11 col-lg-12">
-                                    <div class="col-11 col-lg-12">
-                                        <h5><b>Kit Estações</b></h5>
-                                        <h7 >Camiseta ProRun Seamless HiveTech, Sacola Térmica, Glass Mug e Medalha (pós-evento)</7>
-    
+                            <div class="col-lg-12" id="kit">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-4">
+                                        <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imgcomp">
+                                    </div>
+
+                                    <div class="col-lg-5" id="insc">
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-12">
+                                                <h5><b>Kit Estações</b></h5>
+                                                <h7>Camiseta ProRun Seamless HiveTech, Sacola Térmica, Glass Mug e Medalha (pós-evento)</7>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3" style="padding:50px;">
+                                        <h5><b>R$ 80,90</b></h5>
+                                        <button class="btnmodal">Quero Este</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4" style="padding:50px;">
-                                <h5><b>R$ 80,90</b></h5>
-                                <button class="btnmodal">Quero Este</button>
+                        </div>
+                        <div class="col-lg-3">
+                            <h4><i class="fa fa-check-square" aria-hidden="true"></i> <b>Dados da Compra</b></h4>
+                            <div class="col-lg-12">
+                            
                             </div>
                         </div>
+
+
+
+
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <h4><i class="fa fa-check-square" aria-hidden="true"></i> <b>Dados da Compra</b></h4>
-                    <div class="col-lg-12"></div>
                 </div>
 
             </div>
         </div>
     </section>
-
-    <!--==========================
+</main>
+<!--==========================
           Speaker Details Section
         ============================-->
 
