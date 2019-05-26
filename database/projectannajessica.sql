@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 23-Maio-2019 às 06:23
+-- Generation Time: 26-Maio-2019 às 06:27
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.2.17
 
@@ -51,17 +51,22 @@ CREATE TABLE `anuncio` (
   `imagem` varchar(255) NOT NULL,
   `data_de_criacao` datetime NOT NULL,
   `data_de_atualizacao` datetime NOT NULL,
-  `status` int(11) DEFAULT '1'
+  `status` int(11) DEFAULT '1',
+  `classificacao_id_classificacao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `anuncio`
 --
 
-INSERT INTO `anuncio` (`id_anuncio`, `imagem`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
-(1, 'Captura de tela de 2019-05-11 22-56-43.png', '2019-05-12 01:30:00', '2019-05-18 18:53:30', 0),
-(2, 'Captura de tela de 2019-05-06 23-27-34.png', '2019-05-18 19:00:34', '2019-05-18 19:16:20', 0),
-(3, 'img1.jpeg', '2019-05-21 17:58:17', '2019-05-21 17:58:34', 0);
+INSERT INTO `anuncio` (`id_anuncio`, `imagem`, `data_de_criacao`, `data_de_atualizacao`, `status`, `classificacao_id_classificacao`) VALUES
+(4, 'Entrar-no-Reino-de-Deus.png', '2019-05-26 04:02:59', '2019-05-26 04:02:59', 1, 1),
+(5, 'Entrar-no-Reino-de-Deus.png', '2019-05-26 04:04:14', '2019-05-26 04:04:14', 1, 1),
+(6, 'Celula.jpeg', '2019-05-26 04:04:24', '2019-05-26 04:04:24', 1, 1),
+(7, 'Celula.jpeg', '2019-05-26 04:04:24', '2019-05-26 04:04:24', 1, 1),
+(8, 'Celula.jpeg', '2019-05-26 04:04:24', '2019-05-26 04:24:20', 0, 1),
+(9, 'celulaconvite-oficial.jpg', '2019-05-26 04:25:04', '2019-05-26 04:25:04', 1, 1),
+(10, 'Celula.jpeg', '2019-05-26 04:25:14', '2019-05-26 04:25:50', 0, 2);
 
 -- --------------------------------------------------------
 
@@ -91,6 +96,26 @@ INSERT INTO `apoio` (`id_apoio`, `nome_apoio`, `data_de_criacao`, `data_de_atual
 (7, 'ewfefew', '2019-05-18 19:16:37', '2019-05-21 18:33:11', 0),
 (8, 'werwe', '2019-05-21 17:54:26', '2019-05-21 17:54:26', 1),
 (9, 'trhyrt', '2019-05-21 18:17:50', '2019-05-21 18:17:50', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `classificacao_anuncio`
+--
+
+CREATE TABLE `classificacao_anuncio` (
+  `id_classificacao_anuncio` int(11) NOT NULL,
+  `desc_classificacao_anuncio` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `classificacao_anuncio`
+--
+
+INSERT INTO `classificacao_anuncio` (`id_classificacao_anuncio`, `desc_classificacao_anuncio`) VALUES
+(1, 'Primeira'),
+(2, 'Segunda'),
+(3, 'Terceira');
 
 -- --------------------------------------------------------
 
@@ -237,6 +262,25 @@ CREATE TABLE `parceiro` (
 INSERT INTO `parceiro` (`id_parceiro`, `imagem_parceiro`, `descricao_parceiro`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
 (1, 'Captura de tela de 2019-05-11 22-56-43.png', 'Oltrtrthrthrt', '2019-05-12 01:30:00', '2019-05-18 19:02:13', 0),
 (2, 'Captura de tela de 2019-04-15 23-01-45.png', 'ergerg', '2019-05-18 19:17:36', '2019-05-18 19:17:50', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('anderson.alvesprogrammer@gmail.com', '$2y$10$iAU6B2XL9UDPWKYVUAWiP.UI8AIWInijOBSElnY9EuPsEsssHVTvC', '2019-05-25 07:00:25');
 
 -- --------------------------------------------------------
 
@@ -421,7 +465,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `telefone_usuario`, `cidade_usuario`, `email`, `password`, `token`, `remember_token`, `ativo_usuario`, `data_de_criacao`, `data_de_atualizacao`, `id_tipo_usuario`) VALUES
-(1, 'Anderson Alves', '(85) 98835-5751', 'Maranguape', 'adm@gmail.com', '$2a$10$jjzLJXxKS/5qqylz5GHWjOvOabE/Ske6uFToaCCJtl8xEpAD5KRZ6', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'nTbIsyJ2XLll9k3SdLKdKYGKKS3ps6GHPkOFNJgtvCZRhsAk0c3qKVx8V1iP', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 1),
+(1, 'Anderson Alves', '(85) 98835-5751', 'Maranguape', 'anderson.alvesprogrammer@gmail.com', '$2y$10$.z1XEQO083pxUG1I9P7eWeirC/OOMcAZKMux2LA3IpAlcscUabsN.', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'kjm5oSfmC9WUBO6FbC3TmX8x6S50Jv1es53k7mnxXMDxtiDetZIil1RIKP1f', 1, '2019-04-23 22:54:35', '2019-05-25 03:44:19', 1),
 (2, 'Mauricio Abreu', '(85) 9883-55751', 'Maranguape', 'mauricio@gmail.com', '$2y$10$oNXTVKl2Y6V2v8I042h34.QVcvdq2McEqTsARjgxnyRhYACGFKmz.', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'Px5eJWeqXrzhmwjfIG6y1MXa80eaUGo2CHOCKCiOHWFNIxLfi3cSMzRiLzut', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 1),
 (3, 'José', '(85) 6545-56454', 'Maranguape', 'test@gmail.com', '$2y$10$R.sjbuWFv7xnAud0g1I3GOAz9jIo4xgH46q8qs7uQhQv29cHpaZEi', NULL, 'yyfB2AkpwXEl8GSzBrfAsd2lijZrLSmyC0dqwrvqyCDXzRb8gxoWcXdFn1Mp', 1, '2019-05-14 21:28:14', '2019-05-14 21:28:14', 2),
 (4, 'Teste banco', '(65) 6556-56565', 'Maranguape', 'mauricio123@gmail.com', '$2y$10$peSwmusxOrgot3f8pOFgxOyYXx.dDGfPG2Ln7XAwdqJzdOlt/3ijq', NULL, 'uWHQLmsSaxUE3PI933FkRQdqIQF3XqzpT6N7j9Qma5CiAAOuhwwY8waMb26W', 1, '2019-05-23 01:04:08', '2019-05-23 01:04:08', 2);
@@ -435,7 +479,7 @@ INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `telefone_usuario`, `cidade
 CREATE TABLE `usuario_evento` (
   `id_usuario_evento` int(11) NOT NULL,
   `usuario_id_usuario` int(11) NOT NULL,
-  `evento_id_evento` int(11) NOT NULL
+  `kit_id_kit` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -481,6 +525,12 @@ ALTER TABLE `apoio`
   ADD PRIMARY KEY (`id_apoio`);
 
 --
+-- Indexes for table `classificacao_anuncio`
+--
+ALTER TABLE `classificacao_anuncio`
+  ADD PRIMARY KEY (`id_classificacao_anuncio`);
+
+--
 -- Indexes for table `comp_evento`
 --
 ALTER TABLE `comp_evento`
@@ -518,6 +568,12 @@ ALTER TABLE `menu`
 --
 ALTER TABLE `parceiro`
   ADD PRIMARY KEY (`id_parceiro`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `emailPass` (`email`);
 
 --
 -- Indexes for table `patrocinio`
@@ -567,8 +623,7 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `usuario_evento`
   ADD PRIMARY KEY (`id_usuario_evento`),
-  ADD KEY `fk_usuario_evento_usuario` (`usuario_id_usuario`),
-  ADD KEY `fk_usuario_evento_evento1` (`evento_id_evento`);
+  ADD KEY `fk_usuario_evento_usuario` (`usuario_id_usuario`);
 
 --
 -- Indexes for table `usuario_permissao_menu`
@@ -593,13 +648,19 @@ ALTER TABLE `agenda`
 -- AUTO_INCREMENT for table `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `id_anuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_anuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `apoio`
 --
 ALTER TABLE `apoio`
   MODIFY `id_apoio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `classificacao_anuncio`
+--
+ALTER TABLE `classificacao_anuncio`
+  MODIFY `id_classificacao_anuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `comp_evento`
@@ -713,7 +774,6 @@ ALTER TABLE `submenu`
 -- Limitadores para a tabela `usuario_evento`
 --
 ALTER TABLE `usuario_evento`
-  ADD CONSTRAINT `fk_usuario_evento_evento1` FOREIGN KEY (`evento_id_evento`) REFERENCES `evento` (`id_evento`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_usuario_evento_usuario` FOREIGN KEY (`usuario_id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
