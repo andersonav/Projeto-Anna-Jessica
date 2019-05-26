@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
 <section id="contact" class="section-bg wow fadeInUp">
 
     <div class="container">
@@ -7,23 +8,25 @@
         </div>
 
         <div class="form">
-        <div class="col-md-12 scroll">
-            <table id="tabela" class="table table-bordered" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Imagem</th>
-                        <th>Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($anuncios as $anuncio)
-                    <tr>
-                        <td><img src="/img/anuncios/{{$anuncio->imagem}}" width="100px"/></td>
-                        <td><a class="" data-toggle="modal" data-target="#newAnuncio" onclick="editarAnuncio({{$anuncio->id_anuncio}}, '{{$anuncio->imagem}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetAnuncio({{$anuncio->id_anuncio}});"><i class="fa fa-trash"></i></a></td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="col-md-12 scroll">
+                <table id="tabela" class="table table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Imagem</th>
+                            <th>Classificação</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($anuncios as $anuncio)
+                        <tr>
+                            <td><img src="/img/anuncios/{{$anuncio->imagem}}" width="100px"/></td>
+                            <td>{{$anuncio->desc_classificacao_anuncio}}</td>
+                            <td><a class="" data-toggle="modal" data-target="#newAnuncio" onclick="editarAnuncio({{$anuncio->id_anuncio}}, '{{$anuncio->imagem}}', '{{$anuncio->id_classificacao_anuncio}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetAnuncio({{$anuncio->id_anuncio}});"><i class="fa fa-trash"></i></a></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
             <div class="text-center">
                 <button type="submit" data-toggle="modal" data-target="#newAnuncio" onclick="adicionarAnuncio();"><i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Novo Anúncio</button>
@@ -47,17 +50,29 @@
                         <div class="errors">
 
                         </div>
-                        <div class="input-group col-md-12" style="display:none; margin: 0 auto; text-align: center; margin-bottom: 20px;" id="imageAnuncioEdit">
-                            <img src="" width="100px" class="imageAnuncio"/>
-                        </div>
-                        <div class="input-group col-md-12">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupFileAddon01">Imagem: </span>
+                        <div class="form-row">
+                            <div class="input-group col-md-12" style="display:none; margin: 0 auto; text-align: center; margin-bottom: 20px;" id="imageAnuncioEdit">
+                                <img src="" width="100px" class="imageAnuncio"/>
                             </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01" name="file"
-                                       aria-describedby="inputGroupFileAddon01">
-                                <label class="custom-file-label" for="inputGroupFile01">Seu arquivo</label>
+                            <div class="form-group input-group col-md-12">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupFileAddon01">Imagem: </span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile01" name="file"
+                                           aria-describedby="inputGroupFileAddon01">
+                                    <label class="custom-file-label" for="inputGroupFile01">Seu arquivo</label>
+                                </div>
+                            </div>
+                            <div class="form-group input-group col-md-12">
+                                <select name="classificacao" class="selectpicker show-tick" data-live-search="true"
+                                        title="Classificação:" id="classificacao">
+                                    @forelse ($classificacoes as $classificacao)
+                                    <option value="{{ $classificacao->id_classificacao_anuncio }}">{{ $classificacao->desc_classificacao_anuncio }}</option>
+                                    @empty
+                                    <option>Vazio</option>
+                                    @endforelse
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -69,6 +84,14 @@
         </div>
     </div>
 </section><!-- #contact -->
+<script>
+   
+    $(function () {
+        $('select').selectpicker();
+    });
+   
+    </script>
 
 <script src="{{asset('js/anuncio.js')}}"></script>
 <script src="{{asset('js/operacao.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/i18n/defaults-pt_BR.min.js"></script>

@@ -21,13 +21,14 @@ function adicionarAnuncio() {
     $("#titleModal").html("Novo Anuncio");
 }
 
-function editarAnuncio(id, nome) {
+function editarAnuncio(id, nome, id_classificacao) {
     $('.errors').empty();
     $(".imageAnuncio").attr("src", '/img/anuncios/' + nome);
     $("#imageAnuncioEdit").css("display", 'block');
     $("input[name=action]").val('editAnuncio');
     $("input[name=id_anuncio]").val(id);
     $("#nome").val(nome);
+    $("#classificacao").val(id_classificacao);
     $("#btnAction").html("Editar");
     $("#titleModal").html("Editar Anuncio");
 }

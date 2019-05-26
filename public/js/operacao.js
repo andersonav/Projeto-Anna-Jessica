@@ -37,6 +37,8 @@ $("#formAdmin").submit(function (e) {
         }, error: function (errors, textStatus, errorThrown) {
             $('.errors').empty();
             var erros = $.parseJSON(errors.responseText);
+            console.log(erros);
+
             $.each(erros.errors, function (key, value) {
                 $(".errors").append('<div class="alert alert-danger" role="alert" id="mensagemErro">' + value + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
             });
