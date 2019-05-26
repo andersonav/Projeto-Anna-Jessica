@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use App\Slideshow;
+use DB;
 
 class SlideshowController extends Controller {
 
@@ -18,15 +19,24 @@ class SlideshowController extends Controller {
 
     public function addSlideshow(Request $request) {
         $validator = $this->validateForm($request);
-        $image = $request->file('file');
-        $name = $image->getClientOriginalName();
-        $destinationPath = public_path('img/slideshow');
-        $image->move($destinationPath, $name);
+        $resultSlideshow = DB::table('slideshow')
+                ->where("status", '=', 1)
+                ->count();
+        if ($resultSlideshow < 3) {
+            $image = $request->file('file');
+            $name = $image->getClientOriginalName();
+            $destinationPath = public_path('img/slideshow');
+            $image->move($destinationPath, $name);
 
-        $createSlideshow = Slideshow::create([
-                    'imagem' => $name,
-                    'status' => 1
-        ]);
+            $createSlideshow = Slideshow::create([
+                        'imagem' => $name,
+                        'status' => 1
+            ]);
+        } else {
+            $array['errors'] = ['errors' => 'O máximo de 3 imagens no slideshow foi alcançado. Por favor edite ou exclua alguma imagem!'];
+            return response()->json($array, 500);
+        }
+
 
         return response()->json($request);
     }

@@ -7,25 +7,91 @@
         </div>
 
         <div class="form">
-        <div class="col-md-12 scroll">
-            <table id="tabela" class="table table-bordered" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Imagem</th>
-                        <th>Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($slideshows as $slideshow)
-                    <tr>
-                        <td><img src="/img/slideshow/{{$slideshow->imagem}}" width="100px"/></td>
-                        <td><a class="" data-toggle="modal" data-target="#newSlideshow" onclick="editarSlideshow({{$slideshow->id_slideshow}}, '{{$slideshow->imagem}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetSlideshow({{$slideshow->id_slideshow}});"><i class="fa fa-trash"></i></a></td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="col-md-12">
+                <!--                @php
+                                $count = 1;
+                                @endphp
+                                @foreach($slideshows as $slideshow)
+                                <div class="card">
+                                    <div class="card-body">
+                
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <a href="profile-posts.html" class="avatar avatar-lg">
+                                                    <img src="/img/slideshow/{{$slideshow->imagem}}" alt="..." class="avatar-img" width="120px">
+                                                </a>
+                                            </div>
+                                            <div class="col ml-n2">
+                                                <h4 class="card-title mb-1">
+                                                    <a href="#!">Imagem {{$count}}</a>
+                                                </h4>
+                                            </div>
+                                            <div class="col-auto">
+                                                <a href="#!" class="btn btn-sm btn-primary d-none d-md-inline-block">
+                                                    Editar
+                                                </a>
+                                                <a class="" data-toggle="modal" data-target="#newSlideshow" onclick="editarSlideshow({{$slideshow->id_slideshow}}, '{{$slideshow->imagem}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetSlideshow({{$slideshow->id_slideshow}});"><i class="fa fa-trash"></i></a>
+                
+                                            </div>
+                                        </div>
+                
+                                    </div>
+                                </div>
+                                @php
+                                $count++;
+                                @endphp
+                                @endforeach-->
+                <!--                <div class="jumbotron jumbotron-fluid">
+                                    <div class="container">
+                                        <h1 class="display-4">Slideshows não encontrados.</h1>
+                                        <p class="lead">Nenhum slideshow foi cadastrado. Por favor, cadastre-os</p>
+                                    </div>
+                                </div>-->
+                <div class="card-deck">
+                    @php
+                    $count = 1;
+                    @endphp
+                    @forelse($slideshows as $slideshow)
+                    <div class="form-group col-md-4">
+
+
+                        <div class="card">
+                            <img class="card-img-top" src="/img/slideshow/{{$slideshow->imagem}}" alt="Imagem de capa do card">
+                            <div class="card-body">
+                                <h5 class="card-title">Imagem {{$count}}</h5>
+                                <p class="card-text"></p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted" style="float: right;"><a class="" data-toggle="modal" data-target="#newSlideshow" onclick="editarSlideshow({{$slideshow->id_slideshow}}, '{{$slideshow->imagem}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetSlideshow({{$slideshow->id_slideshow}});"><i class="fa fa-trash"></i></a></small>
+                            </div>
+                        </div>
+                    </div>
+                    @php
+                    $count++;
+                    @endphp
+                    @empty
+
+
+                    @endforelse
+                </div>
+                                <!--            <table id="tabela" class="table table-bordered" style="width:100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Imagem</th>
+                                                        <th>Ação</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($slideshows as $slideshow)
+                                                    <tr>
+                                                        <td><img src="/img/slideshow/{{$slideshow->imagem}}" width="100px"/></td>
+                                                        <td><a class="" data-toggle="modal" data-target="#newSlideshow" onclick="editarSlideshow({{$slideshow->id_slideshow}}, '{{$slideshow->imagem}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetSlideshow({{$slideshow->id_slideshow}});"><i class="fa fa-trash"></i></a></td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>-->
             </div>
-            <div class="text-center">
+            <div class="text-center" style="margin-top: 20px;">
                 <button type="submit" data-toggle="modal" data-target="#newSlideshow" onclick="adicionarSlideshow();"><i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Novo Slideshow</button>
             </div>
         </div>

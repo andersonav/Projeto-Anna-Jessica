@@ -9,7 +9,32 @@
 
         <div class="form">
             <div class="col-md-12 scroll">
-                <table id="tabela" class="table table-bordered" style="width:100%">
+                <div class="card-deck">
+                    @php
+                    $count = 1;
+                    @endphp
+                    @forelse($anuncios as $anuncio)
+                    <div class="form-group col-md-3">
+                        <div class="card" style="width: 100% !important;">
+                            <img class="card-img-top" src="/img/anuncios/{{$anuncio->imagem}}" alt="Imagem de capa do card">
+                            <div class="card-body">
+                                <h5 class="card-title">Imagem {{$count}}</h5>
+                                <p class="card-text">Classificação: {{$anuncio->id_classificacao_anuncio}}ª</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted" style="float: right;"><a class="" data-toggle="modal" data-target="#newAnuncio" onclick="editarAnuncio({{$anuncio->id_anuncio}}, '{{$anuncio->imagem}}', '{{$anuncio->id_classificacao_anuncio}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetAnuncio({{$anuncio->id_anuncio}});"><i class="fa fa-trash"></i></a></small>
+                            </div>
+                        </div>
+                    </div>
+                    @php
+                    $count++;
+                    @endphp
+                    @empty
+
+
+                    @endforelse
+                </div>
+<!--                <table id="tabela" class="table table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th>Imagem</th>
@@ -26,9 +51,9 @@
                         </tr>
                         @endforeach
                     </tbody>
-                </table>
+                </table>-->
             </div>
-            <div class="text-center">
+            <div class="text-center"  style="margin-top: 20px;">
                 <button type="submit" data-toggle="modal" data-target="#newAnuncio" onclick="adicionarAnuncio();"><i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Novo Anúncio</button>
             </div>
         </div>
@@ -85,12 +110,10 @@
     </div>
 </section><!-- #contact -->
 <script>
-   
+
     $(function () {
-        $('select').selectpicker();
-    });
-   
-    </script>
+    $('select').selectpicker();
+    });</script>
 
 <script src="{{asset('js/anuncio.js')}}"></script>
 <script src="{{asset('js/operacao.js')}}"></script>

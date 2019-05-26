@@ -19,6 +19,7 @@ body {
 a {
     color: #f82249;
     transition: 0.5s;
+    cursor: pointer;
 }
 
 a:hover,
@@ -2028,4 +2029,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .nav-menu-active {
     color: #f82249 !important;
+}
+
+.col-md-3{
+    max-width: 20% !important;
 }
