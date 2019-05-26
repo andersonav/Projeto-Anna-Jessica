@@ -70,7 +70,7 @@
                         <div class="col-lg-4">
                         </div>
                     </div>
-
+                    <hr>
                 </div>
                 <div class="col-lg-12 venue-info">
                     <div class="row justify-content-center">

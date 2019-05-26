@@ -14,7 +14,7 @@
                     $count = 1;
                     @endphp
                     @forelse($anuncios as $anuncio)
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-lg-3" id="colanuncio">
                         <div class="card" style="width: 100% !important;">
                             <img class="card-img-top" src="/img/anuncios/{{$anuncio->imagem}}" alt="Imagem de capa do card">
                             <div class="card-body">
@@ -34,24 +34,7 @@
 
                     @endforelse
                 </div>
-<!--                <table id="tabela" class="table table-bordered" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Imagem</th>
-                            <th>Classificação</th>
-                            <th>Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($anuncios as $anuncio)
-                        <tr>
-                            <td><img src="/img/anuncios/{{$anuncio->imagem}}" width="100px"/></td>
-                            <td>{{$anuncio->desc_classificacao_anuncio}}</td>
-                            <td><a class="" data-toggle="modal" data-target="#newAnuncio" onclick="editarAnuncio({{$anuncio->id_anuncio}}, '{{$anuncio->imagem}}', '{{$anuncio->id_classificacao_anuncio}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetAnuncio({{$anuncio->id_anuncio}});"><i class="fa fa-trash"></i></a></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>-->
+
             </div>
             <div class="text-center"  style="margin-top: 20px;">
                 <button type="submit" data-toggle="modal" data-target="#newAnuncio" onclick="adicionarAnuncio();"><i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Novo Anúncio</button>
