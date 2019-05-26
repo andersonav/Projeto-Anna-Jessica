@@ -28,7 +28,8 @@ function editarAnuncio(id, nome, id_classificacao) {
     $("input[name=action]").val('editAnuncio');
     $("input[name=id_anuncio]").val(id);
     $("#nome").val(nome);
-    $("#classificacao").val(id_classificacao);
+    $('select[name=classificacao]').selectpicker('val', id_classificacao);
+    $('select').selectpicker();
     $("#btnAction").html("Editar");
     $("#titleModal").html("Editar Anuncio");
 }
