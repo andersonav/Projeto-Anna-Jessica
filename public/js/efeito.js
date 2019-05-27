@@ -51,12 +51,12 @@ $(window).scroll(function() {
             $(this).removeClass('menu-active');
             $('.ini').addClass('menu-active');
         });
-    } else if ($(this).scrollTop() > 550 && $(this).scrollTop() < 755) {
+    } else if ($(this).scrollTop() > 550 && $(this).scrollTop() < 745) {
         $('.sem').each(function() {
             $(this).removeClass('menu-active');
             $('.sobre').addClass('menu-active');
         });
-    } else if ($(this).scrollTop() > 755 && $(this).scrollTop() < 1200) {
+    } else if ($(this).scrollTop() > 745 && $(this).scrollTop() < 1200) {
         $('.sem').each(function() {
             $(this).removeClass('menu-active');
             $('.port').addClass('menu-active');
