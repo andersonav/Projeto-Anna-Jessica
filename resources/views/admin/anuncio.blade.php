@@ -16,7 +16,7 @@
                     @forelse($anuncios as $anuncio)
                     <div class="form-group col-lg-3" id="colanuncio">
                         <div class="card" style="width: 100% !important;">
-                            <img class="card-img-top" src="/img/anuncios/{{$anuncio->imagem}}" alt="Imagem de capa do card">
+                            <img class="card-img-top" id="cardAnuncio" src="/img/anuncios/{{$anuncio->imagem}}" alt="Imagem de capa do card">
                             <div class="card-body">
                                 <h5 class="card-title">Imagem {{$count}}</h5>
                                 <p class="card-text">Classificação: {{$anuncio->id_classificacao_anuncio}}ª</p>
