@@ -23,11 +23,11 @@ function link() {
         '<div class="input-group-prepend">' +
         '<span class="input-group-text" id="basic-addon' + linkNum + '">Nome</span>' +
         '</div>' +
-        '<input type="text" name="nomeLinkEvento[]" class="form-control" id="remove' + linkNum + '" placeholder="Ex: video" aria-label="Username" aria-describedby="basic-addon' + linkNum + '">' +
+        '<input type="text" name="nomeLinkEvento[]" class="form-control nomeLink' + linkNum + '" id="remove' + linkNum + '" placeholder="Ex: video" aria-label="Username" aria-describedby="basic-addon' + linkNum + '">' +
         '<div class="input-group-prepend">' +
         '<span class="input-group-text" id="basic-addon' + linkNum + '">Link</span>' +
         '</div>' +
-        '<input type="text" name="linkEvento[]" class="form-control" placeholder="Ex: www.youtube.com" aria-label="Recipients username" aria-describedby="basic-addon' + linkNum + '">' +
+        '<input type="text" name="linkEvento[]" class="form-control link' + linkNum + '" placeholder="Ex: www.youtube.com" aria-label="Recipients username" aria-describedby="basic-addon' + linkNum + '">' +
         '<div class="input-group-append click" onclick="removerLink(' + linkNum + ')" id="remove' + linkNum + '">' +
         '<span class="input-group-text attrRemove" id="basic-addon' + linkNum + '">Remover</span>' +
         '</div>' +
@@ -63,7 +63,7 @@ function adicionarKit() {
     }
 
     var html = '<div class="form-group col-md-4 kitDiv kit' + kitNum + '">' +
-        '<input type="text" name="nomeKit[]" class="form-control" id="nomeKit"' +
+        '<input type="text" name="nomeKit[]" class="form-control nomeKit'+ kitNum +'" id="nomeKit"' +
         'placeholder="Nome do kit" />' +
         '<input type="hidden" name="kitNum[]" class="form-control" value="' + kitNum + '"/>' +
         '</div>' +
@@ -82,10 +82,10 @@ function adicionarKit() {
         'class="btn btn-danger adcKit"><i class="fa fa-times" aria-hidden="true"></i></button>' +
         '</div>' +
         '<div class="form-group col-md-4 kit' + kitNum + '">' +
-        '<input type="text" name="valorKit[]" class="form-control" id="valorKit" placeholder="Valor do kit" />' +
+        '<input type="text" name="valorKit[]" class="form-control valorKit'+ kitNum +'" id="valorKit" placeholder="Valor do kit" />' +
         '</div>' +
         '<div class="form-group col-md-4 kit' + kitNum + '">' +
-        '<select name="' + kitNum + '[]" class="selectpicker show-tick" data-live-search="true" title="Tamanho:" multiple>' +
+        '<select name="' + kitNum + '[]" class="selectpicker show-tick selectTam'+ kitNum +'" data-live-search="true" title="Tamanho:" multiple>' +
         '<option>PP</option>' +
         '<option>P</option>' +
         '<option>M</option>' +
@@ -94,7 +94,7 @@ function adicionarKit() {
         '</select>' +
         '</div>' +
         '<div class="form-group col-md-4 kit' + kitNum + '">' +
-        '<input type="text" name="descKit[]" class="form-control" id="descKit"' +
+        '<input type="text" name="descKit[]" class="form-control descKit'+ kitNum +'" id="descKit"' +
         'placeholder="Descrição do kit" />' +
         '</div>';
     $(html).insertAfter($(".kitLabel"));
@@ -163,9 +163,29 @@ function preencherModal(dados){
         var idLink = dados[0].idLink.split(',');
         var linkEvento = dados[0].linkEvento.split(',');
         var nomeLink = dados[0].nomeLink.split(',');
-
+        var contadorLink = 0;
         idLink.forEach(element => {
-            console.log(element);
+            link();
+            $('.nomeLink' + linkNum).val(nomeLink[contadorLink]);
+            $('.link' + linkNum).val(linkEvento[contadorLink]);
+            contadorLink ++;
+        });
+    }
+
+    if(dados[0].idKit != null){
+        var idKit = dados[0].idKit.split(',');
+        var nomeKit = dados[0].nomeKit.split(',');
+        var descKit = dados[0].descKit.split(',');
+        var valorKit = dados[0].valorKit.split(',');
+        var contadorKit = 0;
+        idKit.forEach(element => {
+            adicionarKit();
+            $('.nomeKit' + kitNum).val(nomeKit[contadorKit]);
+            $('.valorKit' + kitNum).val(valorKit[contadorKit]);
+            $('.descKit' + kitNum).val(descKit[contadorKit]);
+            contadorKit ++;
+            var tamanho = dados[contadorKit][0].tamanho.split(',');
+            $('.selectTam'+ kitNum).selectpicker('val',tamanho);
         });
     }
 

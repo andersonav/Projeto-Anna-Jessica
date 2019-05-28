@@ -129,6 +129,13 @@ class EventoController extends Controller
         FROM evento even 
         WHERE even.id_evento = ?', [$request->idEvento]);
 
+        $dadosFor = explode(',',$dados[0]->hashTamanho);
+        foreach ($dadosFor as $dado) {
+            $tamanho = DB::select('SELECT GROUP_CONCAT(tam.tamanho SEPARATOR ",") as tamanho
+            FROM tamanho tam WHERE tam.hash_tamanho = ?', [$dado]);
+            array_push($dados, $tamanho);
+        }
+
         return Response::json($dados);
     }
 
