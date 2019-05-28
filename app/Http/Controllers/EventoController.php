@@ -102,6 +102,11 @@ class EventoController extends Controller
         return response()->json($request);
     }
 
+    public function editEvento(Request $request)
+    {
+        return response()->json($request);
+    }
+
     public function dadosEvento(Request $request)
     {
         $dados = DB::select('SELECT even.*, 

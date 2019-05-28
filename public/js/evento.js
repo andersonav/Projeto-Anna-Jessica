@@ -19,7 +19,7 @@ var kitNum = 0;
 
 function link() {
     linkNum++;
-    var html = '<div class="input-group col-md-12 linkDiv remove' + linkNum + '">' +
+    var html = '<div class="input-group col-md-12 formReset linkDiv remove' + linkNum + '">' +
         '<div class="input-group-prepend">' +
         '<span class="input-group-text" id="basic-addon' + linkNum + '">Nome</span>' +
         '</div>' +
@@ -54,7 +54,7 @@ function removerLink(linkNum) {
 
 function adicionarKit() {
     kitNum++;
-    var titleKit = '<div class="form-group col-md-12 kitLabel">' +
+    var titleKit = '<div class="form-group col-md-12 formReset kitLabel">' +
         '<h5 class="modal-title" style="text-align: -webkit-center;" id="kitLabel">Novo Kit</h5>' +
         '</div>';
     var verificar = $('.col-md-12').hasClass('kitLabel');
@@ -62,12 +62,12 @@ function adicionarKit() {
         $(titleKit).insertAfter($(".appendKit"));
     }
 
-    var html = '<div class="form-group col-md-4 kitDiv kit' + kitNum + '">' +
-        '<input type="text" name="nomeKit[]" class="form-control nomeKit'+ kitNum +'" id="nomeKit"' +
+    var html = '<div class="form-group col-md-4 formReset kitDiv kit' + kitNum + '">' +
+        '<input type="text" name="nomeKit[]" class="form-control nomeKit' + kitNum + '" id="nomeKit"' +
         'placeholder="Nome do kit" />' +
         '<input type="hidden" name="kitNum[]" class="form-control" value="' + kitNum + '"/>' +
         '</div>' +
-        '<div class="input-group col-md-7 kit' + kitNum + '">' +
+        '<div class="input-group col-md-7 formReset kit' + kitNum + '">' +
         '<div class="input-group-prepend">' +
         '<span class="input-group-text" id="inputGroupFileAddon' + kitNum + 5 + '">Imagem: </span>' +
         '</div>' +
@@ -77,15 +77,15 @@ function adicionarKit() {
         '<label class="custom-file-label" for="inputGroupFile' + kitNum + 5 + '">Selecione a imagem</label>' +
         '</div>' +
         '</div>' +
-        '<div class="form-group col-md-1 kit' + kitNum + '">' +
+        '<div class="form-group col-md-1 formReset kit' + kitNum + '">' +
         '<button type="button" data-toggle="tooltip" onclick="removerKit(' + kitNum + ');" data-placement="top" title="Remover kit"' +
         'class="btn btn-danger adcKit"><i class="fa fa-times" aria-hidden="true"></i></button>' +
         '</div>' +
-        '<div class="form-group col-md-4 kit' + kitNum + '">' +
-        '<input type="text" name="valorKit[]" class="form-control valorKit'+ kitNum +'" id="valorKit" placeholder="Valor do kit" />' +
+        '<div class="form-group col-md-4 formReset kit' + kitNum + '">' +
+        '<input type="text" name="valorKit[]" class="form-control valorKit' + kitNum + '" id="valorKit" placeholder="Valor do kit" />' +
         '</div>' +
-        '<div class="form-group col-md-4 kit' + kitNum + '">' +
-        '<select name="' + kitNum + '[]" class="selectpicker show-tick selectTam'+ kitNum +'" data-live-search="true" title="Tamanho:" multiple>' +
+        '<div class="form-group col-md-4 formReset kit' + kitNum + '">' +
+        '<select name="' + kitNum + '[]" class="selectpicker show-tick selectTam' + kitNum + '" data-live-search="true" title="Tamanho:" multiple>' +
         '<option>PP</option>' +
         '<option>P</option>' +
         '<option>M</option>' +
@@ -93,12 +93,17 @@ function adicionarKit() {
         '<option>GG</option>' +
         '</select>' +
         '</div>' +
-        '<div class="form-group col-md-4 kit' + kitNum + '">' +
-        '<input type="text" name="descKit[]" class="form-control descKit'+ kitNum +'" id="descKit"' +
+        '<div class="form-group col-md-4 formReset kit' + kitNum + '">' +
+        '<input type="text" name="descKit[]" class="form-control descKit' + kitNum + '" id="descKit"' +
         'placeholder="Descrição do kit" />' +
         '</div>';
     $(html).insertAfter($(".kitLabel"));
     $('select').selectpicker();
+
+    $(".custom-file-input").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
 }
 
 function removerKit(kitNum) {
@@ -116,6 +121,13 @@ function removerKit(kitNum) {
 }
 
 function adicionarEvento() {
+    $('#formAdmin').each(function () {
+        this.reset();
+    });
+    $('.formReset').remove();
+    $('.selectpicker').selectpicker('val','');
+    $('input[name=action]').attr('id','addEvento').val('addEvento');
+    $('.modal-footer .btnmodal').text('Adicionar');
     $('.ttl b').text('Novo Evento');
     $('.bootstrap-select:not(.input-group-btn)').css('display', 'inline-block');
     $('select').selectpicker();
@@ -143,7 +155,15 @@ function editarEvento(idEvento) {
     $('#newEvento').modal('show');
 }
 
-function preencherModal(dados){
+function preencherModal(dados) {
+    $('#formAdmin').each(function () {
+        this.reset();
+    });
+    $('.formReset').remove();
+    $('.selectpicker').selectpicker('val','');
+    $('input[name=action]').attr('id','editEvento').val('editEvento');
+    $('.modal-footer .btnmodal').text('Editar');
+    $('input[name=id_evento]').val(dados[0].id_evento);
     $('input[name=nome_evento]').val(dados[0].nome_evento);
     $('input[name=data]').val(dados[0].data);
     $('input[name=hora_ini]').val(dados[0].hora_inicio);
@@ -153,11 +173,11 @@ function preencherModal(dados){
     $('input[name=data_encerramento]').val(dados[0].prazo);
     $('input[name=endereco]').val(dados[0].endereco);
     $('textarea[name=info_adc]').val(dados[0].informacao_adicional);
-    $('select[name=apoio]').selectpicker('val',dados[0].apoio_id_apoio);
-    $('select[name=patrocinio]').selectpicker('val',dados[0].patrocinio_id_patrocinio);
-    $('select[name=realizacao]').selectpicker('val',dados[0].realizacao_id_realizacao);
-    $('select[name=modo]').selectpicker('val',dados[0].modo);
-    $('select[name=tipo]').selectpicker('val',dados[0].tipo);
+    $('select[name=apoio]').selectpicker('val', dados[0].apoio_id_apoio);
+    $('select[name=patrocinio]').selectpicker('val', dados[0].patrocinio_id_patrocinio);
+    $('select[name=realizacao]').selectpicker('val', dados[0].realizacao_id_realizacao);
+    $('select[name=modo]').selectpicker('val', dados[0].modo);
+    $('select[name=tipo]').selectpicker('val', dados[0].tipo);
 
     if (dados[0].idLink != null) {
         var idLink = dados[0].idLink.split(',');
@@ -168,11 +188,11 @@ function preencherModal(dados){
             link();
             $('.nomeLink' + linkNum).val(nomeLink[contadorLink]);
             $('.link' + linkNum).val(linkEvento[contadorLink]);
-            contadorLink ++;
+            contadorLink++;
         });
     }
 
-    if(dados[0].idKit != null){
+    if (dados[0].idKit != null) {
         var idKit = dados[0].idKit.split(',');
         var nomeKit = dados[0].nomeKit.split(',');
         var descKit = dados[0].descKit.split(',');
@@ -183,11 +203,11 @@ function preencherModal(dados){
             $('.nomeKit' + kitNum).val(nomeKit[contadorKit]);
             $('.valorKit' + kitNum).val(valorKit[contadorKit]);
             $('.descKit' + kitNum).val(descKit[contadorKit]);
-            contadorKit ++;
+            contadorKit++;
             var tamanho = dados[contadorKit][0].tamanho.split(',');
-            $('.selectTam'+ kitNum).selectpicker('val',tamanho);
+            $('.selectTam' + kitNum).selectpicker('val', tamanho);
         });
     }
 
-    
+
 }
