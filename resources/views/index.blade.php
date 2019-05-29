@@ -669,6 +669,17 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h2 class="ttl"><b>Login</b></h2>
+                    @if(session()->get('cadastrado') == 'cadastrado')
+                        <script>
+                            Swal.fire({
+                                position: 'center',
+                                type: 'success',
+                                title: 'Operação realizada, verifique seu email para confirmar cadastro!',
+                                showConfirmButton: false,
+                                timer: 5000
+                            });
+                        </script>
+                    @endif
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
