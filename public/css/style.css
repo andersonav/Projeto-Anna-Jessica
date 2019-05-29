@@ -2047,3 +2047,10 @@ body.mobile-nav-active #mobile-nav-toggle {
     }
 
 }
+.fc-time-grid-event{
+    cursor: pointer !important;
+}
+.fc-view-container .fc-content .fc-time, .fc-view-container .fc-content .fc-time:after, .fc-view-container .fc-content .fc-time:before{
+    color:white !important;
+    font-weight: bold !important;
+}

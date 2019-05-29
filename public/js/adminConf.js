@@ -6,6 +6,7 @@ $(document).ready(function () {
         eachElementToRemoveClass("#mobile-nav ul li.sem a", "nav-menu-active");
         addClassElement(".nav-menu li.sem#" + valorId, "menu-active");
         addClassElement("#mobile-nav ul li.sem#" + valorId + " a", "nav-menu-active");
+        console.log(valorId);
         $.ajax({
             url: url_atual + "/" + valorId + "/",
             type: 'POST',
