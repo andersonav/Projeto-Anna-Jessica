@@ -74,7 +74,8 @@ function adicionarKit() {
         '<div class="custom-file">' +
         '<input type="file" name="imgKit[]" class="custom-file-input" id="inputGroupFile' + kitNum + 5 + '"' +
         'aria-describedby="inputGroupFileAddon' + kitNum + 5 + '">' +
-        '<label class="custom-file-label" for="inputGroupFile' + kitNum + 5 + '">Selecione a imagem</label>' +
+        '<input type="hidden" name="imgKitNome'+ kitNum +'">' +
+        '<label class="custom-file-label imgKitLab'+ kitNum +'" for="inputGroupFile' + kitNum + 5 + '">Selecione a imagem</label>' +
         '</div>' +
         '</div>' +
         '<div class="form-group col-md-1 formReset kit' + kitNum + '">' +
@@ -126,6 +127,7 @@ function adicionarEvento() {
     });
     $('.formReset').remove();
     $('.selectpicker').selectpicker('val','');
+    $('.custom-file-label').text('Selecione a imagem');
     $('input[name=action]').attr('id','addEvento').val('addEvento');
     $('.modal-footer .btnmodal').text('Adicionar');
     $('.ttl b').text('Novo Evento');
@@ -161,11 +163,13 @@ function preencherModal(dados) {
     });
     $('.formReset').remove();
     $('.selectpicker').selectpicker('val','');
+    $('.custom-file-label').text('Selecione a imagem');
     $('input[name=action]').attr('id','editEvento').val('editEvento');
     $('.modal-footer .btnmodal').text('Editar');
     $('input[name=id_evento]').val(dados[0].id_evento);
     $('input[name=nome_evento]').val(dados[0].nome_evento);
     $('input[name=data]').val(dados[0].data);
+    $('.inputImgEvento').text(dados[0].imagem);
     $('input[name=hora_ini]').val(dados[0].hora_inicio);
     $('input[name=hora_fim]').val(dados[0].hora_fim);
     $('input[name=percurso]').val(dados[0].percurso);
@@ -197,12 +201,15 @@ function preencherModal(dados) {
         var nomeKit = dados[0].nomeKit.split(',');
         var descKit = dados[0].descKit.split(',');
         var valorKit = dados[0].valorKit.split(',');
+        var imgKit = dados[0].imgKit.split(',');
         var contadorKit = 0;
         idKit.forEach(element => {
             adicionarKit();
             $('.nomeKit' + kitNum).val(nomeKit[contadorKit]);
             $('.valorKit' + kitNum).val(valorKit[contadorKit]);
             $('.descKit' + kitNum).val(descKit[contadorKit]);
+            $('.imgKitLab' + kitNum).text(imgKit[contadorKit]);
+            $('input[name=imgKitNome'+ kitNum +']').val(imgKit[contadorKit]);
             contadorKit++;
             var tamanho = dados[contadorKit][0].tamanho.split(',');
             $('.selectTam' + kitNum).selectpicker('val', tamanho);

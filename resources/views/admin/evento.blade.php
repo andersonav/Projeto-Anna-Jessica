@@ -160,7 +160,7 @@
                                 <div class="custom-file">
                                     <input type="file" name="imgEvento" class="custom-file-input" id="inputGroupFile01"
                                         aria-describedby="inputGroupFileAddon01">
-                                    <label class="custom-file-label" for="inputGroupFile01">Selecione a imagem</label>
+                                    <label class="custom-file-label inputImgEvento" for="inputGroupFile01">Selecione a imagem</label>
                                 </div>
                             </div>
                             <div class="form-group col-md-4 append">

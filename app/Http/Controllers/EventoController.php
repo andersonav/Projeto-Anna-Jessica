@@ -104,6 +104,87 @@ class EventoController extends Controller
 
     public function editEvento(Request $request)
     {
+        $validator = $this->validateFormEdit($request);
+
+        if ($request->imgEvento != null) {
+            $image = $request->imgEvento;
+            $name = $image->getClientOriginalName();
+            $destinationPath = public_path('img/eventos');
+            $image->move($destinationPath, $name);
+            $atualizarImagemEvento = DB::table('evento')->where('id_evento', $request->id_evento)->update(array(
+                'imagem' => $name
+            ));
+        }
+
+        $atualizarEvento = DB::table('evento')->where('id_evento', $request->id_evento)->update(array(
+            'nome_evento' => $request->nome_evento,
+            'data' => $request->data,
+            'hora_inicio' => $request->hora_ini,
+            'hora_fim' => $request->hora_fim,
+            'informacao_adicional' => $request->info_adc,
+            'percurso' => $request->percurso,
+            'distancia' => $request->distancia,
+            'modo' => $request->modo,
+            'tipo' => $request->tipo,
+            'prazo' => $request->data_encerramento,
+            'endereco' => $request->endereco,
+            'apoio_id_apoio' => $request->apoio,
+            'patrocinio_id_patrocinio' => $request->patrocinio,
+            'realizacao_id_realizacao' => $request->realizacao,
+            'status' => 1
+        ));
+
+        $deletarKit = DB::table('kit_evento')->where('id_evento_fk', $request->id_evento)->delete();
+        $deletarLink = DB::table('link_evento')->where('id_evento_fk', $request->id_evento)->delete();
+
+        if ($request->nomeLinkEvento != null) {
+            for ($i = 0; $i < count($request->nomeLinkEvento); $i++) {
+
+                $createLink = Link::create([
+                    'nome_link' => $request->nomeLinkEvento[$i],
+                    'link' => $request->linkEvento[$i],
+                    'id_evento_fk' => $request->id_evento,
+                ]);
+            }
+        }
+
+        if ($request->tipo == 'Destaque') {
+            $validator2 = $this->validateForm2Edit($request);
+            for ($i = 0; $i < count($request->nomeKit); $i++) {
+                $numero = $request->kitNum[$i];
+                $bool = false;
+                if ($request->imgKit != null) {
+                    $bool = array_key_exists($i, $request->imgKit);
+                }
+                if ($bool) {
+                    $image = $request->imgKit[$i];
+                    $name = $image->getClientOriginalName();
+                    $destinationPath = public_path('img/eventos/kit');
+                    $image->move($destinationPath, $name);
+                } else {
+                    $imgProvisoria = 'imgKitNome' . $numero;
+                    $name = $request->$imgProvisoria;
+                }
+                $createKit = Kit::create([
+                    'nome_kit' => $request->nomeKit[$i],
+                    'imagem_kit' => $name,
+                    'valor' => $request->valorKit[$i],
+                    'id_tamanho' => md5($request->nomeKit[$i]),
+                    'descricao_kit' => $request->descKit[$i],
+                    'id_evento_fk' => $request->id_evento,
+                ]);
+
+                $deletarTamanho = DB::table('tamanho')->where('hash_tamanho', md5($request->nomeKit[$i]))->delete();
+                
+                foreach ($request->$numero as $tamanho) {
+                    $createTamanho = Tamanho::create([
+                        'hash_tamanho' => md5($request->nomeKit[$i]),
+                        'tamanho' => $tamanho,
+                    ]);
+                }
+            }
+        }
+
         return response()->json($request);
     }
 
@@ -134,7 +215,7 @@ class EventoController extends Controller
         FROM evento even 
         WHERE even.id_evento = ?', [$request->idEvento]);
 
-        $dadosFor = explode(',',$dados[0]->hashTamanho);
+        $dadosFor = explode(',', $dados[0]->hashTamanho);
         foreach ($dadosFor as $dado) {
             $tamanho = DB::select('SELECT GROUP_CONCAT(tam.tamanho SEPARATOR ",") as tamanho
             FROM tamanho tam WHERE tam.hash_tamanho = ?', [$dado]);
@@ -152,11 +233,26 @@ class EventoController extends Controller
         ]);
     }
 
+    public function validateFormEdit(Request $request)
+    {
+        return $this->validate($request, [
+            'nome_evento' => 'required|max:255',
+        ]);
+    }
+
     public function validateForm2(Request $request)
     {
         return $this->validate($request, [
             'nomeKit' => 'required',
             'imgKit' => 'required',
+            'descKit' => 'required',
+        ]);
+    }
+
+    public function validateForm2Edit(Request $request)
+    {
+        return $this->validate($request, [
+            'nomeKit' => 'required',
             'descKit' => 'required',
         ]);
     }
