@@ -64,53 +64,72 @@ $(document).ready(function () {
             }
         },
         select: function (start, end) {
+            $('.errors').empty();
+            $("input[name=action]").val('addAgenda');
+            $("#btnAction").html("Adicionar");
+            $("#titleModal").html("<b>Nova Agenda</b>");
             dateStart = $.fullCalendar.formatDate(start, "YYYY-MM-DD");
             dateEnd = $.fullCalendar.formatDate(end, "YYYY-MM-DD");
             start = $.fullCalendar.formatDate(start, "YYYY-MM-DD HH:mm:ss");
             end = $.fullCalendar.formatDate(end, "YYYY-MM-DD HH:mm:ss");
-
+            var diaInicio = start.substr(8, 2);
+            var mesInicio = start.substr(5, 2);
+            var anoInicio = start.substr(0, 4);
+            var inicio = diaInicio + "/" + mesInicio + "/" + anoInicio;
+            var horaInicio = start.substr(11, 8);
+            var horaFim = end.substr(11, 8);
+            $("#data").val(dateStart);
+            $("#hora_inicio").val(horaInicio);
+            $("#hora_fim").val(horaFim);
+            $("#data").attr('disabled', true);
+            $("#hora_inicio").attr('disabled', true);
+            $("#hora_fim").attr('disabled', true);
+            $("#newAgenda").modal('show');
         },
         editable: true,
         // color classes: [ event-blue | event-azure | event-green | event-orange | event-red ]
-        events: function (start, end, timezone, callback) {
-            $.ajax({
-                url: "/agenda/getEventos",
-                type: 'POST',
-                data: {
-
-                },
-                success: function (data) {
-                    var events = [];
-                    dados = $.parseJSON(data);
-                    if (dados.length != 0) {
-                        for (var i = 0; i < dados.length; i++) {
-                            events.push({
-                                id: dados[i].id,
-                                title: dados[i].title,
-                                start: dados[i].start,
-                                end: dados[i].end,
-                                color: dados[i].color
-                            });
-                        }
-                        callback(events);
-                    } else {
-                        swal(
-                                'Nulo!',
-                                'Nenhum evento cadastrado!.',
-                                'error'
-                                )
-                    }
-                }
-            });
-        },
-        eventClick: function (event, element) {
-//
+//        events: function (start, end, timezone, callback) {
 //            $.ajax({
-//                url: "class/request.php",
+//                url: "/agenda/getEventos",
+//                type: 'POST',
+//                data: {
+//
+//                },
+//                success: function (data) {
+//                    var events = [];
+//                    dados = $.parseJSON(data);
+//                    if (dados.length != 0) {
+//                        for (var i = 0; i < dados.length; i++) {
+//                            events.push({
+//                                id: dados[i].id,
+//                                title: dados[i].title,
+//                                start: dados[i].start,
+//                                end: dados[i].end,
+//                                color: dados[i].color
+//                            });
+//                        }
+//                        callback(events);
+//                    } else {
+//                        swal(
+//                                'Nulo!',
+//                                'Nenhum evento cadastrado!.',
+//                                'error'
+//                                )
+//                    }
+//                }
+//            });
+//        },
+        events: [{
+
+            }
+            // more events here
+        ],
+        eventClick: function (event, element) {
+//            $.ajax({
+//                url: "/agenda/evento/getEventoById",
 //                type: 'POST',
 //                async: false,
 //                data: {
-//                    action: "getInformationsAgendamentoByIdHorario",
 //                    idHorario: event.id
 //                }, success: function (data, textStatus, jqXHR) {
 //                    data = $.parseJSON(data);
@@ -125,82 +144,6 @@ $(document).ready(function () {
 //                    var mesInicio = dataBD.substr(5, 2);
 //                    var anoInicio = dataBD.substr(0, 4);
 //                    var dataFormatada = diaInicio + "/" + mesInicio + "/" + anoInicio;
-//                    swal({
-//                        title: 'Informações do Agendamento',
-//                        html: '<div">\n\
-//                        <div class="form-group">\n\
-//                        <label>Nome</label><input type="text" name="nome" readonly class="form-control" value="' + data[0].nome + '">\n\
-//                        </div><div class="form-group">\n\
-//                        <label>Telefone</label><input type="text" readonly name="telefone" value="' + data[0].telefone + '" class="form-control">\n\
-//                        </div><div class="form-group">\n\
-//                        <label>Email</label><input type="email" name="email" value="' + data[0].email + '" readonly class="form-control">\n\
-//                        </div><div class="form-group">\n\
-//                        <label>Data de Nascimento</label><input type="text" value="' + dataAniversarioFormatada + '" readonly name="dataAniversario" class="form-control">\n\
-//                        </div>\n\
-//                        </div>\n\
-//                        <div class="form-group">' +
-//                                '<label>Data Agendamento</label><input class="form-control" placeholder="Data" value="' + dataFormatada + '" id="data" readonly>' +
-//                                '</div>' + '<div class="form-group">' +
-//                                '<label>Hora Ínicio</label><input class="form-control" placeholder="Hora ínicio" value="' + data[0].hora_entrada + '" id="horaInicio" readonly>' +
-//                                '</div>' + '<div class="form-group">' +
-//                                '<label>Hora Fim</label><input class="form-control" placeholder="Hora ínicio" value="' + data[0].hora_saida + '" id="horaFim" readonly>' +
-//                                '</div>' + '<div class="form-group">' +
-//                                '<label>Serviço</label><input class="form-control" placeholder="Serviço" value="' + data[0].descricao + '" id="servicosUs" readonly>' +
-//                                '</div>' + '<div class="form-group">' +
-//                                '<label>Barbeiro</label><input class="form-control" placeholder="Barbeiro" value="' + data[0].barbeiro + '" id="barbeiroUs" readonly>' +
-//                                '</div>',
-//                        showCancelButton: false,
-//                        confirmButtonClass: 'btn btn-success',
-//                        confirmButtonText: 'OK',
-//                        cancelButtonText: 'Cancelar',
-//                        cancelButtonClass: 'btn btn-danger',
-//                    }).then(function (result) {
-//                        console.log(result.value);
-//                        if (result.value) {
-//                            //        swal({
-////            title: 'Você tem certeza que deseja excluir esse agendamento?',
-////            text: "Essa ação não poderá ser desfeita!",
-////            type: 'warning',
-////            showCancelButton: true,
-////            confirmButtonColor: '#3085d6',
-////            cancelButtonColor: '#d33',
-////            confirmButtonText: 'Sim, eu desejo!',
-////            cancelButtonText: 'Cancelar'
-////        }).then((result) => {
-////            if (result.value) {
-////                $.ajax({
-////                    type: 'POST',
-////                    url: "class/request.php",
-////                    data: {
-////                        action: 'deletar-agendamento',
-////                        id: event.id
-////                    }, success: function (data, textStatus, jqXHR) {
-////                        swal(
-////                                'Deletado!',
-////                                'O agendamento foi deletado!.',
-////                                'success'
-////                                )
-////                        var refreshIntervalId = setInterval(function () {
-////                            var pagina_atual = $("input#pagina_atual").val();
-////                            $("#sidenav-overlay").trigger("click");
-////                            $(".modal-backdrop").remove();
-////                            $("#containerLoadInformations").empty();
-////                            $("#containerLoadInformations").load("load/" + pagina_atual + ".php");
-//////                    $("input[type=text]").each(function () {
-//////                        $(this).val("");
-//////                    });
-////                            clearInterval(refreshIntervalId);
-////                        }, 1500);
-////                    }
-////                });
-////
-////            }
-////        }) 
-//
-//                        }
-//
-//                    })
-//                            .catch(swal.noop);
 //                }
 //            });
             $('#fullCalendar').fullCalendar('updateEvent', event);

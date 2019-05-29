@@ -37,9 +37,6 @@
                     </tbody>
                 </table>-->
             </div>
-            <div class="text-center">
-                <button type="submit" data-toggle="modal" data-target="#newAgenda" onclick="adicionarAgenda();"><i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Novo Agenda</button>
-            </div>
 
         </div>
 
