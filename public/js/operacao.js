@@ -29,9 +29,6 @@ $("#formAdmin").submit(function (e) {
                     showConfirmButton: false,
                     timer: 2000
                 });
-                setTimeout(function () {
-                    $('.bootstrap-select:not(.input-group-btn)').css('display', 'none');
-                }, 100);
                 $(".nav-menu li.sem.menu-active").trigger('click');
             }, 500);
         }, error: function (errors, textStatus, errorThrown) {

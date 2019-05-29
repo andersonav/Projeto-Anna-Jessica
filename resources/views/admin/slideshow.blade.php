@@ -56,7 +56,7 @@
 
 
                         <div class="card">
-                            <img class="card-img-top" src="/img/slideshow/{{$slideshow->imagem}}" alt="Imagem de capa do card">
+                            <img class="card-img-top" id="cardSlideshow" src="/img/slideshow/{{$slideshow->imagem}}" alt="Imagem de capa do card">
                             <div class="card-body">
                                 <h5 class="card-title">Imagem {{$count}}</h5>
                                 <p class="card-text"></p>

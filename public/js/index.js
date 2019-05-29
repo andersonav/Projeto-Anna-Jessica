@@ -38,7 +38,7 @@ $(document).ready(function () {
             cache: false,
             processData: false,
             beforeSend: function () {
-
+                $("body").append('<div class="loading">Carregando&#8230;</div>');
             },
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -52,7 +52,7 @@ $(document).ready(function () {
                         type: 'success',
                         title: '<strong>Operação realizada com sucesso. Te enviamos um email para recuperação de senha!</strong>',
                         showConfirmButton: false,
-                        timer: 2000
+                        timer: 4000
                     });
                 }, 500);
             }, error: function (data, textStatus, errorThrown) {
@@ -63,6 +63,7 @@ $(document).ready(function () {
                 });
             },
             complete: function () {
+                $(".loading").remove();
             }
         });
     });

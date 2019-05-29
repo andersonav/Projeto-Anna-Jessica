@@ -8,7 +8,8 @@
 
         <div class="form">
             <div class="col-md-12 scroll">
-                <table id="tabela" class="table table-bordered" style="width:100%">
+                <div id="fullCalendar"></div>
+<!--                <table id="tabela" class="table table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -34,10 +35,7 @@
                         </tr>
                         @endforeach
                     </tbody>
-                </table>
-            </div>
-            <div class="text-center">
-                <button type="submit" data-toggle="modal" data-target="#newAgenda" onclick="adicionarAgenda();"><i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Novo Agenda</button>
+                </table>-->
             </div>
 
         </div>

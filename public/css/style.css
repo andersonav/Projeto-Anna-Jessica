@@ -2034,10 +2034,23 @@ body.mobile-nav-active #mobile-nav-toggle {
 .col-lg-3#colanuncio{
     max-width: 20% !important;
 }
+.card-img-top#cardSlideshow{
+    height: 230px;
+}
+.card-img-top#cardAnuncio{
+    height: 160px;
+}
 @media only screen and (max-width:767px){
 
     .col-lg-3#colanuncio{
         max-width: 100% !important;
     }
 
+}
+.fc-time-grid-event{
+    cursor: pointer !important;
+}
+.fc-view-container .fc-content .fc-time, .fc-view-container .fc-content .fc-time:after, .fc-view-container .fc-content .fc-time:before{
+    color:white !important;
+    font-weight: bold !important;
 }
