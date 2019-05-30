@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 26-Maio-2019 às 06:27
+-- Generation Time: 30-Maio-2019 às 07:01
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 7.2.17
 
@@ -31,14 +31,28 @@ SET time_zone = "+00:00";
 CREATE TABLE `agenda` (
   `id_agenda` int(11) NOT NULL,
   `nome_evento` varchar(45) NOT NULL,
-  `data` datetime NOT NULL,
+  `descricao` varchar(45) DEFAULT NULL,
+  `imagem` varchar(255) DEFAULT NULL,
+  `data_inicio` date NOT NULL,
+  `data_fim` date NOT NULL,
   `hora_inicio` varchar(45) NOT NULL,
   `hora_fim` varchar(45) NOT NULL,
   `cidade` varchar(45) NOT NULL,
-  `data_de_criacao` date NOT NULL,
-  `data_de_atualizacao` date NOT NULL,
+  `data_de_criacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `data_de_atualizacao` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `status` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `agenda`
+--
+
+INSERT INTO `agenda` (`id_agenda`, `nome_evento`, `descricao`, `imagem`, `data_inicio`, `data_fim`, `hora_inicio`, `hora_fim`, `cidade`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
+(1, 'Night Bar', 'Descrição de Teste para o evento tal e tal e ', NULL, '2019-05-29', '2019-05-29', '14:00', '16:00', 'Maranguape', '2019-05-30 04:01:32', '2019-05-29 03:00:00', 1),
+(2, 'Evento de Teste', 'Ola', 'super mega coraçoes.png', '2019-05-29', '2019-05-29', '08:00', '10:00', 'Maranguape', '2019-05-30 04:46:26', '2019-05-30 07:46:26', 1),
+(3, 'Anderson', 'dfdfdfdf', 'super mega coraçoes.png', '2019-05-30', '2019-05-30', '09:00:00', '12:30:00', 'Maranguaps', '2019-05-30 07:09:11', '2019-05-30 07:09:11', 1),
+(4, 'Anderson Alves', 'ghgh', 'super mega coraçoes.png', '2019-05-29', '2019-05-29', '10:30:00', '13:00:00', 'Maranguaps', '2019-05-30 04:46:37', '2019-05-30 07:46:37', 1),
+(5, 'Agenda', 'dfdfdf', 'super mega coraçoes.png', '2019-05-27', '2019-05-27', '07:30:00', '11:00:00', 'Maranguape', '2019-05-30 07:48:25', '2019-05-30 07:48:25', 1);
 
 -- --------------------------------------------------------
 
@@ -65,8 +79,13 @@ INSERT INTO `anuncio` (`id_anuncio`, `imagem`, `data_de_criacao`, `data_de_atual
 (6, 'Celula.jpeg', '2019-05-26 04:04:24', '2019-05-26 04:04:24', 1, 1),
 (7, 'Celula.jpeg', '2019-05-26 04:04:24', '2019-05-26 04:04:24', 1, 1),
 (8, 'Celula.jpeg', '2019-05-26 04:04:24', '2019-05-26 04:24:20', 0, 1),
-(9, 'celulaconvite-oficial.jpg', '2019-05-26 04:25:04', '2019-05-26 04:25:04', 1, 1),
-(10, 'Celula.jpeg', '2019-05-26 04:25:14', '2019-05-26 04:25:50', 0, 2);
+(9, 'celulaconvite-oficial.jpg', '2019-05-26 04:25:04', '2019-05-26 17:55:03', 0, 1),
+(10, 'Celula.jpeg', '2019-05-26 04:25:14', '2019-05-26 04:25:50', 0, 2),
+(11, 'CelulaNew.jpeg', '2019-05-26 16:11:53', '2019-05-26 17:54:58', 0, 2),
+(12, 'Celula.jpeg', '2019-05-26 17:56:57', '2019-05-26 17:56:57', 1, 1),
+(13, 'CelulaNew.jpeg', '2019-05-26 18:02:24', '2019-05-26 18:02:24', 1, 2),
+(14, 'WhatsApp Image 2019-04-15 at 16.01.13.jpeg', '2019-05-28 23:50:12', '2019-05-28 23:51:36', 0, 2),
+(15, 'WhatsApp Image 2019-04-20 at 11.35.55.jpeg', '2019-05-28 23:50:29', '2019-05-28 23:51:11', 0, 2);
 
 -- --------------------------------------------------------
 
@@ -261,7 +280,8 @@ CREATE TABLE `parceiro` (
 
 INSERT INTO `parceiro` (`id_parceiro`, `imagem_parceiro`, `descricao_parceiro`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
 (1, 'Captura de tela de 2019-05-11 22-56-43.png', 'Oltrtrthrthrt', '2019-05-12 01:30:00', '2019-05-18 19:02:13', 0),
-(2, 'Captura de tela de 2019-04-15 23-01-45.png', 'ergerg', '2019-05-18 19:17:36', '2019-05-18 19:17:50', 0);
+(2, 'Captura de tela de 2019-04-15 23-01-45.png', 'ergerg', '2019-05-18 19:17:36', '2019-05-18 19:17:50', 0),
+(3, 'CelulaNew.jpeg', 'Anderson', '2019-05-26 19:30:04', '2019-05-26 19:30:04', 1);
 
 -- --------------------------------------------------------
 
@@ -280,7 +300,7 @@ CREATE TABLE `password_resets` (
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
-('anderson.alvesprogrammer@gmail.com', '$2y$10$iAU6B2XL9UDPWKYVUAWiP.UI8AIWInijOBSElnY9EuPsEsssHVTvC', '2019-05-25 07:00:25');
+('anderson.alvesprogrammer@gmail.com', '$2y$10$Wzx7AQZ2q066i2dXgt0prOGCNH9DS8RZDdFnyDIL2aGxuxoFxEBrq', '2019-05-29 02:56:40');
 
 -- --------------------------------------------------------
 
@@ -367,7 +387,13 @@ CREATE TABLE `slideshow` (
 
 INSERT INTO `slideshow` (`id_slideshow`, `imagem`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
 (1, '5.jpg', '2019-05-23 04:08:36', '2019-05-23 04:08:49', 0),
-(2, 'bizpage-preview.png', '2019-05-23 04:08:55', '2019-05-23 04:08:55', 1);
+(2, 'bizpage-preview.png', '2019-05-23 04:08:55', '2019-05-26 17:14:00', 0),
+(3, 'Entrar-no-Reino-de-Deus.png', '2019-05-26 16:47:13', '2019-05-26 17:14:05', 0),
+(4, 'CelulaNew.jpeg', '2019-05-26 16:49:57', '2019-05-26 17:14:15', 0),
+(5, 'Entrar-no-Reino-de-Deus.png', '2019-05-26 17:17:21', '2019-05-26 17:17:21', 1),
+(6, 'CelulaNew.jpeg', '2019-05-26 17:19:25', '2019-05-26 17:19:25', 1),
+(7, 'CelulaNew.jpeg', '2019-05-26 19:11:57', '2019-05-26 19:12:27', 0),
+(8, 'WhatsApp Image 2019-05-26 at 13.15.35.jpeg', '2019-05-28 23:46:44', '2019-05-28 23:46:50', 0);
 
 -- --------------------------------------------------------
 
@@ -465,7 +491,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `telefone_usuario`, `cidade_usuario`, `email`, `password`, `token`, `remember_token`, `ativo_usuario`, `data_de_criacao`, `data_de_atualizacao`, `id_tipo_usuario`) VALUES
-(1, 'Anderson Alves', '(85) 98835-5751', 'Maranguape', 'anderson.alvesprogrammer@gmail.com', '$2y$10$.z1XEQO083pxUG1I9P7eWeirC/OOMcAZKMux2LA3IpAlcscUabsN.', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'kjm5oSfmC9WUBO6FbC3TmX8x6S50Jv1es53k7mnxXMDxtiDetZIil1RIKP1f', 1, '2019-04-23 22:54:35', '2019-05-25 03:44:19', 1),
+(1, 'Anderson Alves', '(85) 98835-5751', 'Maranguape', 'anderson.alvesprogrammer@gmail.com', '$2y$10$I.FU65R/Z1ux.E8Kyyzr..TI.aESVIq9uv4bTTqglaJ3IACWvEqQK', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'HK9VnyqNkS3fkaqOWm5HQ9Vma6kYPcmtnOcOaOMfuG261jLvz88EIDT8qT0s', 1, '2019-04-23 22:54:35', '2019-05-26 18:33:02', 1),
 (2, 'Mauricio Abreu', '(85) 9883-55751', 'Maranguape', 'mauricio@gmail.com', '$2y$10$oNXTVKl2Y6V2v8I042h34.QVcvdq2McEqTsARjgxnyRhYACGFKmz.', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'Px5eJWeqXrzhmwjfIG6y1MXa80eaUGo2CHOCKCiOHWFNIxLfi3cSMzRiLzut', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 1),
 (3, 'José', '(85) 6545-56454', 'Maranguape', 'test@gmail.com', '$2y$10$R.sjbuWFv7xnAud0g1I3GOAz9jIo4xgH46q8qs7uQhQv29cHpaZEi', NULL, 'yyfB2AkpwXEl8GSzBrfAsd2lijZrLSmyC0dqwrvqyCDXzRb8gxoWcXdFn1Mp', 1, '2019-05-14 21:28:14', '2019-05-14 21:28:14', 2),
 (4, 'Teste banco', '(65) 6556-56565', 'Maranguape', 'mauricio123@gmail.com', '$2y$10$peSwmusxOrgot3f8pOFgxOyYXx.dDGfPG2Ln7XAwdqJzdOlt/3ijq', NULL, 'uWHQLmsSaxUE3PI933FkRQdqIQF3XqzpT6N7j9Qma5CiAAOuhwwY8waMb26W', 1, '2019-05-23 01:04:08', '2019-05-23 01:04:08', 2);
@@ -642,13 +668,13 @@ ALTER TABLE `usuario_permissao_menu`
 -- AUTO_INCREMENT for table `agenda`
 --
 ALTER TABLE `agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `id_anuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_anuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `apoio`
@@ -696,7 +722,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `parceiro`
 --
 ALTER TABLE `parceiro`
-  MODIFY `id_parceiro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_parceiro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `patrocinio`
@@ -720,7 +746,7 @@ ALTER TABLE `realizacao`
 -- AUTO_INCREMENT for table `slideshow`
 --
 ALTER TABLE `slideshow`
-  MODIFY `id_slideshow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_slideshow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `submenu`
