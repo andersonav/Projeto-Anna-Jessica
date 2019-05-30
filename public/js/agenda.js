@@ -30,12 +30,14 @@ $(document).ready(function () {
         },
         lang: 'pt-br',
         locale: 'pt-br',
-        navLinks: false,
+        navLinks: true,
         timeFormat: 'HH:mm',
         selectable: true,
         selectHelper: true,
         eventLimit: true,
         displayEventEnd: true,
+        editable: false,
+        selectOverlap: false,
         buttonText: {
             today: 'Hoje',
             month: 'Mês',
@@ -65,6 +67,7 @@ $(document).ready(function () {
         },
         select: function (start, end) {
             $('.errors').empty();
+            $("#imageAgendaEdit").css('display', 'none');
             $("input[name=action]").val('addAgenda');
             $("#btnAction").html("Adicionar");
             $("#titleModal").html("<b>Nova Agenda</b>");
@@ -75,111 +78,99 @@ $(document).ready(function () {
             var diaInicio = start.substr(8, 2);
             var mesInicio = start.substr(5, 2);
             var anoInicio = start.substr(0, 4);
+
+            var diaFim = end.substr(8, 2);
+            var mesFim = end.substr(5, 2);
+            var anoFim = end.substr(0, 4);
             var inicio = diaInicio + "/" + mesInicio + "/" + anoInicio;
+            var fim = diaFim + "/" + mesFim + "/" + anoFim;
             var horaInicio = start.substr(11, 8);
             var horaFim = end.substr(11, 8);
-            $("#data").val(dateStart);
+            var dataInicio = inicio + " " + horaInicio;
+            var dataFim = fim + " " + horaFim;
+            $("#data_inicio").val(dateStart);
+            $("#data_fim").val(dateEnd);
             $("#hora_inicio").val(horaInicio);
             $("#hora_fim").val(horaFim);
-            $("#data").attr('disabled', true);
-            $("#hora_inicio").attr('disabled', true);
-            $("#hora_fim").attr('disabled', true);
+            $("#data_inicio").attr('readonly', true);
+            $("#data_fim").attr('readonly', true);
+            $("#hora_inicio").attr('readonly', true);
+            $("#hora_fim").attr('readonly', true);
             $("#newAgenda").modal('show');
         },
-        editable: true,
         // color classes: [ event-blue | event-azure | event-green | event-orange | event-red ]
-//        events: function (start, end, timezone, callback) {
-//            $.ajax({
-//                url: "/agenda/getEventos",
-//                type: 'POST',
-//                data: {
-//
-//                },
-//                success: function (data) {
-//                    var events = [];
-//                    dados = $.parseJSON(data);
-//                    if (dados.length != 0) {
-//                        for (var i = 0; i < dados.length; i++) {
-//                            events.push({
-//                                id: dados[i].id,
-//                                title: dados[i].title,
-//                                start: dados[i].start,
-//                                end: dados[i].end,
-//                                color: dados[i].color
-//                            });
-//                        }
-//                        callback(events);
-//                    } else {
-//                        swal(
-//                                'Nulo!',
-//                                'Nenhum evento cadastrado!.',
-//                                'error'
-//                                )
-//                    }
-//                }
-//            });
-//        },
-        events: [{
+        events: function (start, end, timezone, callback) {
+            $.ajax({
+                url: "/adminConf/agenda/getEventos",
+                type: 'POST',
+                data: {
 
-            }
-            // more events here
-        ],
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data) {
+                    var events = [];
+                    if (data.length != 0) {
+                        for (var i = 0; i < data.length; i++) {
+                            events.push({
+                                id: data[i].id,
+                                title: data[i].title,
+                                start: data[i].start,
+                                end: data[i].end,
+//                                color: 'red'
+                            });
+                        }
+                        callback(events);
+                    } else {
+                        swal(
+                                'Nulo!',
+                                'Nenhum evento cadastrado!.',
+                                'error'
+                                )
+                    }
+                }
+            });
+        },
         eventClick: function (event, element) {
-//            $.ajax({
-//                url: "/agenda/evento/getEventoById",
-//                type: 'POST',
-//                async: false,
-//                data: {
-//                    idHorario: event.id
-//                }, success: function (data, textStatus, jqXHR) {
-//                    data = $.parseJSON(data);
-//                    var dataAniversario = data[0].data_nascimento;
-//                    var diaAniversarioInicio = dataAniversario.substr(8, 2);
-//                    var mesAniversarioInicio = dataAniversario.substr(5, 2);
-//                    var anoAniversarioInicio = dataAniversario.substr(0, 4);
-//                    var dataAniversarioFormatada = diaAniversarioInicio + "/" + mesAniversarioInicio + "/" + anoAniversarioInicio;
-//
-//                    var dataBD = data[0].data;
-//                    var diaInicio = dataBD.substr(8, 2);
-//                    var mesInicio = dataBD.substr(5, 2);
-//                    var anoInicio = dataBD.substr(0, 4);
-//                    var dataFormatada = diaInicio + "/" + mesInicio + "/" + anoInicio;
-//                }
-//            });
+            $.ajax({
+                url: "/adminConf/agenda/getEventoById",
+                type: 'POST',
+                async: false,
+                data: {
+                    idEvento: event.id
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data, textStatus, jqXHR) {
+                    $('.errors').empty();
+                    $("#imageAgendaEdit").css('display', 'block');
+                    $(".imgAgenda").attr("src", "/img/agenda/" + data[0].imagem);
+                    $("input[name=action]").val('editAgenda');
+                    $("input[name=id_agenda]").val(event.id);
+                    $("#nome").val(data[0].nome_evento);
+                    $("#data_inicio").val(data[0].data_inicio);
+                    $("#data_fim").val(data[0].data_fim);
+                    $("#hora_inicio").val(data[0].hora_inicio);
+                    $("#hora_fim").val(data[0].hora_fim);
+                    $("#cidade").val(data[0].cidade);
+                    $("#descricao").val(data[0].descricao);
+                    $("#data_inicio").attr('readonly', false);
+                    $("#data_fim").attr('readonly', false);
+                    $("#hora_inicio").attr('readonly', false);
+                    $("#hora_fim").attr('readonly', false);
+                    $("#btnAction").html("Editar");
+                    $("#titleModal").html("<b>Editar Agenda</b>");
+                    $("#newAgenda").modal('show');
+                }
+            });
             $('#fullCalendar').fullCalendar('updateEvent', event);
         },
         defaultView: "agendaWeek"
     });
     $("#fullCalendar .fc-time-grid-event.fc-v-event.fc-event.fc-start fc-end .fc-content").css("cursor", "pointer");
-
-
-
 });
-
-function adicionarAgenda() {
-    $('.errors').empty();
-    $("input[name=action]").val('addAgenda');
-    $("#nome").val("");
-    $("#data").val("");
-    $("#hora_inicio").val("");
-    $("#hora_fim").val("");
-    $("#cidade").val("");
-    $("#btnAction").html("Adicionar");
-    $("#titleModal").html("<b>Nova Agenda</b>");
-}
-
-function editarAgenda(id, nome, data, hora_inicio, hora_fim, cidade) {
-    $('.errors').empty();
-    $("input[name=action]").val('editAgenda');
-    $("input[name=id_agenda]").val(id);
-    $("#nome").val(nome);
-    $("#data").val(data);
-    $("#hora_inicio").val(hora_inicio);
-    $("#hora_fim").val(hora_fim);
-    $("#cidade").val(cidade);
-    $("#btnAction").html("Editar");
-    $("#titleModal").html("<b>Editar Agenda</b>");
-}
 
 function abrirSweetAgenda(id) {
     swal({

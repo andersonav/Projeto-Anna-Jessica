@@ -58,20 +58,47 @@
 
                         </div>
                         <div class="form-row">
+                            <div class="form-group col-md-12" id="imageAgendaEdit">
+                                <img src="" width="100px" class="imgAgenda"/>
+                            </div>
                             <div class="form-group col-md-6">
+                                <label for="nome">Nome do Evento</label>
                                 <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" />
                             </div>
                             <div class="form-group col-md-6">
-                                <input type="date" name="data" class="form-control" id="data" placeholder="Data" />
+                                <label for="cidade">Cidade do Evento</label>
+                                <input type="text" name="cidade" class="form-control" id="cidade" placeholder="Cidade" />
                             </div>
                             <div class="form-group col-md-6">
+                                <label for="data_inicio">Data de Início</label>
+                                <input type="date" name="data_inicio" class="form-control" id="data_inicio" placeholder="Data" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="data_fim">Data de Fim</label>
+                                <input type="date" name="data_fim" class="form-control" id="data_fim" placeholder="Data" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="hora_inicio">Hora Início</label>
                                 <input type="text" name="hora_inicio" class="form-control" id="hora_inicio" placeholder="Horario inicial" />
                             </div>
                             <div class="form-group col-md-6">
+                                <label for="hora_fim">Hora Fim</label>
                                 <input type="text" name="hora_fim" class="form-control" id="hora_fim" placeholder="Horario final" />
                             </div>
+                            <div class="form-group input-group col-md-12">
+                                <div class="input-group-prepend imgAgenda">
+                                    <span class="input-group-text" id="inputGroupFileAddon01">Imagem evento: </span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" name="imgAgenda" class="custom-file-input" id="inputGroupFile01"
+                                           aria-describedby="inputGroupFileAddon01">
+                                    <label class="custom-file-label inputImgEvento" for="inputGroupFile01">Selecione a imagem</label>
+                                </div>
+                            </div>
                             <div class="form-group col-md-12">
-                                <input type="text" name="cidade" class="form-control" id="cidade" placeholder="Cidade" />
+                                <label for="comment">Descrição do Evento</label>
+                                <textarea class="form-control" name="descricao" rows="5" id="descricao"
+                                          placeholder="Digite aqui a descrição do evento"></textarea>
                             </div>
                         </div>
                     </div>
@@ -83,5 +110,12 @@
         </div>
     </div>
 </section><!-- #contact -->
+<script>
+    // Add the following code if you want the name of the file appear on select
+    $(".custom-file-input").on("change", function () {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>
 <script src="{{asset('js/agenda.js')}}"></script>
 <script src="{{asset('js/operacao.js')}}"></script>

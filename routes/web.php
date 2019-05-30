@@ -26,6 +26,8 @@ Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
 
     Route::group(['prefix' => 'agenda'], function () {
         Route::post('/', 'AgendaController@pageAgenda')->name('pageAgenda');
+        Route::post('/getEventos', 'AgendaController@getEventos')->name('getEventos');
+        Route::post('/getEventoById', 'AgendaController@getEventoById')->name('getEventoById');
         Route::post('/addAgenda', 'AgendaController@addAgenda')->name('addAgenda');
         Route::post('/editAgenda', 'AgendaController@editAgenda')->name('editAgenda');
         Route::post('/deleteAgenda', 'AgendaController@deleteAgenda')->name('deleteAgenda');
