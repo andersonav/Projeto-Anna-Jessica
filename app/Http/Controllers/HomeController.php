@@ -8,14 +8,16 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use Illuminate\Support\Facades\Response;
 
-class HomeController extends Controller {
+class HomeController extends Controller
+{
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
@@ -24,12 +26,24 @@ class HomeController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         $title = "Anna Jéssica Oficial";
         return view('index', compact('title'));
     }
+    
+    public function token(Request $request)
+    {
+        $token = base64_decode($request->token);
+        $ativar = DB::table('usuario')->where('email', $token)->update(array(
+            'ativo_usuario' => 1,
+        ));
+        return route('home')
+            ->with('cadastrado', 'cadastrado');
+    }
 
-    public function adminConf() {
+    public function adminConf()
+    {
         if (auth()->user()->id_tipo_usuario == 1) {
             $title = "Administrador";
             return view('adminConf', compact('title'));
@@ -38,7 +52,8 @@ class HomeController extends Controller {
         return back();
     }
 
-    public function pageRelatorioUser() {
+    public function pageRelatorioUser()
+    {
         if (auth()->user()->id_tipo_usuario == 2) {
             $title = "Relatório";
             return view('user.pageRelatorioUser', compact('title'));
@@ -47,17 +62,20 @@ class HomeController extends Controller {
         return back();
     }
 
-    public function compraKit() {
+    public function compraKit()
+    {
         $title = "Compra Kit";
         return view('user.compraKit', compact('title'));
     }
 
-    public function perfil() {
+    public function perfil()
+    {
         $title = "Perfil";
         return view('perfil', compact('title'));
     }
 
-    public function editUser(Request $request) {
+    public function editUser(Request $request)
+    {
         $this->validateUserEdit($request);
 
         if ($request->password != null) {
@@ -74,14 +92,14 @@ class HomeController extends Controller {
         return Response::json($request);
     }
 
-    protected function validateUserEdit(Request $request) {
+    protected function validateUserEdit(Request $request)
+    {
         return $this->validate($request, [
-                    'nome' => 'required',
-                    'telefone' => 'required',
-                    'email' => 'required',
-                    'cidade' => 'required',
-                    'password' => 'confirmed',
+            'nome' => 'required',
+            'telefone' => 'required',
+            'email' => 'required',
+            'cidade' => 'required',
+            'password' => 'confirmed',
         ]);
     }
-
 }

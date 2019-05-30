@@ -19,6 +19,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/token/{token}', 'EmailController@token')->name('token');
 
 
 Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {

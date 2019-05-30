@@ -674,7 +674,18 @@
                             Swal.fire({
                                 position: 'center',
                                 type: 'success',
-                                title: 'Operação realizada, verifique seu email para confirmar cadastro!',
+                                title: 'Operação realizada, verifique seu email para confirmar seu cadastro!',
+                                showConfirmButton: false,
+                                timer: 5000
+                            });
+                        </script>
+                    @endif
+                    @if(session()->get('confirmado') == 'confirmado')
+                        <script>
+                            Swal.fire({
+                                position: 'center',
+                                type: 'success',
+                                title: 'Email confirmado com sucesso, ja pode efetuar o seu login!',
                                 showConfirmButton: false,
                                 timer: 5000
                             });

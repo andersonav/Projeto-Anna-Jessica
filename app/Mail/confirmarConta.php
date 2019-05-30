@@ -30,7 +30,7 @@ class confirmarConta extends Mailable
      */
     public function build(Request $request)
     {
-        $token = md5($request->email);
+        $token = base64_encode($request->email);
         return $this->view('mail.confirmaMail', compact('token'));
     }
 }
