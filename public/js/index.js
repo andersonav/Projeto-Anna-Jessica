@@ -20,7 +20,7 @@ $(document).ready(function () {
                 var erros = $.parseJSON(data.responseText);
                 $(".mensagensErros").empty();
                 $.each(erros.errors, function (key, value) {
-                    $(".mensagensErros").append('<div class="alert alert-danger" role="alert" id="mensagemErro">' + value + '</div>');
+                    $(".mensagensErros").append('<div class="alert alert-danger" role="alert" id="mensagemErro">' + value + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                 });
             },
             complete: function () {
