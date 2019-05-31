@@ -39,11 +39,15 @@ class ResetPassword extends Notification {
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable) {
+        $link = url(config('app.url') . route('password.reset', $this->token, false));
         return (new MailMessage)
                         ->subject('Alteração de Senha')
-                        ->line('Você está recebendo este e-mail porque recebemos um pedido de redefinição de senha para sua conta.')
-                        ->action('Resetar Senha', url(config('app.url') . route('password.reset', $this->token, false)))
-                        ->line('Se você não solicitou uma alteração da senha, nenhuma ação adicional é necessária.');
+                        ->view('mail.recuperacaoSenha', compact('link'));
+//        return (new MailMessage)
+//                        ->subject('Alteração de Senha')
+//                        ->line('Você está recebendo este e-mail porque recebemos um pedido de redefinição de senha para sua conta.')
+//                        ->action('Resetar Senha', url(config('app.url') . route('password.reset', $this->token, false)))
+//                        ->line('Se você não solicitou uma alteração da senha, nenhuma ação adicional é necessária.');
     }
 
     /**
