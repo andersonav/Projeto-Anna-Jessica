@@ -569,6 +569,7 @@
     <!--==========================
               Buy Ticket Section
             ============================-->
+   
     <section id="buy-tickets" class="section-with-bg wow fadeInUp">
         <div class="container">
 
@@ -578,83 +579,34 @@
             </div>
 
             <div class="row">
-
+                @foreach ($eventoquadro as $eventos)    
                 <div class="col-lg-3">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-muted text-uppercase text-center">Fique por dentro! </h5>
-                            <h6 class="card-price text-center">9º cervejada de Boa Viagem </h6>
+                            <h5 class="card-title text-muted text-uppercase text-center">{{$eventos->modo}}</h5>
+                            <h6 class="card-price text-center">{{$eventos->nome_evento}}</h6>
                             <hr>
                             <div class="hotel-img">
-                                <img src="{{asset('img/eventos/cervejadabv.png')}}" alt="Hotel 1" class="img-fluid">
+                                <img src="img/eventos/{{$eventos->imagem}}" alt="Hotel 1" class="img-fluid">
                             </div>
                             <br>
                             <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Video: <a href=" https://www.youtube.com/watch?v=vBRxEBZFBeI" Target=”_blank”>click
+                                @php 
+                                $nomelink = explode(',', $eventos->nomeLinkEvento);
+                                $link = explode(',', $eventos->linkEvento);
+                                $contador = 0;
+                                @endphp
+                                @foreach ($nomelink as $item)
+                                <li><span class="fa-li"><i class="fa fa-check"></i></span>{{$item}}: <a href="{{ $link[$contador++] }}" Target=”_blank”>click
                                         aqui</a></li>
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Fotos: <a href="https://drive.google.com/drive/u/0/mobile/folders/1xjco_FZ3QgckoiPCYWcCIDfLrk3HB_jN?usp=sharing" Target=”_blank”>click
-                                        aqui</a></li>
+                                    
+                                @endforeach
                             </ul>
                             <hr>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-muted text-uppercase text-center">Fique por dentro! </h5>
-                            <h6 class="card-price text-center">Cobertura oficial do Bloco Fantastico 2019</h6>
-                            <hr>
-                            <div class="hotel-img">
-                                <img src="{{asset('img/eventos/fantastico.png')}}" alt="Hotel 1" class="img-fluid">
-                            </div>
-                            <br>
-                            <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Video 1: <a href="https://www.youtube.com/watch?v=2uqBWfDikAQ " Target=”_blank”>click
-                                        aqui</a></li>
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Video 2: <a href="https://www.youtube.com/watch?v=mn8kKVxolbE&t=381s " Target=”_blank”>click
-                                        aqui</a></li>
-                            </ul>
-                            <hr>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-muted text-uppercase text-center">Fique por dentro! </h5>
-                            <h6 class="card-price text-center">1º Night Bike Maranguape</h6>
-                            <hr>
-                            <div class="hotel-img">
-                                <img src="{{asset('img/servicos/cobertura.png')}}" alt="Hotel 1" class="img-fluid">
-                            </div>
-                            <br>
-                            <ul class="fa-ul">
-                                <li><span class="fa-li"><i class="fa fa-check"></i></span>Video: <a href="https://youtu.be/B7vMlgMl9cw" Target=”_blank”>click
-                                        aqui</a> </li>
-                            </ul>
-                            <hr>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-muted text-uppercase text-center">Em breve!</h5>
-                            <h6 class="card-price text-center">Vaquejada de Boa Viagem</h6>
-                            <hr>
-                            <div class="hotel-img">
-                                <img src="{{asset('img/eventos/vaquejadabv.png')}}" alt="Hotel 1" class="img-fluid">
-                            </div>
-                            <br>
-                            <ul class="fa-ul">
-
-                            </ul>
-                            <hr>
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
 
         </div>
