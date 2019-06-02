@@ -1,7 +1,6 @@
 jQuery(document).ready(function ($) {
 
-
-  $("#telefone").mask("(00) 0000-00009");
+  $("#telefone").mask("(00) 90000-0000");
   // Back to top button
   $(window).scroll(function () {
     if ($(this).scrollTop() > 100) {

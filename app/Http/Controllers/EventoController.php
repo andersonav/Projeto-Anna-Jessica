@@ -41,9 +41,14 @@ class EventoController extends Controller
         $destinationPath = public_path('img/eventos');
         $image->move($destinationPath, $name);
 
+        $data = str_replace('/', '-', $request->data);
+        $data_encerramento = str_replace('/', '-', $request->data_encerramento);
+        $newDate = date("Y-m-d", strtotime($data));
+        $newdata_encerramento= date("Y-m-d", strtotime($data_encerramento));
+
         $createEvento = Evento::create([
             'nome_evento' => $request->nome_evento,
-            'data' => $request->data,
+            'data' => $newDate,
             'hora_inicio' => $request->hora_ini,
             'hora_fim' => $request->hora_fim,
             'informacao_adicional' => $request->info_adc,
@@ -51,7 +56,7 @@ class EventoController extends Controller
             'distancia' => $request->distancia,
             'modo' => $request->modo,
             'tipo' => $request->tipo,
-            'prazo' => $request->data_encerramento,
+            'prazo' => $newdata_encerramento,
             'endereco' => $request->endereco,
             'imagem' => $name,
             'apoio_id_apoio' => $request->apoio,
@@ -116,9 +121,14 @@ class EventoController extends Controller
             ));
         }
 
+        $data = str_replace('/', '-', $request->data);
+        $data_encerramento = str_replace('/', '-', $request->data_encerramento);
+        $newDate = date("Y-m-d", strtotime($data));
+        $newdata_encerramento= date("Y-m-d", strtotime($data_encerramento));
+
         $atualizarEvento = DB::table('evento')->where('id_evento', $request->id_evento)->update(array(
             'nome_evento' => $request->nome_evento,
-            'data' => $request->data,
+            'data' => $newDate,
             'hora_inicio' => $request->hora_ini,
             'hora_fim' => $request->hora_fim,
             'informacao_adicional' => $request->info_adc,
@@ -126,7 +136,7 @@ class EventoController extends Controller
             'distancia' => $request->distancia,
             'modo' => $request->modo,
             'tipo' => $request->tipo,
-            'prazo' => $request->data_encerramento,
+            'prazo' => $newdata_encerramento,
             'endereco' => $request->endereco,
             'apoio_id_apoio' => $request->apoio,
             'patrocinio_id_patrocinio' => $request->patrocinio,

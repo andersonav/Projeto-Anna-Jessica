@@ -66,14 +66,14 @@
 
 
         <script>
-$(function () {
-    var mes = 6;
-    $(".digits").countdown({
-        image: "img/digits.png",
-        format: "dd:hh:mm:ss",
-        endTime: new Date(2019, mes - 1, 28)
-    });
-});
+        $(function () {
+            var mes = 6;
+            $(".digits").countdown({
+                image: "img/digits.png",
+                format: "dd:hh:mm:ss",
+                endTime: new Date(2019, mes - 1, 28)
+            });
+        });
         </script>
         <!-- =======================================================
                       Author: EDEV
