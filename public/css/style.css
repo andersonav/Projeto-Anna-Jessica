@@ -2022,14 +2022,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 }
 
-#tabela {
+#tabelaC {
     width: 100%;
     background:#fdf5f5;
     color:#000;
     text-transform: uppercase;
 }
 
-#tabela thead{
+#tabelaC thead{
     border-top: 1px solid #0e1b4d;
     border-bottom: 1px solid #0e1b4d;
 }

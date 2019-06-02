@@ -15,7 +15,7 @@ $(document).ready(function () {
                 html = "<tr><td>"+data.nome+"</td><td>"+data.valor+"</td></tr>";
             }
         });
-        $("#tabela").html(html);
+        $("#tabelaC").html(html);
         $("#idBtnComprar").text(valorTotal);
     });
 });
