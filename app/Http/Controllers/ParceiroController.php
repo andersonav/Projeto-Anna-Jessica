@@ -5,18 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Parceiro;
 
-class ParceiroController extends Controller {
+class ParceiroController extends Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-    public function pageParceiro() {
+    public function pageParceiro()
+    {
         $parceiros = Parceiro::where('status', '=', '1')->get();
         return view('admin.parceiro', compact('parceiros'));
     }
 
-    public function addParceiro(Request $request) {
+    public function addParceiro(Request $request)
+    {
         $validator = $this->validateForm($request);
         $image = $request->file('file');
         $name = $image->getClientOriginalName();
@@ -24,15 +28,16 @@ class ParceiroController extends Controller {
         $image->move($destinationPath, $name);
 
         $createParceiro = Parceiro::create([
-                    'imagem_parceiro' => $name,
-                    "descricao_parceiro" => $request->nome,
-                    'status' => 1
+            'imagem_parceiro' => $name,
+            "descricao_parceiro" => $request->nome,
+            'status' => 1
         ]);
 
         return response()->json($request);
     }
 
-    public function editParceiro(Request $request) {
+    public function editParceiro(Request $request)
+    {
         $validator = $this->validateFormEdit($request);
         if ($request->file != null) {
             $image = $request->file('file');
@@ -43,26 +48,28 @@ class ParceiroController extends Controller {
                 "imagem_parceiro" => $name,
                 "descricao_parceiro" => $request->nome
             ]);
-        }else{
+        } else {
             $updateParceiro = Parceiro::where("id_parceiro", "=", $request->id_parceiro)->update([
                 "descricao_parceiro" => $request->nome
             ]);
         }
-       
+
         return response()->json($request);
     }
 
-    public function deleteParceiro(Request $request) {
+    public function deleteParceiro(Request $request)
+    {
         $updateParceiro = Parceiro::where("id_parceiro", "=", $request->id_parceiro)->update([
             "status" => 0
         ]);
         return response()->json($request);
     }
 
-    public function validateForm(Request $request) {
+    public function validateForm(Request $request)
+    {
         return $this->validate($request, [
-                    'file' => 'required|mimes:png,jpeg,jpg,gif|max:2048',
-                    'nome' => 'required|regex:/^[a-zA-ZçÇáéíóúÁÉÍÓÚ0-9 ]+$/u|max:255|'
+            'file' => 'required|mimes:png,jpeg,jpg,gif|max:2048',
+            'nome' => 'required|regex:/^[a-zA-ZçÇáéíóúÁÉÍÓÚ0-9 ]+$/u|max:255|'
         ]);
     }
 
@@ -72,5 +79,4 @@ class ParceiroController extends Controller {
             'nome' => 'required|regex:/^[a-zA-ZçÇáéíóúÁÉÍÓÚ0-9 ]+$/u|max:255|'
         ]);
     }
-
 }
