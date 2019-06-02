@@ -18,11 +18,7 @@
                             <th>Hora Início</th>
                             <th>Hora Fim</th>
                             <th>Informação Adicional</th>
-                            <th>Percurso</th>
                             <th>Distância</th>
-                            <th>Apoio</th>
-                            <th>Patrocínio</th>
-                            <th>Realização</th>
                             <th>Ação</th>
                         </tr>
                     </thead>
@@ -34,11 +30,7 @@
                             <td>{{$evento->hora_inicio}}</td>
                             <td>{{$evento->hora_fim}}</td>
                             <td>{{$evento->informacao_adicional}}</td>
-                            <td>{{$evento->percurso}}</td>
                             <td>{{$evento->distancia}}</td>
-                            <td>{{$evento->nome_apoio}}</td>
-                            <td>{{$evento->nome_patrocinio}}</td>
-                            <td>{{$evento->nome_realizacao}}</td>
                             <td><a class="" onclick="editarEvento({{$evento->id_evento}});"><i
                                         class="fa fa-edit"></i></a>&nbsp;<a class=""
                                     onclick="apagarEvento({{$evento->id_evento}});"><i class="fa fa-trash"></i></a></td>
