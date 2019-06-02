@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use Illuminate\Support\Facades\Response;
+use App\Kit;
 
 class HomeController extends Controller
 {
@@ -70,7 +71,23 @@ class HomeController extends Controller
     public function compraKit()
     {
         $title = "Compra Kit";
+        $selectKits = DB::select("
+        SELECT evento.*,
+        (SELECT GROUP_CONCAT(kit_evento.id_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.nome_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.imagem_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.valor SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.id_tamanho SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.descricao_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as linkEvento
+        from evento WHERE evento.tipo = 'Destaque' limit 1
+        "); 
         return view('user.compraKit', compact('title'));
+    }
+
+    public function getKit(Request $request)
+    {
+        $kit=Kit::where('id_kit','=',$request->idKit)->get();
+        return response()->json($kit);
     }
 
     public function perfil()

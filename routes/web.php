@@ -91,6 +91,7 @@ Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
 Route::get('/perfil', 'HomeController@perfil')->name('perfil');
 
 Route::get('/compra-kit', 'HomeController@compraKit')->name('compra-kit');
+Route::post('/getKit', 'HomeController@getKit')->name('getKit');
 
 // Route para registrar pessoa
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {

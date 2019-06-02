@@ -999,11 +999,11 @@ body.mobile-nav-active #mobile-nav-toggle {
 #venue .venue-info h3 {
     font-size: 36px;
     font-weight: 700;
-    color: #fff;
+    color: #9e2d2d;
 }
 
 #venue .venue-info p {
-    color: #fff;
+    color: #9e2d2d;
     margin-bottom: 0;
 }
 
@@ -2031,35 +2031,41 @@ body.mobile-nav-active #mobile-nav-toggle {
     color: #f82249 !important;
 }
 
-.col-lg-3#colanuncio{
+.col-lg-3#colanuncio {
     max-width: 20% !important;
 }
-.card-img-top#cardSlideshow{
+
+.card-img-top#cardSlideshow {
     height: 230px;
 }
-.card-img-top#cardAnuncio{
+
+.card-img-top#cardAnuncio {
     height: 160px;
 }
-@media only screen and (max-width:767px){
 
-    .col-lg-3#colanuncio{
+@media only screen and (max-width:767px) {
+    .col-lg-3#colanuncio {
         max-width: 100% !important;
     }
-
 }
 
-.fc-content .fc-title{
+.fc-content .fc-title {
     color: black !important;
     font-weight: bold;
 }
-.fc-time-grid-event{
+
+.fc-time-grid-event {
     cursor: pointer !important;
 }
-.fc-view-container .fc-content .fc-time, .fc-view-container .fc-content .fc-time:after, .fc-view-container .fc-content .fc-time:before{
-    color:white !important;
+
+.fc-view-container .fc-content .fc-time,
+.fc-view-container .fc-content .fc-time:after,
+.fc-view-container .fc-content .fc-time:before {
+    color: white !important;
     font-weight: bold !important;
 }
-#imageAgendaEdit{
+
+#imageAgendaEdit {
     background: #fff;
     z-index: 1;
     margin: 0 auto;

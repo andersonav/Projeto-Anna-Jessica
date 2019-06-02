@@ -98,30 +98,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12" id="kit">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-4">
-                                        <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imgcomp">
-                                    </div>
-                                    <div class="col-lg-5" id="insc">
-                                        <div class="col-lg-12">
-                                            <div class="col-lg-12">
-                                                <h5><b>Kit Estações</b></h5>
-                                                <h7>Camiseta ProRun Seamless HiveTech, Sacola Térmica, Glass Mug e Medalha (pós-evento)</7>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3" style="padding:50px;">
-                                        <h5><b>R$ 80,90</b></h5>
-                                        <button class="btnmodal btnQueroEste" id="2">Quero Este</button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="col-lg-3">
                             <h4><i class="fa fa-check-square" aria-hidden="true"></i> <b>Dados da Compra</b></h4>
                             <div class="col-lg-12">
-                                <table id="tabela">
+                                <h3>Carrinho Vazio</h3>
+
+                                {{-- <table id="tabela">
                                     <thead>
                                         <tr>
                                           <th style="width: 70%;">Item</th>
@@ -130,15 +113,15 @@
                                       </thead>
                                       <tbody id="corpoCarrinho">
                                         <tr>
-                                          <td>Kit estações</td>
-                                          <td>R$ 80.90</td>
+                                          <td></td>
+                                          <td></td>
                                         </tr>
                                       </tbody>
                                 </table>
                                 <br>
                                 <div class="col-md-12">
                                     <a href="javascript:void(0)" class="btnmodal">Continuar</a>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
