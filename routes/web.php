@@ -22,7 +22,9 @@ Route::get('/', function () {
     $anuncioClassificacao2 = DB::select('SELECT * from anuncio WHERE classificacao_id_classificacao = 2 AND status = 1');
     $anuncioClassificacao3 = DB::select('SELECT * from anuncio WHERE classificacao_id_classificacao = 3 AND status = 1');
 
-    return view('index', compact('title','eventoquadro', 'anuncioClassificacao1', 'anuncioClassificacao2', 'anuncioClassificacao3'));
+    $slideshows = DB::select('SELECT * from slideshow WHERE status = 1 limit 3');
+
+    return view('index', compact('title','eventoquadro', 'anuncioClassificacao1', 'anuncioClassificacao2', 'anuncioClassificacao3', 'slideshows'));
 });
 
 Auth::routes();

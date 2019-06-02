@@ -63,15 +63,23 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="{{ asset('img/carrosel/img1.JPG')}}" alt="First slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="{{asset('img/carrosel/img2.JPG')}}" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/carrosel/img1.JPG')}}" alt="Third slide">
-            </div>
+        @php
+                            $count = 0;
+                            @endphp
+                            @foreach($slideshows as $slideshow)
+                            @if($count == 0)
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="img/slideshow/{{$slideshow->imagem}}" alt="First slide">
+                            </div>
+                            @else
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="img/slideshow/{{$slideshow->imagem}}" alt="First slide">
+                            </div>
+                            @endif
+                            @php
+                            $count++;
+                            @endphp
+                            @endforeach
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -22,6 +22,7 @@ class AnuncioController extends Controller
     {
         $anuncios = Anuncio::where('status', '=', '1')
             ->join('classificacao_anuncio', 'id_classificacao_anuncio', '=', 'classificacao_id_classificacao')
+            ->orderBy('classificacao_id_classificacao', 'asc')
             ->get();
         $classificacoes = DB::table('classificacao_anuncio')->get();
         return view('admin.anuncio', compact('anuncios', 'classificacoes'));
