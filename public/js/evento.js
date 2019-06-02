@@ -74,8 +74,8 @@ function adicionarKit() {
         '<div class="custom-file">' +
         '<input type="file" name="imgKit[]" class="custom-file-input" id="inputGroupFile' + kitNum + 5 + '"' +
         'aria-describedby="inputGroupFileAddon' + kitNum + 5 + '">' +
-        '<input type="hidden" name="imgKitNome'+ kitNum +'">' +
-        '<label class="custom-file-label imgKitLab'+ kitNum +'" for="inputGroupFile' + kitNum + 5 + '">Selecione a imagem</label>' +
+        '<input type="hidden" name="imgKitNome' + kitNum + '">' +
+        '<label class="custom-file-label imgKitLab' + kitNum + '" for="inputGroupFile' + kitNum + 5 + '">Selecione a imagem</label>' +
         '</div>' +
         '</div>' +
         '<div class="form-group col-md-1 formReset kit' + kitNum + '">' +
@@ -126,9 +126,9 @@ function adicionarEvento() {
         this.reset();
     });
     $('.formReset').remove();
-    $('.selectpicker').selectpicker('val','');
+    $('.selectpicker').selectpicker('val', '');
     $('.custom-file-label').text('Selecione a imagem');
-    $('input[name=action]').attr('id','addEvento').val('addEvento');
+    $('input[name=action]').attr('id', 'addEvento').val('addEvento');
     $('.modal-footer .btnmodal').text('Adicionar');
     $('.ttl b').text('Novo Evento');
     $('.bootstrap-select:not(.input-group-btn)').css('display', 'inline-block');
@@ -162,9 +162,9 @@ function preencherModal(dados) {
         this.reset();
     });
     $('.formReset').remove();
-    $('.selectpicker').selectpicker('val','');
+    $('.selectpicker').selectpicker('val', '');
     $('.custom-file-label').text('Selecione a imagem');
-    $('input[name=action]').attr('id','editEvento').val('editEvento');
+    $('input[name=action]').attr('id', 'editEvento').val('editEvento');
     $('.modal-footer .btnmodal').text('Editar');
     $('input[name=id_evento]').val(dados[0].id_evento);
     $('input[name=nome_evento]').val(dados[0].nome_evento);
@@ -209,7 +209,7 @@ function preencherModal(dados) {
             $('.valorKit' + kitNum).val(valorKit[contadorKit]);
             $('.descKit' + kitNum).val(descKit[contadorKit]);
             $('.imgKitLab' + kitNum).text(imgKit[contadorKit]);
-            $('input[name=imgKitNome'+ kitNum +']').val(imgKit[contadorKit]);
+            $('input[name=imgKitNome' + kitNum + ']').val(imgKit[contadorKit]);
             contadorKit++;
             var tamanho = dados[contadorKit][0].tamanho.split(',');
             $('.selectTam' + kitNum).selectpicker('val', tamanho);
@@ -217,4 +217,34 @@ function preencherModal(dados) {
     }
 
 
+}
+
+function apagarEvento(id_evento) {
+    swal({
+        title: 'Você confirma esta operação?',
+        text: "Essa operação não poderá ser revestida!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonText: 'Cancelar',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, eu desejo!'
+    }).then((result) => {
+        if (result.value) {
+            if (deletarEvento(id_evento)) {
+                swal(
+                    'Apagado!',
+                    'Esse dado foi removido com sucesso.',
+                    'success'
+                )
+            }
+
+        }
+    });
+}
+
+function deletarEvento(id) {
+    $("input[name=action]").val('deleteEvento');
+    $("input[name=id_evento]").val(id);
+    $("#btnAction").trigger('click');
 }

@@ -177,7 +177,7 @@
                     <div class="modal-footer">
                         <button type="button" data-toggle="tooltip" onclick="adicionarKit();" data-placement="right"
                             title="Adicionar kit" class="btn btn-danger adcKit"><i class="fa fa-plus"></i></button>
-                        <button type="submit" style="float:right" class="btnmodal">Adicionar</button>
+                        <button type="submit" style="float:right" id="btnAction" class="btnmodal">Adicionar</button>
                     </div>
                 </form>
             </div>

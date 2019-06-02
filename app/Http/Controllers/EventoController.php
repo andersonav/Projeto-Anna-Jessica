@@ -225,6 +225,21 @@ class EventoController extends Controller
         return Response::json($dados);
     }
 
+    public function deleteEvento(Request $request){
+
+        $deleteEvento = DB::table('evento')->where('id_evento', $request->id_evento)->delete();
+        $deletarLink = DB::table('link_evento')->where('id_evento_fk', $request->id_evento)->delete();
+        $selecionarKit = DB::table('kit_evento')->where('id_evento_fk', $request->id_evento)->get();
+
+        foreach ($selecionarKit as $value) {
+            $deletarTamanho = DB::table('tamanho')->where('hash_tamanho', md5($value->nome_kit))->delete();
+        }
+
+        $deleteKit = DB::table('kit_evento')->where('id_evento_fk', $request->id_evento)->delete();
+        
+        return Response::json($request);
+    }
+
     public function validateForm(Request $request)
     {
         return $this->validate($request, [

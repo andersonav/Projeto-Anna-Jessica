@@ -34,6 +34,10 @@ $("#formAdmin").submit(function (e) {
                 }, 100);
                 $(".nav-menu li.sem.menu-active").trigger('click');
             }, 500);
+
+            setTimeout(function () {
+                $('.bootstrap-select:not(.input-group-btn)').css('display', 'inline-block');
+            }, 2600);
         }, error: function (errors, textStatus, errorThrown) {
             $('.errors').empty();
             var erros = $.parseJSON(errors.responseText);
