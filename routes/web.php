@@ -16,7 +16,7 @@ Route::get('/', function () {
     $eventoquadro = DB::select("SELECT evento.*,
     (SELECT GROUP_CONCAT(link_evento.nome_link SEPARATOR ',') FROM link_evento WHERE link_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
     (SELECT GROUP_CONCAT(link_evento.link SEPARATOR ',') FROM link_evento WHERE link_evento.id_evento_fk = evento.id_evento) as linkEvento
-    from evento WHERE evento.tipo = 'Quadro'");
+    from evento WHERE evento.tipo = 'Quadro' limit 4");
     return view('index', compact('title','eventoquadro'));
 });
 
