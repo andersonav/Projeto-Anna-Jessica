@@ -50,23 +50,40 @@ class AnuncioController extends Controller {
     }
 
     public function editAnuncio(Request $request) {
-        $validator = $this->validateForm($request);
-        $resultAnuncio = DB::table('anuncio')->where('classificacao_id_classificacao', '=', $request->classificacao)
-                ->where("status", '=', 1)
-                ->count();
-        if ($resultAnuncio < 5) {
-            $image = $request->file('file');
+
+        $validator = $this->validateFormEdit($request);
+        if ($request->file != null) {
+            $validator = $this->validate($request);
+            $image = $request->file;
             $name = $image->getClientOriginalName();
             $destinationPath = public_path('img/anuncios');
             $image->move($destinationPath, $name);
             $updateAnuncio = Anuncio::where("id_anuncio", "=", $request->id_anuncio)->update([
-                "imagem" => $name,
-                'classificacao_id_classificacao' => $request->classificacao,
+                "imagem" => $name
             ]);
-        } else {
-            $array['errors'] = ['errors' => 'O máximo de 5 anúncios por essa classificação já foi suportado. Por favor exclua um anúncio referente a classificação ou edite!'];
-            return response()->json($array, 500);
+        }else{
+            $resultAnuncio = DB::table('anuncio')->where('id_anuncio', '=', $request->id_anuncio)
+                ->where("status", '=', 1)->get();
+                if($resultAnuncio[0]->classificacao_id_classificacao == $request->classificacao){
+                    $updateAnuncio = Anuncio::where("id_anuncio", "=", $request->id_anuncio)->update([
+                        'classificacao_id_classificacao' => $request->classificacao,
+                    ]);
+                }else{
+                    $resultAnuncioT = DB::table('anuncio')->where('classificacao_id_classificacao', '=', $request->classificacao)
+                ->where("status", '=', 1)
+                ->count();
+                if($resultAnuncioT < 5){
+                    $updateAnuncio = Anuncio::where("id_anuncio", "=", $request->id_anuncio)->update([
+                        'classificacao_id_classificacao' => $request->classificacao,
+                    ]);
+                }else{
+                    $array['errors'] = ['errors' => 'O máximo de 5 anúncios por essa classificação já foi suportado. Por favor exclua um anúncio referente a classificação ou edite!'];
+                    return response()->json($array, 500);
+                }
+                }
+            
         }
+
 
         return response()->json($request);
     }
@@ -84,4 +101,11 @@ class AnuncioController extends Controller {
         ]);
     }
 
+    public function validateFormEdit(Request $request)
+    {
+        return $this->validate($request, [
+            'classificacao' => 'required|max:255',
+        ]);
+    }
+    
 }

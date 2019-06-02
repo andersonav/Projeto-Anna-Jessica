@@ -33,15 +33,22 @@ class ParceiroController extends Controller {
     }
 
     public function editParceiro(Request $request) {
-        $validator = $this->validateForm($request);
-        $image = $request->file('file');
-        $name = $image->getClientOriginalName();
-        $destinationPath = public_path('img/parceiros');
-        $image->move($destinationPath, $name);
-        $updateParceiro = Parceiro::where("id_parceiro", "=", $request->id_parceiro)->update([
-            "imagem_parceiro" => $name,
-            "descricao_parceiro" => $request->nome
-        ]);
+        $validator = $this->validateFormEdit($request);
+        if ($request->file != null) {
+            $image = $request->file('file');
+            $name = $image->getClientOriginalName();
+            $destinationPath = public_path('img/parceiros');
+            $image->move($destinationPath, $name);
+            $updateParceiro = Parceiro::where("id_parceiro", "=", $request->id_parceiro)->update([
+                "imagem_parceiro" => $name,
+                "descricao_parceiro" => $request->nome
+            ]);
+        }else{
+            $updateParceiro = Parceiro::where("id_parceiro", "=", $request->id_parceiro)->update([
+                "descricao_parceiro" => $request->nome
+            ]);
+        }
+       
         return response()->json($request);
     }
 
@@ -56,6 +63,13 @@ class ParceiroController extends Controller {
         return $this->validate($request, [
                     'file' => 'required|mimes:png,jpeg,jpg,gif|max:2048',
                     'nome' => 'required|regex:/^[a-zA-ZçÇáéíóúÁÉÍÓÚ0-9 ]+$/u|max:255|'
+        ]);
+    }
+
+    public function validateFormEdit(Request $request)
+    {
+        return $this->validate($request, [
+            'nome' => 'required|regex:/^[a-zA-ZçÇáéíóúÁÉÍÓÚ0-9 ]+$/u|max:255|'
         ]);
     }
 

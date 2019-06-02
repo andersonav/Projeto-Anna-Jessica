@@ -42,14 +42,18 @@ class SlideshowController extends Controller {
     }
 
     public function editSlideshow(Request $request) {
-        $validator = $this->validateForm($request);
-        $image = $request->file('file');
+        if ($request->file != null) {
+            $validator = $this->validateForm($request);
+            $image = $request->file('file');
         $name = $image->getClientOriginalName();
         $destinationPath = public_path('img/slideshow');
         $image->move($destinationPath, $name);
         $updateSlideshow = Slideshow::where("id_slideshow", "=", $request->id_slideshow)->update([
             "imagem" => $name
         ]);
+        }
+       
+        
         return response()->json($request);
     }
 
