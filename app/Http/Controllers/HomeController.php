@@ -81,7 +81,7 @@ class HomeController extends Controller
         (SELECT GROUP_CONCAT(kit_evento.descricao_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as linkEvento
         from evento WHERE evento.tipo = 'Destaque' limit 1
         "); 
-        return view('user.compraKit', compact('title'));
+        return view('user.compraKit', compact('title', 'selectKits'));
     }
 
     public function getKit(Request $request)
