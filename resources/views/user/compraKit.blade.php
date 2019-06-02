@@ -1,5 +1,4 @@
-@extends('layouts.cabecalho')
-@section('conteudo')
+@extends('layouts.cabecalho') @section('conteudo')
 <!--==========================
           Header
         ============================-->
@@ -35,9 +34,11 @@
                 <li class="buy-tickets" data-toggle="modal" data-target="#buy-ticket-modal" data-ticket-type="premium-access"><a>Login</a></li>
                 @endauth
             </ul>
-        </nav><!-- #nav-menu-container -->
+        </nav>
+        <!-- #nav-menu-container -->
     </div>
-</header><!-- #header -->
+</header>
+<!-- #header -->
 
 
 
@@ -101,27 +102,32 @@
                         </div>
                         <div class="col-lg-3">
                             <h4><i class="fa fa-check-square" aria-hidden="true"></i> <b>Dados da Compra</b></h4>
-                            <div class="col-lg-12">
-                                <h3>Carrinho Vazio</h3>
+                            <div class="col-lg-12 dadosC">
+                                <h2>Carrinho Vazio <i class="fa fa-times-circle" aria-hidden="true"></i></h2>
 
-                                {{-- <table id="tabela">
+
+                                <!-- <table id="tabela">
                                     <thead>
                                         <tr>
-                                          <th style="width: 70%;">Item</th>
-                                          <th>Valor</th>
+                                            <th style="width: 70%;">Item</th>
+                                            <th>Valor</th>
                                         </tr>
-                                      </thead>
-                                      <tbody id="corpoCarrinho">
+                                    </thead>
+                                    <tbody id="corpoCarrinho">
                                         <tr>
-                                          <td></td>
-                                          <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
-                                      </tbody>
+                                    </tbody>
                                 </table>
                                 <br>
                                 <div class="col-md-12">
-                                    <a href="javascript:void(0)" class="btnmodal">Continuar</a>
-                                </div> --}}
+                                    <a href="javascript:void(0)">
+                                        <div class="text-center">
+                                        <button class="btnmodal">Continuar</button>
+                                        </div>
+                                    </a>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -158,5 +164,4 @@
 
 
 </main>
-<a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-@endsection
+<a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a> @endsection

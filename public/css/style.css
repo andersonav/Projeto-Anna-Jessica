@@ -5,7 +5,6 @@
   License: https://bootstrapmade.com/license/
 */
 
-
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -22,9 +21,7 @@ a {
     cursor: pointer;
 }
 
-a:hover,
-a:active,
-a:focus {
+a:hover, a:active, a:focus {
     color: #f8234a;
     outline: none;
     text-decoration: none;
@@ -35,12 +32,7 @@ p {
     margin: 0 0 30px 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway", sans-serif;
     font-weight: 400;
     margin: 0 0 20px 0;
@@ -91,7 +83,6 @@ button:focus {
     visibility: hidden;
 }
 
-
 /* Prelaoder */
 
 #preloader {
@@ -104,7 +95,6 @@ button:focus {
     overflow: visible;
     background: #fff url("../img/preloader.svg") no-repeat center center;
 }
-
 
 /* Back to top button */
 
@@ -137,7 +127,6 @@ button:focus {
     background: #e0072f;
     color: #fff;
 }
-
 
 /* Sections Header
 --------------------------------*/
@@ -180,7 +169,6 @@ button:focus {
     background-color: #f6f7fd;
 }
 
-
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -201,8 +189,7 @@ button:focus {
     text-decoration: none !important;
 }
 
-#header.header-scrolled,
-#header.header-fixed {
+#header.header-scrolled, #header.header-fixed {
     background-image: -webkit-linear-gradient(90deg, #a50a67 0%, #4f099c 100%);
     height: 70px;
     padding: 15px 0;
@@ -224,8 +211,7 @@ button:focus {
     color: #f82249;
 }
 
-#header #logo h1 a,
-#header #logo h1 a:hover {
+#header #logo h1 a, #header #logo h1 a:hover {
     color: #fff;
 }
 
@@ -236,16 +222,13 @@ button:focus {
     margin-top: -7px;
 }
 
-
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
 
-
 /* Nav Menu Essentials */
 
-.nav-menu,
-.nav-menu * {
+.nav-menu, .nav-menu * {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -268,8 +251,7 @@ button:focus {
     float: left;
 }
 
-.nav-menu li:hover>ul,
-.nav-menu li.sfHover>ul {
+.nav-menu li:hover>ul, .nav-menu li.sfHover>ul {
     display: block;
 }
 
@@ -281,7 +263,6 @@ button:focus {
 .nav-menu ul li {
     min-width: 180px;
 }
-
 
 /* Nav Menu Arrows */
 
@@ -302,14 +283,12 @@ button:focus {
     content: "\f105";
 }
 
-
 /* Nav Meu Container */
 
 #nav-menu-container {
     float: right;
     margin: 0;
 }
-
 
 /* Nav Meu Styling */
 
@@ -324,8 +303,7 @@ button:focus {
     outline: none;
 }
 
-.nav-menu .menu-active a,
-.nav-menu a:hover {
+.nav-menu .menu-active a, .nav-menu a:hover {
     color: #fff;
 }
 
@@ -345,9 +323,7 @@ button:focus {
     transition: all 0.3s ease-in-out 0s;
 }
 
-.nav-menu a:hover:before,
-.nav-menu li:hover>a:before,
-.nav-menu .menu-active>a:before {
+.nav-menu a:hover:before, .nav-menu li:hover>a:before, .nav-menu .menu-active>a:before {
     visibility: visible;
     width: 100%;
 }
@@ -372,8 +348,7 @@ button:focus {
     color: #fff;
 }
 
-.nav-menu li.buy-tickets:hover a:before,
-.nav-menu li.buy-tickets.menu-active a:before {
+.nav-menu li.buy-tickets:hover a:before, .nav-menu li.buy-tickets.menu-active a:before {
     visibility: hidden;
 }
 
@@ -408,7 +383,6 @@ button:focus {
     margin: 0;
 }
 
-
 /* Mobile Nav Toggle */
 
 #mobile-nav-toggle {
@@ -429,7 +403,6 @@ button:focus {
 #mobile-nav-toggle i {
     color: #fff;
 }
-
 
 /* Mobile Nav Styling */
 
@@ -504,7 +477,6 @@ button:focus {
     display: none;
 }
 
-
 /* Mobile Nav body classes */
 
 body.mobile-nav-active {
@@ -518,7 +490,6 @@ body.mobile-nav-active #mobile-nav {
 body.mobile-nav-active #mobile-nav-toggle {
     color: #fff;
 }
-
 
 /*--------------------------------------------------------------
 # Intro Section
@@ -706,7 +677,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     }
 }
 
-
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
@@ -760,7 +730,6 @@ body.mobile-nav-active #mobile-nav-toggle {
         margin-top: 15px !important;
     }
 }
-
 
 /*--------------------------------------------------------------
 # Speakers Section
@@ -858,7 +827,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-size: 15px;
     margin-bottom: 10px;
 }
-
 
 /*--------------------------------------------------------------
 # Schedule Section
@@ -958,7 +926,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-bottom: 0;
 }
 
-
 /*--------------------------------------------------------------
 # Venue Section
 --------------------------------------------------------------*/
@@ -1025,7 +992,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
-
 
 /*--------------------------------------------------------------
 # Hotels Section
@@ -1105,7 +1071,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-size: 15px;
 }
 
-
 /*--------------------------------------------------------------
 # Gallery Section
 --------------------------------------------------------------*/
@@ -1115,8 +1080,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     overflow: hidden;
 }
 
-#gallery .owl-nav,
-#gallery .owl-dots {
+#gallery .owl-nav, #gallery .owl-dots {
     margin-top: 25px;
     text-align: center;
 }
@@ -1151,7 +1115,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     background: #fff;
     z-index: 1;
 }
-
 
 /*--------------------------------------------------------------
 # supporters Section
@@ -1193,7 +1156,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 #supporters img {
     transition: all 0.4s ease-in-out;
 }
-
 
 /*--------------------------------------------------------------
 # F.A.Q Section
@@ -1246,7 +1208,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     content: "\f055" !important;
 }
 
-
 /*--------------------------------------------------------------
 # Subscribe Section
 --------------------------------------------------------------*/
@@ -1269,8 +1230,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     right: 0;
 }
 
-#subscribe .section-header h2,
-#subscribe p {
+#subscribe .section-header h2, #subscribe p {
     color: #fff;
 }
 
@@ -1300,7 +1260,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 #subscribe button:hover {
     background: #e0072f;
 }
-
 
 /*--------------------------------------------------------------
 # Buy Tickets Section
@@ -1359,8 +1318,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     background-color: #e0072f;
 }
 
-#buy-tickets #buy-ticket-modal input,
-#buy-tickets #buy-ticket-modal select {
+#buy-tickets #buy-ticket-modal input, #buy-tickets #buy-ticket-modal select {
     border-radius: 0;
 }
 
@@ -1408,7 +1366,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     cursor: pointer;
 }
 
-
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
@@ -1429,8 +1386,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     color: #f82249;
 }
 
-#contact .contact-info address,
-#contact .contact-info p {
+#contact .contact-info address, #contact .contact-info p {
     margin-bottom: 0;
     color: #112363;
 }
@@ -1451,9 +1407,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     color: #f82249;
 }
 
-#contact .contact-address,
-#contact .contact-phone,
-#contact .contact-email {
+#contact .contact-address, #contact .contact-phone, #contact .contact-email {
     margin-bottom: 20px;
 }
 
@@ -1476,9 +1430,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-bottom: 15px;
 }
 
-#contact .form #sendmessage.show,
-#contact .form #errormessage.show,
-#contact .form .show {
+#contact .form #sendmessage.show, #contact .form #errormessage.show, #contact .form .show {
     display: block;
 }
 
@@ -1490,8 +1442,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     font-size: 13px;
 }
 
-#contact .form input,
-#contact .form textarea {
+#contact .form input, #contact .form textarea {
     padding: 10px 14px;
     border-radius: 0;
     box-shadow: none;
@@ -1511,7 +1462,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 #contact .form button[type="submit"]:hover {
     background: #e0072f;
 }
-
 
 /*--------------------------------------------------------------
 # Footer
@@ -1668,7 +1618,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     color: #ddd;
 }
 
-
 /*--------------------------------------------------------------
 # Responsive Media Queries
 --------------------------------------------------------------*/
@@ -1680,9 +1629,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media (min-width: 768px) {
-    #contact .contact-address,
-    #contact .contact-phone,
-    #contact .contact-email {
+    #contact .contact-address, #contact .contact-phone, #contact .contact-email {
         padding: 20px 0;
     }
     #contact .contact-phone {
@@ -1802,7 +1749,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     width: 10%;
 }
 
-
 /* para carrossel */
 
 @media only screen and (max-width: 1024px) {
@@ -1841,7 +1787,6 @@ body.mobile-nav-active #mobile-nav-toggle {
         width: 50px;
     }
 }
-
 
 /*tudo sobre contagem*/
 
@@ -1892,11 +1837,9 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-left: 7px;
 }
 
-#tabela tbody tr,
-#tabela thead tr {
+#tabela tbody tr, #tabela thead tr {
     text-align: center !important;
 }
-
 
 /* Absolute Center Spinner */
 
@@ -1913,7 +1856,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     right: 0;
 }
 
-
 /* Transparent Overlay */
 
 .loading:before {
@@ -1926,7 +1868,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
 }
-
 
 /* :not(:required) hides these rules from IE9 and below */
 
@@ -1955,7 +1896,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
     box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
 }
-
 
 /* Animation */
 
@@ -2058,9 +1998,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     cursor: pointer !important;
 }
 
-.fc-view-container .fc-content .fc-time,
-.fc-view-container .fc-content .fc-time:after,
-.fc-view-container .fc-content .fc-time:before {
+.fc-view-container .fc-content .fc-time, .fc-view-container .fc-content .fc-time:after, .fc-view-container .fc-content .fc-time:before {
     color: white !important;
     font-weight: bold !important;
 }
@@ -2072,4 +2010,26 @@ body.mobile-nav-active #mobile-nav-toggle {
     text-align: center;
     margin-bottom: 20px;
     display: none;
+}
+
+.dadosC {
+    border-top: 3px solid #0e1b4d;
+    padding-top: 20px !important;
+    border-bottom: 3px solid #0e1b4d;
+    padding-bottom: 20px !important;
+    padding-left:0px !important;
+    padding-right:0px !important;
+
+}
+
+#tabela {
+    width: 100%;
+    background:#fdf5f5;
+    color:#000;
+    text-transform: uppercase;
+}
+
+#tabela thead{
+    border-top: 1px solid #0e1b4d;
+    border-bottom: 1px solid #0e1b4d;
 }
