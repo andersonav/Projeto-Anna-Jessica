@@ -116,6 +116,7 @@
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
+    $('#hora_inicio,#hora_fim').mask('00:00');
 </script>
 <script src="{{asset('js/agenda.js')}}"></script>
 <script src="{{asset('js/operacao.js')}}"></script>
