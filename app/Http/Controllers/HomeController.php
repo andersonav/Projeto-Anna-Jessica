@@ -35,7 +35,12 @@ class HomeController extends Controller
         (SELECT GROUP_CONCAT(link_evento.link SEPARATOR ',') FROM link_evento WHERE link_evento.id_evento_fk = evento.id_evento) as linkEvento
         from evento WHERE evento.tipo = 'Quadro' limit 4");
 
-        return view('index', compact('title','eventoquadro'));
+        $anuncioClassificacao1 = DB::select('SELECT * from anuncio WHERE classificacao_id_classificacao = 1 AND status = 1');
+    $anuncioClassificacao2 = DB::select('SELECT * from anuncio WHERE classificacao_id_classificacao = 2 AND status = 1');
+    $anuncioClassificacao3 = DB::select('SELECT * from anuncio WHERE classificacao_id_classificacao = 3 AND status = 1');
+
+    return view('index', compact('title','eventoquadro', 'anuncioClassificacao1', 'anuncioClassificacao2', 'anuncioClassificacao3'));
+
     }
 
     public function token(Request $request)
