@@ -23,11 +23,11 @@ function link() {
         '<div class="input-group-prepend">' +
         '<span class="input-group-text" id="basic-addon' + linkNum + '">Nome</span>' +
         '</div>' +
-        '<input type="text" name="nomeLinkEvento[]" class="form-control nomeLink' + linkNum + '" id="remove' + linkNum + '" placeholder="Ex: video" aria-label="Username" aria-describedby="basic-addon' + linkNum + '">' +
-        '<div class="input-group-prepend">' +
+        '<input type="text" name="nomeLinkEvento[]" class="form-control nomeLink nomeLink' + linkNum + '" id="remove' + linkNum + '" placeholder="Ex: video" aria-label="Username" aria-describedby="basic-addon' + linkNum + '">' +
+        '<div class="input-group-prepend linkSpan">' +
         '<span class="input-group-text" id="basic-addon' + linkNum + '">Link</span>' +
         '</div>' +
-        '<input type="text" name="linkEvento[]" class="form-control link' + linkNum + '" placeholder="Ex: www.youtube.com" aria-label="Recipients username" aria-describedby="basic-addon' + linkNum + '">' +
+        '<input type="text" name="linkEvento[]" class="form-control link link' + linkNum + '" placeholder="Ex: www.youtube.com" aria-label="Recipients username" aria-describedby="basic-addon' + linkNum + '">' +
         '<div class="input-group-append click" onclick="removerLink(' + linkNum + ')" id="remove' + linkNum + '">' +
         '<span class="input-group-text attrRemove" id="basic-addon' + linkNum + '">Remover</span>' +
         '</div>' +

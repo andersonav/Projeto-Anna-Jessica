@@ -36,6 +36,10 @@ class EventoController extends Controller
     public function addEvento(Request $request)
     {
         $validator = $this->validateForm($request);
+        if ($request->tipo == 'Destaque') {
+            $validator2 = $this->validateForm2($request);
+        }
+
         $image = $request->imgEvento;
         $name = $image->getClientOriginalName();
         $destinationPath = public_path('img/eventos');
@@ -255,6 +259,10 @@ class EventoController extends Controller
         return $this->validate($request, [
             'nome_evento' => 'required|max:255|unique:evento',
             'imgEvento' => 'required',
+            'tipo' => 'required',
+            'apoio' => 'required',
+            'patrocinio' => 'required',
+            'realizacao' => 'required',
         ]);
     }
 
@@ -268,8 +276,21 @@ class EventoController extends Controller
     public function validateForm2(Request $request)
     {
         return $this->validate($request, [
+            'nome_evento' => 'required',
+            'imgEvento' => 'required',
+            'tipo' => 'required',
+            'apoio' => 'required',
+            'patrocinio' => 'required',
+            'realizacao' => 'required',
+            'data' => 'required',
+            'hora_ini' => 'required',
+            'hora_fim' => 'required',
+            'percurso' => 'required',
+            'distancia' => 'required',
+            'data_encerramento' => 'required',
             'nomeKit' => 'required',
             'imgKit' => 'required',
+            'valorKit' => 'required',
             'descKit' => 'required',
         ]);
     }
@@ -278,6 +299,8 @@ class EventoController extends Controller
     {
         return $this->validate($request, [
             'nomeKit' => 'required',
+            'imgKit' => 'required',
+            'valorKit' => 'required',
             'descKit' => 'required',
         ]);
     }

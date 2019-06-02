@@ -105,7 +105,8 @@
 .bootstrap-select>.dropdown-toggle {
     width: 113% !important;
 }
-.dropdown.bootstrap-select.custom-select.custom-select-sm.form-control.form-control-sm{
+
+.dropdown.bootstrap-select.custom-select.custom-select-sm.form-control.form-control-sm {
     width: 25% !important;
     margin: 0% 3% 0% 0%;
 }
@@ -120,7 +121,8 @@
 .input-group-text {
     height: 38px;
 }
-.adcKit{
+
+.adcKit {
     border-radius: 30px;
     cursor: pointer;
     outline-color: transparent;
@@ -139,7 +141,7 @@
     color: white;
 }
 
-.click{
+.click {
     cursor: pointer;
 }
 
@@ -159,4 +161,30 @@
 
 .item-user:hover {
     color: #e0072f !important;
+}
+
+
+/* Responsividade de evento */
+
+@media only screen and (max-width: 600px) {
+    .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+        width: 89% !important;
+    }
+    .input-group-prepend {
+        margin-right: -1px;
+        margin-bottom: 10px;
+    }
+    .link{
+        margin: 0% 0% 0% 17% !important;
+    }
+    .nomeLink{
+        width: 78% !important;
+        height: 38px;
+    }
+    .link{
+        height: 38px;
+    }
+    .linkSpan{
+        margin-right: -55px;
+    }
 }
