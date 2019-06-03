@@ -75,28 +75,30 @@ $(document).ready(function () {
             dateEnd = $.fullCalendar.formatDate(end, "YYYY-MM-DD");
             start = $.fullCalendar.formatDate(start, "YYYY-MM-DD HH:mm:ss");
             end = $.fullCalendar.formatDate(end, "YYYY-MM-DD HH:mm:ss");
-            var diaInicio = start.substr(8, 2);
-            var mesInicio = start.substr(5, 2);
-            var anoInicio = start.substr(0, 4);
+            if (dateStart == dateEnd) {
+                var diaInicio = start.substr(8, 2);
+                var mesInicio = start.substr(5, 2);
+                var anoInicio = start.substr(0, 4);
+                var diaFim = end.substr(8, 2);
+                var mesFim = end.substr(5, 2);
+                var anoFim = end.substr(0, 4);
+                var inicio = diaInicio + "/" + mesInicio + "/" + anoInicio;
+                var fim = diaFim + "/" + mesFim + "/" + anoFim;
+                var horaInicio = start.substr(11, 8);
+                var horaFim = end.substr(11, 8);
+                var dataInicio = inicio + " " + horaInicio;
+                var dataFim = fim + " " + horaFim;
+                $("#data_inicio").val(dateStart);
+                $("#data_fim").val(dateEnd);
+                $("#hora_inicio").val(horaInicio);
+                $("#hora_fim").val(horaFim);
+                $("#data_inicio").attr('readonly', true);
+                $("#data_fim").attr('readonly', true);
+                $("#hora_inicio").attr('readonly', true);
+                $("#hora_fim").attr('readonly', true);
+                $("#newAgenda").modal('show');
+            }
 
-            var diaFim = end.substr(8, 2);
-            var mesFim = end.substr(5, 2);
-            var anoFim = end.substr(0, 4);
-            var inicio = diaInicio + "/" + mesInicio + "/" + anoInicio;
-            var fim = diaFim + "/" + mesFim + "/" + anoFim;
-            var horaInicio = start.substr(11, 8);
-            var horaFim = end.substr(11, 8);
-            var dataInicio = inicio + " " + horaInicio;
-            var dataFim = fim + " " + horaFim;
-            $("#data_inicio").val(dateStart);
-            $("#data_fim").val(dateEnd);
-            $("#hora_inicio").val(horaInicio);
-            $("#hora_fim").val(horaFim);
-            $("#data_inicio").attr('readonly', true);
-            $("#data_fim").attr('readonly', true);
-            $("#hora_inicio").attr('readonly', true);
-            $("#hora_fim").attr('readonly', true);
-            $("#newAgenda").modal('show');
         },
         // color classes: [ event-blue | event-azure | event-green | event-orange | event-red ]
         events: function (start, end, timezone, callback) {

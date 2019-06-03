@@ -91,7 +91,7 @@ $(window).scroll(function() {
 
 // LOGICA PARA WHATS APP
 
-let telefone = '5588988459641'
+let telefone = '5585989105894s'
 let mensagem = document.getElementById('mensagem')
 let nome = document.getElementById('nomee')
 

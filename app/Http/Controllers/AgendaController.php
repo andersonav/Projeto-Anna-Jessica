@@ -59,11 +59,16 @@ class AgendaController extends Controller {
     }
 
     public function editAgenda(Request $request) {
-        $validator = $this->validateForm($request);
-        $image = $request->file('imgAgenda');
-        $name = $image->getClientOriginalName();
-        $destinationPath = public_path('img/agenda');
-        $image->move($destinationPath, $name);
+        $validator = $this->validateFormEdit($request);
+        if ($request->imgAgenda != null) {
+            $image = $request->file('imgAgenda');
+            $name = $image->getClientOriginalName();
+            $destinationPath = public_path('img/agenda');
+            $image->move($destinationPath, $name);
+            $updateAgenda = Agenda::where("id_agenda", "=", $request->id_agenda)->update([
+                "imagem" => $name,
+            ]);
+        }
         $dateInicio = str_replace('/', '-', $request->data_inicio);
         $dateFim = str_replace('/', '-', $request->data_fim);
         $newDateInicio = date("Y-m-d", strtotime($dateInicio));
@@ -73,7 +78,6 @@ class AgendaController extends Controller {
             'descricao' => $request->descricao,
             'data_inicio' => $newDateInicio,
             'data_fim' => $newDateFim,
-            'imagem' => $name,
             'hora_inicio' => $request->hora_inicio,
             'hora_fim' => $request->hora_fim,
             'cidade' => $request->cidade,
@@ -94,6 +98,18 @@ class AgendaController extends Controller {
                     'nome' => 'required|regex:/^[a-zA-ZçÇáéíóúÁÉÍÓÚ0-9 ]+$/u|max:255|',
                     'descricao' => 'required|regex:/^[a-zA-ZçÇáéíóúÁÉÍÓÚ0-9 ]+$/u|max:255|',
                     'imgAgenda' => 'required|mimes:png,jpeg,jpg,gif|max:2048',
+                    'data_inicio' => 'required',
+                    'data_fim' => 'required',
+                    'hora_fim' => 'required',
+                    'hora_inicio' => 'required',
+                    'cidade' => 'required'
+        ]);
+    }
+    
+     public function validateFormEdit(Request $request) {
+        return $this->validate($request, [
+                    'nome' => 'required|regex:/^[a-zA-ZçÇáéíóúÁÉÍÓÚ0-9 ]+$/u|max:255|',
+                    'descricao' => 'required|regex:/^[a-zA-ZçÇáéíóúÁÉÍÓÚ0-9 ]+$/u|max:255|',
                     'data_inicio' => 'required',
                     'data_fim' => 'required',
                     'hora_fim' => 'required',
