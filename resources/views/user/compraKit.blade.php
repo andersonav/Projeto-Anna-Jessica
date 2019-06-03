@@ -81,13 +81,13 @@
                             <div class="col-lg-12" id="kit">
                                 <div class="row justify-content-center">
                                     <div class="col-lg-4">
-                                        <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imgcomp">
+                                        <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imgcomp" data-toggle="modal" data-target="#buy-ticket-modalkit" data-ticket-type="premium-access">
                                     </div>
 
                                     <div class="col-lg-5" id="insc">
                                         <div class="col-lg-12">
                                             <div class="col-lg-12">
-                                                <h5><b>Kit Estações</b></h5>
+                                                <h5 id="titulo"><b>Kit Estações 02</b></h5>
                                                 <h7>Camiseta ProRun Seamless HiveTech, Sacola Térmica, Glass Mug e Medalha (pós-evento)</7>
 
                                             </div>
@@ -103,10 +103,10 @@
                         <div class="col-lg-3">
                             <h4><i class="fa fa-check-square" aria-hidden="true"></i> <b>Dados da Compra</b></h4>
                             <div class="col-lg-12 dadosC">
-                                <h2>Carrinho Vazio <i class="fa fa-times-circle" aria-hidden="true"></i></h2>
+                                <!-- <h2>Carrinho Vazio <i class="fa fa-times-circle" aria-hidden="true"></i></h2> -->
 
 
-                                <!-- <table id="tabela">
+                                <table id="tabelaC">
                                     <thead>
                                         <tr>
                                             <th style="width: 70%;">Item</th>
@@ -115,8 +115,8 @@
                                     </thead>
                                     <tbody id="corpoCarrinho">
                                         <tr>
-                                            <td></td>
-                                            <td></td>
+                                            <td>Kit Estações</td>
+                                            <td>R$ 180,00</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -124,10 +124,10 @@
                                 <div class="col-md-12">
                                     <a href="javascript:void(0)">
                                         <div class="text-center">
-                                        <button class="btnmodal">Continuar</button>
+                                            <button class="btnmodal">Continuar</button>
                                         </div>
                                     </a>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -136,9 +136,35 @@
         </div>
     </section>
 </main>
-<style>
 
-</style>
+<div id="buy-ticket-modalkit" class="modal fade">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="ttl"><b></b></h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="#" alt="Hotel 1" class="imgcomp" id="imagemkit">
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<script>
+    $("#kit").click(function() {
+        var valorId = $(this).attr("id");
+        var imagem = $("#" + valorId + " img").attr("src");
+        var headerModal = $("#" + valorId + " #titulo").text();
+        $("#buy-ticket-modalkit .modal-header h2 b").html(headerModal);
+        $("#imagemkit").attr("src", imagem);
+    });
+</script>
+
 <script src="{{asset('js/compraKit.js')}}"></script>
 <script src="{{asset('js/operacao.js')}}"></script>
 <!--==========================
