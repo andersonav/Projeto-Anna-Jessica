@@ -8,28 +8,36 @@
 
         <div class="form">
             <div class="col-md-12 scroll">
-                <table id="tabela" class="table table-bordered" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Imagem</th>
-                            <th>Descrição</th>
-                            <th>Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($parceiros as $parceiro)
-                        <tr>
-                            <td><img src="/img/parceiros/{{$parceiro->imagem_parceiro}}" width="100px" /></td>
-                            <td>{{$parceiro->descricao_parceiro}}</td>
-                            <td><a class="" data-toggle="modal" data-target="#newParceiro"
+                <div class="card-deck">
+                    @php
+                    $count = 1;
+                    @endphp
+                    @forelse($parceiros as $parceiro)
+                    <div class="form-group col-lg-3" id="colanuncio">
+                        <div class="card" style="width: 100% !important;">
+                            <img class="card-img-top" id="cardAnuncio" src="/img/parceiros/{{$parceiro->imagem_parceiro}}" alt="Imagem de capa do card">
+                            <div class="card-body">
+                                <h5 class="card-title">Imagem {{$count}}</h5>
+                                <p class="card-text">{{$parceiro->descricao_parceiro}}</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted" style="float: right;"><a class="" data-toggle="modal" data-target="#newParceiro"
                                     onclick="editarParceiro({{$parceiro->id_parceiro}}, '{{$parceiro->descricao_parceiro}}', '{{$parceiro->imagem_parceiro}}');"><i
                                         class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class=""
                                     onclick="abrirSweetParceiro({{$parceiro->id_parceiro}});"><i
-                                        class="fa fa-trash"></i></a></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                                        class="fa fa-trash"></i></a></small>
+                            </div>
+                        </div>
+                    </div>
+                    @php
+                    $count++;
+                    @endphp
+                    @empty
+
+
+                    @endforelse
+                </div>
+
             </div>
             <div class="text-center">
                 <button type="submit" data-toggle="modal" data-target="#newParceiro" onclick="adicionarParceiro();"><i
