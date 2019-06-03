@@ -45,10 +45,6 @@ input:focus {
     box-shadow: none !important;
 }
 
-#relatorioUser {
-    table-layout: fixed !important;
-    word-wrap: break-word;
-}
 
 textarea:focus {
     border-color: #f8234a !important;
@@ -64,10 +60,6 @@ button:focus {
     outline: thin dotted;
     outline: 0px auto -webkit-focus-ring-color;
     outline-offset: 0px;
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(249, 121, 121, 0.25) !important;
 }
 
 .page-item.active .page-link {
@@ -1780,15 +1772,7 @@ body.mobile-nav-active #mobile-nav-toggle {
         overflow: hidden;
         position: relative;
     }
-    .tabelaRelatorioA {
-        width: 120px;
-    }
-    .tabelaRelatorioB {
-        width: 80px;
-    }
-    .tabelaRelatorioC {
-        width: 50px;
-    }
+    
 }
 
 /*tudo sobre contagem*/

@@ -94,77 +94,52 @@
                 <div class="section-header">
                     <h2>Relatorio</h2>
                 </div>
-
-                <div class="row">
-
+                <div class="form">
                     <div class="col-md-12 scroll">
-                        <table id="relatorioUser" class="table table-striped table-bordered" style="width:100%">
+                        <table id="tabela" class="table table-bordered" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th class="tabelaRelatorioA">Evento</th>
-                                    <th class="tabelaRelatorioB">Data</th>
-                                    <th class="tabelaRelatorioB">Horario</th>
-                                    <th class="tabelaRelatorioB">Valor</th>
-                                    <th class="tabelaRelatorioB">Status</th>
-                                    <th class="tabelaRelatorioC">Ações</th>
+                                    <th>Evento</th>
+                                    <th>Data</th>
+                                    <th>Horario</th>
+                                    <th>Valor</th>
+                                    <th>Status</th>
+                                    <th>Ação</th>
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <tr>
-                                    <td>2º Nigth Bike Maranguape 2019</td>
-                                    <td>25-09-2018</td>
+                                    <td>2º night bike maranguape 2019</td>
+                                    <td>27/08/2019</td>
                                     <td>10:00</td>
-                                    <td>R$ 150.00</td>
-                                    <td>Pagamento confirmado</td>
-                                    <td>
-                                        <center><i class="fa fa-file-pdf-o" aria-hidden="true"></i></center>
-                                    </td>
+                                    <td>R$ 150,00</td>
+                                    <td>Pagamento Confirmado</td>
+                                    <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i></td>
                                 </tr>
                                 <tr>
-                                    <td>2º Nigth Bike Maranguape 2019</td>
-                                    <td>25-09-2018</td>
+                                    <td>2º night bike maranguape 2019</td>
+                                    <td>27/08/2019</td>
                                     <td>10:00</td>
-                                    <td>R$ 150.00</td>
-                                    <td>Pagamento confirmado</td>
-                                    <td>
-                                        <center><i class="fa fa-file-pdf-o" aria-hidden="true"></i></center>
-                                    </td>
+                                    <td>R$ 150,00</td>
+                                    <td>Pagamento Confirmado</td>
+                                    <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i></td>
                                 </tr>
                                 <tr>
-                                    <td>2º Nigth Bike Maranguape 2019</td>
-                                    <td>25-09-2018</td>
+                                    <td>2º night bike maranguape 2019</td>
+                                    <td>27/08/2019</td>
                                     <td>10:00</td>
-                                    <td>R$ 150.00</td>
-                                    <td>Pagamento confirmado</td>
-                                    <td>
-                                        <center><i class="fa fa-file-pdf-o" aria-hidden="true"></i></center>
-                                    </td>
+                                    <td>R$ 150,00</td>
+                                    <td>Pagamento Confirmado</td>
+                                    <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i></td>
                                 </tr>
-                                <tr>
-                                    <td>2º Nigth Bike Maranguape 2019</td>
-                                    <td>25-09-2018</td>
-                                    <td>10:00</td>
-                                    <td>R$ 150.00</td>
-                                    <td>Pagamento confirmado</td>
-                                    <td>
-                                        <center><i class="fa fa-file-pdf-o" aria-hidden="true"></i></center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2º Nigth Bike Maranguape 2019</td>
-                                    <td>25-09-2018</td>
-                                    <td>10:00</td>
-                                    <td>R$ 150.00</td>
-                                    <td>Pagamento confirmado</td>
-                                    <td>
-                                        <center><i class="fa fa-file-pdf-o" aria-hidden="true"></i></center>
-                                    </td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>
-
                 </div>
+
+
             </div>
 
         </section>
@@ -181,7 +156,9 @@
                 &copy; Copyright <strong>Anna Jéssica</strong>. Todos os direitos reservados!
             </div>
             <div class="credits">
-                Desenvolvido por <a href="#"><font color="blue"><b>EDEV</b></font></a>
+                Desenvolvido por <a href="#">
+                    <font color="blue"><b>EDEV</b></font>
+                </a>
             </div>
         </div>
     </footer><!-- #footer -->
