@@ -9,33 +9,6 @@
         <div class="form">
             <div class="col-md-12 scroll">
                 <div id="fullCalendar"></div>
-<!--                <table id="tabela" class="table table-bordered" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Data</th>
-                            <th>Hora Início</th>
-                            <th>hora Fim</th>
-                            <th>Cidade</th>
-                            <th>Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($agendas as $agenda)
-                        @php
-                        $newDate = date("d/m/Y", strtotime($agenda->data));
-                        @endphp
-                        <tr>
-                            <td>{{$agenda->nome_evento}}</td>
-                            <td>{{$newDate}}</td>
-                            <td>{{$agenda->hora_inicio}}</td>
-                            <td>{{$agenda->hora_fim}}</td>
-                            <td>{{$agenda->cidade}}</td>
-                            <td><a class="" data-toggle="modal" data-target="#newAgenda" onclick="editarAgenda({{$agenda->id_agenda}}, '{{$agenda->nome_evento}}', '{{$agenda->data}}', '{{$agenda->hora_inicio}}', '{{$agenda->hora_fim}}', '{{$agenda->cidade}}');"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;&nbsp;<a class="" onclick="abrirSweetAgenda({{$agenda->id_agenda}});"><i class="fa fa-trash"></i></a></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>-->
             </div>
 
         </div>

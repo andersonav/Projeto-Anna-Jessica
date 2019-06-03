@@ -23,8 +23,42 @@ Route::get('/', function () {
     $anuncioClassificacao3 = DB::select('SELECT * from anuncio WHERE classificacao_id_classificacao = 3 AND status = 1');
 
     $slideshows = DB::select('SELECT * from slideshow WHERE status = 1 limit 3');
+    $ptBr = DB::select("SET lc_time_names = 'pt_BR';");
+    $datas = DB::select("SELECT 
+        LEFT(lower(DATE_FORMAT(data_inicio, '%d')), 3) AS dia,
+        LEFT(lower(DATE_FORMAT(data_inicio, '%M')), 3) AS mes,
+        RIGHT(UPPER(DATE_FORMAT(data_inicio, '%Y')), 2) AS ano,
+        DATE_FORMAT(data_inicio, '%Y') as numeroAno,
+        DATE_FORMAT(data_inicio, '%m') as numeroMes
+        FROM agenda 
+        GROUP BY mes, ano, numeroMes, numeroAno, agenda.data_inicio
+        order by numeroMes asc, dia asc");
 
-    return view('index', compact('title','eventoquadro', 'anuncioClassificacao1', 'anuncioClassificacao2', 'anuncioClassificacao3', 'slideshows'));
+    $agendas = DB::select("SELECT 
+        LEFT(lower(DATE_FORMAT(data_inicio, '%d')), 3) AS dia,
+        LEFT(lower(DATE_FORMAT(data_inicio, '%M')), 3) AS mes,
+        RIGHT(UPPER(DATE_FORMAT(data_inicio, '%Y')), 2) AS ano,
+        DATE_FORMAT(data_inicio, '%Y') as numeroAno,
+        DATE_FORMAT(data_inicio, '%m') as numeroMes,
+        (SELECT GROUP_CONCAT(agen.id_agenda SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as idEvento,
+        (SELECT GROUP_CONCAT(agen.nome_evento SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as nomeEvento,
+        (SELECT GROUP_CONCAT(agen.descricao SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as descricaoEvento,
+        (SELECT GROUP_CONCAT(agen.imagem SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as imagemEvento,
+        (SELECT GROUP_CONCAT(agen.hora_inicio SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as horaInicio,
+        (SELECT GROUP_CONCAT(agen.hora_fim SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as horaFim,
+                (SELECT GROUP_CONCAT(agen.cidade SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as cidade
+        FROM agenda 
+        GROUP BY mes, ano, numeroMes, numeroAno, agenda.data_inicio
+        order by numeroMes asc, dia asc");
+
+    return view('index', compact('title', 'eventoquadro', 'anuncioClassificacao1', 'anuncioClassificacao2', 'anuncioClassificacao3', 'slideshows', 'agendas', 'datas'));
 });
 
 Auth::routes();
