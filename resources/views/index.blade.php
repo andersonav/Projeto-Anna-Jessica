@@ -237,7 +237,7 @@
                                 <img src="/img/agenda/{{$imagensEvento[$cont]}}" alt="Hubert Hirthe">
                             </div>
                             @endif
-                            <h4>Vago para Contratações</h4>
+                            <h4>{{$nomesEvento[$cont]}}</h4>
                             @if($descricoesEvento[$cont] != "")
                             <p>{{$descricoesEvento[$cont]}}</p>
                             @else
