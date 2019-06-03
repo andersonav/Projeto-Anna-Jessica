@@ -13,30 +13,7 @@ class AgendaController extends Controller {
     }
 
     public function pageAgenda() {
-        $agendas = DB::select("SET lc_time_names = 'pt_BR';
-        SELECT 
-        LEFT(lower(DATE_FORMAT(data_inicio, '%d')), 3) AS dia,
-        LEFT(lower(DATE_FORMAT(data_inicio, '%M')), 3) AS mes,
-        RIGHT(UPPER(DATE_FORMAT(data_inicio, '%Y')), 2) AS ano,
-        DATE_FORMAT(data_inicio, '%Y') as numeroAno,
-        DATE_FORMAT(data_inicio, '%m') as numeroMes,
-        (SELECT GROUP_CONCAT(agen.id_agenda SEPARATOR ", ") 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as idEvento,
-        (SELECT GROUP_CONCAT(agen.nome_evento SEPARATOR ", ") 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as nomeEvento,
-        (SELECT GROUP_CONCAT(agen.descricao SEPARATOR ", ") 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as descricaoEvento,
-        (SELECT GROUP_CONCAT(agen.imagem SEPARATOR ", ") 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as imagemEvento,
-        (SELECT GROUP_CONCAT(agen.hora_inicio SEPARATOR ", ") 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as horaInicio,
-        (SELECT GROUP_CONCAT(agen.hora_fim SEPARATOR ", ") 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as horaFim,
-                (SELECT GROUP_CONCAT(agen.cidade SEPARATOR ", ") 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as cidade
-        FROM agenda 
-        GROUP BY mes, ano, numeroMes, numeroAno
-        order by numeroMes desc");
+        $agendas = Agenda::where('status', '=', 1)->get();
 
         return view('admin.agenda', compact('agendas'));
     }
