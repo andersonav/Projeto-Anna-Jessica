@@ -830,18 +830,18 @@
             <!-- <div class="col-lg-4 venue-map">
                 <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="img-fluid">
             </div> -->
-
-            <div class="col-lg-12 venue-info">
+            @foreach ($selectKits as $item)
+            <div class="col-lg-12 venue-info horarioEventoDestaque" id="{{ $item->dia }}" role="{{ $item->numeroMes }}" alt="{{ $item->numeroAno }}">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
-                        <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imginc">
+                        <img src="img/eventos/{{ $item->imagem }}" alt="Hotel 1" class="imginc">
                     </div>
 
                     <div class="col-11 col-lg-6" id="insc">
                         <div class="col-11 col-lg-12">
                             <div class="col-11 col-lg-12">
-                                <h1><a href="#">2º Nigth Bike Maranguape 2019</a></h1>
-                                <h5 class="text-uppercase "><a href="#">Passeio Ciclístico</a></h5>
+                                <h1><a href="#">{{ $item->nome_evento }}</a></h1>
+                                <h5 class="text-uppercase "><a href="#">{{ $item->percurso }}</a></h5>
 
                             </div>
                             <div class="col-11 col-lg-12">
@@ -854,9 +854,9 @@
                                         <div class="cell">
                                             <div id="holder">
                                                 <br>
-                                                <h7 class="text-uppercase "><b>
+                                                <span class="text-uppercase "><b>
                                                         Faltam: Dias - Horas - Minutos - Segundos
-                                                    </b></h7>
+                                                    </b></span>
                                                 <div class="digits"></div>
                                             </div>
                                         </div>
@@ -868,7 +868,7 @@
                                 <br>
                                 <div class="text-center">
                                     @auth
-                                    <a class="" href="{{route('compra-kit')}}"><button type="button" class="btnmodal">Inscreva-se
+                                    <a class="aInscBtn" href="{{route('compra-kit')}}"><button type="button" class="btnmodal inscBtn">Inscreva-se
                                             ja!</button></a> @else
                                     <ul class="nav-menu"><a href="#contact"><button type="submit" class="btnmodal">Inscreva-se
                                                 ja!</button></a></ul>
@@ -879,6 +879,7 @@
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
 
     </div>

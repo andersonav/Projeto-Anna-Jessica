@@ -299,7 +299,6 @@ class EventoController extends Controller
     {
         return $this->validate($request, [
             'nomeKit' => 'required',
-            'imgKit' => 'required',
             'valorKit' => 'required',
             'descKit' => 'required',
         ]);

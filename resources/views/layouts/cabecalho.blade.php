@@ -67,12 +67,28 @@
 
         <script>
         $(function () {
-            var mes = 6;
-            $(".digits").countdown({
-                image: "img/digits.png",
-                format: "dd:hh:mm:ss",
-                endTime: new Date(2019, mes - 1, 28)
-            });
+            var dia = $('.horarioEventoDestaque').attr('id');
+            var mes = $('.horarioEventoDestaque').attr('role');
+            var ano = $('.horarioEventoDestaque').attr('alt');
+            var data = new Date();
+            var diaAtual  = data.getDate();
+            var mesAtual  = data.getMonth() + 1;
+            var anoAtual  = data.getFullYear();
+            console.log(dia,mes,ano, diaAtual, mesAtual, anoAtual);
+            if(dia>diaAtual && mes>=mesAtual && ano>=anoAtual){
+                $(".digits").countdown({
+                    image: "img/digits.png",
+                    format: "dd:hh:mm:ss",
+                    endTime: new Date(ano, mes - 1, dia)
+                });
+            }else{
+                $(".digits").countdown({
+                    start: false
+                });
+                $('.cntDigit').css('background','url("img/digits.png") 0px 0px');
+                $('.inscBtn').text('TEMPO ESGOTADO!').css('background','gray').css('border-color','gray').css('cursor','not-allowed');
+                $('.aInscBtn').attr('href','javascript:void(0)')
+            }
         });
         </script>
         <!-- =======================================================
