@@ -58,7 +58,23 @@ Route::get('/', function () {
         GROUP BY mes, ano, numeroMes, numeroAno, agenda.data_inicio
         order by numeroMes asc, dia asc");
 
-    return view('index', compact('title', 'eventoquadro', 'anuncioClassificacao1', 'anuncioClassificacao2', 'anuncioClassificacao3', 'slideshows', 'agendas', 'datas'));
+        $selectKits = DB::select("SELECT
+		LEFT(lower(DATE_FORMAT(prazo, '%d')), 3) AS dia,
+        LEFT(lower(DATE_FORMAT(prazo, '%M')), 3) AS mes,
+        RIGHT(UPPER(DATE_FORMAT(prazo, '%Y')), 2) AS ano,
+        DATE_FORMAT(prazo, '%Y') as numeroAno,
+        DATE_FORMAT(prazo, '%m') as numeroMes,
+        evento.*,
+        (SELECT GROUP_CONCAT(kit_evento.id_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.nome_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.imagem_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.valor SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.id_tamanho SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.descricao_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as linkEvento
+        from evento WHERE evento.tipo = 'Destaque' limit 1
+        ");
+
+    return view('index', compact('title', 'selectKits','eventoquadro', 'anuncioClassificacao1', 'anuncioClassificacao2', 'anuncioClassificacao3', 'slideshows', 'agendas', 'datas'));
 });
 
 Auth::routes();

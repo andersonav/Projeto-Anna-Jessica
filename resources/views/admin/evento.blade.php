@@ -196,7 +196,7 @@
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
-    $("#data").mask("00/00/0000");
+    $("#data,#data_encerramento").mask("00/00/0000");
     $("#hora_ini,#hora_fim").mask("00:00");
     </script>
 <!-- (Optional) Latest compiled and minified JavaScript translation files -->

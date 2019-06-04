@@ -163,12 +163,6 @@
     color: #e0072f !important;
 }
 
-#schedule .nav-tabs {
-    max-width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
 #schedule .nav-tabs::-webkit-scrollbar {
     width: 12px;
 }
