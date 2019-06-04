@@ -793,16 +793,39 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-lg-12">
+                            <div class="col-lg-12">
+                                <h6><b><i class="fa fa-arrows-h" aria-hidden="true"></i> Distâncias</b></h6>
+                                <p>Olímpica</p>
+                            </div>
+                            <hr>
                         </div>
                         <div class="col-lg-12">
+                            <div class="col-lg-12">
+                                <h6><b><i class="fa fa-location-arrow" aria-hidden="true"></i> Local</b></h6>
+                                <p>Olímpica</p>
+                            </div>
+                            <hr>
                         </div>
                         <div class="col-lg-12">
-
+                            <div class="col-lg-12">
+                                <h6><b><i class="fa fa-hourglass-half" aria-hidden="true"></i> Largada</b></h6>
+                                <p>Olímpica</p>
+                            </div>
+                            <hr>
                         </div>
                         <div class="col-lg-12">
-
+                            <div class="col-lg-12">
+                                <h6><b><i class="fa fa-check-square-o" aria-hidden="true"></i> Retirada do Kit</b></h6>
+                                <p>Olímpica</p>
+                            </div>
+                            <hr>
                         </div>
-
+                        <div class="col-lg-12">
+                            <div class="col-lg-12">
+                                <h6><b><i class="fa fa-stop-circle" aria-hidden="true"></i> Encerramento de Inscrição</b></h6>
+                                <p>Olímpica</p>
+                            </div>
+                        </div>
                     </div>
 
 
