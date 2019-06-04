@@ -5,6 +5,7 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\DB;
 
 trait AuthenticatesUsers
 {
@@ -17,7 +18,69 @@ trait AuthenticatesUsers
      */
     public function showLoginForm()
     {
-        return view('index');
+        $title = "Anna Jéssica Oficial";
+        $eventoquadro = DB::select("SELECT evento.*,
+        (SELECT GROUP_CONCAT(link_evento.nome_link SEPARATOR ',') FROM link_evento WHERE link_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(link_evento.link SEPARATOR ',') FROM link_evento WHERE link_evento.id_evento_fk = evento.id_evento) as linkEvento
+        from evento WHERE evento.tipo = 'Quadro' limit 4");
+
+        $anuncioClassificacao1 = DB::select('SELECT * from anuncio WHERE classificacao_id_classificacao = 1 AND status = 1');
+        $anuncioClassificacao2 = DB::select('SELECT * from anuncio WHERE classificacao_id_classificacao = 2 AND status = 1');
+        $anuncioClassificacao3 = DB::select('SELECT * from anuncio WHERE classificacao_id_classificacao = 3 AND status = 1');
+
+        $slideshows = DB::select('SELECT * from slideshow WHERE status = 1 limit 3');
+        $ptBr = DB::select("SET lc_time_names = 'pt_BR';");
+        $datas = DB::select("SELECT 
+        LEFT(lower(DATE_FORMAT(data_inicio, '%d')), 3) AS dia,
+        LEFT(lower(DATE_FORMAT(data_inicio, '%M')), 3) AS mes,
+        RIGHT(UPPER(DATE_FORMAT(data_inicio, '%Y')), 2) AS ano,
+        DATE_FORMAT(data_inicio, '%Y') as numeroAno,
+        DATE_FORMAT(data_inicio, '%m') as numeroMes
+        FROM agenda 
+        GROUP BY mes, ano, numeroMes, numeroAno, agenda.data_inicio
+        order by numeroMes asc, dia asc");
+
+        $agendas = DB::select("SELECT 
+        LEFT(lower(DATE_FORMAT(data_inicio, '%d')), 3) AS dia,
+        LEFT(lower(DATE_FORMAT(data_inicio, '%M')), 3) AS mes,
+        RIGHT(UPPER(DATE_FORMAT(data_inicio, '%Y')), 2) AS ano,
+        DATE_FORMAT(data_inicio, '%Y') as numeroAno,
+        DATE_FORMAT(data_inicio, '%m') as numeroMes,
+        (SELECT GROUP_CONCAT(agen.id_agenda SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as idEvento,
+        (SELECT GROUP_CONCAT(agen.nome_evento SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as nomeEvento,
+        (SELECT GROUP_CONCAT(agen.descricao SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as descricaoEvento,
+        (SELECT GROUP_CONCAT(agen.imagem SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as imagemEvento,
+        (SELECT GROUP_CONCAT(agen.hora_inicio SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as horaInicio,
+        (SELECT GROUP_CONCAT(agen.hora_fim SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as horaFim,
+                (SELECT GROUP_CONCAT(agen.cidade SEPARATOR ', ') 
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as cidade
+        FROM agenda 
+        GROUP BY mes, ano, numeroMes, numeroAno, agenda.data_inicio
+        order by numeroMes asc, dia asc");
+
+        $selectKits = DB::select("SELECT
+		LEFT(lower(DATE_FORMAT(prazo, '%d')), 3) AS dia,
+        LEFT(lower(DATE_FORMAT(prazo, '%M')), 3) AS mes,
+        RIGHT(UPPER(DATE_FORMAT(prazo, '%Y')), 2) AS ano,
+        DATE_FORMAT(prazo, '%Y') as numeroAno,
+        DATE_FORMAT(prazo, '%m') as numeroMes,
+        evento.*,
+        (SELECT GROUP_CONCAT(kit_evento.id_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.nome_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.imagem_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.valor SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.id_tamanho SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
+        (SELECT GROUP_CONCAT(kit_evento.descricao_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as linkEvento
+        from evento WHERE evento.tipo = 'Destaque' limit 1
+        ");
+
+        return view('index', compact('title', 'selectKits', 'eventoquadro', 'anuncioClassificacao1', 'anuncioClassificacao2', 'anuncioClassificacao3', 'slideshows', 'agendas', 'datas'));
     }
 
     /**
@@ -74,7 +137,8 @@ trait AuthenticatesUsers
     protected function attemptLogin(Request $request)
     {
         return $this->guard()->attempt(
-            $this->credentials($request), $request->filled('remember')
+            $this->credentials($request),
+            $request->filled('remember')
         );
     }
 
@@ -102,7 +166,7 @@ trait AuthenticatesUsers
         $this->clearLoginAttempts($request);
 
         return $this->authenticated($request, $this->guard()->user())
-                ?: redirect()->intended($this->redirectPath());
+            ?: redirect()->intended($this->redirectPath());
     }
 
     /**
