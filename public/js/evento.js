@@ -99,6 +99,8 @@ function adicionarKit() {
         'placeholder="Descrição do kit" />' +
         '</div>';
     $(html).insertAfter($(".kitLabel"));
+    
+    $('.valorKit' + kitNum + '').mask('#.##0,00', {reverse: true});
     $('select').selectpicker();
 
     $(".custom-file-input").on("change", function () {
@@ -200,7 +202,7 @@ function preencherModal(dados) {
         var idKit = dados[0].idKit.split(',');
         var nomeKit = dados[0].nomeKit.split(',');
         var descKit = dados[0].descKit.split(',');
-        var valorKit = dados[0].valorKit.split(',');
+        var valorKit = dados[0].valorKit.split('/');
         var imgKit = dados[0].imgKit.split(',');
         var contadorKit = 0;
         idKit.forEach(element => {

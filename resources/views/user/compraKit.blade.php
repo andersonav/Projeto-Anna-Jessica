@@ -84,7 +84,7 @@
                                 $idKit = explode(',', $selectKits[0]->idKit);
                                 $nomeKit = explode(',', $selectKits[0]->nomeKit);
                                 $imagemKit = explode(',', $selectKits[0]->imagemKit);
-                                $valorKit = explode(',', $selectKits[0]->valorKit);
+                                $valorKit = explode('/', $selectKits[0]->valorKit);
                                 $tamanho = explode(',', $selectKits[0]->tamanho);
                                 $descKit = explode(',', $selectKits[0]->descKit);
                             @endphp
