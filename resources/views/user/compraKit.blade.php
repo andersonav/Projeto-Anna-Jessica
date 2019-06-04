@@ -55,19 +55,21 @@
 
                 <div class="col-lg-12 venue-info">
                     <div class="row justify-content-center">
-                        <div class="col-lg-3">
-                            <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imgcomp">
-                        </div>
 
+                        @foreach ($selectKits as $item )
+                        <div class="col-lg-3">
+                            <img src="img/eventos/{{ $item->imagem }}" alt="Hotel 1" class="imgcomp">
+                        </div>
                         <div class="col-lg-5" id="insc">
                             <div class="col-lg-12">
                                 <div class="col-lg-12">
-                                    <h2><a href="#">2º Nigth Bike Maranguape 2019</a></h2>
-                                    <h7 class="text-uppercase "><a href="#">Passeio Ciclístico</a></h7>
+                                    <h2><a href="#">{{ $item->nome_evento }}</a></h2>
+                                    <h7 class="text-uppercase "><a href="#">{{ $item->percurso }}</a></h7>
 
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                         <div class="col-lg-4">
                         </div>
                     </div>
@@ -78,35 +80,45 @@
 
                         <div class="col-lg-9">
                             <h4><i class="fa fa-circle" aria-hidden="true"></i> <b>Veja as opções de kits para este evento!</b></h4>
+                            @php
+                                $idKit = explode(',', $selectKits[0]->idKit);
+                                $nomeKit = explode(',', $selectKits[0]->nomeKit);
+                                $imagemKit = explode(',', $selectKits[0]->imagemKit);
+                                $valorKit = explode(',', $selectKits[0]->valorKit);
+                                $tamanho = explode(',', $selectKits[0]->tamanho);
+                                $descKit = explode(',', $selectKits[0]->descKit);
+                            @endphp
+                            @for ($i = 0; $i < count($idKit); $i++)
                             <div class="col-lg-12" id="kit">
                                 <div class="row justify-content-center">
                                     <div class="col-lg-4">
-                                        <img src="{{asset('img/inscricao/033.jpg')}}" alt="Hotel 1" class="imgcomp" data-toggle="modal" data-target="#buy-ticket-modalkit" data-ticket-type="premium-access">
+                                        <img src="img/eventos/kit/{{ $imagemKit[$i] }}" alt="Hotel 1" class="imgcomp" data-toggle="modal" data-target="#buy-ticket-modalkit" data-ticket-type="premium-access">
                                     </div>
 
                                     <div class="col-lg-5" id="insc">
                                         <div class="col-lg-12">
                                             <div class="col-lg-12">
-                                                <h5 id="titulo"><b>Kit Estações 02</b></h5>
-                                                <h7>Camiseta ProRun Seamless HiveTech, Sacola Térmica, Glass Mug e Medalha (pós-evento)</7>
+                                                <h5 id="titulo"><b>{{ $nomeKit[$i] }}</b></h5>
+                                                <h7>{{ $descKit[$i] }}</7>
 
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-3" style="padding:50px;">
-                                        <h5><b>R$ 80,90</b></h5>
-                                        <button class="btnmodal btnQueroEste" id="1">Quero Este</button>
+                                        <h5><b>R$ {{ $valorKit[$i] }}</b></h5>
+                                        <button class="btnmodal btnQueroEste" id="{{ $idKit[$i] }}">Quero Este</button>
                                     </div>
                                 </div>
                             </div>
+                            @endfor
                         </div>
                         <div class="col-lg-3">
                             <h4><i class="fa fa-check-square" aria-hidden="true"></i> <b>Dados da Compra</b></h4>
                             <div class="col-lg-12 dadosC">
-                                <!-- <h2>Carrinho Vazio <i class="fa fa-times-circle" aria-hidden="true"></i></h2> -->
+                                <h2>Carrinho Vazio <i class="fa fa-times-circle" aria-hidden="true"></i></h2>
 
 
-                                <table id="tabelaC">
+                                {{-- <table id="tabelaC">
                                     <thead>
                                         <tr>
                                             <th style="width: 70%;">Item</th>
@@ -119,15 +131,15 @@
                                             <td>R$ 180,00</td>
                                         </tr>
                                     </tbody>
-                                </table>
-                                <br>
+                                </table> --}}
+                                {{-- <br>
                                 <div class="col-md-12">
                                     <a href="javascript:void(0)">
                                         <div class="text-center">
                                             <button class="btnmodal">Continuar</button>
                                         </div>
                                     </a>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

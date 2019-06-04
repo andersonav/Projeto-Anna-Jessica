@@ -17,8 +17,7 @@
                             <th>Data</th>
                             <th>Hora Início</th>
                             <th>Hora Fim</th>
-                            <th>Informação Adicional</th>
-                            <th>Distância</th>
+                            <th>Tipo</th>
                             <th>Ação</th>
                         </tr>
                     </thead>
@@ -29,8 +28,7 @@
                             <td>{{$evento->data}}</td>
                             <td>{{$evento->hora_inicio}}</td>
                             <td>{{$evento->hora_fim}}</td>
-                            <td>{{$evento->informacao_adicional}}</td>
-                            <td>{{$evento->distancia}}</td>
+                            <td>{{$evento->tipo}}</td>
                             <td><a class="" onclick="editarEvento({{$evento->id_evento}});"><i
                                         class="fa fa-edit"></i></a>&nbsp;<a class=""
                                     onclick="apagarEvento({{$evento->id_evento}});"><i class="fa fa-trash"></i></a></td>
