@@ -27,9 +27,9 @@ class EventoController extends Controller
             ->join('patrocinio', 'id_patrocinio', '=', 'patrocinio_id_patrocinio')
             ->join('realizacao', 'id_realizacao', '=', 'realizacao_id_realizacao')
             ->get();
-        $apoios = DB::table('apoio')->get();
-        $patrocionios = DB::table('patrocinio')->get();
-        $realizacoes = DB::table('realizacao')->get();
+        $apoios = DB::table('apoio')->where('status', 1)->get();
+        $patrocionios = DB::table('patrocinio')->where('status', 1)->get();
+        $realizacoes = DB::table('realizacao')->where('status', 1)->get();
         return view('admin.evento', compact('eventos', 'apoios', 'patrocionios', 'realizacoes'));
     }
 
@@ -83,7 +83,6 @@ class EventoController extends Controller
         }
 
         if ($request->tipo == 'Destaque') {
-            $validator2 = $this->validateForm2($request);
             for ($i = 0; $i < count($request->nomeKit); $i++) {
                 $image = $request->imgKit[$i];
                 $name = $image->getClientOriginalName();
