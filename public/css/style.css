@@ -45,7 +45,6 @@ input:focus {
     box-shadow: none !important;
 }
 
-
 textarea:focus {
     border-color: #f8234a !important;
     box-shadow: none !important;
@@ -841,7 +840,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #schedule .nav-tabs li {
     display: inline-block;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
 }
 
 #schedule .nav-tabs a {
@@ -1745,17 +1744,21 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 /* para carrossel */
+
 #imgcarrousel {
-        height: 100vh !important;
-    }
-#imgAnu{
-    height: 60vh !important;
+    height: 100vh !important;
 }
 
+#imgAnu {
+    height: 40vh !important;
+}
 
 @media only screen and (max-width: 1024px) {
-    .w-100 {
+    #imgcarrousel {
         height: 40vh !important;
+    }
+    #imgAnu {
+        height: 30vh !important;
     }
     #intro {
         width: 100%;
@@ -1768,7 +1771,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 @media only screen and (max-width: 768px) {
-    .w-100 {
+    #imgcarrousel {
+        height: 30vh !important;
+    }
+    #imgAnu {
         height: 30vh !important;
     }
     #intro {
@@ -1779,7 +1785,6 @@ body.mobile-nav-active #mobile-nav-toggle {
         overflow: hidden;
         position: relative;
     }
-    
 }
 
 /*tudo sobre contagem*/
@@ -2012,17 +2017,16 @@ body.mobile-nav-active #mobile-nav-toggle {
     padding-top: 20px !important;
     border-bottom: 3px solid #0e1b4d;
     padding-bottom: 20px !important;
-    padding-left:0px !important;
-    padding-right:0px !important;
-
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 
 #tabelaC {
-    width: 100%; 
+    width: 100%;
 }
 
-#tabelaC thead{
-    border-top: 1px solid #169e03;
-    border-bottom: 1px solid #169e03;
+#tabelaC thead {
+    border-top: 1px solid #6f736e;
+    border-bottom: 1px solid #6f736e;
     text-transform: uppercase;
 }
