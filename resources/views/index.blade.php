@@ -780,7 +780,7 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
-
+    @foreach ($selectKits as $item)
     <div id="buy-ticket-modalsobrep" class="modal fade">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -795,35 +795,35 @@
                         <div class="col-lg-12">
                             <div class="col-lg-12">
                                 <h6><b><i class="fa fa-arrows-h" aria-hidden="true"></i> Distâncias</b></h6>
-                                <p>Olímpica</p>
+                                <p>{{ $item->distancia }}K</p>
                             </div>
                             <hr>
                         </div>
                         <div class="col-lg-12">
                             <div class="col-lg-12">
                                 <h6><b><i class="fa fa-location-arrow" aria-hidden="true"></i> Local</b></h6>
-                                <p>Olímpica</p>
+                                <p>{{ $item->endereco }}</p>
                             </div>
                             <hr>
                         </div>
                         <div class="col-lg-12">
                             <div class="col-lg-12">
                                 <h6><b><i class="fa fa-hourglass-half" aria-hidden="true"></i> Largada</b></h6>
-                                <p>Olímpica</p>
+                                <p>{{ $item->hora_inicio }}</p>
                             </div>
                             <hr>
                         </div>
                         <div class="col-lg-12">
                             <div class="col-lg-12">
                                 <h6><b><i class="fa fa-check-square-o" aria-hidden="true"></i> Retirada do Kit</b></h6>
-                                <p>Olímpica</p>
+                                <p>{{ $item->informacao_adicional }}</p>
                             </div>
                             <hr>
                         </div>
                         <div class="col-lg-12">
                             <div class="col-lg-12">
                                 <h6><b><i class="fa fa-stop-circle" aria-hidden="true"></i> Encerramento de Inscrição</b></h6>
-                                <p>Olímpica</p>
+                                <p>{{ $item->dia }}/{{ $item->numeroMes }}/{{ $item->numeroAno }}</p>
                             </div>
                         </div>
                     </div>
@@ -837,6 +837,7 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+    @endforeach
 
     <!--==========================
     Contact Section
