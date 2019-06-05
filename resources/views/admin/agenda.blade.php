@@ -77,6 +77,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btnmodal" id="btnAction"></button>
+                        <button type="button" class="btnmodal btnDelete" id="">Deletar Evento</button>
                     </div>
                 </form>
             </div>

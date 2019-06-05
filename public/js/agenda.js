@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $(".btnDelete").hide();
     $('#tabela').DataTable({
         "processing": true,
         "responsive": true,
@@ -70,11 +71,16 @@ $(document).ready(function () {
             $("#imageAgendaEdit").css('display', 'none');
             $("input[name=action]").val('addAgenda');
             $("#btnAction").html("Adicionar");
+            $(".btnDelete").hide();
             $("#titleModal").html("<b>Nova Agenda</b>");
             dateStart = $.fullCalendar.formatDate(start, "YYYY-MM-DD");
             dateEnd = $.fullCalendar.formatDate(end, "YYYY-MM-DD");
             start = $.fullCalendar.formatDate(start, "YYYY-MM-DD HH:mm:ss");
             end = $.fullCalendar.formatDate(end, "YYYY-MM-DD HH:mm:ss");
+            $("#formAdmin input:enabled").each(function () {
+                $(this).val("");
+            });
+            $("textarea").val("");
             if (dateStart == dateEnd) {
                 var diaInicio = start.substr(8, 2);
                 var mesInicio = start.substr(5, 2);
@@ -135,6 +141,7 @@ $(document).ready(function () {
             });
         },
         eventClick: function (event, element) {
+            $(".btnDelete").show();
             $.ajax({
                 url: "/adminConf/agenda/getEventoById",
                 type: 'POST',
@@ -148,6 +155,9 @@ $(document).ready(function () {
                 success: function (data, textStatus, jqXHR) {
                     $('.errors').empty();
                     $("#imageAgendaEdit").css('display', 'block');
+                    $(".btnDelete").attr('id', event.id);
+
+
                     $(".imgAgenda").attr("src", "/img/agenda/" + data[0].imagem);
                     $("input[name=action]").val('editAgenda');
                     $("input[name=id_agenda]").val(event.id);
@@ -174,6 +184,11 @@ $(document).ready(function () {
     $("#fullCalendar .fc-time-grid-event.fc-v-event.fc-event.fc-start fc-end .fc-content").css("cursor", "pointer");
 });
 
+$(".btnDelete").click(function () {
+    var valorId = $(this).attr("id");
+    abrirSweetAgenda(valorId);
+});
+
 function abrirSweetAgenda(id) {
     swal({
         title: 'Você confirma esta operação?',
@@ -196,7 +211,6 @@ function abrirSweetAgenda(id) {
 
         }
     });
-
 }
 
 function deletarAgenda(id) {
