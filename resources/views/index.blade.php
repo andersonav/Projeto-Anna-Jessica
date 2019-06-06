@@ -799,8 +799,9 @@
                                 </button>
                                 <h7><b>{{ $item->distancia }}K</b></h7>
                             </div>
-                            <hr>
+                        <hr>    
                         </div>
+                        
                         <div class="col-lg-12">
                             <div class="col-lg-12">
                                 <button type="submit" class="btnilustre2">
@@ -809,8 +810,9 @@
                                 <h7><b>{{ $item->endereco }}</b></h7>
 
                             </div>
-                            <hr>
+                        <hr>    
                         </div>
+                        
                         <div class="col-lg-12">
                             <div class="col-lg-12">
                                 <button type="submit" class="btnilustre2">
@@ -819,8 +821,9 @@
                                 <h7><b>{{ $item->hora_inicio }}</b></h7>
 
                             </div>
-                            <hr>
+                        <hr>    
                         </div>
+                        
                         <div class="col-lg-12">
                             <div class="col-lg-12">
                                 <button type="submit" class="btnilustre2">
@@ -829,8 +832,9 @@
                                 <h7><b>{{ $item->informacao_adicional }}</b></h7>
 
                             </div>
-                            <hr>
+                        <hr>    
                         </div>
+                        
                         <div class="col-lg-12">
                             <div class="col-lg-12">
                                 <button type="submit" class="btnilustre2">
