@@ -67,14 +67,13 @@
 
         <script>
         $(function () {
-            var dia = $('.horarioEventoDestaque').attr('id');
-            var mes = $('.horarioEventoDestaque').attr('role');
+            var dia = parseInt($('.horarioEventoDestaque').attr('id')) + 1;
+            var mes = parseInt($('.horarioEventoDestaque').attr('role'));
             var ano = $('.horarioEventoDestaque').attr('alt');
             var data = new Date();
             var diaAtual  = data.getDate();
             var mesAtual  = data.getMonth() + 1;
             var anoAtual  = data.getFullYear();
-            console.log(dia,mes,ano, diaAtual, mesAtual, anoAtual);
             if(dia>diaAtual && mes>=mesAtual && ano>=anoAtual){
                 $(".digits").countdown({
                     image: "img/digits.png",

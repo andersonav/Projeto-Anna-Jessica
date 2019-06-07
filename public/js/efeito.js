@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 });
 
 $(window).scroll(function() {
+    console.log($(this).scrollTop());
     if ($(this).scrollTop() < 550) {
         $('.sem').each(function() {
             $(this).removeClass('menu-active');
@@ -71,17 +72,17 @@ $(window).scroll(function() {
             $(this).removeClass('menu-active');
             $('.ser').addClass('menu-active');
         });
-    } else if ($(this).scrollTop() > 3050 && $(this).scrollTop() < 4400) {
+    } else if ($(this).scrollTop() > 3050 && $(this).scrollTop() < 4198) {
         $('.sem').each(function() {
             $(this).removeClass('menu-active');
             $('.eve').addClass('menu-active');
         });
-    } else if ($(this).scrollTop() > 4400 && $(this).scrollTop() < 4800 && $('.inc').hasClass('sem') != false) {
+    } else if ($(this).scrollTop() > 4198 && $(this).scrollTop() < 4611 && $('.inc').hasClass('sem') != false) {
         $('.sem').each(function() {
             $(this).removeClass('menu-active');
             $('.inc').addClass('menu-active');
         });
-    } else if($(this).scrollTop() > 4800) {
+    } else if($(this).scrollTop() > 4610) {
         $('.sem').each(function() {
             $(this).removeClass('menu-active');
             $('.fc').addClass('menu-active');
