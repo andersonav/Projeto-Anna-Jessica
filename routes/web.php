@@ -31,6 +31,7 @@ Route::get('/', function () {
         DATE_FORMAT(data_inicio, '%Y') as numeroAno,
         DATE_FORMAT(data_inicio, '%m') as numeroMes
         FROM agenda 
+        WHERE agenda.status = 1
         GROUP BY mes, ano, numeroMes, numeroAno, agenda.data_inicio
         order by numeroMes asc, dia asc");
 
@@ -41,20 +42,21 @@ Route::get('/', function () {
         DATE_FORMAT(data_inicio, '%Y') as numeroAno,
         DATE_FORMAT(data_inicio, '%m') as numeroMes,
         (SELECT GROUP_CONCAT(agen.id_agenda SEPARATOR ', ') 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as idEvento,
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio AND agen.status = 1) as idEvento,
         (SELECT GROUP_CONCAT(agen.nome_evento SEPARATOR ', ') 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as nomeEvento,
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio AND agen.status = 1) as nomeEvento,
         (SELECT GROUP_CONCAT(agen.descricao SEPARATOR ', ') 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as descricaoEvento,
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio AND agen.status = 1) as descricaoEvento,
         (SELECT GROUP_CONCAT(agen.imagem SEPARATOR ', ') 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as imagemEvento,
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio AND agen.status = 1) as imagemEvento,
         (SELECT GROUP_CONCAT(agen.hora_inicio SEPARATOR ', ') 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as horaInicio,
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio AND agen.status = 1) as horaInicio,
         (SELECT GROUP_CONCAT(agen.hora_fim SEPARATOR ', ') 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as horaFim,
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio AND agen.status = 1) as horaFim,
                 (SELECT GROUP_CONCAT(agen.cidade SEPARATOR ', ') 
-                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio) as cidade
+                FROM agenda agen WHERE agen.data_inicio = agenda.data_inicio AND agen.status = 1) as cidade
         FROM agenda 
+        WHERE agenda.status = 1
         GROUP BY mes, ano, numeroMes, numeroAno, agenda.data_inicio
         order by numeroMes asc, dia asc");
 
