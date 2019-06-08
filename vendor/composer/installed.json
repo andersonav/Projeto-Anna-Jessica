@@ -1,5 +1,49 @@
 [
     {
+        "name": "codemancompany/laravel-mercadopago",
+        "version": "v1.07",
+        "version_normalized": "1.07.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/CodemanCompany/laravel-mercadopago.git",
+            "reference": "e061c99f361e86984118022ecdddbe44b7d10932"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/CodemanCompany/laravel-mercadopago/zipball/e061c99f361e86984118022ecdddbe44b7d10932",
+            "reference": "e061c99f361e86984118022ecdddbe44b7d10932",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "php": "^7.1.3"
+        },
+        "time": "2018-08-06T03:29:54+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "CodemanCompany\\LaravelMercadoPago\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Codeman Company",
+                "email": "info@codeman.company"
+            }
+        ],
+        "description": "MercadoPago SDK v0.5.3 module for Payments integration.",
+        "keywords": [
+            "laravel",
+            "mercadopago",
+            "sdk"
+        ]
+    },
+    {
         "name": "dnoegel/php-xdg-base-dir",
         "version": "0.1",
         "version_normalized": "0.1.0.0",

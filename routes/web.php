@@ -83,7 +83,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/token/{token}', 'EmailController@token')->name('token');
-
+Route::get('/notifications/mp', 'CompraController@ipnNotification');
 
 Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
     Route::get('/', 'HomeController@adminConf')->name('adminConf');

@@ -112,6 +112,7 @@ class ComposerStaticInitb5c576cc115fdfbeb787d91ff8e55c75
         'C' => 
         array (
             'Cron\\' => 5,
+            'CodemanCompany\\LaravelMercadoPago\\' => 34,
         ),
         'A' => 
         array (
@@ -306,6 +307,10 @@ class ComposerStaticInitb5c576cc115fdfbeb787d91ff8e55c75
         array (
             0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron',
         ),
+        'CodemanCompany\\LaravelMercadoPago\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/codemancompany/laravel-mercadopago/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -404,6 +409,11 @@ class ComposerStaticInitb5c576cc115fdfbeb787d91ff8e55c75
         'Carbon\\Laravel\\ServiceProvider' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Laravel/ServiceProvider.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
         'Carbon\\Upgrade' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Upgrade.php',
+        'CodemanCompany\\LaravelMercadoPago\\Facades\\MP' => __DIR__ . '/..' . '/codemancompany/laravel-mercadopago/src/Facades/MP.php',
+        'CodemanCompany\\LaravelMercadoPago\\MP' => __DIR__ . '/..' . '/codemancompany/laravel-mercadopago/src/MP.php',
+        'CodemanCompany\\LaravelMercadoPago\\MPRestClient' => __DIR__ . '/..' . '/codemancompany/laravel-mercadopago/src/MP.php',
+        'CodemanCompany\\LaravelMercadoPago\\MercadoPagoException' => __DIR__ . '/..' . '/codemancompany/laravel-mercadopago/src/MP.php',
+        'CodemanCompany\\LaravelMercadoPago\\Providers\\MercadoPagoServiceProvider' => __DIR__ . '/..' . '/codemancompany/laravel-mercadopago/src/Providers/MercadoPagoServiceProvider.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',
