@@ -142,11 +142,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="corpoCarrinho">
-                                            <tr>
-                                                <td class="nomeKitTab">Kit Estações</td>
-                                                <td class="tamKitTab">R$ 180,00</td>
-                                                <td class="valorKitTab">R$ 180,00</td>
-                                            </tr>
+                                            
                                         </tbody>
                                     </table>
                                     <br>
