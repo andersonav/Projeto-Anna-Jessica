@@ -91,7 +91,6 @@ class HomeController extends Controller
         (SELECT GROUP_CONCAT(kit_evento.descricao_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as descKit
         from evento WHERE evento.tipo = 'Destaque' limit 1
         ");
-
         return view('index', compact('title', 'selectKits', 'eventoquadro', 'anuncioClassificacao1', 'anuncioClassificacao2', 'anuncioClassificacao3', 'slideshows', 'agendas', 'datas'));
     }
 

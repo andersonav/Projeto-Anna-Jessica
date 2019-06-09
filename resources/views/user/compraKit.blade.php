@@ -96,6 +96,9 @@
                                 $descKit = explode(',', $selectKits[0]->descKit);
                             @endphp
                             @for ($i = 0; $i < count($idKit); $i++)
+                            @php
+                                $hashKit = bcrypt(md5($tamanho[$i].$idKit[$i].$nomeKit[$i].$valorKit[$i]));
+                            @endphp
                             <div class="col-lg-12" id="kit">
                                 <div class="row justify-content-center">
                                     <div class="col-lg-4 kitOk" id="{{ $idKit[$i] }}" role="img/eventos/kit/{{ $imagemKit[$i] }}">
@@ -121,7 +124,8 @@
                                     </div>
                                     <div class="col-lg-3" style="padding:50px;">
                                         <h5><b class="valor{{ $idKit[$i] }}">R$ {{ $valorKit[$i] }}</b></h5>
-                                        <button class="btnmodal btnQueroEste" id="{{ $idKit[$i] }}">Quero Este</button>
+                                        <button class="btnmodal btnQueroEste" id="{{ $idKit[$i] }}" role="
+                                        {{ $hashKit }}">Quero Este</button>
                                     </div>
                                 </div>
                             </div>
@@ -133,26 +137,7 @@
                                 <h2 class="carrinho">Carrinho Vazio <i class="fa fa-times-circle" aria-hidden="true"></i></h2>
 
                                 <div class="tabelaCom">
-                                    <table id="tabelaC">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 55%;">Item</th>
-                                                <th>Tam</th>
-                                                <th>Valor</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="corpoCarrinho">
-                                            
-                                        </tbody>
-                                    </table>
-                                    <br>
-                                    <div class="col-md-12">
-                                        <a href="javascript:void(0)">
-                                            <div class="text-center">
-                                                <button class="btnmodal btnConKitTab" id="">Continuar</button>
-                                            </div>
-                                        </a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

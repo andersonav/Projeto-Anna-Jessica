@@ -1,30 +1,44 @@
 $(document).ready(function () {
     $(".btnQueroEste").click(function () {
         var valorId = $(this).attr("id");
-        var html = "";
-        var url_atual = window.location.href;
-        var valorTotal = 0;
-        var tamanho = $('.selectTam' + valorId).selectpicker('val');
+        var tam = $('.selectTam' + valorId).selectpicker('val');
+        var nome = $('.titulo' + valorId).text();
+        var valor = $('.valor' + valorId).text();
+        var btn = $('.btnConKitTab').attr('id', valorId);
+        var hash = $(this).attr("role");
 
-        if (tamanho != '') {
-            $.ajax({
-                url: url_atual + '/getKit',
-                type: 'POST',
-                async: false,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                data: {
-                    idKit: valorId
-                }, success: function (data) {
-                    $(".dadosC .carrinho").remove();
-                    $(".tabelaCom").css("display", "block");
-                    valorTotal = data.valor;
-                    html = "<tr><td>" + data[0].nome_kit + "</td><td>" + tamanho + "</td><td>" + data[0].valor + "</td></tr>";
-                }
-            });
-            $("#corpoCarrinho").html(html);
-            $("#idBtnComprar").text(valorTotal);
+        if (tam != '') {
+            $('.carrinho').fadeOut().remove();
+            $('.tabelaCom').css('display', 'none').html('<table id="tabelaC">'
+                +'<thead>'
+                +'<tr>'
+                    +'<th style="width: 55%;">Item</th>'
+                    +'<th>Tam</th>'
+                    +'<th>Valor</th>'
+                +'</tr>'
+            +'</thead>'
+            +'<tbody id="corpoCarrinho">'
+                +'<tr>'
+                    +'<td class="nomeKitTab"></td>'
+                    +'<td class="tamKitTab"></td>'
+                    +'<td class="valorKitTab"></td>'
+                +'</tr>'
+            +'</tbody>'
+        +'</table>'
+        +'<br>'
+        +'<div class="col-md-12">'
+            +'<a href="javascript:void(0)">'
+                +'<div class="text-center">'
+                    +'<button class="btnmodal btnConKitTab" id="'+ hash +'" role = "'+ valorId +'">Continuar</button>'
+                +'</div>'
+            +'</a>'
+        +'</div>');
+            setTimeout(function () {
+                $('.nomeKitTab').text(nome);
+                $('.valorKitTab').text(valor);
+                $('.tamKitTab').text(tam);
+                $('.tabelaCom').fadeIn();
+            }, 600);
         } else {
             Swal.fire({
                 position: 'center',
@@ -34,9 +48,8 @@ $(document).ready(function () {
                 timer: 1500
             });
         }
-        // $(".tabelaCom").html(html);
-        // $("#idBtnComprar").text(valorTotal);
     });
+
 
 
 
