@@ -4,69 +4,73 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use MP;
+use App\Kit;
+use Hash;
+use Auth;
+use DB;
 
-class CompraController extends Controller
-{
-    public function pagarMP(Request $request)
-    {
-        $mp = new MP(env('MP_APP_ID'), env('MP_APP_SECRET'));
+class CompraController extends Controller {
 
-        $selectKit = DB::select("SELECT * FROM kit_Evento WHERE id_kit = ?", [$request->idKit]);
+    public function pagarMP(Request $request) {
+        $selectKit = Kit::where("id_kit", '=', $request->idKit)->get();
+        $hashKit = md5($selectKit[0]->id_tamanho . $selectKit[0]->id_kit . $selectKit[0]->nome_kit . $selectKit[0]->valor);
+        if (Hash::check($hashKit, $request->hash)) {
+            $mp = new MP(env('MP_APP_ID'), env('MP_APP_SECRET'));
 
-        $insertFatura = DB::table('fatura')->create([
-            'id_usuario' => Auth::user()->id_usuario,
-            'referencia' => bcrypt(rand(0,999999)),
-            'forma' => 'Mercado Pago',
-            'data' => date("Y-m-d"),
-            'valor' => $selectKit[0]->valor,
-            'tamanho' => $request->tamanho,
-            'id_kit' => $request->idKit,
-            'status' => 'Pendente'
-        ]);
 
-    $selectKitFatura = DB::select("SELECT * FROM fatura
+            $insertFatura = DB::table('fatura')->create([
+                'id_usuario' => Auth::user()->id_usuario,
+                'referencia' => bcrypt(rand(0, 999999)),
+                'forma' => 'Mercado Pago',
+                'data' => date("Y-m-d"),
+                'valor' => $selectKit[0]->valor,
+                'tamanho' => $request->tamanho,
+                'id_kit' => $request->idKit,
+                'status' => 'Pendente'
+            ]);
+
+            $selectKitFatura = DB::select("SELECT * FROM fatura
         INNER JOIN kit_evento ON kit_evento.id_kit = fatura.id_kit
         INNER JOIN usuario ON usuario.id_usuario = fatura.id_usuario
         WHERE id_kit = ? AND id_usuario = ?", [$request->idKit]);
-        
-
-        $current_user = auth()->user();
-
-        $url = "https://www.annajessicaoficial.com/notifications/mp";
-
-        $preferenceData = [
-            'external_reference' => $selectKitFatura[0]->referencia,
-            'back_urls' => [
-                "success" => $url,
-                "failure" => $url,
-                "pending" => $url
-            ],
-            'notification_url' => $url
-        ];
-        // add items
-
-        $preferenceData['items'][] = [
-            'id' => auth()->user()->id,
-            'title'       => $selectKit[0]->nome_kit,
-            'description' => $selectKit[0]->descricao_kit . '. Tamanho: '. $request->tamanho,
-            'picture_url' => $selectKit[0]->imagem_kit,
-            'quantity'    => 1,
-            'currency_id' => 'BRL',
-            'unit_price'  => $selectKit[0]->valor,
-        ];
 
 
-        $preference = $mp->create_preference($preferenceData);
-        // also you can use try-catch for create the preference, DB transaction for the whole generatePaymentGateway method, etc''
+            $current_user = auth()->user();
 
-        // finally return init point to be redirected - or
-        // sandbox_init_point
-        // init_point OBS: Modo produção
-        return $preference['response']['sandbox_init_point'];
+            $url = "https://www.annajessicaoficial.com/notifications/mp";
+
+            $preferenceData = [
+                'external_reference' => $selectKitFatura[0]->referencia,
+                'back_urls' => [
+                    "success" => $url,
+                    "failure" => $url,
+                    "pending" => $url
+                ],
+                'notification_url' => $url
+            ];
+            // add items
+
+            $preferenceData['items'][] = [
+                'id' => auth()->user()->id,
+                'title' => $selectKit[0]->nome_kit,
+                'description' => $selectKit[0]->descricao_kit . '. Tamanho: ' . $request->tamanho,
+                'picture_url' => $selectKit[0]->imagem_kit,
+                'quantity' => 1,
+                'currency_id' => 'BRL',
+                'unit_price' => $selectKit[0]->valor,
+            ];
+
+
+            $preference = $mp->create_preference($preferenceData);
+            // also you can use try-catch for create the preference, DB transaction for the whole generatePaymentGateway method, etc''
+            // finally return init point to be redirected - or
+            // sandbox_init_point
+            // init_point OBS: Modo produção
+            return $preference['response']['sandbox_init_point'];
+        }
     }
 
-    public function ipnNotification(Request $request)
-    {
+    public function ipnNotification(Request $request) {
         $mp = new MP(env('MP_CLIENT_ID'), env('MP_CLIENT_SECRET'));
 
         if (!isset($_GET["id"], $_GET["topic"]) || !ctype_digit($_GET["id"])) {
@@ -79,11 +83,9 @@ class CompraController extends Controller
             $merchant_order_info = $mp->get("/merchant_orders/" . $payment_info["response"]["collection"]["merchant_order_id"]);
 
             // Get the merchant_order reported by the IPN.
-
             // get order and link the notification id
             $external_reference_id = $merchant_order_info["response"]["external_reference"];
             //here you must clear unnecessary data in external reference
-
             // get order
             $order = Order::findOrFail($external_reference_id);
             // link notification id
@@ -122,4 +124,5 @@ class CompraController extends Controller
 
         return response('OK', 201);
     }
+
 }

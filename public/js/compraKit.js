@@ -10,29 +10,29 @@ $(document).ready(function () {
         if (tam != '') {
             $('.carrinho').fadeOut().remove();
             $('.tabelaCom').css('display', 'none').html('<table id="tabelaC">'
-                +'<thead>'
-                +'<tr>'
-                    +'<th style="width: 55%;">Item</th>'
-                    +'<th>Tam</th>'
-                    +'<th>Valor</th>'
-                +'</tr>'
-            +'</thead>'
-            +'<tbody id="corpoCarrinho">'
-                +'<tr>'
-                    +'<td class="nomeKitTab"></td>'
-                    +'<td class="tamKitTab"></td>'
-                    +'<td class="valorKitTab"></td>'
-                +'</tr>'
-            +'</tbody>'
-        +'</table>'
-        +'<br>'
-        +'<div class="col-md-12">'
-            +'<a href="javascript:void(0)">'
-                +'<div class="text-center">'
-                    +'<button class="btnmodal btnConKitTab" id="'+ hash +'" role = "'+ valorId +'">Continuar</button>'
-                +'</div>'
-            +'</a>'
-        +'</div>');
+                    + '<thead>'
+                    + '<tr>'
+                    + '<th style="width: 55%;">Item</th>'
+                    + '<th>Tam</th>'
+                    + '<th>Valor</th>'
+                    + '</tr>'
+                    + '</thead>'
+                    + '<tbody id="corpoCarrinho">'
+                    + '<tr>'
+                    + '<td class="nomeKitTab"></td>'
+                    + '<td class="tamKitTab"></td>'
+                    + '<td class="valorKitTab"></td>'
+                    + '</tr>'
+                    + '</tbody>'
+                    + '</table>'
+                    + '<br>'
+                    + '<div class="col-md-12">'
+                    + '<a href="javascript:void(0)">'
+                    + '<div class="text-center">'
+                    + '<button class="btnmodal btnConKitTab" id="' + hash + '" role = "' + valorId + '" href="" onclick="comprar(this)">Continuar</button>'
+                    + '</div>'
+                    + '</a>'
+                    + '</div>');
             setTimeout(function () {
                 $('.nomeKitTab').text(nome);
                 $('.valorKitTab').text(valor);
@@ -53,4 +53,46 @@ $(document).ready(function () {
 
 
 
+
+
 });
+
+function comprar(obj) {
+    var valorId = $(obj).attr("role");
+    var hash = $(obj).attr("id");
+
+    var mapForm = document.createElement("form");
+    mapForm.target = "Map";
+    mapForm.method = "POST"; // or "post" if appropriate
+    mapForm.action = "http://localhost:8000/realizarCompraKit";
+
+    var mapInput = document.createElement("input");
+    mapInput.type = "text";
+    mapInput.name = "idKit";
+    mapInput.value = valorId;
+    mapForm.appendChild(mapInput);
+
+    var mapInput2 = document.createElement("input");
+    mapInput2.type = "text";
+    mapInput2.name = "hash";
+    mapInput2.value = hash;
+    mapForm.appendChild(mapInput2);
+
+    var mapInpu3 = document.createElement("input");
+    mapInpu3.type = "hidden";
+    mapInpu3.name = "_token";
+    mapInpu3.value = $("meta[name=csrf-token]").attr("content");
+    mapForm.appendChild(mapInpu3);
+
+    document.body.appendChild(mapForm);
+
+    map = window.open("", "Map", "status=0,title=0,height=600,width=800,scrollbars=1");
+
+    if (map) {
+        mapForm.submit();
+    } else {
+        alert('You must allow popups for this map to work.');
+    }
+
+    window.open($(obj).attr("href"));
+}

@@ -60,7 +60,7 @@ Route::get('/', function () {
         GROUP BY mes, ano, numeroMes, numeroAno, agenda.data_inicio
         order by numeroMes asc, dia asc");
 
-        $selectKits = DB::select("SELECT
+    $selectKits = DB::select("SELECT
 		LEFT(lower(DATE_FORMAT(prazo, '%d')), 3) AS dia,
         LEFT(lower(DATE_FORMAT(prazo, '%M')), 3) AS mes,
         RIGHT(UPPER(DATE_FORMAT(prazo, '%Y')), 2) AS ano,
@@ -76,7 +76,7 @@ Route::get('/', function () {
         from evento WHERE evento.tipo = 'Destaque' limit 1
         ");
 
-    return view('index', compact('title', 'selectKits','eventoquadro', 'anuncioClassificacao1', 'anuncioClassificacao2', 'anuncioClassificacao3', 'slideshows', 'agendas', 'datas'));
+    return view('index', compact('title', 'selectKits', 'eventoquadro', 'anuncioClassificacao1', 'anuncioClassificacao2', 'anuncioClassificacao3', 'slideshows', 'agendas', 'datas'));
 });
 
 Auth::routes();
@@ -151,6 +151,8 @@ Route::get('/perfil', 'HomeController@perfil')->name('perfil');
 
 Route::get('/compra-kit', 'HomeController@compraKit')->name('compra-kit');
 Route::post('/compra-kit/getKit', 'HomeController@getKit')->name('getKit');
+
+Route::post('/realizarCompraKit', 'CompraController@pagarMP')->name('getKit');
 
 // Route para registrar pessoa
 Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
