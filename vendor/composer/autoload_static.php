@@ -395,6 +395,7 @@ class ComposerStaticInitb5c576cc115fdfbeb787d91ff8e55c75
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Evento' => __DIR__ . '/../..' . '/app/Evento.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Fatura' => __DIR__ . '/../..' . '/app/Fatura.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\AgendaController' => __DIR__ . '/../..' . '/app/Http/Controllers/AgendaController.php',
         'App\\Http\\Controllers\\AnuncioController' => __DIR__ . '/../..' . '/app/Http/Controllers/AnuncioController.php',

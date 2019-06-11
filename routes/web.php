@@ -117,6 +117,7 @@ Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
         Route::post('/editEvento', 'EventoController@editEvento')->name('editEvento');
         Route::post('/deleteEvento', 'EventoController@deleteEvento')->name('deleteEvento');
         Route::post('/dadosEvento', 'EventoController@dadosEvento')->name('dadosEvento');
+        Route::post('/verificarKit', 'EventoController@verificarKit')->name('verificarKit');
     });
 
     Route::group(['prefix' => 'parceiro'], function () {

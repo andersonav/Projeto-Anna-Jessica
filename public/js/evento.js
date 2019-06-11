@@ -16,6 +16,7 @@ $(document).ready(function () {
 //Logica para adicionar os links
 var linkNum = 0;
 var kitNum = 0;
+var kitDel = [];
 
 function link() {
     linkNum++;
@@ -66,6 +67,7 @@ function adicionarKit() {
         '<input type="text" name="nomeKit[]" class="form-control nomeKit' + kitNum + '" id="nomeKit"' +
         'placeholder="Nome do kit" />' +
         '<input type="hidden" name="kitNum[]" class="form-control" value="' + kitNum + '"/>' +
+        '<input type="hidden" name="idKit[]" class="form-control idKit' + kitNum + '" value=""/>' +
         '</div>' +
         '<div class="input-group col-md-7 formReset kit' + kitNum + '">' +
         '<div class="input-group-prepend">' +
@@ -80,7 +82,7 @@ function adicionarKit() {
         '</div>' +
         '<div class="form-group col-md-1 formReset kit' + kitNum + '">' +
         '<button type="button" data-toggle="tooltip" onclick="removerKit(' + kitNum + ');" data-placement="top" title="Remover kit"' +
-        'class="btn btn-danger adcKit"><i class="fa fa-times" aria-hidden="true"></i></button>' +
+        'class="btn btn-danger adcKit idKitDel' + kitNum + '"><i class="fa fa-times" aria-hidden="true"></i></button>' +
         '</div>' +
         '<div class="form-group col-md-4 formReset kit' + kitNum + '">' +
         '<input type="text" name="valorKit[]" class="form-control valorKit' + kitNum + '" id="valorKit" placeholder="Valor do kit" />' +
@@ -99,8 +101,8 @@ function adicionarKit() {
         'placeholder="Descrição do kit" />' +
         '</div>';
     $(html).insertAfter($(".kitLabel"));
-    
-    $('.valorKit' + kitNum + '').mask('#.##0,00', {reverse: true});
+
+    $('.valorKit' + kitNum + '').mask('#.##0,00', { reverse: true });
     $('select').selectpicker();
 
     $(".custom-file-input").on("change", function () {
@@ -110,17 +112,43 @@ function adicionarKit() {
 }
 
 function removerKit(kitNum) {
-    var removerClass = 'kit' + kitNum;
-    $('.' + removerClass).fadeOut("slow");
-    var contagem = $('.kitDiv').length;
-    if (contagem == 1)
-        $('.kitLabel').fadeOut("slow");
-    setTimeout(function () {
-        $('.' + removerClass).remove();
-        contagem = $('.kitDiv').length;
-        if (contagem == 0)
-            $('.kitLabel').remove();
-    }, 1000);
+    var idKit = $('.idKitDel' + kitNum).val();
+    $.ajax({
+        url: "adminConf/evento/verificarKit",
+        type: 'POST',
+        async: false,
+        data: {
+            idKit: idKit
+        },
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }, success: function (data, textStatus, jqXHR) {
+            console.log(data);
+            if (data) {
+                kitDel.push(idKit);
+                var removerClass = 'kit' + kitNum;
+                $('.' + removerClass).fadeOut("slow");
+                var contagem = $('.kitDiv').length;
+                if (contagem == 1)
+                    $('.kitLabel').fadeOut("slow");
+                setTimeout(function () {
+                    $('.' + removerClass).remove();
+                    contagem = $('.kitDiv').length;
+                    if (contagem == 0)
+                        $('.kitLabel').remove();
+                }, 1000);
+            }else{
+                Swal.fire({
+                    position: 'center',
+                    type: 'error',
+                    title: '<strong>Operação inválida! Kit ja foi vendido!</strong>',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
+        }
+    });
+
 }
 
 function adicionarEvento() {
@@ -207,6 +235,8 @@ function preencherModal(dados) {
         var contadorKit = 0;
         idKit.forEach(element => {
             adicionarKit();
+            $('.idKit' + kitNum).val(element);
+            $('.idKitDel' + kitNum).val(element);
             $('.nomeKit' + kitNum).val(nomeKit[contadorKit]);
             $('.valorKit' + kitNum).val(valorKit[contadorKit]);
             $('.descKit' + kitNum).val(descKit[contadorKit]);

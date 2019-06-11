@@ -9,6 +9,17 @@
         margin-top: 10px;
     }
 </style>
+@if(session()->get('error') == 'error')
+<script>
+    Swal.fire({
+        position: 'center',
+        type: 'error',
+        title: 'Operação inválida, entre em contato conosco!',
+        showConfirmButton: false,
+        timer: 3000
+    });
+</script>
+@endif
 <header id="header" class="navmenu">
     <div class="container">
 

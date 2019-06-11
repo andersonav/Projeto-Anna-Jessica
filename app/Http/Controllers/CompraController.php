@@ -5,20 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use MP;
 use App\Kit;
+use App\Fatura;
 use Hash;
 use Auth;
 use DB;
 
-class CompraController extends Controller {
+class CompraController extends Controller
+{
 
-    public function pagarMP(Request $request) {
+    public function pagarMP(Request $request)
+    {
         $selectKit = Kit::where("id_kit", '=', $request->idKit)->get();
-        $hashKit = md5($selectKit[0]->id_tamanho . $selectKit[0]->id_kit . $selectKit[0]->nome_kit . $selectKit[0]->valor);
+
+        $hashKit = null;
+        if (count($selectKit) > 0) {
+            $hashKit = md5($selectKit[0]->id_tamanho . $selectKit[0]->id_kit . $selectKit[0]->nome_kit . $selectKit[0]->valor);
+        } else { 
+            return redirect('/compra-kit')->with('error', 'error');
+        };
         if (Hash::check($hashKit, $request->hash)) {
             $mp = new MP(env('MP_APP_ID'), env('MP_APP_SECRET'));
 
 
-            $insertFatura = DB::table('fatura')->create([
+            $insertFatura = Fatura::create([
                 'id_usuario' => Auth::user()->id_usuario,
                 'referencia' => bcrypt(rand(0, 999999)),
                 'forma' => 'Mercado Pago',
@@ -32,7 +41,7 @@ class CompraController extends Controller {
             $selectKitFatura = DB::select("SELECT * FROM fatura
         INNER JOIN kit_evento ON kit_evento.id_kit = fatura.id_kit
         INNER JOIN usuario ON usuario.id_usuario = fatura.id_usuario
-        WHERE id_kit = ? AND id_usuario = ?", [$request->idKit]);
+        WHERE fatura.id_kit = ? AND fatura.id_usuario = ?", [$request->idKit, Auth::user()->id_usuario]);
 
 
             $current_user = auth()->user();
@@ -57,20 +66,26 @@ class CompraController extends Controller {
                 'picture_url' => $selectKit[0]->imagem_kit,
                 'quantity' => 1,
                 'currency_id' => 'BRL',
-                'unit_price' => $selectKit[0]->valor,
+                'unit_price' => intval($selectKit[0]->valor),
             ];
 
+            try {
+                $preference = MP::create_preference($preferenceData);
+                return redirect()->to($preference['response']['sandbox_init_point']);
+            } catch (Exception $e) {
+                dd($e->getMessage());
+            }
 
-            $preference = $mp->create_preference($preferenceData);
             // also you can use try-catch for create the preference, DB transaction for the whole generatePaymentGateway method, etc''
             // finally return init point to be redirected - or
             // sandbox_init_point
             // init_point OBS: Modo produção
-            return $preference['response']['sandbox_init_point'];
+            // return $preference['response']['sandbox_init_point'];
         }
     }
 
-    public function ipnNotification(Request $request) {
+    public function ipnNotification(Request $request)
+    {
         $mp = new MP(env('MP_CLIENT_ID'), env('MP_CLIENT_SECRET'));
 
         if (!isset($_GET["id"], $_GET["topic"]) || !ctype_digit($_GET["id"])) {
@@ -124,5 +139,4 @@ class CompraController extends Controller {
 
         return response('OK', 201);
     }
-
 }

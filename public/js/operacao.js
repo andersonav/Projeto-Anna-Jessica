@@ -5,6 +5,10 @@ $("#formAdmin").submit(function (e) {
     var tipoPageAdm = $(".nav-menu li.sem.menu-active").attr('id');
     var action = $("input[name=action]").val();
     var rota = url_atual + "/" + tipoPageAdm + "/" + action;
+    console.log(kitDel,kitDel.length);
+    if(kitDel.length){
+        formData.append('kitDel[]',kitDel);
+    }
     $.ajax({
         url: rota,
         type: 'POST',

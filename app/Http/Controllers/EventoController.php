@@ -48,7 +48,7 @@ class EventoController extends Controller
         $data = str_replace('/', '-', $request->data);
         $data_encerramento = str_replace('/', '-', $request->data_encerramento);
         $newDate = date("Y-m-d", strtotime($data));
-        $newdata_encerramento= date("Y-m-d", strtotime($data_encerramento));
+        $newdata_encerramento = date("Y-m-d", strtotime($data_encerramento));
 
         $createEvento = Evento::create([
             'nome_evento' => $request->nome_evento,
@@ -127,7 +127,7 @@ class EventoController extends Controller
         $data = str_replace('/', '-', $request->data);
         $data_encerramento = str_replace('/', '-', $request->data_encerramento);
         $newDate = date("Y-m-d", strtotime($data));
-        $newdata_encerramento= date("Y-m-d", strtotime($data_encerramento));
+        $newdata_encerramento = date("Y-m-d", strtotime($data_encerramento));
 
         $atualizarEvento = DB::table('evento')->where('id_evento', $request->id_evento)->update(array(
             'nome_evento' => $request->nome_evento,
@@ -147,8 +147,12 @@ class EventoController extends Controller
             'status' => 1
         ));
 
-        $deletarKit = DB::table('kit_evento')->where('id_evento_fk', $request->id_evento)->delete();
         $deletarLink = DB::table('link_evento')->where('id_evento_fk', $request->id_evento)->delete();
+        if (isset($request->kitDel)) {
+            foreach ($request->kitDel as $kit) {
+                $deletarKit = DB::table('kit_evento')->where('id_kit', $kit)->delete();
+            }
+        }
 
         if ($request->nomeLinkEvento != null) {
             for ($i = 0; $i < count($request->nomeLinkEvento); $i++) {
@@ -178,17 +182,27 @@ class EventoController extends Controller
                     $imgProvisoria = 'imgKitNome' . $numero;
                     $name = $request->$imgProvisoria;
                 }
-                $createKit = Kit::create([
-                    'nome_kit' => $request->nomeKit[$i],
-                    'imagem_kit' => $name,
-                    'valor' => $request->valorKit[$i],
-                    'id_tamanho' => md5($request->nomeKit[$i]),
-                    'descricao_kit' => $request->descKit[$i],
-                    'id_evento_fk' => $request->id_evento,
-                ]);
-
+                if ($request->idKit[$i] == null) {
+                    $createKit = Kit::create([
+                        'nome_kit' => $request->nomeKit[$i],
+                        'imagem_kit' => $name,
+                        'valor' => $request->valorKit[$i],
+                        'id_tamanho' => md5($request->nomeKit[$i]),
+                        'descricao_kit' => $request->descKit[$i],
+                        'id_evento_fk' => $request->id_evento,
+                    ]);
+                } else {
+                    $createKit = DB::table('kit_evento')->where('id_kit', $request->idKit[$i])->update(array(
+                        'nome_kit' => $request->nomeKit[$i],
+                        'imagem_kit' => $name,
+                        'valor' => $request->valorKit[$i],
+                        'id_tamanho' => md5($request->nomeKit[$i]),
+                        'descricao_kit' => $request->descKit[$i],
+                        'id_evento_fk' => $request->id_evento,
+                    ));
+                }
                 $deletarTamanho = DB::table('tamanho')->where('hash_tamanho', md5($request->nomeKit[$i]))->delete();
-                
+
                 foreach ($request->$numero as $tamanho) {
                     $createTamanho = Tamanho::create([
                         'hash_tamanho' => md5($request->nomeKit[$i]),
@@ -199,6 +213,16 @@ class EventoController extends Controller
         }
 
         return response()->json($request);
+    }
+
+    public function verificarKit(Request $request)
+    {
+        $fatura = DB::table('fatura')->where('id_kit', $request->idKit)->get();
+
+        if (count($fatura)) {
+            return response()->json(false);
+        }
+        return response()->json(true);
     }
 
     public function dadosEvento(Request $request)
@@ -238,7 +262,8 @@ class EventoController extends Controller
         return Response::json($dados);
     }
 
-    public function deleteEvento(Request $request){
+    public function deleteEvento(Request $request)
+    {
 
         $deleteEvento = DB::table('evento')->where('id_evento', $request->id_evento)->delete();
         $deletarLink = DB::table('link_evento')->where('id_evento_fk', $request->id_evento)->delete();
@@ -249,7 +274,7 @@ class EventoController extends Controller
         }
 
         $deleteKit = DB::table('kit_evento')->where('id_evento_fk', $request->id_evento)->delete();
-        
+
         return Response::json($request);
     }
 
