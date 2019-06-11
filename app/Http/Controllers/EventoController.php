@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\File;
 use App\Evento;
 use App\Kit;
 use App\Link;
 use App\Tamanho;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 
 class EventoController extends Controller
 {
@@ -66,7 +63,7 @@ class EventoController extends Controller
             'apoio_id_apoio' => $request->apoio,
             'patrocinio_id_patrocinio' => $request->patrocinio,
             'realizacao_id_realizacao' => $request->realizacao,
-            'status' => 1
+            'status' => 1,
         ]);
 
         $id_evento = DB::table('evento')->where('nome_evento', $request->nome_evento)->get();
@@ -106,7 +103,6 @@ class EventoController extends Controller
             }
         }
 
-
         return response()->json($request);
     }
 
@@ -120,7 +116,7 @@ class EventoController extends Controller
             $destinationPath = public_path('img/eventos');
             $image->move($destinationPath, $name);
             $atualizarImagemEvento = DB::table('evento')->where('id_evento', $request->id_evento)->update(array(
-                'imagem' => $name
+                'imagem' => $name,
             ));
         }
 
@@ -144,7 +140,7 @@ class EventoController extends Controller
             'apoio_id_apoio' => $request->apoio,
             'patrocinio_id_patrocinio' => $request->patrocinio,
             'realizacao_id_realizacao' => $request->realizacao,
-            'status' => 1
+            'status' => 1,
         ));
 
         $deletarLink = DB::table('link_evento')->where('id_evento_fk', $request->id_evento)->delete();
@@ -227,29 +223,29 @@ class EventoController extends Controller
 
     public function dadosEvento(Request $request)
     {
-        $dados = DB::select('SELECT even.*, 
-        (SELECT GROUP_CONCAT(kit_evento.id_kit SEPARATOR ",") 
-        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as idKit, 
-        (SELECT GROUP_CONCAT(kit_evento.nome_kit SEPARATOR ",") 
-        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as nomeKit,  
-        (SELECT GROUP_CONCAT(kit_evento.imagem_kit SEPARATOR ",") 
-        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as imgKit,  
-        (SELECT GROUP_CONCAT(kit_evento.valor SEPARATOR "/") 
-        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as valorKit, 
-        (SELECT GROUP_CONCAT(kit_evento.id_tamanho SEPARATOR ",") 
-        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as hashTamanho,  
-        (SELECT GROUP_CONCAT(kit_evento.descricao_kit SEPARATOR ",") 
+        $dados = DB::select('SELECT even.*,
+        (SELECT GROUP_CONCAT(kit_evento.id_kit SEPARATOR ",")
+        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as idKit,
+        (SELECT GROUP_CONCAT(kit_evento.nome_kit SEPARATOR ",")
+        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as nomeKit,
+        (SELECT GROUP_CONCAT(kit_evento.imagem_kit SEPARATOR ",")
+        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as imgKit,
+        (SELECT GROUP_CONCAT(kit_evento.valor SEPARATOR "/")
+        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as valorKit,
+        (SELECT GROUP_CONCAT(kit_evento.id_tamanho SEPARATOR ",")
+        FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as hashTamanho,
+        (SELECT GROUP_CONCAT(kit_evento.descricao_kit SEPARATOR ",")
         FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as descKit,
-        
-         
-        (SELECT GROUP_CONCAT(link_evento.id_link_evento SEPARATOR ",") 
-        FROM link_evento WHERE link_evento.id_evento_fk = even.id_evento) as idLink ,  
-        (SELECT GROUP_CONCAT(link_evento.nome_link SEPARATOR ",") 
-        FROM link_evento WHERE link_evento.id_evento_fk = even.id_evento) as nomeLink ,  
-        (SELECT GROUP_CONCAT(link_evento.link SEPARATOR ",") 
+
+
+        (SELECT GROUP_CONCAT(link_evento.id_link_evento SEPARATOR ",")
+        FROM link_evento WHERE link_evento.id_evento_fk = even.id_evento) as idLink ,
+        (SELECT GROUP_CONCAT(link_evento.nome_link SEPARATOR ",")
+        FROM link_evento WHERE link_evento.id_evento_fk = even.id_evento) as nomeLink ,
+        (SELECT GROUP_CONCAT(link_evento.link SEPARATOR ",")
         FROM link_evento WHERE link_evento.id_evento_fk = even.id_evento) as linkEvento
-        
-        FROM evento even 
+
+        FROM evento even
         WHERE even.id_evento = ?', [$request->idEvento]);
 
         $dadosFor = explode(',', $dados[0]->hashTamanho);
@@ -264,6 +260,15 @@ class EventoController extends Controller
 
     public function deleteEvento(Request $request)
     {
+
+        $selecionarKit = DB::table('kit_evento')->where('id_evento_fk', $request->id_evento)->get();
+        if (isset($selecionarKit[0]->id_kit)) {
+            $fatura = DB::table('fatura')->where('id_kit', $selecionarKit[0]->id_kit)->get();
+
+            if (count($fatura)) {
+                return response()->json(false);
+            }
+        }
 
         $deleteEvento = DB::table('evento')->where('id_evento', $request->id_evento)->delete();
         $deletarLink = DB::table('link_evento')->where('id_evento_fk', $request->id_evento)->delete();

@@ -5,9 +5,9 @@ $("#formAdmin").submit(function (e) {
     var tipoPageAdm = $(".nav-menu li.sem.menu-active").attr('id');
     var action = $("input[name=action]").val();
     var rota = url_atual + "/" + tipoPageAdm + "/" + action;
-    console.log(kitDel,kitDel.length);
-    if(kitDel.length){
-        formData.append('kitDel[]',kitDel);
+    console.log(kitDel, kitDel.length);
+    if (kitDel.length) {
+        formData.append('kitDel[]', kitDel);
     }
     $.ajax({
         url: rota,
@@ -24,24 +24,45 @@ $("#formAdmin").submit(function (e) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (data) {
-            $(".modal").modal('hide');
-            setTimeout(function () {
-                Swal.fire({
-                    position: 'center',
-                    type: 'success',
-                    title: '<strong>Operação realizada com sucesso!</strong>',
-                    showConfirmButton: false,
-                    timer: 2000
-                });
-                setTimeout(function () {
-                    $('.bootstrap-select:not(.input-group-btn)').css('display', 'none');
-                }, 100);
-                $(".nav-menu li.sem.menu-active").trigger('click');
-            }, 500);
 
-            setTimeout(function () {
-                $('.bootstrap-select:not(.input-group-btn)').css('display', 'inline-block');
-            }, 2600);
+            $(".modal").modal('hide');
+            if (!data) {
+                setTimeout(function () {
+                    Swal.fire({
+                        position: 'center',
+                        type: 'error',
+                        title: '<strong>Operação inválida! Tente novamente!</strong>',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    setTimeout(function () {
+                        $('.bootstrap-select:not(.input-group-btn)').css('display', 'none');
+                    }, 100);
+                    $(".nav-menu li.sem.menu-active").trigger('click');
+                }, 500);
+
+                setTimeout(function () {
+                    $('.bootstrap-select:not(.input-group-btn)').css('display', 'inline-block');
+                }, 2600);
+            } else {
+                setTimeout(function () {
+                    Swal.fire({
+                        position: 'center',
+                        type: 'success',
+                        title: '<strong>Operação realizada com sucesso!</strong>',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    setTimeout(function () {
+                        $('.bootstrap-select:not(.input-group-btn)').css('display', 'none');
+                    }, 100);
+                    $(".nav-menu li.sem.menu-active").trigger('click');
+                }, 500);
+
+                setTimeout(function () {
+                    $('.bootstrap-select:not(.input-group-btn)').css('display', 'inline-block');
+                }, 2600);
+            }
         }, error: function (errors, textStatus, errorThrown) {
             $('.errors').empty();
             var erros = $.parseJSON(errors.responseText);

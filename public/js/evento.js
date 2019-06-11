@@ -198,13 +198,13 @@ function preencherModal(dados) {
     $('.modal-footer .btnmodal').text('Editar');
     $('input[name=id_evento]').val(dados[0].id_evento);
     $('input[name=nome_evento]').val(dados[0].nome_evento);
-    $('input[name=data]').val(dados[0].data);
+    $('input[name=data]').val(dataMask(dados[0].data));
     $('.inputImgEvento').text(dados[0].imagem);
     $('input[name=hora_ini]').val(dados[0].hora_inicio);
     $('input[name=hora_fim]').val(dados[0].hora_fim);
     $('input[name=percurso]').val(dados[0].percurso);
     $('input[name=distancia]').val(dados[0].distancia);
-    $('input[name=data_encerramento]').val(dados[0].prazo);
+    $('input[name=data_encerramento]').val(dataMask(dados[0].prazo));
     $('input[name=endereco]').val(dados[0].endereco);
     $('textarea[name=info_adc]').val(dados[0].informacao_adicional);
     $('select[name=apoio]').selectpicker('val', dados[0].apoio_id_apoio);
@@ -249,6 +249,10 @@ function preencherModal(dados) {
     }
 
 
+}
+function dataMask(data){
+ var dataOld = data.split('-');
+ return dataOld[2]+'/'+dataOld[1]+'/'+dataOld[0];
 }
 
 function apagarEvento(id_evento) {
