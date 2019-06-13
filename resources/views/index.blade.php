@@ -986,7 +986,7 @@
                             if (isMobile) {
                                 valor = 8400
                             } else {
-                                valor = 4600
+                                valor = 4400
                             }
                             $('html,body').animate({
                                 scrollTop: valor
