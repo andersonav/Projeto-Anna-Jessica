@@ -133,7 +133,7 @@ $(document).ready(function () {
                     } else {
                         swal(
                                 'Nulo!',
-                                'Nenhum evento cadastrado!.',
+                                'Nenhum agenda cadastrado!.',
                                 'error'
                                 )
                     }

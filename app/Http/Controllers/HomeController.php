@@ -144,7 +144,7 @@ class HomeController extends Controller
         (SELECT GROUP_CONCAT(kit_evento.imagem_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as imagemKit,
         (SELECT GROUP_CONCAT(kit_evento.valor SEPARATOR '/') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as valorKit,
         (SELECT GROUP_CONCAT(kit_evento.id_tamanho SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as tamanho,
-        (SELECT GROUP_CONCAT(kit_evento.descricao_kit SEPARATOR ',') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as descKit
+        (SELECT GROUP_CONCAT(kit_evento.descricao_kit SEPARATOR '@') FROM kit_evento WHERE kit_evento.id_evento_fk = evento.id_evento) as descKit
         from evento WHERE evento.tipo = 'Destaque' limit 1
         ");
         return view('user.compraKit', compact('title', 'selectKits', 'tamanho'));

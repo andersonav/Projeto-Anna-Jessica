@@ -16,6 +16,7 @@ $(document).ready(function () {
 //Logica para adicionar os links
 var linkNum = 0;
 var kitNum = 0;
+var kitDel = [];
 
 function link() {
     linkNum++;

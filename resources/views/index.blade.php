@@ -488,8 +488,11 @@
                                 $contador = 0;
                                 @endphp
                                 @foreach ($nomelink as $item)
+                                @if($item != '')
+                                    
                                 <li><span class="fa-li"><i class="fa fa-check"></i></span>{{$item}}: <a href="{{ $link[$contador++] }}" Target=”_blank”>click
                                         aqui</a></li>
+                                @endif
 
                                 @endforeach
                             </ul>
@@ -981,8 +984,7 @@
                                 } else {
                                     return false
                                 }
-                            })(navigator.userAgent || navigator.vendor || window.opera)
-                            console.log(isMobile);
+                            })(navigator.userAgent || navigator.vendor || window.opera) 
                             if (isMobile) {
                                 valor = 8400
                             } else {

@@ -104,7 +104,7 @@
                                 $imagemKit = explode(',', $selectKits[0]->imagemKit);
                                 $valorKit = explode('/', $selectKits[0]->valorKit);
                                 $tamanho = explode(',', $selectKits[0]->tamanho);
-                                $descKit = explode('/', $selectKits[0]->descKit);
+                                $descKit = explode('@', $selectKits[0]->descKit);
                             @endphp
                             @for ($i = 0; $i < count($idKit); $i++)
                             @php

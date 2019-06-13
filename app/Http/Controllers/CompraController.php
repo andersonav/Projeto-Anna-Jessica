@@ -24,7 +24,13 @@ class CompraController extends Controller
             return redirect('/compra-kit')->with('error', 'error');
         };
         if (Hash::check($hashKit, $request->hash)) {
-            $mp = new MP(env('MP_APP_ID'), env('MP_APP_SECRET'));
+            try {
+                $mp = new MP(env('MP_APP_ID'), env('MP_APP_SECRET'));
+            } catch (Exception $e) {
+                dd($e->getMessage());
+            }
+
+         
 
 
             $insertFatura = Fatura::create([
