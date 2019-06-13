@@ -234,7 +234,7 @@ class EventoController extends Controller
         FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as valorKit,
         (SELECT GROUP_CONCAT(kit_evento.id_tamanho SEPARATOR ",")
         FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as hashTamanho,
-        (SELECT GROUP_CONCAT(kit_evento.descricao_kit SEPARATOR ",")
+        (SELECT GROUP_CONCAT(kit_evento.descricao_kit SEPARATOR "/")
         FROM kit_evento WHERE kit_evento.id_evento_fk = even.id_evento) as descKit,
 
 

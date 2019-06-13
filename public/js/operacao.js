@@ -5,10 +5,12 @@ $("#formAdmin").submit(function (e) {
     var tipoPageAdm = $(".nav-menu li.sem.menu-active").attr('id');
     var action = $("input[name=action]").val();
     var rota = url_atual + "/" + tipoPageAdm + "/" + action;
-    console.log(kitDel, kitDel.length);
-    if (kitDel.length) {
+    var kitDel = [];
+
+    if (typeof(kitDel) !== undefined ) {
         formData.append('kitDel[]', kitDel);
     }
+
     $.ajax({
         url: rota,
         type: 'POST',
@@ -43,7 +45,7 @@ $("#formAdmin").submit(function (e) {
 
                 setTimeout(function () {
                     $('.bootstrap-select:not(.input-group-btn)').css('display', 'inline-block');
-                }, 2600);
+                }, 2800);
             } else {
                 setTimeout(function () {
                     Swal.fire({
@@ -61,7 +63,7 @@ $("#formAdmin").submit(function (e) {
 
                 setTimeout(function () {
                     $('.bootstrap-select:not(.input-group-btn)').css('display', 'inline-block');
-                }, 2600);
+                }, 2800);
             }
         }, error: function (errors, textStatus, errorThrown) {
             $('.errors').empty();

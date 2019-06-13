@@ -16,7 +16,6 @@ $(document).ready(function () {
 //Logica para adicionar os links
 var linkNum = 0;
 var kitNum = 0;
-var kitDel = [];
 
 function link() {
     linkNum++;
@@ -229,7 +228,7 @@ function preencherModal(dados) {
     if (dados[0].idKit != null) {
         var idKit = dados[0].idKit.split(',');
         var nomeKit = dados[0].nomeKit.split(',');
-        var descKit = dados[0].descKit.split(',');
+        var descKit = dados[0].descKit.split('/');
         var valorKit = dados[0].valorKit.split('/');
         var imgKit = dados[0].imgKit.split(',');
         var contadorKit = 0;
