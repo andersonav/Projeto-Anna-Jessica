@@ -82,6 +82,7 @@ class ComposerStaticInitb5c576cc115fdfbeb787d91ff8e55c75
         ),
         'L' => 
         array (
+            'LivePixel\\MercadoPago\\' => 22,
             'League\\Flysystem\\' => 17,
             'Laravel\\Tinker\\' => 15,
         ),
@@ -267,6 +268,10 @@ class ComposerStaticInitb5c576cc115fdfbeb787d91ff8e55c75
             2 => __DIR__ . '/..' . '/mercadopago/dx-php/src/MercadoPago/Generic',
             3 => __DIR__ . '/..' . '/mercadopago/dx-php/src/MercadoPago/Entities',
             4 => __DIR__ . '/..' . '/mercadopago/dx-php/src/MercadoPago/Entities/Shared',
+        ),
+        'LivePixel\\MercadoPago\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/livepixel/mercado-pago/src',
         ),
         'League\\Flysystem\\' => 
         array (
@@ -2025,6 +2030,9 @@ class ComposerStaticInitb5c576cc115fdfbeb787d91ff8e55c75
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
+        'LivePixel\\MercadoPago\\MP' => __DIR__ . '/..' . '/livepixel/mercado-pago/src/MP.php',
+        'LivePixel\\MercadoPago\\MPRestClient' => __DIR__ . '/..' . '/livepixel/mercado-pago/src/MPRestClient.php',
+        'LivePixel\\MercadoPago\\Providers\\MercadoPagoServiceProvider' => __DIR__ . '/..' . '/livepixel/mercado-pago/src/Providers/MercadoPagoServiceProvider.php',
         'MercadoPago\\Annotation\\Attribute' => __DIR__ . '/..' . '/mercadopago/dx-php/src/MercadoPago/Annotation/Attribute.php',
         'MercadoPago\\Annotation\\DenyDynamicAttribute' => __DIR__ . '/..' . '/mercadopago/dx-php/src/MercadoPago/Annotation/DenyDynamicAttribute.php',
         'MercadoPago\\Annotation\\RequestParam' => __DIR__ . '/..' . '/mercadopago/dx-php/src/MercadoPago/Annotation/RequestParam.php',

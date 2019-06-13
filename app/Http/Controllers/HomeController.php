@@ -118,7 +118,12 @@ class HomeController extends Controller
     {
         if (auth()->user()->id_tipo_usuario == 2) {
             $title = "Relatório";
-            return view('user.pageRelatorioUser', compact('title'));
+            $relatorios = DB::select('SELECT fa.*, ke.nome_kit, eve.nome_evento FROM fatura fa
+            LEFT JOIN kit_evento ke ON fa.id_kit = ke.id_kit
+            LEFT JOIN evento eve ON ke.id_evento_fk = eve.id_evento
+            WHERE fa.id_usuario = ?', [auth()->user()->id_usuario]);
+            
+            return view('user.pageRelatorioUser', compact('title', 'relatorios'));
         }
 
         return back();

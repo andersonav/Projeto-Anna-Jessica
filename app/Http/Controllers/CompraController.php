@@ -20,7 +20,7 @@ class CompraController extends Controller
         $hashKit = null;
         if (count($selectKit) > 0) {
             $hashKit = md5($selectKit[0]->id_tamanho . $selectKit[0]->id_kit . $selectKit[0]->nome_kit . $selectKit[0]->valor);
-        } else { 
+        } else {
             return redirect('/compra-kit')->with('error', 'error');
         };
         if (Hash::check($hashKit, $request->hash)) {

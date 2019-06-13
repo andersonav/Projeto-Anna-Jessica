@@ -29,6 +29,8 @@
     <link href="{{asset('css/efeito.css')}}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
+
     <!-- =======================================================
           Author: EDEV
         ======================================================= -->
@@ -100,39 +102,45 @@
                             <thead>
                                 <tr>
                                     <th>Evento</th>
+                                    <th>Kit</th>
                                     <th>Data</th>
                                     <th>Horario</th>
                                     <th>Valor</th>
                                     <th>Status</th>
-                                    <th>Ação</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @php
+                                    $contador = 0;
+                                @endphp
+                                <script>var id = 0;</script>
+                                @forelse ($relatorios as $item)
                                 <tr>
-                                    <td>2º night bike maranguape 2019</td>
-                                    <td>27/08/2019</td>
-                                    <td>10:00</td>
-                                    <td>R$ 150,00</td>
-                                    <td>Pagamento Confirmado</td>
+                                    <td>{{ $item->nome_evento }}</td>
+                                    <td>{{ $item->nome_kit }}</td>
+                                    <td class="dataCri{{ $contador }}">{{ $item->data_de_criacao }}</td>
+                                    <td class="horaCri{{ $contador++ }}">10:00</td>
+                                    <td>R$ {{ $item->valor }}</td>
+                                    <td>{{ $item->status }}</td>
+                                </tr>
+                                <script>
+                                var data = $('.dataCri'+ id).text();
+                                var dataOld = data.split(" ");
+                                var dataNew = dataOld[0].split('-');
+                                var dataCri = $('.dataCri'+ id).text(dataNew[2]+'/'+dataNew[1]+'/'+dataNew[0]);
+                                var horaNew = dataOld[1].split(':');
+                                var horaCri = $('.horaCri'+ id++).text(horaNew[0]+':'+horaNew[1]);
+                                </script>
+                                @empty
+                                <tr>
+                                    <td>Sem registro</td>
+                                    <td>Sem registro</td>
+                                    <td>Sem registro</td>
+                                    <td>Sem registro</td>
+                                    <td>Sem registro</td>
                                     <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i></td>
                                 </tr>
-                                <tr>
-                                    <td>2º night bike maranguape 2019</td>
-                                    <td>27/08/2019</td>
-                                    <td>10:00</td>
-                                    <td>R$ 150,00</td>
-                                    <td>Pagamento Confirmado</td>
-                                    <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>2º night bike maranguape 2019</td>
-                                    <td>27/08/2019</td>
-                                    <td>10:00</td>
-                                    <td>R$ 150,00</td>
-                                    <td>Pagamento Confirmado</td>
-                                    <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i></td>
-                                </tr>
+                                @endforelse
 
                             </tbody>
                         </table>

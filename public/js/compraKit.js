@@ -67,13 +67,13 @@ function comprar(obj) {
     mapForm.action = "http://localhost:8000/realizarCompraKit";
 
     var mapInput = document.createElement("input");
-    mapInput.type = "text";
+    mapInput.type = "hidden";
     mapInput.name = "idKit";
     mapInput.value = valorId;
     mapForm.appendChild(mapInput);
 
     var mapInput2 = document.createElement("input");
-    mapInput2.type = "text";
+    mapInput2.type = "hidden";
     mapInput2.name = "hash";
     mapInput2.value = hash;
     mapForm.appendChild(mapInput2);
@@ -87,7 +87,7 @@ function comprar(obj) {
     var tam = $('.selectTam' + valorId).selectpicker('val');
 
     var mapInput4 = document.createElement("input");
-    mapInput4.type = "text";
+    mapInput4.type = "hidden";
     mapInput4.name = "tamanho";
     mapInput4.value = tam;
     mapForm.appendChild(mapInput4);
@@ -98,10 +98,15 @@ function comprar(obj) {
 
     if (map) {
         mapForm.submit();
-
+        $('input[name=idKit]').remove();
+        $('input[name=hash]').remove();
+        $('input[name=tamanho]').remove();
+        $('input[name=_token]').remove();
         // window.location = "/";
     } else {
         alert('You must allow popups for this map to work.');
     }
+
+
 
 }

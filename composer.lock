@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f44715ceed032a7a5897ba2dd55b3ee",
+    "content-hash": "5a56d34b2fc4fa009f14c5742e74d38a",
     "packages": [
         {
             "name": "codemancompany/laravel-mercadopago",
@@ -1300,6 +1300,46 @@
                 "storage"
             ],
             "time": "2019-05-20T20:21:14+00:00"
+        },
+        {
+            "name": "livepixel/mercado-pago",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/livepixel/mercado-pago.git",
+                "reference": "d0be19295beec4a8fb48eff9f21d7fa8da9bc115"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/livepixel/mercado-pago/zipball/d0be19295beec4a8fb48eff9f21d7fa8da9bc115",
+                "reference": "d0be19295beec4a8fb48eff9f21d7fa8da9bc115",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LivePixel\\MercadoPago\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rodrigo Maia",
+                    "email": "rodurma@gmail.com"
+                }
+            ],
+            "description": "Mercado Pago API SDK for Laravel",
+            "keywords": [
+                "mercadopago",
+                "sdk"
+            ],
+            "time": "2015-06-24T00:49:19+00:00"
         },
         {
             "name": "mercadopago/dx-php",
