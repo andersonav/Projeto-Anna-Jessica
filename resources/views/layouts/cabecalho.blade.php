@@ -149,14 +149,8 @@
                     &copy; Copyright <strong>Anna Jéssica</strong>. Todos os direitos reservados
                 </div>
                 <div class="credits">
-                    <!--
-                                    All the links in the footer should remain intact.
-                             You can delete the links only if you purchased the pro version.
-                             Licensing information: https://bootstrapmade.com/license/
-                             Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
-                    -->
                     Desenvolvido por <a href="javascript:void(0);">
-                        <font color="blue"><b>Edev</b></font>
+                        <font><b>Edev</b></font>
                     </a>
                 </div>
             </div>
