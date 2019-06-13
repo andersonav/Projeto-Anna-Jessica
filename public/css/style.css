@@ -2047,3 +2047,17 @@ body.mobile-nav-active #mobile-nav-toggle {
     border-bottom: 1px solid #6f736e;
     text-transform: uppercase;
 }
+
+#cardR {
+    background-image: -webkit-linear-gradient(90deg, #a50a67 0%, #4f099c 100%);
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#cardR .contR {
+    font-size: 70px;
+    margin-top: 20px;
+    text-shadow: 0.1em 0.1em 0.2em black;
+}

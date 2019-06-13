@@ -162,6 +162,34 @@ class HomeController extends Controller
         return view('perfil', compact('title'));
     }
 
+    public function adminRelatorio()
+    {
+        $title = "Relatorio";
+        return view('admin.relatoriosadmin', compact('title'));
+    }
+
+    public function getCountUsuarios()
+    {
+        $countUsuarios = DB::select("SELECT COUNT(id_usuario) as qtdUsuario FROM usuario WHERE id_tipo_usuario = 2");
+        return response()->json($countUsuarios);
+    }
+
+    public function getUsuariosEventoDestaque()
+    {
+        $countUsuarios = DB::select("SELECT COUNT(id_usuario) as qtdUsuario from fatura 
+INNER JOIN kit_evento ON kit_evento.id_kit = fatura.id_kit
+INNER JOIN evento ON evento.id_evento = kit_evento.id_evento_fk
+WHERE evento.tipo = 'Destaque' AND fatura.status = 'Aprovado'");
+        return response()->json($countUsuarios);
+    }
+
+    public function getEventosRealizados()
+    {
+        $eventosRealizados = DB::select("SELECT COUNT(id_evento) as eventosRealizados FROM evento
+WHERE evento.prazo < NOW()");
+        return response()->json($eventosRealizados);
+    }
+
     public function editUser(Request $request)
     {
         $this->validateUserEdit($request);

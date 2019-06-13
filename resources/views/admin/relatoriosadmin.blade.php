@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Relatório Usuário</title>
+    <title>Anna Jessica</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicons -->
     <link href="{{asset('img/favicon.png')}}" rel="icon">
@@ -29,8 +30,6 @@
     <link href="{{asset('css/efeito.css')}}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-    <script src="{{asset('lib/jquery/jquery.min.js')}}"></script>
-
     <!-- =======================================================
           Author: EDEV
         ======================================================= -->
@@ -47,12 +46,12 @@
             <div id="logo" class="pull-left">
                 <!-- Uncomment below if you prefer to use a text logo -->
                 <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-                <a href="#intro" class="scrollto"><img src="{{asset('img/logoteste.png')}}" alt="" title=""></a>
+                <a href="javascript:void(0);" class="scrollto"><img src="{{asset('img/logoteste.png')}}" alt="" title=""></a>
             </div>
 
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="sem menu-active ini"><a href="#intro">Relatorios</a></li>
+                    <li class="sem menu-active ini"><a href="javascript:void(0);">Relatorios</a></li>
                     @auth
                     <li class="dropdown show">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -91,66 +90,79 @@
         <!--==========================
               Speaker Details Section
             ============================-->
-        <section id="speakers-details" class="wow fadeIn">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Relatorio</h2>
-                </div>
-                <div class="form">
-                    <div class="col-md-12 scroll">
-                        <table id="tabela" class="table table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Evento</th>
-                                    <th>Kit</th>
-                                    <th>Data</th>
-                                    <th>Horario</th>
-                                    <th>Valor</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @php
-                                    $contador = 0;
-                                @endphp
-                                <script>var id = 0;</script>
-                                @forelse ($relatorios as $item)
-                                <tr>
-                                    <td>{{ $item->nome_evento }}</td>
-                                    <td>{{ $item->nome_kit }}</td>
-                                    <td class="dataCri{{ $contador }}">{{ $item->data_de_criacao }}</td>
-                                    <td class="horaCri{{ $contador++ }}">10:00</td>
-                                    <td>R$ {{ $item->valor }}</td>
-                                    <td>{{ $item->status }}</td>
-                                </tr>
-                                <script>
-                                var data = $('.dataCri'+ id).text();
-                                var dataOld = data.split(" ");
-                                var dataNew = dataOld[0].split('-');
-                                var dataCri = $('.dataCri'+ id).text(dataNew[2]+'/'+dataNew[1]+'/'+dataNew[0]);
-                                var horaNew = dataOld[1].split(':');
-                                var horaCri = $('.horaCri'+ id++).text(horaNew[0]+':'+horaNew[1]);
-                                </script>
-                                @empty
-                                <tr>
-                                    <td>Sem registro</td>
-                                    <td>Sem registro</td>
-                                    <td>Sem registro</td>
-                                    <td>Sem registro</td>
-                                    <td>Sem registro</td>
-                                    <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i></td>
-                                </tr>
-                                @endforelse
+        <section id="buy-tickets" class="section-with-bg wow fadeInUp">
+        <div class="container">
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-
+            <div class="section-header">
+                <h2>Dashboard</h2>
             </div>
 
-        </section>
+            <div class="row">
+               
+                <div class="col-lg-4">
+                    <div class="card" id="cardR">
+                        <div class="card-body">
+                            <span><b>Usuários <br/>Cadastrados</b></span>
+                            
+                            <div class="contR" id="countUsuarios">
+                                
+                            </div>
+                            <br>
+                            <button class="btnmodal"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp;Gerar</button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card" id="cardR">
+                        <div class="card-body">
+                            <span><b>Kits Vendidos no Evento em Destaque</b></span>
+                            
+                            <div class="contR" id="countUsuariosEventoDestaque">
+                                
+                            </div>
+                            <br>
+                            <button class="btnmodal"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp;Gerar</button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card" id="cardR">
+                        <div class="card-body">
+                            <span><b>Eventos <br/>Realizados</b></span>
+                            
+                            <div class="contR" id="eventosRealizados">
+                                29
+                            </div>
+                            <br>
+                            <button class="btnmodal"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp;Gerar</button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-3">
+                    <div class="card" id="cardR">
+                        <div class="card-body">
+                            <span><b>Usuarios Cadastrados</b></span>
+                            
+                            <div class="contR">
+                                29
+                            </div>
+                            <br>
+                            <button class="btnmodal"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp;Gerar</button>
+                            
+                        </div>
+                    </div>
+                </div> -->
+                
+            </div>
+
+        </div>
+
+
+
+    </section>
 
     </main>
 
@@ -192,9 +204,10 @@
 
     <!-- Template Main Javascript File -->
     <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('js/relatorioAdmin.js')}}"></script>
     <script>
         $(document).ready(function() {
-            $('#tabela').DataTable({
+            $('#relatorioUser').DataTable({
                 "processing": true,
                 "responsive": true,
                 "language": {

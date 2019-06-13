@@ -31,6 +31,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         <a class="dropdown-item item-user" href="{{ route('perfil') }}"><i class="fa fa-user"></i>
                             Perfil</a><br> @if(auth()->user()->id_tipo_usuario == 1)
+                        <a class="dropdown-item item-user" href="{{ route('adminRelatorio') }}"><i class="fa fa-file"></i> Relatórios</a><br>
                         <a class="dropdown-item item-user" href="{{ route('adminConf') }}"><i class="fa fa-gear"></i>
                             Configuração</a><br> @else
                         <a class="dropdown-item item-user" href="{{ route('userRelatorio') }}"><i class="fa fa-file"></i> Relatórios</a><br> @endif
@@ -799,9 +800,9 @@
                                 </button>
                                 <h7><b>{{ $item->distancia }}K</b></h7>
                             </div>
-                        <hr>    
+                            <hr>
                         </div>
-                        
+
                         <div class="col-lg-12">
                             <div class="col-lg-12">
                                 <button type="submit" class="btnilustre2">
@@ -810,9 +811,9 @@
                                 <h7><b>{{ $item->endereco }}</b></h7>
 
                             </div>
-                        <hr>    
+                            <hr>
                         </div>
-                        
+
                         <div class="col-lg-12">
                             <div class="col-lg-12">
                                 <button type="submit" class="btnilustre2">
@@ -821,9 +822,9 @@
                                 <h7><b>{{ $item->hora_inicio }}</b></h7>
 
                             </div>
-                        <hr>    
+                            <hr>
                         </div>
-                        
+
                         <div class="col-lg-12">
                             <div class="col-lg-12">
                                 <button type="submit" class="btnilustre2">
@@ -832,9 +833,9 @@
                                 <h7><b>{{ $item->informacao_adicional }}</b></h7>
 
                             </div>
-                        <hr>    
+                            <hr>
                         </div>
-                        
+
                         <div class="col-lg-12">
                             <div class="col-lg-12">
                                 <button type="submit" class="btnilustre2">
