@@ -129,7 +129,7 @@
                                 var dataNew = dataOld[0].split('-');
                                 var dataCri = $('.dataCri'+ id).text(dataNew[2]+'/'+dataNew[1]+'/'+dataNew[0]);
                                 var horaNew = dataOld[1].split(':');
-                                var horaCri = $('.horaCri'+ id++).text(horaNew[0]+':'+horaNew[1]);
+                                var horaCri = $('.horaCri'+ id++).text((horaNew[0]-3) +':'+horaNew[1]);
                                 </script>
                                 @empty
                                 <tr>
@@ -138,7 +138,7 @@
                                     <td>Sem registro</td>
                                     <td>Sem registro</td>
                                     <td>Sem registro</td>
-                                    <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i></td>
+                                    <td>Sem registro</td>
                                 </tr>
                                 @endforelse
 
