@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 10-Jun-2019 às 14:26
+-- Generation Time: 14-Jun-2019 às 13:13
 -- Versão do servidor: 5.7.26-0ubuntu0.18.10.1
 -- PHP Version: 7.2.19-0ubuntu0.18.10.1
 
@@ -41,19 +41,6 @@ CREATE TABLE `agenda` (
   `status` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Extraindo dados da tabela `agenda`
---
-
-INSERT INTO `agenda` (`id_agenda`, `nome_evento`, `descricao`, `imagem`, `data_inicio`, `data_fim`, `hora_inicio`, `hora_fim`, `cidade`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
-(1, 'Night Bar', 'Descrital e tal e o de Teste para o evento', 'time-placeholder.png', '2019-05-29', '2019-05-29', '14:54', '18:53', 'Maranguape', '2019-06-05 21:26:59', '2019-06-06 00:26:59', 0),
-(2, 'Evento de Teste', 'Ola', 'super mega coraçoes.png', '2019-05-29', '2019-05-29', '08:00', '10:00', 'Maranguape', '2019-06-05 21:26:36', '2019-06-06 00:26:36', 0),
-(3, 'Anderson', 'dfdfdfdf', 'super mega coraçoes.png', '2019-05-30', '2019-05-30', '09:00:00', '12:30:00', 'Maranguaps', '2019-06-05 21:26:45', '2019-06-06 00:26:45', 0),
-(4, 'Anderson Alves', 'ghgh', 'time-placeholder.png', '2019-05-29', '2019-05-29', '55:45', '65:46', 'Maranguaps', '2019-06-02 18:04:43', '2019-06-02 21:04:43', 1),
-(5, 'Agenda', 'dfdfdf', 'super mega coraçoes.png', '2019-05-27', '2019-05-27', '07:30:00', '11:00:00', 'Maranguape', '2019-06-05 21:26:22', '2019-06-06 00:26:22', 0),
-(6, 'Teste', 'Nada', 'twitter.png', '2019-06-03', '2019-06-03', '07:00:00', '10:00:00', 'Maranguape', '2019-06-05 21:26:05', '2019-06-06 00:26:05', 0),
-(7, 'Teste', 'Nada', 'subscribe-bg.jpg', '2019-06-11', '2019-06-11', '07:00:00', '13:30:00', 'Maranguape', '2019-06-04 00:55:32', '2019-06-04 00:55:32', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -74,20 +61,11 @@ CREATE TABLE `anuncio` (
 --
 
 INSERT INTO `anuncio` (`id_anuncio`, `imagem`, `data_de_criacao`, `data_de_atualizacao`, `status`, `classificacao_id_classificacao`) VALUES
-(4, 'Entrar-no-Reino-de-Deus.png', '2019-05-26 04:02:59', '2019-05-26 04:02:59', 1, 1),
-(5, 'Entrar-no-Reino-de-Deus.png', '2019-05-26 04:04:14', '2019-05-26 04:04:14', 1, 1),
-(6, 'Celula.jpeg', '2019-05-26 04:04:24', '2019-06-02 15:22:45', 0, 1),
-(7, 'venue-info-bg.jpg', '2019-05-26 04:04:24', '2019-06-02 16:12:24', 1, 1),
-(8, 'Celula.jpeg', '2019-05-26 04:04:24', '2019-05-26 04:24:20', 0, 1),
-(9, 'celulaconvite-oficial.jpg', '2019-05-26 04:25:04', '2019-05-26 17:55:03', 0, 1),
-(10, 'Celula.jpeg', '2019-05-26 04:25:14', '2019-05-26 04:25:50', 0, 2),
-(11, 'CelulaNew.jpeg', '2019-05-26 16:11:53', '2019-05-26 17:54:58', 0, 2),
-(12, 'intro-bg.jpg', '2019-05-26 17:56:57', '2019-06-02 17:16:24', 1, 1),
-(13, 'password_icon_ok(0).jpg', '2019-05-26 18:02:24', '2019-06-02 14:34:53', 1, 2),
-(14, 'WhatsApp Image 2019-04-15 at 16.01.13.jpeg', '2019-05-28 23:50:12', '2019-05-28 23:51:36', 0, 2),
-(15, 'WhatsApp Image 2019-04-20 at 11.35.55.jpeg', '2019-05-28 23:50:29', '2019-05-28 23:51:11', 0, 2),
-(16, '053.jpg', '2019-06-07 16:12:30', '2019-06-07 16:12:30', 1, 3),
-(17, 'metas.jpg', '2019-06-07 16:13:12', '2019-06-07 16:13:12', 1, 3);
+(18, '1.png', '2019-06-13 22:24:07', '2019-06-13 22:27:30', 1, 1),
+(19, '2.jpeg', '2019-06-13 22:24:24', '2019-06-13 22:28:00', 1, 1),
+(20, '3.png', '2019-06-13 22:24:42', '2019-06-13 22:24:42', 1, 1),
+(21, '5.jpg', '2019-06-13 22:25:05', '2019-06-13 22:25:05', 1, 1),
+(22, '4.png', '2019-06-13 22:25:32', '2019-06-13 22:25:32', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -108,15 +86,7 @@ CREATE TABLE `apoio` (
 --
 
 INSERT INTO `apoio` (`id_apoio`, `nome_apoio`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
-(1, 'Teste', '2019-05-12 01:30:00', '2019-05-14 00:23:02', 1),
-(2, 'Opa', '2019-05-14 00:19:06', '2019-05-18 19:00:48', 0),
-(3, 'Hello', '2019-05-14 00:22:05', '2019-05-18 18:53:40', 0),
-(4, 'sadasdawefwefw', '2019-05-14 00:28:23', '2019-05-18 19:16:31', 0),
-(5, 'teste', '2019-05-14 00:32:15', '2019-05-14 21:41:41', 1),
-(6, 'testando 3', '2019-05-14 21:35:52', '2019-05-14 21:38:51', 1),
-(7, 'ewfefew', '2019-05-18 19:16:37', '2019-05-21 18:33:11', 0),
-(8, 'werwe', '2019-05-21 17:54:26', '2019-05-21 17:54:26', 1),
-(9, 'trhyrt', '2019-05-21 18:17:50', '2019-05-21 18:17:50', 1);
+(10, 'Anna Jessica', '2019-06-13 22:23:27', '2019-06-13 22:23:27', 1);
 
 -- --------------------------------------------------------
 
@@ -172,7 +142,7 @@ CREATE TABLE `evento` (
   `status` int(11) NOT NULL DEFAULT '1',
   `imagem` varchar(255) NOT NULL,
   `prazo` date DEFAULT NULL,
-  `modo` varchar(255) NOT NULL,
+  `modo` varchar(255) DEFAULT NULL,
   `tipo` varchar(255) NOT NULL,
   `apoio_id_apoio` int(11) NOT NULL,
   `patrocinio_id_patrocinio` int(11) NOT NULL,
@@ -186,12 +156,11 @@ CREATE TABLE `evento` (
 --
 
 INSERT INTO `evento` (`id_evento`, `nome_evento`, `data`, `hora_inicio`, `hora_fim`, `informacao_adicional`, `endereco`, `percurso`, `distancia`, `status`, `imagem`, `prazo`, `modo`, `tipo`, `apoio_id_apoio`, `patrocinio_id_patrocinio`, `realizacao_id_realizacao`, `data_de_atualizacao`, `data_de_criacao`) VALUES
-(34, 'Teste 1', '2019-08-27', '32:42', '23:42', 'Nada', 'Rua Mundica Paula', '20', '1515', 1, 'parede.jpg', '2019-06-10', 'Fique por dentro!', 'Destaque', 1, 1, 2, '2019-06-02 18:07:52', '2019-06-02 18:07:52'),
-(36, 'Teste 3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'logoteste.png', NULL, 'Em breve!', 'Quadro', 1, 2, 2, '2019-06-02 18:09:48', '2019-06-02 18:09:48'),
-(37, 'Teste 4', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'favicon.png', NULL, 'Em breve!', 'Armazenamento', 1, 2, 2, '2019-06-02 18:10:22', '2019-06-02 18:10:22'),
-(38, 'teste 5', '2019-06-20', '15:00', '18:00', 'Teste', 'Rua Mundica Paula', 'Teste', '20', 1, 'parede.jpg', '2019-06-06', 'Em breve!', 'Armazenamento', 6, 1, 2, '2019-06-02 18:13:28', '2019-06-02 18:13:28'),
-(40, 'Teste ok ok', '2019-10-12', '54:54', '45:45', 'Nada', 'Rua Mundica Paula', 'Teste', '1515', 1, 'twitter.png', '2019-06-20', 'Fique por dentro!', 'Armazenamento', 1, 1, 2, '2019-06-04 23:33:09', '2019-06-04 23:33:09'),
-(49, 'Teste 32632', '2019-10-20', '54:15', '45:45', 'Nada', 'Rua Mundica Paula', 'Teste', '1515', 1, 'favicon.png', '2019-10-20', 'Fique por dentro!', 'Armazenamento', 5, 1, 2, '2019-06-04 23:45:28', '2019-06-04 23:45:28');
+(50, '2ª Nigth Bike MPE', '2019-07-20', '10:00', '12:00', 'Retirada do kit no dia, local epitacio socity!', 'Rua Mundica Paula', 'Passeio Ciclistico', '24', 1, 'metas.jpg', '2019-06-17', 'Fique por dentro!', 'Destaque', 10, 4, 5, '2019-06-14 01:46:34', '2019-06-14 01:46:34'),
+(51, '9º cervejada de Boa Viagem imagem', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 1, 'cervejadabv.png', '1970-01-01', 'Fique por dentro!', 'Quadro', 10, 4, 5, '2019-06-14 02:01:20', '2019-06-14 02:01:20'),
+(52, 'Cobertura oficial do Bloco Fantastico 2019', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 1, 'fantastico.png', '1970-01-01', 'Fique por dentro!', 'Quadro', 10, 4, 5, '2019-06-14 02:04:05', '2019-06-14 02:04:05'),
+(53, '1º Night Bike Maranguape imagem', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 1, 'imgteste.jpg', '1970-01-01', 'Fique por dentro!', 'Quadro', 10, 4, 5, '2019-06-14 02:07:02', '2019-06-14 02:07:02'),
+(54, 'Vaquejada de Boa Viagem', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 1, 'vaquejadabv.png', '1970-01-01', 'Em breve!', 'Quadro', 10, 4, 5, '2019-06-14 02:09:28', '2019-06-14 02:09:28');
 
 -- --------------------------------------------------------
 
@@ -205,13 +174,21 @@ CREATE TABLE `fatura` (
   `referencia` varchar(255) NOT NULL,
   `forma` varchar(255) NOT NULL,
   `data` datetime NOT NULL,
-  `valor` decimal(5,2) NOT NULL,
+  `valor` varchar(255) NOT NULL,
   `tamanho` varchar(4) DEFAULT NULL,
   `id_kit` int(11) NOT NULL,
   `status` varchar(255) NOT NULL,
   `data_de_criacao` datetime NOT NULL,
   `data_de_atualizacao` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `fatura`
+--
+
+INSERT INTO `fatura` (`id`, `id_usuario`, `referencia`, `forma`, `data`, `valor`, `tamanho`, `id_kit`, `status`, `data_de_criacao`, `data_de_atualizacao`) VALUES
+(60, 2, '$2y$10$IpxaBCDx8QBtuL0WzXOyguj9LtsZSwC9lUbnkqAoGgLTYYezQiGWC', 'Mercado Pago', '2019-06-13 00:00:00', '150,00', 'P', 52, 'Pendente', '2019-06-13 22:53:30', '2019-06-13 22:53:30'),
+(61, 2, '$2y$10$tmvnnmCO8LpGBt9G2jKrNeJw1asWOY8Pe/qbG0qkvchxJenZHVnoq', 'Mercado Pago', '2019-06-13 00:00:00', '120,00', 'M', 50, 'Pendente', '2019-06-13 22:53:47', '2019-06-13 22:53:47');
 
 -- --------------------------------------------------------
 
@@ -223,7 +200,7 @@ CREATE TABLE `kit_evento` (
   `id_kit` int(11) NOT NULL,
   `nome_kit` varchar(255) NOT NULL,
   `imagem_kit` varchar(255) NOT NULL,
-  `valor` decimal(10,5) NOT NULL,
+  `valor` varchar(255) NOT NULL,
   `id_tamanho` varchar(255) NOT NULL,
   `descricao_kit` varchar(255) NOT NULL,
   `id_evento_fk` int(11) NOT NULL,
@@ -236,7 +213,8 @@ CREATE TABLE `kit_evento` (
 --
 
 INSERT INTO `kit_evento` (`id_kit`, `nome_kit`, `imagem_kit`, `valor`, `id_tamanho`, `descricao_kit`, `id_evento_fk`, `data_de_atualizacao`, `data_de_criacao`) VALUES
-(45, 'Kit222223323', 'password_icon_ok(0).jpg', '20.00000', '26d9f66d75c3bd436798cc1f5ef32013', 'Teste2222', 34, '2019-06-07 19:17:00', '2019-06-07 19:17:00');
+(50, 'Kit Aventura', 'kits.jpg', '120,00', '838e0d931ad336db7de93f54c17512e8', 'Blusa + óculos + copo + toalha', 50, '2019-06-14 01:46:35', '2019-06-14 01:46:35'),
+(52, 'Kit Desafio', 'kits.jpg', '150,00', '244c6e729a24c0a44a4fb190659587a0', 'Blusa + copo', 50, '2019-06-14 01:53:16', '2019-06-14 01:53:16');
 
 -- --------------------------------------------------------
 
@@ -252,6 +230,17 @@ CREATE TABLE `link_evento` (
   `data_de_atualizacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `data_de_criacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `link_evento`
+--
+
+INSERT INTO `link_evento` (`id_link_evento`, `nome_link`, `link`, `id_evento_fk`, `data_de_atualizacao`, `data_de_criacao`) VALUES
+(5, 'Video', 'https://www.youtube.com/watch?v=mn8kKVxolbE&t=381s', 52, '2019-06-14 02:04:05', '2019-06-14 02:04:05'),
+(6, 'Video', 'https://www.youtube.com/watch?v=2uqBWfDikAQ', 52, '2019-06-14 02:04:05', '2019-06-14 02:04:05'),
+(7, 'Fotos', 'https://drive.google.com/drive/u/0/folders/1xjco_FZ3QgckoiPCYWcCIDfLrk3HB_jN', 51, '2019-06-14 02:05:25', '2019-06-14 02:05:25'),
+(8, 'Video', 'https://www.youtube.com/watch?v=vBRxEBZFBeI', 51, '2019-06-14 02:05:25', '2019-06-14 02:05:25'),
+(10, 'Video', 'https://www.youtube.com/watch?v=B7vMlgMl9cw&feature=youtu.be', 53, '2019-06-14 02:08:06', '2019-06-14 02:08:06');
 
 -- --------------------------------------------------------
 
@@ -294,9 +283,7 @@ CREATE TABLE `parceiro` (
 --
 
 INSERT INTO `parceiro` (`id_parceiro`, `imagem_parceiro`, `descricao_parceiro`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
-(1, 'Captura de tela de 2019-05-11 22-56-43.png', 'Oltrtrthrthrt', '2019-05-12 01:30:00', '2019-05-18 19:02:13', 0),
-(2, 'Captura de tela de 2019-04-15 23-01-45.png', 'ergerg', '2019-05-18 19:17:36', '2019-05-18 19:17:50', 0),
-(3, 'CelulaNew.jpeg', 'Anderson', '2019-05-26 19:30:04', '2019-05-26 19:30:04', 1);
+(4, 'img2.JPG', 'Anna Jessica', '2019-06-13 22:22:59', '2019-06-13 22:22:59', 1);
 
 -- --------------------------------------------------------
 
@@ -336,9 +323,7 @@ CREATE TABLE `patrocinio` (
 --
 
 INSERT INTO `patrocinio` (`id_patrocinio`, `nome_patrocinio`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
-(1, 'ergergerg', '2019-05-12 01:30:00', '2019-05-18 19:17:58', 1),
-(2, 'redthrhjrth', '2019-05-18 19:02:43', '2019-05-18 19:18:02', 0),
-(3, 'ergerg', '2019-05-18 19:18:08', '2019-05-18 19:18:08', 1);
+(4, 'Anna Jessica', '2019-06-13 22:22:42', '2019-06-13 22:22:42', 1);
 
 -- --------------------------------------------------------
 
@@ -378,9 +363,8 @@ CREATE TABLE `realizacao` (
 --
 
 INSERT INTO `realizacao` (`id_realizacao`, `nome_realizacao`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
-(1, 'er', '2019-05-12 01:30:00', '2019-05-18 19:18:20', 0),
-(2, 'tjhruyrt', '2019-05-18 19:02:36', '2019-05-18 19:02:36', 1),
-(3, 'egrerge', '2019-05-18 19:18:25', '2019-05-18 19:18:25', 1);
+(4, 'Anna Jessica', '2019-06-13 22:22:08', '2019-06-13 22:22:21', 0),
+(5, 'Anna jessica', '2019-06-13 22:22:29', '2019-06-13 23:17:53', 1);
 
 -- --------------------------------------------------------
 
@@ -401,14 +385,10 @@ CREATE TABLE `slideshow` (
 --
 
 INSERT INTO `slideshow` (`id_slideshow`, `imagem`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
-(1, '5.jpg', '2019-05-23 04:08:36', '2019-05-23 04:08:49', 0),
-(2, 'bizpage-preview.png', '2019-05-23 04:08:55', '2019-05-26 17:14:00', 0),
-(3, 'Entrar-no-Reino-de-Deus.png', '2019-05-26 16:47:13', '2019-05-26 17:14:05', 0),
-(4, 'CelulaNew.jpeg', '2019-05-26 16:49:57', '2019-05-26 17:14:15', 0),
-(5, 'Entrar-no-Reino-de-Deus.png', '2019-05-26 17:17:21', '2019-05-26 17:17:21', 1),
-(6, 'CelulaNew.jpeg', '2019-05-26 17:19:25', '2019-05-26 17:19:25', 1),
-(7, 'CelulaNew.jpeg', '2019-05-26 19:11:57', '2019-05-26 19:12:27', 0),
-(8, 'WhatsApp Image 2019-05-26 at 13.15.35.jpeg', '2019-05-28 23:46:44', '2019-05-28 23:46:50', 0);
+(9, 'img1.JPG', '2019-06-13 22:19:29', '2019-06-13 22:20:21', 1),
+(10, 'img2.JPG', '2019-06-13 22:19:46', '2019-06-13 22:20:30', 1),
+(11, 'img1.JPG', '2019-06-13 22:19:56', '2019-06-13 22:49:44', 0),
+(12, 'img1.JPG', '2019-06-13 22:49:56', '2019-06-13 22:49:56', 1);
 
 -- --------------------------------------------------------
 
@@ -450,20 +430,20 @@ CREATE TABLE `tamanho` (
 --
 
 INSERT INTO `tamanho` (`hash_tamanho`, `tamanho`, `data_de_atualizacao`, `data_de_criacao`) VALUES
-('86872143b655e7a8d1d1f86d626c5d24', 'P', '2019-06-04 23:29:18', '2019-06-04 23:29:18'),
-('86872143b655e7a8d1d1f86d626c5d24', 'M', '2019-06-04 23:29:18', '2019-06-04 23:29:18'),
-('86872143b655e7a8d1d1f86d626c5d24', 'G', '2019-06-04 23:29:19', '2019-06-04 23:29:19'),
-('de456a67ddfe38417dccbb8651cd0fa0', 'PP', '2019-06-04 23:31:34', '2019-06-04 23:31:34'),
-('de456a67ddfe38417dccbb8651cd0fa0', 'M', '2019-06-04 23:31:34', '2019-06-04 23:31:34'),
-('de456a67ddfe38417dccbb8651cd0fa0', 'GG', '2019-06-04 23:31:34', '2019-06-04 23:31:34'),
-('be5873e4b2a815d9e813c48c9688e8c9', 'GG', '2019-06-04 23:43:27', '2019-06-04 23:43:27'),
-('53ec6b78fb9bca0b18faa5d62b138053', 'M', '2019-06-04 23:45:28', '2019-06-04 23:45:28'),
-('53ec6b78fb9bca0b18faa5d62b138053', 'GG', '2019-06-04 23:45:28', '2019-06-04 23:45:28'),
-('26d9f66d75c3bd436798cc1f5ef32013', 'PP', '2019-06-07 19:17:01', '2019-06-07 19:17:01'),
-('26d9f66d75c3bd436798cc1f5ef32013', 'P', '2019-06-07 19:17:01', '2019-06-07 19:17:01'),
-('26d9f66d75c3bd436798cc1f5ef32013', 'M', '2019-06-07 19:17:01', '2019-06-07 19:17:01'),
-('26d9f66d75c3bd436798cc1f5ef32013', 'G', '2019-06-07 19:17:01', '2019-06-07 19:17:01'),
-('26d9f66d75c3bd436798cc1f5ef32013', 'GG', '2019-06-07 19:17:01', '2019-06-07 19:17:01');
+('1885d3fb2dbd90fd0c13d7270e73a5d8', 'PP', '2019-06-14 01:51:58', '2019-06-14 01:51:58'),
+('1885d3fb2dbd90fd0c13d7270e73a5d8', 'P', '2019-06-14 01:51:58', '2019-06-14 01:51:58'),
+('1885d3fb2dbd90fd0c13d7270e73a5d8', 'M', '2019-06-14 01:51:58', '2019-06-14 01:51:58'),
+('1885d3fb2dbd90fd0c13d7270e73a5d8', 'G', '2019-06-14 01:51:58', '2019-06-14 01:51:58'),
+('1885d3fb2dbd90fd0c13d7270e73a5d8', 'GG', '2019-06-14 01:51:58', '2019-06-14 01:51:58'),
+('244c6e729a24c0a44a4fb190659587a0', 'P', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
+('244c6e729a24c0a44a4fb190659587a0', 'M', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
+('244c6e729a24c0a44a4fb190659587a0', 'G', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
+('244c6e729a24c0a44a4fb190659587a0', 'GG', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
+('838e0d931ad336db7de93f54c17512e8', 'PP', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
+('838e0d931ad336db7de93f54c17512e8', 'P', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
+('838e0d931ad336db7de93f54c17512e8', 'M', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
+('838e0d931ad336db7de93f54c17512e8', 'G', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
+('838e0d931ad336db7de93f54c17512e8', 'GG', '2019-06-14 01:53:17', '2019-06-14 01:53:17');
 
 -- --------------------------------------------------------
 
@@ -511,8 +491,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `telefone_usuario`, `cidade_usuario`, `email`, `password`, `token`, `remember_token`, `ativo_usuario`, `data_de_criacao`, `data_de_atualizacao`, `id_tipo_usuario`) VALUES
 (1, 'Anderson Alves', '(85) 98835-5751', 'Maranguape', 'anderson.alvesprogrammer@gmail.com', '$2y$10$I.FU65R/Z1ux.E8Kyyzr..TI.aESVIq9uv4bTTqglaJ3IACWvEqQK', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', '7DIfQlGxh5668e5DS6bOUyUf0wcj8Nm0WUkLWUe54tgu1BdsqPMR7ZxyIzFV', 1, '2019-04-23 22:54:35', '2019-05-26 18:33:02', 1),
-(2, 'Mauricio Abreu', '(85) 9883-55751', 'Maranguape', 'mauricio@gmail.com', '$2y$10$oNXTVKl2Y6V2v8I042h34.QVcvdq2McEqTsARjgxnyRhYACGFKmz.', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', '7PAUzK1qyZZJWkte8EeMkI4FLlpAlWNAoJ8Vgy9bNVlHPqp7TlnSizh52Q6H', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 1),
-(3, 'José almeida', '(85) 65455-6454', 'Maranguape', 'test@gmail.com', '$2y$10$R.sjbuWFv7xnAud0g1I3GOAz9jIo4xgH46q8qs7uQhQv29cHpaZEi', NULL, 'PhTQsJZhuk2dX2NZfUs55gP5zG42oUmGPaTIS7gijOU0iZTnuYHKUXURAR3w', 1, '2019-05-14 21:28:14', '2019-05-14 21:28:14', 2),
+(2, 'Mauricio Abreu', '(85) 9883-55751', 'Maranguape', 'mauricio@gmail.com', '$2y$10$oNXTVKl2Y6V2v8I042h34.QVcvdq2McEqTsARjgxnyRhYACGFKmz.', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'wOYhMYtafdTuszQhIyoVllZCcaVEYhckIVgPbcNZJh1b04KuXIOLkdBnbH0E', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 1),
+(3, 'José almeida', '(85) 65455-6454', 'Maranguape', 'test@gmail.com', '$2y$10$R.sjbuWFv7xnAud0g1I3GOAz9jIo4xgH46q8qs7uQhQv29cHpaZEi', NULL, 'Dr6jAOwIJ51eFqgQCOjYOnN5EPTbSlu2m2ZNjOelXXLPA1Kh8wdQMGQ4pNGF', 1, '2019-05-14 21:28:14', '2019-05-14 21:28:14', 2),
 (4, 'Teste banco', '(65) 6556-56565', 'Maranguape', 'mauricio123@gmail.com', '$2y$10$peSwmusxOrgot3f8pOFgxOyYXx.dDGfPG2Ln7XAwdqJzdOlt/3ijq', NULL, 'uWHQLmsSaxUE3PI933FkRQdqIQF3XqzpT6N7j9Qma5CiAAOuhwwY8waMb26W', 1, '2019-05-23 01:04:08', '2019-05-23 01:04:08', 2),
 (5, 'Mauricio Abreu', '(56) 4565-11631', 'Maranguape', 'mauricioabreu75@gmail.com', '$2y$10$6.Hf/lCvjizzvdLbRDPdP.C4W27NgLgSEWoqbNc53REm5x4kInrUy', NULL, 'RE2WBp8qRkDkNzscmpnVTxYGzswzfOtu5W2pIMPTWCmCbS6arXceEduAEELw', 1, '2019-05-30 18:32:29', '2019-05-30 18:32:29', 2);
 
@@ -696,17 +676,17 @@ ALTER TABLE `usuario_permissao_menu`
 -- AUTO_INCREMENT for table `agenda`
 --
 ALTER TABLE `agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `id_anuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_anuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `apoio`
 --
 ALTER TABLE `apoio`
-  MODIFY `id_apoio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_apoio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `classificacao_anuncio`
 --
@@ -721,22 +701,22 @@ ALTER TABLE `comp_evento`
 -- AUTO_INCREMENT for table `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `id_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `fatura`
 --
 ALTER TABLE `fatura`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `kit_evento`
 --
 ALTER TABLE `kit_evento`
-  MODIFY `id_kit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_kit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `link_evento`
 --
 ALTER TABLE `link_evento`
-  MODIFY `id_link_evento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_link_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `menu`
 --
@@ -746,12 +726,12 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `parceiro`
 --
 ALTER TABLE `parceiro`
-  MODIFY `id_parceiro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_parceiro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `patrocinio`
 --
 ALTER TABLE `patrocinio`
-  MODIFY `id_patrocinio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_patrocinio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `permissao`
 --
@@ -761,12 +741,12 @@ ALTER TABLE `permissao`
 -- AUTO_INCREMENT for table `realizacao`
 --
 ALTER TABLE `realizacao`
-  MODIFY `id_realizacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_realizacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `slideshow`
 --
 ALTER TABLE `slideshow`
-  MODIFY `id_slideshow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_slideshow` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `submenu`
 --
