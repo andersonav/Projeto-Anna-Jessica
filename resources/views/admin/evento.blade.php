@@ -25,7 +25,7 @@
                         @foreach($eventos as $evento)
                         <tr>
                             <td>{{$evento->nome_evento}}</td>
-                            <td>{{$evento->data}}</td>
+                            <td>@if($evento->data !=''){{ date("d/m/Y", strtotime($evento->data)) }}@endif</td>
                             <td>{{$evento->hora_inicio}}</td>
                             <td>{{$evento->hora_fim}}</td>
                             <td>{{$evento->tipo}}</td>
