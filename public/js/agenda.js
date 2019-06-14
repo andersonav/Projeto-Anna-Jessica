@@ -77,7 +77,7 @@ $(document).ready(function () {
             dateEnd = $.fullCalendar.formatDate(end, "YYYY-MM-DD");
             start = $.fullCalendar.formatDate(start, "YYYY-MM-DD HH:mm:ss");
             end = $.fullCalendar.formatDate(end, "YYYY-MM-DD HH:mm:ss");
-            $("#formAdmin input:enabled").each(function () {
+            $("#formAdmin input[type=text]:enabled").each(function () {
                 $(this).val("");
             });
             $("textarea").val("");

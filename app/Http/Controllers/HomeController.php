@@ -186,7 +186,7 @@ WHERE evento.tipo = 'Destaque' AND fatura.status = 'Aprovado'");
     public function getEventosRealizados()
     {
         $eventosRealizados = DB::select("SELECT COUNT(id_evento) as eventosRealizados FROM evento
-WHERE evento.prazo < NOW()");
+WHERE evento.prazo < NOW() AND evento.prazo != ''");
         return response()->json($eventosRealizados);
     }
 

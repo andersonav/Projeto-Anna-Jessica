@@ -2043,7 +2043,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #tabelaC thead {
-    border-top: 1px solid #6f736e;
+    /* border-top: 1px solid #6f736e; */
     border-bottom: 1px solid #6f736e;
     text-transform: uppercase;
 }

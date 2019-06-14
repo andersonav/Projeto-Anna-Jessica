@@ -104,6 +104,7 @@ class AnuncioController extends Controller
     {
         return $this->validate($request, [
             'file' => 'required|mimes:png,jpeg,jpg,gif|max:2048',
+            'classificacao' => 'required|max:255'
         ]);
     }
 
