@@ -42,10 +42,19 @@ class EventoController extends Controller
         $destinationPath = public_path('img/eventos');
         $image->move($destinationPath, $name);
 
-        $data = str_replace('/', '-', $request->data);
-        $data_encerramento = str_replace('/', '-', $request->data_encerramento);
-        $newDate = date("Y-m-d", strtotime($data));
-        $newdata_encerramento = date("Y-m-d", strtotime($data_encerramento));
+        
+        $newdata_encerramento = null;
+        $newDate = null;
+        
+        if ($request->data != null) {
+            $data = str_replace('/', '-', $request->data);
+            $newDate = date("Y-m-d", strtotime($data));
+        }
+
+        if ($request->data_encerramento != null) {
+            $data_encerramento = str_replace('/', '-', $request->data_encerramento);
+            $newdata_encerramento = date("Y-m-d", strtotime($data_encerramento));
+        }
 
         $createEvento = Evento::create([
             'nome_evento' => $request->nome_evento,
@@ -119,11 +128,18 @@ class EventoController extends Controller
                 'imagem' => $name,
             ));
         }
+        $newdata_encerramento = null;
+        $newDate = null;
 
-        $data = str_replace('/', '-', $request->data);
-        $data_encerramento = str_replace('/', '-', $request->data_encerramento);
-        $newDate = date("Y-m-d", strtotime($data));
-        $newdata_encerramento = date("Y-m-d", strtotime($data_encerramento));
+        if ($request->data != null) {
+            $data = str_replace('/', '-', $request->data);
+            $newDate = date("Y-m-d", strtotime($data));
+        }
+
+        if ($request->data_encerramento != null) {
+            $data_encerramento = str_replace('/', '-', $request->data_encerramento);
+            $newdata_encerramento = date("Y-m-d", strtotime($data_encerramento));
+        }
 
         $atualizarEvento = DB::table('evento')->where('id_evento', $request->id_evento)->update(array(
             'nome_evento' => $request->nome_evento,
