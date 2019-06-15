@@ -15,7 +15,7 @@
             <ul class="nav-menu">
                 <li class="sem menu-active ini"><a href="#intro">Inicio</a></li>
                 <li class="sem sobre"><a href="#about">Sobre</a></li>
-                <li class="sem port"><a href="#speakers">Portfolio</a></li>
+                <li class="sem port"><a href="#speakers">Portfólio</a></li>
                 <li class="sem age"><a href="#schedule">Agenda</a></li>
                 <li class="sem ser"><a href="#hotels">Serviços</a></li>
                 <li class="sem eve"><a href="#buy-tickets">Eventos</a></li>
@@ -129,13 +129,13 @@
     <section id="speakers" class="wow bounceInUp">
         <div class="container">
             <div class="section-header">
-                <span class="sombra digitar" id="port">Portfolio</span>
-                <h2>Portfolio</h2>
+                <span class="sombra digitar" id="port">Portfólio</span>
+                <h2>Portfólio</h2>
             </div>
 
             <div class="row">
                 <div class="col-lg-1 col-md-4"></div>
-                <div class="col-lg-5 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportfolio1">
+                <div class="col-lg-5 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportfólio1">
                     <div class="speaker">
                         <img src="{{asset('img/postifolio/corrida.jpg')}}" alt="Speaker 5" class="img-fluid">
                         <div class="details">
@@ -149,7 +149,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportfolio2">
+                <div class="col-lg-5 col-md-4" data-toggle="modal" data-target="#buy-ticket-modalportfólio2">
                     <div class="speaker">
                         <img src="{{asset('img/postifolio/port.png')}}" alt="Speaker 6" class="img-fluid">
                         <div class="details">
@@ -628,12 +628,12 @@
 
 
 
-    <div id="buy-ticket-modalportfolio1" class="modal fade">
+    <div id="buy-ticket-modalportfólio1" class="modal fade">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
 
-                    <h2 class="ttl"><b>Portfolio</b></h2>
+                    <h2 class="ttl"><b>Portfólio</b></h2>
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -707,11 +707,11 @@
     <!-- /.modal -->
 
 
-    <div id="buy-ticket-modalportfolio2" class="modal fade">
+    <div id="buy-ticket-modalportfólio2" class="modal fade">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="ttl"><b>Portfolio</b></h2>
+                    <h2 class="ttl"><b>Portfólio</b></h2>
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

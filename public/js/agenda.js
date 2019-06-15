@@ -47,7 +47,7 @@ $(document).ready(function () {
         },
         allDayText: 'Dia Inteiro',
         allDaySlot: false,
-        minTime: '07:00:00',
+        minTime: '04:00:00',
         maxTime: '22:30:00',
         slotDuration: '00:30:00',
         slotLabelInterval: 30,
