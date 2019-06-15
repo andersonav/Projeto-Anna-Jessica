@@ -183,7 +183,8 @@ WHERE evento.prazo < NOW() AND evento.prazo != ''");
         return \PDF::loadView('pdfs.usuarioPdf', compact('usuarios'))
                         // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
                         // Caso a gente quiser colocar por abrir no próprio browser só fazer: ->stream()
-                        ->download('usuarios.pdf');
+                        ->stream();
+//                        ->download('usuarios.pdf');;
     }
 
     public function pdfKits() {
@@ -196,9 +197,10 @@ WHERE evento.prazo < NOW() AND evento.prazo != ''");
         return \PDF::loadView('pdfs.kitsVendidos', compact('kits'))
                         // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
                         // Caso a gente quiser colocar por abrir no próprio browser só fazer: ->stream()
-                        ->download('kits.pdf');
+                        ->stream();
+//                        ->download('kits.pdf');
     }
-    
+
     public function pdfEventosRealizados() {
 
         $eventos = DB::select("SELECT * FROM evento
@@ -206,7 +208,8 @@ WHERE evento.prazo < NOW() AND evento.prazo != ''");
         return \PDF::loadView('pdfs.eventosRealizados', compact('eventos'))
                         // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
                         // Caso a gente quiser colocar por abrir no próprio browser só fazer: ->stream()
-                        ->download('eventos.pdf');
+                        ->stream();
+//                        ->download('eventos.pdf');
     }
 
     public function editUser(Request $request) {
