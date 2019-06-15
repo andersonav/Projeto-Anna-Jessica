@@ -88,13 +88,18 @@ Route::get('/notifications/mp', 'CompraController@ipnNotification');
 Route::group(['prefix' => 'adminConf', 'middleware' => 'auth'], function() {
     Route::get('/', 'HomeController@adminConf')->name('adminConf');
 
+    Route::get('/pdfUsuarios', 'HomeController@pdfUsuarios')->name('pdfUsuarios');
+    Route::get('/pdfKits', 'HomeController@pdfKits')->name('pdfKits');
+    Route::get('/pdfEventosRealizados', 'HomeController@pdfEventosRealizados')->name('pdfEventosRealizados');
+
+
     Route::group(['prefix' => 'adminRelatorio'], function() {
         Route::get('/', 'HomeController@adminRelatorio')->name('adminRelatorio');
         Route::post('/getUsuarios', 'HomeController@getCountUsuarios')->name('getCountUsuarios');
         Route::post('/getUsuariosEventoDestaque', 'HomeController@getUsuariosEventoDestaque')->name('getUsuariosEventoDestaque');
         Route::post('/getEventosRealizados', 'HomeController@getEventosRealizados')->name('getEventosRealizados');
     });
-    
+
 
     Route::group(['prefix' => 'agenda'], function () {
         Route::post('/', 'AgendaController@pageAgenda')->name('pageAgenda');
