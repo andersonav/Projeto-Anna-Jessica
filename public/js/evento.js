@@ -89,11 +89,13 @@ function adicionarKit() {
         '</div>' +
         '<div class="form-group col-md-4 formReset kit' + kitNum + '">' +
         '<select name="' + kitNum + '[]" class="selectpicker show-tick selectTam' + kitNum + '" data-live-search="true" title="Tamanho:" multiple>' +
+        '<option>Infantil</option>' +
         '<option>PP</option>' +
         '<option>P</option>' +
         '<option>M</option>' +
         '<option>G</option>' +
         '<option>GG</option>' +
+        '<option>XG</option>' +
         '</select>' +
         '</div>' +
         '<div class="form-group col-md-4 formReset kit' + kitNum + '">' +

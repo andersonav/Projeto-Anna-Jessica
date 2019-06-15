@@ -796,57 +796,55 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="col-lg-12">
+                        <div class="col-lg-12" id="Sp">
+                            
                                 <button type="submit" class="btnilustre2">
                                     <b><i class="fa fa-arrows-h" aria-hidden="true"></i> Distâncias</b>
                                 </button>
-                                <h7><b>{{ $item->distancia }}K</b></h7>
-                            </div>
-                            <hr>
+                                <h7><b>{{ $item->distancia }}Km</b></h7>
+                            
+                            
                         </div>
 
-                        <div class="col-lg-12">
-                            <div class="col-lg-12">
+                        <div class="col-lg-12" id="Sp">
+                           
                                 <button type="submit" class="btnilustre2">
                                     <b><i class="fa fa-location-arrow" aria-hidden="true"></i> Local</b>
                                 </button>
                                 <h7><b>{{ $item->endereco }}</b></h7>
 
-                            </div>
-                            <hr>
+                            
+                            
                         </div>
 
-                        <div class="col-lg-12">
-                            <div class="col-lg-12">
+                        <div class="col-lg-12" id="Sp">
+                            
                                 <button type="submit" class="btnilustre2">
                                     <b><i class="fa fa-hourglass-half" aria-hidden="true"></i> Largada</b>
                                 </button>
                                 <h7><b>{{ $item->hora_inicio }}</b></h7>
 
-                            </div>
-                            <hr>
+                           
+                            
                         </div>
 
-                        <div class="col-lg-12">
-                            <div class="col-lg-12">
+                        <div class="col-lg-12" id="Sp">
+                            
                                 <button type="submit" class="btnilustre2">
                                     <b><i class="fa fa-check-square-o" aria-hidden="true"></i> Retirada do Kit</b>
                                 </button>
                                 <h7><b>{{ $item->informacao_adicional }}</b></h7>
 
-                            </div>
-                            <hr>
+                            
                         </div>
 
-                        <div class="col-lg-12">
-                            <div class="col-lg-12">
+                        <div class="col-lg-12" id="Sp">
+                            
                                 <button type="submit" class="btnilustre2">
                                     <b><i class="fa fa-stop-circle" aria-hidden="true"></i> Encerramento de Inscrição</b>
                                 </button>
                                 <h7><b>{{ $item->dia }}/{{ $item->numeroMes }}/{{ $item->numeroAno }}</b></h7>
 
-                            </div>
                         </div>
                     </div>
 

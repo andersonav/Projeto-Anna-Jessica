@@ -129,7 +129,7 @@
                             </p>
 
                             <div class="social-links">
-                                <a href="javascript:void(0);" class="twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="https://twitter.com/AnnaJessicaOfc" class="twitter"><i class="fa fa-twitter"></i></a>
                                 <a href="https://www.facebook.com/AnnaJessicaOficial/" class="facebook"><i
                                         class="fa fa-facebook"></i></a>
                                 <a href="https://www.instagram.com/annajessicaoficial/?hl=pt-br " class="instagram"><i
@@ -150,7 +150,7 @@
                 </div>
                 <div class="credits">
                     Desenvolvido por <a href="javascript:void(0);">
-                        <font><b>Edev</b></font>
+                        <font color="blue"><b>Edev</b></font>
                     </a>
                 </div>
             </div>

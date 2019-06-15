@@ -26,7 +26,7 @@ class HomeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $title = "Anna Jéssica Oficial";
+        $title = "Anna Jéssica";
         $eventoquadro = DB::select("SELECT evento.*,
         (SELECT GROUP_CONCAT(link_evento.nome_link SEPARATOR ',') FROM link_evento WHERE link_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
         (SELECT GROUP_CONCAT(link_evento.link SEPARATOR ',') FROM link_evento WHERE link_evento.id_evento_fk = evento.id_evento) as linkEvento
@@ -102,7 +102,7 @@ class HomeController extends Controller {
 
     public function adminConf() {
         if (auth()->user()->id_tipo_usuario == 1) {
-            $title = "Administrador";
+            $title = "Anna Jéssica";
             return view('adminConf', compact('title'));
         }
 
@@ -111,7 +111,7 @@ class HomeController extends Controller {
 
     public function pageRelatorioUser() {
         if (auth()->user()->id_tipo_usuario == 2) {
-            $title = "Relatório";
+            $title = "Anna Jéssica";
             $relatorios = DB::select('SELECT fa.*, ke.nome_kit, eve.nome_evento FROM fatura fa
             LEFT JOIN kit_evento ke ON fa.id_kit = ke.id_kit
             LEFT JOIN evento eve ON ke.id_evento_fk = eve.id_evento
@@ -124,7 +124,7 @@ class HomeController extends Controller {
     }
 
     public function compraKit() {
-        $title = "Compra Kit";
+        $title = "Anna Jéssica";
         $selectKits = DB::select("SELECT
 		LEFT(lower(DATE_FORMAT(prazo, '%d')), 3) AS dia,
         LEFT(lower(DATE_FORMAT(prazo, '%M')), 3) AS mes,
@@ -149,12 +149,12 @@ class HomeController extends Controller {
     }
 
     public function perfil() {
-        $title = "Perfil";
+        $title = "Anna Jéssica";
         return view('perfil', compact('title'));
     }
 
     public function adminRelatorio() {
-        $title = "Relatorio";
+        $title = "Anna Jéssica";
         return view('admin.relatoriosadmin', compact('title'));
     }
 
