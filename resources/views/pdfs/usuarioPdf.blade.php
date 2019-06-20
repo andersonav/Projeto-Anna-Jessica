@@ -24,28 +24,36 @@ and open the template in the editor.
                 <h3>
         </center>
     </div>
+    <br><br>
+    
+    <table id="tabela" class="table table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th style="width:20%;">Nome</th>
+                <th>Email</th>
+                <th style="width:30%">Telefone</th>
+                <th>Cidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($usuarios as $usuario)
+            <tr>
+                <td>{{$usuario->nome_usuario}}</td>
+                <td>{{$usuario->email}}</td>
+                <td>{{$usuario->telefone_usuario}}</td>
+                <td>{{$usuario->cidade_usuario}}</td>
+            </tr>
+            @empty
+            <tr>
+                <td>Sem registro</td>
+                <td>Sem registro</td>
+                <td>Sem registro</td>
+                <td>Sem registro</td>
+            </tr>
+            @endforelse
 
-
-    @foreach($usuarios as $usuario)
-
-    <div id="lista">
-        <div class="item">
-            Nome: {{$usuario->nome_usuario}}
-        </div>
-        <div class="item">
-            Email: {{$usuario->email}}
-        </div>
-        <div class="item">
-            Telefone: {{$usuario->telefone_usuario}}
-        </div>
-        <div class="item">
-            Cidade: {{$usuario->cidade_usuario}}
-        </div>
-    </div>
-
-    @endforeach
-
-
+        </tbody>
+    </table>
 </body>
 
 </html>

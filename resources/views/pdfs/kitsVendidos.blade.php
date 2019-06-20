@@ -24,16 +24,42 @@ and open the template in the editor.
                 <h3>
         </center>
     </div>
+    <br><br>
+    
+    <table id="tabela" class="table table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th style="width:20%;">Usuario</th>
+                <th style="width:20%;">Nome evento</th>
+                <th style="width:20%;">Nome kit</th>
+                <th>Tamanho</th>
+                <th>Cidade</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($kits as $kit)
+            <tr>
+                <td>{{ $kit->nome_usuario }}</td>
+                <td>{{ $kit->nome_evento }}</td>
+                <td>{{ $kit->nome_kit }}</td>
+                <td>{{ $kit->tamanho }}</td>
+                <td>{{ $kit->cidade_usuario  }}</td>
+                <td>{{ $kit->valor }}</td>
+            </tr>
+            @empty
+            <tr>
+                <td>Sem registro</td>
+                <td>Sem registro</td>
+                <td>Sem registro</td>
+                <td>Sem registro</td>
+                <td>Sem registro</td>
+                <td>Sem registro</td>
+            </tr>
+            @endforelse
 
-     @foreach($kits as $kit)
-    <div id="lista">
-        <div class="item">
-            Nome: {{$kit->nome_usuario}}
-        </div>
-
-    </div>
-
-    @endforeach
+        </tbody>
+    </table>
 </body>
 
 </html>
