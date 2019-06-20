@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 14-Jun-2019 às 13:13
+-- Generation Time: 20-Jun-2019 às 00:05
 -- Versão do servidor: 5.7.26-0ubuntu0.18.10.1
 -- PHP Version: 7.2.19-0ubuntu0.18.10.1
 
@@ -40,6 +40,13 @@ CREATE TABLE `agenda` (
   `data_de_atualizacao` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `status` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `agenda`
+--
+
+INSERT INTO `agenda` (`id_agenda`, `nome_evento`, `descricao`, `imagem`, `data_inicio`, `data_fim`, `hora_inicio`, `hora_fim`, `cidade`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
+(1, 'Evento silcar', 'Teste', 'imgteste.jpg', '2019-06-12', '2019-06-12', '07:00:00', '10:00:00', 'Maranguape', '2019-06-14 19:34:48', '2019-06-14 19:34:48', 1);
 
 -- --------------------------------------------------------
 
@@ -145,7 +152,6 @@ CREATE TABLE `evento` (
   `modo` varchar(255) DEFAULT NULL,
   `tipo` varchar(255) NOT NULL,
   `apoio_id_apoio` int(11) NOT NULL,
-  `patrocinio_id_patrocinio` int(11) NOT NULL,
   `realizacao_id_realizacao` int(11) NOT NULL,
   `data_de_atualizacao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `data_de_criacao` timestamp NULL DEFAULT CURRENT_TIMESTAMP
@@ -155,12 +161,11 @@ CREATE TABLE `evento` (
 -- Extraindo dados da tabela `evento`
 --
 
-INSERT INTO `evento` (`id_evento`, `nome_evento`, `data`, `hora_inicio`, `hora_fim`, `informacao_adicional`, `endereco`, `percurso`, `distancia`, `status`, `imagem`, `prazo`, `modo`, `tipo`, `apoio_id_apoio`, `patrocinio_id_patrocinio`, `realizacao_id_realizacao`, `data_de_atualizacao`, `data_de_criacao`) VALUES
-(50, '2ª Nigth Bike MPE', '2019-07-20', '10:00', '12:00', 'Retirada do kit no dia, local epitacio socity!', 'Rua Mundica Paula', 'Passeio Ciclistico', '24', 1, 'metas.jpg', '2019-06-17', 'Fique por dentro!', 'Destaque', 10, 4, 5, '2019-06-14 01:46:34', '2019-06-14 01:46:34'),
-(51, '9º cervejada de Boa Viagem imagem', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 1, 'cervejadabv.png', '1970-01-01', 'Fique por dentro!', 'Quadro', 10, 4, 5, '2019-06-14 02:01:20', '2019-06-14 02:01:20'),
-(52, 'Cobertura oficial do Bloco Fantastico 2019', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 1, 'fantastico.png', '1970-01-01', 'Fique por dentro!', 'Quadro', 10, 4, 5, '2019-06-14 02:04:05', '2019-06-14 02:04:05'),
-(53, '1º Night Bike Maranguape imagem', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 1, 'imgteste.jpg', '1970-01-01', 'Fique por dentro!', 'Quadro', 10, 4, 5, '2019-06-14 02:07:02', '2019-06-14 02:07:02'),
-(54, 'Vaquejada de Boa Viagem', '1970-01-01', NULL, NULL, NULL, NULL, NULL, NULL, 1, 'vaquejadabv.png', '1970-01-01', 'Em breve!', 'Quadro', 10, 4, 5, '2019-06-14 02:09:28', '2019-06-14 02:09:28');
+INSERT INTO `evento` (`id_evento`, `nome_evento`, `data`, `hora_inicio`, `hora_fim`, `informacao_adicional`, `endereco`, `percurso`, `distancia`, `status`, `imagem`, `prazo`, `modo`, `tipo`, `apoio_id_apoio`, `realizacao_id_realizacao`, `data_de_atualizacao`, `data_de_criacao`) VALUES
+(50, '2ª Nigth Bike MPE', '2019-07-20', '10:00', '12:00', 'Retirada do kit no dia, local epitacio socity!', 'Rua Mundica Paula', 'Passeio Ciclistico', '24', 1, 'metas.jpg', '2019-06-17', 'Fique por dentro!', 'Destaque', 10, 5, '2019-06-14 01:46:34', '2019-06-14 01:46:34'),
+(51, '9º cervejada de Boa Viagem imagem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'cervejadabv.png', NULL, 'Fique por dentro!', 'Quadro', 10, 5, '2019-06-14 02:01:20', '2019-06-14 02:01:20'),
+(52, 'Cobertura oficial do Bloco Fantastico 2019', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'fantastico.png', NULL, 'Fique por dentro!', 'Quadro', 10, 5, '2019-06-14 02:04:05', '2019-06-14 02:04:05'),
+(53, '1º Night Bike Maranguape imagem', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 'imgteste.jpg', NULL, 'Fique por dentro!', 'Quadro', 10, 5, '2019-06-14 02:07:02', '2019-06-14 02:07:02');
 
 -- --------------------------------------------------------
 
@@ -188,7 +193,8 @@ CREATE TABLE `fatura` (
 
 INSERT INTO `fatura` (`id`, `id_usuario`, `referencia`, `forma`, `data`, `valor`, `tamanho`, `id_kit`, `status`, `data_de_criacao`, `data_de_atualizacao`) VALUES
 (60, 2, '$2y$10$IpxaBCDx8QBtuL0WzXOyguj9LtsZSwC9lUbnkqAoGgLTYYezQiGWC', 'Mercado Pago', '2019-06-13 00:00:00', '150,00', 'P', 52, 'Pendente', '2019-06-13 22:53:30', '2019-06-13 22:53:30'),
-(61, 2, '$2y$10$tmvnnmCO8LpGBt9G2jKrNeJw1asWOY8Pe/qbG0qkvchxJenZHVnoq', 'Mercado Pago', '2019-06-13 00:00:00', '120,00', 'M', 50, 'Pendente', '2019-06-13 22:53:47', '2019-06-13 22:53:47');
+(61, 2, '$2y$10$tmvnnmCO8LpGBt9G2jKrNeJw1asWOY8Pe/qbG0qkvchxJenZHVnoq', 'Mercado Pago', '2019-06-13 00:00:00', '120,00', 'M', 50, 'Pendente', '2019-06-13 22:53:47', '2019-06-13 22:53:47'),
+(62, 3, '$2y$10$QYJSRAjotkF.fL1ob6hLMOQSwKls.s5XefdFQf1ifvvZZOhsHlXG6', 'Mercado Pago', '2019-06-14 00:00:00', '120,00', 'PP', 50, 'Pendente', '2019-06-14 16:50:45', '2019-06-14 16:50:45');
 
 -- --------------------------------------------------------
 
@@ -236,11 +242,11 @@ CREATE TABLE `link_evento` (
 --
 
 INSERT INTO `link_evento` (`id_link_evento`, `nome_link`, `link`, `id_evento_fk`, `data_de_atualizacao`, `data_de_criacao`) VALUES
-(5, 'Video', 'https://www.youtube.com/watch?v=mn8kKVxolbE&t=381s', 52, '2019-06-14 02:04:05', '2019-06-14 02:04:05'),
-(6, 'Video', 'https://www.youtube.com/watch?v=2uqBWfDikAQ', 52, '2019-06-14 02:04:05', '2019-06-14 02:04:05'),
-(7, 'Fotos', 'https://drive.google.com/drive/u/0/folders/1xjco_FZ3QgckoiPCYWcCIDfLrk3HB_jN', 51, '2019-06-14 02:05:25', '2019-06-14 02:05:25'),
-(8, 'Video', 'https://www.youtube.com/watch?v=vBRxEBZFBeI', 51, '2019-06-14 02:05:25', '2019-06-14 02:05:25'),
-(10, 'Video', 'https://www.youtube.com/watch?v=B7vMlgMl9cw&feature=youtu.be', 53, '2019-06-14 02:08:06', '2019-06-14 02:08:06');
+(27, 'Video', 'https://www.youtube.com/watch?v=vBRxEBZFBeI', 51, '2019-06-15 00:52:33', '2019-06-15 00:52:33'),
+(28, 'Fotos', 'https://drive.google.com/drive/u/0/folders/1xjco_FZ3QgckoiPCYWcCIDfLrk3HB_jN', 51, '2019-06-15 00:52:33', '2019-06-15 00:52:33'),
+(29, 'Video', 'https://www.youtube.com/watch?v=B7vMlgMl9cw&feature=youtu.be', 53, '2019-06-20 05:58:13', '2019-06-20 05:58:13'),
+(30, 'Video', 'https://www.youtube.com/watch?v=2uqBWfDikAQ', 52, '2019-06-20 06:04:41', '2019-06-20 06:04:41'),
+(31, 'Video', 'https://www.youtube.com/watch?v=mn8kKVxolbE&t=381s', 52, '2019-06-20 06:04:41', '2019-06-20 06:04:41');
 
 -- --------------------------------------------------------
 
@@ -323,7 +329,35 @@ CREATE TABLE `patrocinio` (
 --
 
 INSERT INTO `patrocinio` (`id_patrocinio`, `nome_patrocinio`, `data_de_criacao`, `data_de_atualizacao`, `status`) VALUES
-(4, 'Anna Jessica', '2019-06-13 22:22:42', '2019-06-13 22:22:42', 1);
+(4, 'Anna Jessica', '2019-06-13 22:22:42', '2019-06-13 22:22:42', 1),
+(5, 'Anna Jessica 2', '2019-06-20 01:32:45', '2019-06-20 01:32:45', 1),
+(6, 'Anna Jessica 3', '2019-06-20 01:32:52', '2019-06-20 01:32:52', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `patrocinio_evento`
+--
+
+CREATE TABLE `patrocinio_evento` (
+  `patrocinio_evento_id` int(11) NOT NULL,
+  `evento_id_fk` int(11) NOT NULL,
+  `patrocinio_id_fk` int(11) NOT NULL,
+  `data_criacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `data_atualizacao` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `patrocinio_evento`
+--
+
+INSERT INTO `patrocinio_evento` (`patrocinio_evento_id`, `evento_id_fk`, `patrocinio_id_fk`, `data_criacao`, `data_atualizacao`) VALUES
+(5, 50, 4, '2019-06-20 05:58:02', '2019-06-20 05:58:02'),
+(6, 53, 4, '2019-06-20 05:58:13', '2019-06-20 05:58:13'),
+(7, 53, 5, '2019-06-20 05:58:13', '2019-06-20 05:58:13'),
+(8, 53, 6, '2019-06-20 05:58:13', '2019-06-20 05:58:13'),
+(9, 52, 4, '2019-06-20 06:04:41', '2019-06-20 06:04:41'),
+(10, 52, 5, '2019-06-20 06:04:41', '2019-06-20 06:04:41');
 
 -- --------------------------------------------------------
 
@@ -435,15 +469,15 @@ INSERT INTO `tamanho` (`hash_tamanho`, `tamanho`, `data_de_atualizacao`, `data_d
 ('1885d3fb2dbd90fd0c13d7270e73a5d8', 'M', '2019-06-14 01:51:58', '2019-06-14 01:51:58'),
 ('1885d3fb2dbd90fd0c13d7270e73a5d8', 'G', '2019-06-14 01:51:58', '2019-06-14 01:51:58'),
 ('1885d3fb2dbd90fd0c13d7270e73a5d8', 'GG', '2019-06-14 01:51:58', '2019-06-14 01:51:58'),
-('244c6e729a24c0a44a4fb190659587a0', 'P', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
-('244c6e729a24c0a44a4fb190659587a0', 'M', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
-('244c6e729a24c0a44a4fb190659587a0', 'G', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
-('244c6e729a24c0a44a4fb190659587a0', 'GG', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
-('838e0d931ad336db7de93f54c17512e8', 'PP', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
-('838e0d931ad336db7de93f54c17512e8', 'P', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
-('838e0d931ad336db7de93f54c17512e8', 'M', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
-('838e0d931ad336db7de93f54c17512e8', 'G', '2019-06-14 01:53:17', '2019-06-14 01:53:17'),
-('838e0d931ad336db7de93f54c17512e8', 'GG', '2019-06-14 01:53:17', '2019-06-14 01:53:17');
+('244c6e729a24c0a44a4fb190659587a0', 'P', '2019-06-20 05:58:02', '2019-06-20 05:58:02'),
+('244c6e729a24c0a44a4fb190659587a0', 'M', '2019-06-20 05:58:02', '2019-06-20 05:58:02'),
+('244c6e729a24c0a44a4fb190659587a0', 'G', '2019-06-20 05:58:02', '2019-06-20 05:58:02'),
+('244c6e729a24c0a44a4fb190659587a0', 'GG', '2019-06-20 05:58:02', '2019-06-20 05:58:02'),
+('838e0d931ad336db7de93f54c17512e8', 'PP', '2019-06-20 05:58:02', '2019-06-20 05:58:02'),
+('838e0d931ad336db7de93f54c17512e8', 'P', '2019-06-20 05:58:02', '2019-06-20 05:58:02'),
+('838e0d931ad336db7de93f54c17512e8', 'M', '2019-06-20 05:58:02', '2019-06-20 05:58:02'),
+('838e0d931ad336db7de93f54c17512e8', 'G', '2019-06-20 05:58:02', '2019-06-20 05:58:02'),
+('838e0d931ad336db7de93f54c17512e8', 'GG', '2019-06-20 05:58:02', '2019-06-20 05:58:02');
 
 -- --------------------------------------------------------
 
@@ -491,7 +525,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `nome_usuario`, `telefone_usuario`, `cidade_usuario`, `email`, `password`, `token`, `remember_token`, `ativo_usuario`, `data_de_criacao`, `data_de_atualizacao`, `id_tipo_usuario`) VALUES
 (1, 'Anderson Alves', '(85) 98835-5751', 'Maranguape', 'anderson.alvesprogrammer@gmail.com', '$2y$10$I.FU65R/Z1ux.E8Kyyzr..TI.aESVIq9uv4bTTqglaJ3IACWvEqQK', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', '7DIfQlGxh5668e5DS6bOUyUf0wcj8Nm0WUkLWUe54tgu1BdsqPMR7ZxyIzFV', 1, '2019-04-23 22:54:35', '2019-05-26 18:33:02', 1),
-(2, 'Mauricio Abreu', '(85) 9883-55751', 'Maranguape', 'mauricio@gmail.com', '$2y$10$oNXTVKl2Y6V2v8I042h34.QVcvdq2McEqTsARjgxnyRhYACGFKmz.', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'wOYhMYtafdTuszQhIyoVllZCcaVEYhckIVgPbcNZJh1b04KuXIOLkdBnbH0E', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 1),
+(2, 'Mauricio Abreu', '(85) 9883-55751', 'Maranguape', 'mauricio@gmail.com', '$2y$10$oNXTVKl2Y6V2v8I042h34.QVcvdq2McEqTsARjgxnyRhYACGFKmz.', 'f9HdNLLqgMjxWdQVPihb2pTRvUJ5ybWjZYtgKrur', 'NdL1ZN1IC4bC2oNk9kz0PoIK4wlFyLWIeQxGjS1YonXDrpsdyR4wMC1YTWsH', 1, '2019-04-23 22:54:35', '2019-04-23 22:54:35', 1),
 (3, 'José almeida', '(85) 65455-6454', 'Maranguape', 'test@gmail.com', '$2y$10$R.sjbuWFv7xnAud0g1I3GOAz9jIo4xgH46q8qs7uQhQv29cHpaZEi', NULL, 'Dr6jAOwIJ51eFqgQCOjYOnN5EPTbSlu2m2ZNjOelXXLPA1Kh8wdQMGQ4pNGF', 1, '2019-05-14 21:28:14', '2019-05-14 21:28:14', 2),
 (4, 'Teste banco', '(65) 6556-56565', 'Maranguape', 'mauricio123@gmail.com', '$2y$10$peSwmusxOrgot3f8pOFgxOyYXx.dDGfPG2Ln7XAwdqJzdOlt/3ijq', NULL, 'uWHQLmsSaxUE3PI933FkRQdqIQF3XqzpT6N7j9Qma5CiAAOuhwwY8waMb26W', 1, '2019-05-23 01:04:08', '2019-05-23 01:04:08', 2),
 (5, 'Mauricio Abreu', '(56) 4565-11631', 'Maranguape', 'mauricioabreu75@gmail.com', '$2y$10$6.Hf/lCvjizzvdLbRDPdP.C4W27NgLgSEWoqbNc53REm5x4kInrUy', NULL, 'RE2WBp8qRkDkNzscmpnVTxYGzswzfOtu5W2pIMPTWCmCbS6arXceEduAEELw', 1, '2019-05-30 18:32:29', '2019-05-30 18:32:29', 2);
@@ -568,7 +602,6 @@ ALTER TABLE `comp_evento`
 ALTER TABLE `evento`
   ADD PRIMARY KEY (`id_evento`),
   ADD KEY `fk_evento_apoio1` (`apoio_id_apoio`),
-  ADD KEY `fk_evento_patrocinio1` (`patrocinio_id_patrocinio`),
   ADD KEY `fk_evento_realizacao1` (`realizacao_id_realizacao`);
 
 --
@@ -614,6 +647,12 @@ ALTER TABLE `password_resets`
 --
 ALTER TABLE `patrocinio`
   ADD PRIMARY KEY (`id_patrocinio`);
+
+--
+-- Indexes for table `patrocinio_evento`
+--
+ALTER TABLE `patrocinio_evento`
+  ADD PRIMARY KEY (`patrocinio_evento_id`);
 
 --
 -- Indexes for table `permissao`
@@ -676,7 +715,7 @@ ALTER TABLE `usuario_permissao_menu`
 -- AUTO_INCREMENT for table `agenda`
 --
 ALTER TABLE `agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `anuncio`
 --
@@ -701,12 +740,12 @@ ALTER TABLE `comp_evento`
 -- AUTO_INCREMENT for table `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `id_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 --
 -- AUTO_INCREMENT for table `fatura`
 --
 ALTER TABLE `fatura`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 --
 -- AUTO_INCREMENT for table `kit_evento`
 --
@@ -716,7 +755,7 @@ ALTER TABLE `kit_evento`
 -- AUTO_INCREMENT for table `link_evento`
 --
 ALTER TABLE `link_evento`
-  MODIFY `id_link_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_link_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `menu`
 --
@@ -731,7 +770,12 @@ ALTER TABLE `parceiro`
 -- AUTO_INCREMENT for table `patrocinio`
 --
 ALTER TABLE `patrocinio`
-  MODIFY `id_patrocinio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_patrocinio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `patrocinio_evento`
+--
+ALTER TABLE `patrocinio_evento`
+  MODIFY `patrocinio_evento_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `permissao`
 --
@@ -781,7 +825,6 @@ ALTER TABLE `usuario_permissao_menu`
 --
 ALTER TABLE `evento`
   ADD CONSTRAINT `fk_evento_apoio1` FOREIGN KEY (`apoio_id_apoio`) REFERENCES `apoio` (`id_apoio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_evento_patrocinio1` FOREIGN KEY (`patrocinio_id_patrocinio`) REFERENCES `patrocinio` (`id_patrocinio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_evento_realizacao1` FOREIGN KEY (`realizacao_id_realizacao`) REFERENCES `realizacao` (`id_realizacao`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
