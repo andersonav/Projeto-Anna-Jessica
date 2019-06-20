@@ -89,11 +89,13 @@ function adicionarKit() {
         '</div>' +
         '<div class="form-group col-md-4 formReset kit' + kitNum + '">' +
         '<select name="' + kitNum + '[]" class="selectpicker show-tick selectTam' + kitNum + '" data-live-search="true" title="Tamanho:" multiple>' +
+        '<option>Infantil</option>' +
         '<option>PP</option>' +
         '<option>P</option>' +
         '<option>M</option>' +
         '<option>G</option>' +
         '<option>GG</option>' +
+        '<option>Extra G</option>' +
         '</select>' +
         '</div>' +
         '<div class="form-group col-md-4 formReset kit' + kitNum + '">' +
@@ -198,8 +200,8 @@ function preencherModal(dados) {
     $('.modal-footer .btnmodal').text('Editar');
     $('input[name=id_evento]').val(dados[0].id_evento);
     $('input[name=nome_evento]').val(dados[0].nome_evento);
-    console.log(typeof(dados[0].data));
-    if (typeof(dados[0].data) != 'object') {
+    console.log(typeof (dados[0].data));
+    if (typeof (dados[0].data) != 'object') {
         $('input[name=data]').val(dataMask(dados[0].data));
     }
     $('.inputImgEvento').text(dados[0].imagem);
@@ -207,13 +209,16 @@ function preencherModal(dados) {
     $('input[name=hora_fim]').val(dados[0].hora_fim);
     $('input[name=percurso]').val(dados[0].percurso);
     $('input[name=distancia]').val(dados[0].distancia);
-    if (typeof(dados[0].prazo) != 'object') {
+    if (typeof (dados[0].prazo) != 'object') {
         $('input[name=data_encerramento]').val(dataMask(dados[0].prazo));
     }
     $('input[name=endereco]').val(dados[0].endereco);
     $('textarea[name=info_adc]').val(dados[0].informacao_adicional);
     $('select[name=apoio]').selectpicker('val', dados[0].apoio_id_apoio);
-    $('select[name=patrocinio]').selectpicker('val', dados[0].patrocinio_id_patrocinio);
+    if (dados[0].patEvento != null) {
+        var pat = dados[0].patEvento.split(',');
+        $('.selectPat').selectpicker('val', pat);
+    }
     $('select[name=realizacao]').selectpicker('val', dados[0].realizacao_id_realizacao);
     $('select[name=modo]').selectpicker('val', dados[0].modo);
     $('select[name=tipo]').selectpicker('val', dados[0].tipo);

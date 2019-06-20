@@ -84,8 +84,8 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <select name="patrocinio" class="selectpicker show-tick" data-live-search="true"
-                                    title="Patrocionios:">
+                                <select name="patrocinio[]" class="selectpicker selectPat show-tick" data-live-search="true"
+                                    title="Patrocionios:" multiple data-selected-text-format="count > 2">
                                     @forelse ($patrocionios as $patrocionio)
                                     <option value="{{ $patrocionio->id_patrocinio }}">
                                         {{ $patrocionio->nome_patrocinio }}</option>

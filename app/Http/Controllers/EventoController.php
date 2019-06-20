@@ -6,6 +6,7 @@ use App\Evento;
 use App\Kit;
 use App\Link;
 use App\Tamanho;
+use App\PatrocinioEvento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
@@ -21,7 +22,6 @@ class EventoController extends Controller
     public function pageEvento()
     {
         $eventos = Evento::join('apoio', 'id_apoio', '=', 'apoio_id_apoio')
-            ->join('patrocinio', 'id_patrocinio', '=', 'patrocinio_id_patrocinio')
             ->join('realizacao', 'id_realizacao', '=', 'realizacao_id_realizacao')
             ->get();
         $apoios = DB::table('apoio')->where('status', 1)->get();
@@ -42,10 +42,10 @@ class EventoController extends Controller
         $destinationPath = public_path('img/eventos');
         $image->move($destinationPath, $name);
 
-        
+
         $newdata_encerramento = null;
         $newDate = null;
-        
+
         if ($request->data != null) {
             $data = str_replace('/', '-', $request->data);
             $newDate = date("Y-m-d", strtotime($data));
@@ -70,7 +70,6 @@ class EventoController extends Controller
             'endereco' => $request->endereco,
             'imagem' => $name,
             'apoio_id_apoio' => $request->apoio,
-            'patrocinio_id_patrocinio' => $request->patrocinio,
             'realizacao_id_realizacao' => $request->realizacao,
             'status' => 1,
         ]);
@@ -84,6 +83,15 @@ class EventoController extends Controller
                     'nome_link' => $request->nomeLinkEvento[$i],
                     'link' => $request->linkEvento[$i],
                     'id_evento_fk' => $id_evento[0]->id_evento,
+                ]);
+            }
+        }
+        if ($request->patrocinio != null) {
+            for ($i = 0; $i < count($request->patrocinio); $i++) {
+
+                $createPatrocinio = PatrocinioEvento::create([
+                    'patrocinio_id_fk' => $request->patrocinio[$i],
+                    'evento_id_fk' => $id_evento[0]->id_evento
                 ]);
             }
         }
@@ -154,15 +162,26 @@ class EventoController extends Controller
             'prazo' => $newdata_encerramento,
             'endereco' => $request->endereco,
             'apoio_id_apoio' => $request->apoio,
-            'patrocinio_id_patrocinio' => $request->patrocinio,
             'realizacao_id_realizacao' => $request->realizacao,
             'status' => 1,
         ));
 
         $deletarLink = DB::table('link_evento')->where('id_evento_fk', $request->id_evento)->delete();
+        $deletarPatrocinio = DB::table('patrocinio_evento')->where('evento_id_fk', $request->id_evento)->delete();
+
         if (isset($request->kitDel)) {
             foreach ($request->kitDel as $kit) {
                 $deletarKit = DB::table('kit_evento')->where('id_kit', $kit)->delete();
+            }
+        }
+
+        if ($request->patrocinio != null) {
+            for ($i = 0; $i < count($request->patrocinio); $i++) {
+
+                $createPatrocinio = PatrocinioEvento::create([
+                    'patrocinio_id_fk' => $request->patrocinio[$i],
+                    'evento_id_fk' => $request->id_evento
+                ]);
             }
         }
 
@@ -259,7 +278,9 @@ class EventoController extends Controller
         (SELECT GROUP_CONCAT(link_evento.nome_link SEPARATOR ",")
         FROM link_evento WHERE link_evento.id_evento_fk = even.id_evento) as nomeLink ,
         (SELECT GROUP_CONCAT(link_evento.link SEPARATOR ",")
-        FROM link_evento WHERE link_evento.id_evento_fk = even.id_evento) as linkEvento
+        FROM link_evento WHERE link_evento.id_evento_fk = even.id_evento) as linkEvento,
+        (SELECT GROUP_CONCAT(patrocinio_evento.patrocinio_id_fk SEPARATOR ",")
+        FROM patrocinio_evento WHERE patrocinio_evento.evento_id_fk = even.id_evento) as patEvento
 
         FROM evento even
         WHERE even.id_evento = ?', [$request->idEvento]);
@@ -288,6 +309,7 @@ class EventoController extends Controller
 
         $deleteEvento = DB::table('evento')->where('id_evento', $request->id_evento)->delete();
         $deletarLink = DB::table('link_evento')->where('id_evento_fk', $request->id_evento)->delete();
+        $deletarPatrocinio = DB::table('patrocinio_evento')->where('evento_id_fk', $request->id_evento)->delete();
         $selecionarKit = DB::table('kit_evento')->where('id_evento_fk', $request->id_evento)->get();
 
         foreach ($selecionarKit as $value) {
