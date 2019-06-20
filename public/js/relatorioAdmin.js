@@ -1,13 +1,16 @@
-$(document).ready(function (){
+$(document).ready(function () {
     getCountUsuario();
     getCountUsuarioEventoDestaque();
     getEventosRealizados();
+
+
+
 });
 
-function getCountUsuario(){
+function getCountUsuario() {
     var rota = window.location.href;
     $.ajax({
-        url: rota+"/getUsuarios",
+        url: rota + "/getUsuarios",
         type: 'POST',
         data: {
 
@@ -19,9 +22,9 @@ function getCountUsuario(){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (data) {
-            $("#countUsuarios").html(data[0].qtdUsuario);    
+            $("#countUsuarios").html(data[0].qtdUsuario);
         }, error: function (errors, textStatus, errorThrown) {
-       
+
         },
         complete: function () {
 
@@ -29,10 +32,10 @@ function getCountUsuario(){
     });
 }
 
-function getCountUsuarioEventoDestaque(){
+function getCountUsuarioEventoDestaque() {
     var rota = window.location.href;
     $.ajax({
-        url: rota+"/getUsuariosEventoDestaque",
+        url: rota + "/getUsuariosEventoDestaque",
         type: 'POST',
         data: {
 
@@ -44,9 +47,9 @@ function getCountUsuarioEventoDestaque(){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (data) {
-            $("#countUsuariosEventoDestaque").html(data[0].qtdUsuario);    
+            $("#countUsuariosEventoDestaque").html(data[0].qtdUsuario);
         }, error: function (errors, textStatus, errorThrown) {
-       
+
         },
         complete: function () {
 
@@ -54,10 +57,10 @@ function getCountUsuarioEventoDestaque(){
     });
 }
 
-function getEventosRealizados(){
+function getEventosRealizados() {
     var rota = window.location.href;
     $.ajax({
-        url: rota+"/getEventosRealizados",
+        url: rota + "/getEventosRealizados",
         type: 'POST',
         data: {
 
@@ -69,9 +72,9 @@ function getEventosRealizados(){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function (data) {
-            $("#eventosRealizados").html(data[0].eventosRealizados);    
+            $("#eventosRealizados").html(data[0].eventosRealizados);
         }, error: function (errors, textStatus, errorThrown) {
-       
+
         },
         complete: function () {
 

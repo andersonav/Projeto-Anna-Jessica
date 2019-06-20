@@ -9,16 +9,14 @@ use App\User;
 use Illuminate\Support\Facades\Response;
 use App\Kit;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller {
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth');
     }
 
@@ -27,9 +25,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $title = "Anna Jéssica Oficial";
+    public function index() {
+        $title = "Anna Jéssica";
         $eventoquadro = DB::select("SELECT evento.*,
         (SELECT GROUP_CONCAT(link_evento.nome_link SEPARATOR ',') FROM link_evento WHERE link_evento.id_evento_fk = evento.id_evento) as nomeLinkEvento,
         (SELECT GROUP_CONCAT(link_evento.link SEPARATOR ',') FROM link_evento WHERE link_evento.id_evento_fk = evento.id_evento) as linkEvento
@@ -94,44 +91,40 @@ class HomeController extends Controller
         return view('index', compact('title', 'selectKits', 'eventoquadro', 'anuncioClassificacao1', 'anuncioClassificacao2', 'anuncioClassificacao3', 'slideshows', 'agendas', 'datas'));
     }
 
-    public function token(Request $request)
-    {
+    public function token(Request $request) {
         $token = base64_decode($request->token);
         $ativar = DB::table('usuario')->where('email', $token)->update(array(
             'ativo_usuario' => 1,
         ));
         return route('home')
-            ->with('cadastrado', 'cadastrado');
+                        ->with('cadastrado', 'cadastrado');
     }
 
-    public function adminConf()
-    {
+    public function adminConf() {
         if (auth()->user()->id_tipo_usuario == 1) {
-            $title = "Administrador";
+            $title = "Anna Jéssica";
             return view('adminConf', compact('title'));
         }
 
         return back();
     }
 
-    public function pageRelatorioUser()
-    {
+    public function pageRelatorioUser() {
         if (auth()->user()->id_tipo_usuario == 2) {
-            $title = "Relatório";
+            $title = "Anna Jéssica";
             $relatorios = DB::select('SELECT fa.*, ke.nome_kit, eve.nome_evento FROM fatura fa
             LEFT JOIN kit_evento ke ON fa.id_kit = ke.id_kit
             LEFT JOIN evento eve ON ke.id_evento_fk = eve.id_evento
             WHERE fa.id_usuario = ?', [auth()->user()->id_usuario]);
-            
+
             return view('user.pageRelatorioUser', compact('title', 'relatorios'));
         }
 
         return back();
     }
 
-    public function compraKit()
-    {
-        $title = "Compra Kit";
+    public function compraKit() {
+        $title = "Anna Jéssica";
         $selectKits = DB::select("SELECT
 		LEFT(lower(DATE_FORMAT(prazo, '%d')), 3) AS dia,
         LEFT(lower(DATE_FORMAT(prazo, '%M')), 3) AS mes,
@@ -150,32 +143,27 @@ class HomeController extends Controller
         return view('user.compraKit', compact('title', 'selectKits', 'tamanho'));
     }
 
-    public function getKit(Request $request)
-    {
+    public function getKit(Request $request) {
         $kit = Kit::where('id_kit', '=', $request->idKit)->get();
         return response()->json($kit);
     }
 
-    public function perfil()
-    {
-        $title = "Perfil";
+    public function perfil() {
+        $title = "Anna Jéssica";
         return view('perfil', compact('title'));
     }
 
-    public function adminRelatorio()
-    {
-        $title = "Relatorio";
+    public function adminRelatorio() {
+        $title = "Anna Jéssica";
         return view('admin.relatoriosadmin', compact('title'));
     }
 
-    public function getCountUsuarios()
-    {
+    public function getCountUsuarios() {
         $countUsuarios = DB::select("SELECT COUNT(id_usuario) as qtdUsuario FROM usuario WHERE id_tipo_usuario = 2");
         return response()->json($countUsuarios);
     }
 
-    public function getUsuariosEventoDestaque()
-    {
+    public function getUsuariosEventoDestaque() {
         $countUsuarios = DB::select("SELECT COUNT(id_usuario) as qtdUsuario from fatura 
 INNER JOIN kit_evento ON kit_evento.id_kit = fatura.id_kit
 INNER JOIN evento ON evento.id_evento = kit_evento.id_evento_fk
@@ -183,15 +171,48 @@ WHERE evento.tipo = 'Destaque' AND fatura.status = 'Aprovado'");
         return response()->json($countUsuarios);
     }
 
-    public function getEventosRealizados()
-    {
+    public function getEventosRealizados() {
         $eventosRealizados = DB::select("SELECT COUNT(id_evento) as eventosRealizados FROM evento
 WHERE evento.prazo < NOW() AND evento.prazo != ''");
         return response()->json($eventosRealizados);
     }
 
-    public function editUser(Request $request)
-    {
+    public function pdfUsuarios() {
+
+        $usuarios = User::where('ativo_usuario', '=', 1)->get();
+        return \PDF::loadView('pdfs.usuarioPdf', compact('usuarios'))
+                        // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
+                        // Caso a gente quiser colocar por abrir no próprio browser só fazer: ->stream()
+                        ->stream();
+//                        ->download('usuarios.pdf');;
+    }
+
+    public function pdfKits() {
+
+        $kits = DB::select("SELECT * from fatura 
+        INNER JOIN kit_evento ON kit_evento.id_kit = fatura.id_kit
+        INNER JOIN evento ON evento.id_evento = kit_evento.id_evento_fk
+        INNER JOIN usuario ON usuario.id_usuario = fatura.id_usuario
+        WHERE evento.tipo = 'Destaque' AND fatura.status = 'Aprovado'");
+        return \PDF::loadView('pdfs.kitsVendidos', compact('kits'))
+                        // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
+                        // Caso a gente quiser colocar por abrir no próprio browser só fazer: ->stream()
+                        ->stream();
+//                        ->download('kits.pdf');
+    }
+
+    public function pdfEventosRealizados() {
+
+        $eventos = DB::select("SELECT * FROM evento
+WHERE evento.prazo < NOW() AND evento.prazo != ''");
+        return \PDF::loadView('pdfs.eventosRealizados', compact('eventos'))
+                        // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
+                        // Caso a gente quiser colocar por abrir no próprio browser só fazer: ->stream()
+                        ->stream();
+//                        ->download('eventos.pdf');
+    }
+
+    public function editUser(Request $request) {
         $this->validateUserEdit($request);
 
         if ($request->password != null) {
@@ -208,14 +229,14 @@ WHERE evento.prazo < NOW() AND evento.prazo != ''");
         return Response::json($request);
     }
 
-    protected function validateUserEdit(Request $request)
-    {
+    protected function validateUserEdit(Request $request) {
         return $this->validate($request, [
-            'nome' => 'required',
-            'telefone' => 'required',
-            'email' => 'required',
-            'cidade' => 'required',
-            'password' => 'confirmed',
+                    'nome' => 'required',
+                    'telefone' => 'required',
+                    'email' => 'required',
+                    'cidade' => 'required',
+                    'password' => 'confirmed',
         ]);
     }
+
 }
