@@ -153,6 +153,7 @@ jQuery(document).ready(function ($) {
 function editUser() {
   var myForm = document.getElementById('form');
   var form = new FormData(myForm);
+  var nome = $('#nome').val();
 
   $.ajax({
     url: 'user/editUser',
@@ -166,6 +167,8 @@ function editUser() {
     success: function (data, textStatus, jqXHR) {
       $('#password').val('');
       $('#password_confirmation').val('');
+      $('#dropdownMenuLink').text(nome);
+      
       Swal.fire(
         'Perfil atualizado!',
         'seus dados foram atualizados.',

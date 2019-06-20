@@ -12,7 +12,7 @@ $(document).ready(function () {
             $('.tabelaCom').css('display', 'none').html('<table id="tabelaC">'
                 + '<thead>'
                 + '<tr>'
-                + '<th style="width: 55%;">Item</th>'
+                + '<th style="width: 45%;">Item</th>'
                 + '<th>Tam</th>'
                 + '<th>Valor</th>'
                 + '</tr>'

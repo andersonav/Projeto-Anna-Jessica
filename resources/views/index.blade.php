@@ -231,7 +231,7 @@
 
                     @foreach($idsEvento as $idEvento)
                     <div class="row schedule-item">
-                        <div class="col-md-3"><time>{{$horasInicio[$cont]}}</time><br><span>{{$cidades[$cont]}}</span></div>
+                        <div class="col-md-3"><time>{{ date("h:i", strtotime($horasInicio[$cont])) }}</time><br><span>{{$cidades[$cont]}}</span></div>
                         <div class="col-md-9">
                             @if(isset($imagensEvento[$cont]))
                             <div class="speaker">
@@ -865,7 +865,7 @@
 
 
 
-    <section id="venue" class="wow fadeInUp">
+    <section id="venue" class="buy-tickets wow fadeInUp">
 
         <div class="container-fluid">
 

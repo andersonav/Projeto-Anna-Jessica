@@ -459,6 +459,7 @@ class ComposerStaticInitb5c576cc115fdfbeb787d91ff8e55c75
         'App\\Notifications\\ResetPassword' => __DIR__ . '/../..' . '/app/Notifications/ResetPassword.php',
         'App\\Parceiro' => __DIR__ . '/../..' . '/app/Parceiro.php',
         'App\\Patrocinio' => __DIR__ . '/../..' . '/app/Patrocinio.php',
+        'App\\PatrocinioEvento' => __DIR__ . '/../..' . '/app/PatrocinioEvento.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

@@ -95,7 +95,7 @@ function adicionarKit() {
         '<option>M</option>' +
         '<option>G</option>' +
         '<option>GG</option>' +
-        '<option>Extra G</option>' +
+        '<option>XG</option>' +
         '</select>' +
         '</div>' +
         '<div class="form-group col-md-4 formReset kit' + kitNum + '">' +

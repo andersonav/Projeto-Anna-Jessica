@@ -42,6 +42,7 @@ return array(
     'App\\Notifications\\ResetPassword' => $baseDir . '/app/Notifications/ResetPassword.php',
     'App\\Parceiro' => $baseDir . '/app/Parceiro.php',
     'App\\Patrocinio' => $baseDir . '/app/Patrocinio.php',
+    'App\\PatrocinioEvento' => $baseDir . '/app/PatrocinioEvento.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
