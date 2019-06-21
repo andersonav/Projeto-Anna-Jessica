@@ -20,7 +20,7 @@ and open the template in the editor.
 
     <div id="header">
         <center>
-            <h3><b>Relatório de Usuarios</b>
+            <h3><b>Relatório de Usuários</b>
                 <h3>
         </center>
     </div>
