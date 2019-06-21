@@ -165,7 +165,7 @@
             </div>
             <div class="credits">
                 Desenvolvido por <a href="#">
-                    <font color="blue"><b>EDEV</b></font>
+                    <b>Edev</b>
                 </a>
             </div>
         </div>

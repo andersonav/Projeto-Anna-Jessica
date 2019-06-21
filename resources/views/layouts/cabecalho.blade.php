@@ -150,7 +150,7 @@
                 </div>
                 <div class="credits">
                     Desenvolvido por <a href="javascript:void(0);">
-                        <font color="blue"><b>Edev</b></font>
+                        <b>Edev</b>
                     </a>
                 </div>
             </div>
