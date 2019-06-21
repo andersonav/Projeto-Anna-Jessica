@@ -216,3 +216,18 @@
         margin: 0% 0% 0% 18% !important;
     }
 }
+
+@media only screen and (max-width: 415px) {
+    .link {
+        margin: 0% 0% 0% 13% !important;
+    }
+    .linkSpan {
+        margin-right: -47px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .nomeLink {
+        width: 77% !important;
+    }
+}

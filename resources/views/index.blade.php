@@ -984,13 +984,14 @@
                                 }
                             })(navigator.userAgent || navigator.vendor || window.opera) 
                             if (isMobile) {
-                                valor = 8400
+                                $('html,body').animate({
+                                    scrollTop: $("#contact").offset().top
+                                }, 'slow');
                             } else {
-                                valor = 4400
+                                $('html,body').animate({
+                                    scrollTop: $("#contact").offset().top
+                                }, 'slow');
                             }
-                            $('html,body').animate({
-                                scrollTop: valor
-                            }, 'slow');
                         });
                     </script>
 
@@ -1047,7 +1048,7 @@
                 <form>
                     <div class="form-group">
                         <label for="recipient-name" class="col-form-label">Nome:</label>
-                        <input type="text" placeholder="Ex: Mauricio Abreu" class="form-control" id="nomee">
+                        <input type="text" placeholder="Ex: Arnaldo Lopes" class="form-control" id="nomee">
                     </div>
                     <div class="form-group">
                         <label for="message-text" class="col-form-label">Mensagem:</label>

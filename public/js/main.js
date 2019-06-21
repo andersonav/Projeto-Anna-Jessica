@@ -167,7 +167,7 @@ function editUser() {
     success: function (data, textStatus, jqXHR) {
       $('#password').val('');
       $('#password_confirmation').val('');
-      $('#dropdownMenuLink').text(nome);
+      $('a#dropdownMenuLink').html(nome);
       
       Swal.fire(
         'Perfil atualizado!',

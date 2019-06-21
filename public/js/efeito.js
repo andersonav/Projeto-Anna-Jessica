@@ -89,52 +89,6 @@ $(function(){
 });
 
 
-// Read more: http://www.linhadecodigo.com.br/artigo/3491/tratando-os-eventos-do-mouse-com-jquery.aspx#ixzz5rOkkpScU
-// $(window).scroll(function() {
-//     console.log($(this).scrollTop());
-//     if ($(this).scrollTop() < 550) {
-//         $('.sem').each(function() {
-//             $(this).removeClass('menu-active');
-//             $('.ini').addClass('menu-active');
-//         });
-//     } else if ($(this).scrollTop() > 550 && $(this).scrollTop() < 755) {
-//         $('.sem').each(function() {
-//             $(this).removeClass('menu-active');
-//             $('.sobre').addClass('menu-active');
-//         });
-//     } else if ($(this).scrollTop() > 755 && $(this).scrollTop() < 1200) {
-//         $('.sem').each(function() {
-//             $(this).removeClass('menu-active');
-//             $('.port').addClass('menu-active');
-//         });
-//     } else if ($(this).scrollTop() > 1200 && $(this).scrollTop() < 2160) {
-//         $('.sem').each(function() {
-//             $(this).removeClass('menu-active');
-//             $('.age').addClass('menu-active');
-//         });
-//     } else if ($(this).scrollTop() > 2160 && $(this).scrollTop() < 3010) {
-//         $('.sem').each(function() {
-//             $(this).removeClass('menu-active');
-//             $('.ser').addClass('menu-active');
-//         });
-//     } else if ($(this).scrollTop() > 3010 && $(this).scrollTop() < 4080) {
-//         $('.sem').each(function() {
-//             $(this).removeClass('menu-active');
-//             $('.eve').addClass('menu-active');
-//         });
-//     } else if ($(this).scrollTop() > 4080 && $(this).scrollTop() < 4600 && $('.inc').hasClass('sem') != false) {
-//         $('.sem').each(function() {
-//             $(this).removeClass('menu-active');
-//             $('.inc').addClass('menu-active');
-//         });
-//     } else {
-//         $('.sem').each(function() {
-//             $(this).removeClass('menu-active');
-//             $('.fc').addClass('menu-active');
-//         });
-//     }
-// });
-
 // LOGICA PARA WHATS APP
 
 let telefone = '5585989105894s'

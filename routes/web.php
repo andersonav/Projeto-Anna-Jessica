@@ -77,7 +77,7 @@ Route::get('/', function () {
         ");
 
     return view('index', compact('title', 'selectKits', 'eventoquadro', 'anuncioClassificacao1', 'anuncioClassificacao2', 'anuncioClassificacao3', 'slideshows', 'agendas', 'datas'));
-});
+})->name('inicio');
 
 Auth::routes();
 
