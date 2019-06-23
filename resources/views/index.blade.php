@@ -765,7 +765,7 @@
                             <i class="fa fa-check" aria-hidden="true"></i><b> 9ª Festival Nacional de Humor de
                                 Maranguape - Praça Capistrano de Abreu - Maranguape-CE 2017</b>
                             <hr>
-                            <i class="fa fa-check" aria-hidden="true"></i><b> C Cerimonial Dia das Mães Colégio Espaço
+                            <i class="fa fa-check" aria-hidden="true"></i><b>Cerimonial do Dia das Mães Colégio Espaço
                                 Livre - Maranguape Shopping Mall - Maranguape-CE 2018</b>
                             <hr>
                             <i class="fa fa-check" aria-hidden="true"></i><b> Inauguração - Novas Instalações da CDL de

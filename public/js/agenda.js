@@ -133,7 +133,7 @@ $(document).ready(function () {
                     } else {
                         swal(
                                 'Nulo!',
-                                'Nenhum agenda cadastrado!.',
+                                'Não há registro de agenda!',
                                 'error'
                                 )
                     }
