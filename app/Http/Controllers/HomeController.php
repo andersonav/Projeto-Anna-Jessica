@@ -179,7 +179,7 @@ WHERE evento.prazo < NOW() AND evento.prazo != ''");
 
     public function pdfUsuarios() {
 
-        $usuarios = User::where('ativo_usuario', '=', 1)->get();
+        $usuarios = User::where('ativo_usuario', '=', 1)->where('id_tipo_usuario',2)->get();
         return \PDF::loadView('pdfs.usuarioPdf', compact('usuarios'))
                         // Se quiser que fique no formato a4 retrato: ->setPaper('a4', 'landscape')
                         // Caso a gente quiser colocar por abrir no próprio browser só fazer: ->stream()
